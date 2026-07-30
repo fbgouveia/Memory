@@ -1,0 +1,31 @@
+# Repositórios com versionamento próprio e remote no GitHub.
+# Versioná-los daqui criaria gitlinks sem .gitmodules e duplicaria histórico.
+/FGSS brain/
+/FGSS MAIN BRAIN/
+/AGENTES_SKILLS/skills/n8n_workflows/
+
+# Dependências e artefatos reinstaláveis
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+build/
+.next/
+
+# Segredos — só o .example entra
+.env
+.env.*
+!.env.example
+
+# Efêmero
+.tmp/
+*.log
+.DS_Store
+
+# Binários pesados: recuperáveis na origem, não são conhecimento autoral
+*.pdf
+*.dll
+*.node
+*.pack
