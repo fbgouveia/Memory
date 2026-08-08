@@ -54,6 +54,32 @@ Clique em qualquer capítulo ou seção abaixo para abrir o documento detalhado 
 
 ---
 
+## 👥 Público-Alvo e Personas (Bíblia Go-To-Market / MVP)
+
+Esta primeira Bíblia é otimizada para o seguinte perfil de público e personas:
+
+### A. Público-Alvo Geral
+* **Gestores de Automação Iniciantes/Intermediários:** Buscando consolidar sua agência de automação e acelerar o desenvolvimento sem código.
+* **Coprodutores e Gestores de Tráfego:** Precisando implementar funis de recuperação de vendas de infoprodutos rapidamente.
+* **Consultores de Processos:** Focados em vender soluções rápidas de atendimento para negócios físicos locais (clínicas, restaurantes).
+
+### B. Personas Canônicas
+1. **Thiago (27 anos) — O Gestor de Automação Solo (Agência Júnior)**
+   * **Perfil:** Ex-analista de suporte ou técnico de TI júnior. Domina o n8n básico e o Manychat.
+   * **Dor Principal:** Insegurança no pitch de vendas, precificação inadequada e medo de problemas legais/bloqueios de números do cliente.
+   * **Uso da Bíblia:** Utiliza o [Capítulo 2: Estratégia Comercial](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/02_estrategia_comercial.md) para SPIN Selling e modelo de contrato legal, e o [Capítulo 3: Negócios Locais](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/03_playbooks_negocios_locais.md) para fazer entregas em até 7 dias.
+2. **Mariana (32 anos) — A Lançadora / Coprodutora**
+   * **Perfil:** Focada em tráfego pago e marketing de infoprodutos.
+   * **Dor Principal:** Alto volume de vendas perdidas no checkout (Pix gerado e boletos vencidos) e suporte manual de boas-vindas ineficiente.
+   * **Uso da Bíblia:** Utiliza o [Capítulo 4: Infoprodutos](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/04_playbooks_infoprodutos.md) e o [Manychat Instagram](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/manychat_instagram.md) para configurar réguas automáticas de recuperação de vendas e onboarding.
+3. **Carlos (40 anos) — O Consultor de Negócios Tradicionais**
+   * **Perfil:** Consultor de gestão empresarial para pequenas e médias empresas.
+   * **Dor Principal:** Dificuldade em provar retorno de investimento rápido aos seus clientes locais (clínicas médicas e restaurantes).
+   * **Uso da Bíblia:** Utiliza os assistentes de IA do playbook [zaia_agents.md](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/zaia_agents.md) e [gpt_maker.md](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/gpt_maker.md) para integrar triagem automática com calendário e Google Meu Negócio.
+
+---
+
+
 ## 🎯 Tags de Pesquisa Rápida (Grep Search Targets)
 
 Quando precisar pesquisar via linha de comando ou localizador de símbolos da IDE, use estes termos exatos para ir direto à fonte:
