@@ -42,7 +42,14 @@ Clique em qualquer capítulo abaixo para abrir o manual de engenharia avançada 
 
 ---
 
+## 📂 Catálogos Corporativos H-I
+
+* **[100 Empresas e Oportunidades High Intelligence](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/100_oportunidades_hi.md):** Catálogo de prospecção técnica para empresas com altos volumes de transações, dores de conformidade e necessidades de IA local.
+
+---
+
 ## 👥 Público-Alvo e Personas (Bíblia High Intelligence / Enterprise)
+
 
 Esta segunda Bíblia é focada em perfis técnicos avançados e arquitetos de software:
 
