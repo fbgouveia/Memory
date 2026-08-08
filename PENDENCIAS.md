@@ -67,6 +67,14 @@ As pendências completas da integração com o Admin também estão registradas 
 ## Configuração do Last 30 Days
 
 - [ ] (Opcional) Instalar utilitários CLI extras para ampliar canais de pesquisa da skill `last30days` (`arxiv-pp-cli`, `digg-pp-cli`, `techmeme-pp-cli`, `trustpilot-pp-cli`, `yt-dlp`).
-- [ ] (Opcional) Configurar chaves de API para fontes pagas/restritas no arquivo `~/.config/last30days/.env` (como Scrapy Creators e chaves do XAI/Xquik se o usuário desejar).
+
+## FGSS Gestor de Automacao
+
+- [ ] Criar o `README.md` explicativo da arquitetura na pasta `FGSS Gestor de Automacao`.
+- [ ] Criar o arquivo `AGENTS.md` definindo o comportamento do Chairman de Automação.
+- [ ] Definir o schema JSON padrão do `automation-manifest.json`.
+- [ ] Implementar a estrutura inicial para a Lâmina de Contingência (DLQ e erros).
+- [ ] Criar o utilitário CLI para scaffold de novas automações.
 
 Ao fechar um item, marque-o aqui e registre a prova em `ATUALIZACOES.md`.
+

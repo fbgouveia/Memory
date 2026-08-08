@@ -65,6 +65,12 @@ este arquivo como lista de tarefas.
 - A sintaxe correta do hook `SessionStart` no Claude Code requer que a chave mapeie diretamente para um array plano de objetos de ação de comando (`{"type": "command", "command": "..."}`). Evidência: o formato anteriormente configurado aninhado sob `{ "hooks": [ ... ] }` impedia que os comandos fossem executados no início das sessões. Consequência: simplificamos a estrutura em `~/.claude/settings.json`, corrigindo o disparo automático do protocolo mestre.
 - Modificar o arquivo `.env.example` de um submódulo (neste caso, `code-graph-rag` por conta do script `sync_runtime_config.py` do cérebro) faz com que o repositório pai enxergue o submódulo como dirty/modificado. Evidência: o status indicava `modified content`. Consequência: configurar `ignore = dirty` no `.gitmodules` para o submódulo remove este ruído e previne o commit de ponteiros acidentais no repositório do cérebro.
 
+
+## 9 de agosto de 2026
+
+- **Processo Dinâmico de Pesquisa (Preflight):** Fixar um conjunto de perguntas-chave estático para autoatualização engessa a IA em padrões passados. Evidência: a evolução rápida de APIs (como Gemini, OpenAI, n8n) torna checklists estáticos obsoletos em meses. Consequência: adotar queries de busca dinâmicas geradas a partir da interseção entre o escopo da tarefa e o horizonte tecnológico atual no início das sessões.
+- **Governança de Automações:** Sem um manifesto unificado (`automation-manifest.json`), o crescimento do ecossistema de automações gera amnésia técnica e financeira. Evidência: dificuldade de rastrear quem usa qual API e com qual custo em projetos legados. Consequência: toda nova automação passará a conter um manifesto de metadados próprio.
+
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a
