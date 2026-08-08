@@ -659,7 +659,7 @@ Aqui estão os princípios fundamentais da aula:
 *   **Funções de Texto:**
     *   `UPPER`: Converte todo o texto para maiúsculas.
     *   `LOWER`: Converte todo o texto para minúsculas.
-    *   `StartCase` / `Capitalize`: Capitaliza a primeira letra de cada palavra (ex: "Mestres Da Automação").
+    *   `StartCase` / `Capitalize`: Capitaliza a primeira letra de cada palavra (ex: "Gestão De Automação").
     *   `Split`: Divide uma string de texto com base em um delimitador.
     *   `Base64`: Mencionado para codificação/decodificação (uso futuro).
 
@@ -678,13 +678,13 @@ Aqui estão os princípios fundamentais da aula:
 
 **1. Manipulação de Texto:**
 *   **`Starcase(texto)`**: Converte a primeira letra de cada palavra para maiúscula.
-    *   Ex: `Starcase("luciana fruque papini")` -> "Luciana Fruque Papini"
+    *   Ex: `Starcase("nome sobrenome")` -> "Nome Sobrenome"
 *   **`Upper(texto)`**: Converte todo o texto para maiúsculas.
-    *   Ex: `Upper("luciana fruque papini")` -> "LUCIANA FRUQUE PAPINI"
+    *   Ex: `Upper("nome sobrenome")` -> "NOME SOBRENOME"
 *   **`Lower(texto)`**: Converte todo o texto para minúsculas.
-    *   Ex: `Lower("Luciana Fruque Papini")` -> "luciana fruque papini"
+    *   Ex: `Lower("Nome Sobrenome")` -> "nome sobrenome"
 *   **`Capitalize(texto)`**: Converte apenas a primeira letra da primeira palavra para maiúscula.
-    *   Ex: `Capitalize("luciana fruque papini")` -> "Luciana fruque papini"
+    *   Ex: `Capitalize("nome sobrenome")` -> "Especialista fruque sobrenome"
 
 **2. Manipulação de Datas:**
 *   **`AddDays(data, dias)`**: Adiciona um número específico de dias a uma data.
@@ -872,14 +872,14 @@ Aqui estão os princípios fundamentais da aula:
     *   **Delimitadores Comuns:** Vírgula (`,`), espaço (` `).
     *   **Resultado:** Gera uma lista ou conjunto de partes da string original.
     *   **Exemplo:** `SPLIT("John,George,Paul", ",")` resulta em "John", "George", "Paul".
-    *   **Exemplo:** `SPLIT("Luciana Fluki Papini", " ")` resulta em "Luciana", "Fluki", "Papini".
+    *   **Exemplo:** `SPLIT("Nome Sobrenome", " ")` resulta em "Especialista", "Fluki", "Sobrenome".
 
 *   **Combinando `SPLIT` com `GET`:**
     *   **Propósito:** Acessar diretamente uma parte específica do resultado do `SPLIT` sem etapas intermediárias.
     *   **Sintaxe (conceitual):** `GET(SPLIT(string, delimitador), posição)`
     *   **Posição:** Indica qual parte do resultado você deseja (ex: `1` para a primeira, `2` para a segunda).
-    *   **Exemplo:** Para obter "Luciana" de "Luciana Fluki Papini": `GET(SPLIT("Luciana Fluki Papini", " "), 1)`.
-    *   **Exemplo:** Para obter "Papini": `GET(SPLIT("Luciana Fluki Papini", " "), 3)`.
+    *   **Exemplo:** Para obter "Especialista" de "Nome Sobrenome": `GET(SPLIT("Nome Sobrenome", " "), 1)`.
+    *   **Exemplo:** Para obter "Sobrenome": `GET(SPLIT("Nome Sobrenome", " "), 3)`.
 
 *   **Melhor Prática e Economia de Dados:**
     *   Combinar `SPLIT` e `GET` em uma única operação otimiza o processamento.

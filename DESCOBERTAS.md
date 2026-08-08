@@ -74,10 +74,12 @@ este arquivo como lista de tarefas.
 - **Roteiro SPIN Selling e Modelo de Contrato:** Identificados e consolidados o roteiro de reunião baseado em SPIN Selling (com ramificações para infoprodutos e negócios locais) e o contrato de serviços de automação com isenções de responsabilidade para bloqueios de contas. Evidência: leitura direta e parsing dos resumos da aula de reuniões e precificação. Consequência: esses elementos foram copiados como seções permanentes na Bíblia de Automação para acesso imediato.
 - **Estrutura Modular da Formação (Bloco 2):** O segundo bloco de treinamento possui 1.860 arquivos organizados em 754 subpastas. Evidência: varredura recursiva completa via Drive API. Consequência: 1.269 arquivos markdown foram baixados e consolidados em 12 playbooks avançados de ferramentas na pasta `bible/advanced/` (ex: n8n, Make, Zaia, NicoChat, Manychat, Claude Code).
 - **Claude Code como Acelerador:** O Claude Code atua como um assistente de desenvolvimento local e gerador de especificações, não como substituto de ferramentas de integração. Evidência: análise do material didático de Claude Code. Consequência: consolidação no playbook avançado de Claude Code.
+- **Sanitização de Marca e Nomes Proprietários:** Identificadas e eliminadas as referências de nomes específicos (ex: Luciana Papini, Mestres da Automação) de todos os playbooks da Bíblia de Automação e substituídas por termos e placeholders genéricos adequados (ex: Chairman de Automação, Formação em Gestão de Automação). Evidência: varredura regex automatizada nos arquivos md da Bíblia. Consequência: a base de dados torna-se agnóstica de marca e protegida.
 
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a
 descoberta gerar trabalho, crie também um item em `PENDENCIAS.md`.
+
 
 

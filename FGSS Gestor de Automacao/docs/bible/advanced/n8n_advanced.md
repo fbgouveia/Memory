@@ -322,7 +322,7 @@ Os Trigger Nodes são os pontos de entrada de um fluxo no n8n, definindo como e 
 *   **Configuração de Condições:**
     *   **Campo:** Seleciona-se o campo do item de dado a ser avaliado (ex: `você está em busca do imóvel`).
     *   **Operador:** Escolhe-se o tipo de comparação (ex: `is equal to`, `is not equal to`, `is not empty`).
-    *   **Valor:** Define-se o valor com o qual o campo será comparado (ex: `comprar`, `alugar`, `Luciana`).
+    *   **Valor:** Define-se o valor com o qual o campo será comparado (ex: `comprar`, `alugar`, `Especialista`).
 *   **Lógica de Múltiplas Condições:**
     *   **AND:** Todas as condições devem ser verdadeiras para que o item passe.
     *   **OR:** Pelo menos uma das condições deve ser verdadeira para que o item passe.
@@ -475,7 +475,7 @@ Aqui estão os princípios fundamentais sobre tipos de dados no n8n:
 *   **String (Texto):**
     *   Qualquer sequência de caracteres (nome, e-mail, mensagem).
     *   Sempre entre aspas (`"`). Mesmo um número entre aspas (`"123"`) é tratado como string.
-    *   Usado para comparações textuais (ex: "contém Luciana").
+    *   Usado para comparações textuais (ex: "contém Especialista").
 *   **Number (Número):**
     *   Valores numéricos reais (quantidade, valor, idade).
     *   Não usa aspas (ex: `123`).
@@ -494,7 +494,7 @@ Aqui estão os princípios fundamentais sobre tipos de dados no n8n:
     *   Usado para listas de produtos, mensagens, registros.
 *   **Object (Objeto):**
     *   Um conjunto de dados organizados e relacionados, agrupados em uma única estrutura.
-    *   Representado por chaves `{}` (ex: `{"nome": "Luciana", "idade": 30}`).
+    *   Representado por chaves `{}` (ex: `{"nome": "Especialista", "idade": 30}`).
     *   É um "pacote" de informações relacionadas.
 *   **Visualização no n8n:**
     *   Strings são geralmente exibidas entre aspas.

@@ -287,7 +287,7 @@ Aqui estão os princípios fundamentais da aula sobre a criação de um CRM do z
 
 **2. Criação e Estruturação do Pipeline:**
 *   **Grupo de Origem:** Categoria macro para organizar pipelines (ex: "Lançamento XYZ").
-*   **Origem:** Pipeline específica dentro de um grupo (ex: "Padrão Lu Papini").
+*   **Origem:** Pipeline específica dentro de um grupo (ex: "Padrão Lu Sobrenome").
 *   **Etapas (Stages):** Passos sequenciais do processo de vendas.
     *   **Exemplos de Etapas:** Prospecção, Conexão (lead respondeu), Aguardando Compra (link de checkout enviado), Ganho, Perdido.
     *   **Descrição das Etapas:** Definir claramente o critério para um negócio avançar para cada etapa.
@@ -366,7 +366,7 @@ Aqui estão os princípios fundamentais da automação de CRM com foco em CLINT,
 
 *   **Objetivo:** Capturar leads que iniciam contato e direcioná-los para atendimento.
 *   **Gatilho:** `Quando o contato envia uma mensagem`.
-    *   Defina uma mensagem específica de entrada (ex: "Olá. Tenho dúvidas e gostaria de falar com a equipe da Luciana Papini."). Promova esta mensagem em suas páginas de vendas.
+    *   Defina uma mensagem específica de entrada (ex: "Olá. Tenho dúvidas e gostaria de falar com a equipe da Chairman de Automação."). Promova esta mensagem em suas páginas de vendas.
 *   **Ações Sequenciais:**
     1.  **Atribuir Atendente:** Atribua a conversa a um atendente específico (ex: Mari).
     2.  **Criar Negócio:** Crie um novo negócio no pipeline de vendas (ex: "Lides no lançamento") na etapa inicial (ex: "Base").

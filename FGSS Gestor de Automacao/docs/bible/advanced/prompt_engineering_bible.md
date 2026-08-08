@@ -185,7 +185,7 @@ Aqui estão os princípios fundamentais sobre "Variáveis com Chaves":
 *   **Casos de Uso:**
     *   **Mensagens Personalizadas:** "Oi, `{{nome}}`. Você gostaria de agendar uma visita ao imóvel `{{codigo_imovel}}`?"
     *   **Confirmações:** "Sua inscrição para `{{nome_produto}}` está confirmada."
-    *   **Assinaturas:** "Sou a `{{nome_atendente}}` da Equipe da Luciana Papini."
+    *   **Assinaturas:** "Sou a `{{nome_atendente}}` da Equipe da Chairman de Automação."
 *   **Benefício:** Facilita a automação e escalabilidade, permitindo que o mesmo prompt seja usado para diferentes contextos e usuários, preenchendo os campos dinamicamente.
 *   **Melhor Prática:** Empregar variáveis com chaves para qualquer dado que precise ser alterado ou fornecido externamente, especialmente em integrações com APIs ou bases de dados.
 

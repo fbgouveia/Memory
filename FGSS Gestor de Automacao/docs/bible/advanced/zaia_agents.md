@@ -364,10 +364,10 @@ Aqui está a destilação do conteúdo da aula em Primeiros Princípios para col
 
 *   **Teste Grátis:**
     *   **Duração:** 14 dias.
-    *   **Ação:** Cadastre-se via `https://zaia.app/embaixadores/lupapini?via=luciana`
+    *   **Ação:** Cadastre-se via `https://zaia.app/embaixadores/embaixador?via=promo`
 *   **Desconto Primeiro Mês:**
     *   **Preço:** R$ 87.
-    *   **Ação:** Use o cupom `luciana87`.
+    *   **Ação:** Use o cupom `promo87`.
 
 ---
 

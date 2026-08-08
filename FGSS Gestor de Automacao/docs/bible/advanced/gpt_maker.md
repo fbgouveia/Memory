@@ -11,7 +11,7 @@ Este playbook consolidado traz o conhecimento prático e os Primeiros Princípio
 1.  **Acesso Exclusivo:** Utilize o link oficial fornecido para registro: `https://app.gptmaker.ai/register?p=WMXVZA`. Não busque a ferramenta diretamente.
 2.  **Criação de Conta:** Preencha seus dados pessoais e crie sua conta.
 3.  **Seleção do Plano:** Após criar a conta, acesse "Upgrade to Pro" e selecione o plano "Basic".
-4.  **Aplicação do Cupom:** Na tela de pagamento, insira o código promocional `LUCIANA100`. Isso zerará o valor dos primeiros 30 dias.
+4.  **Aplicação do Cupom:** Na tela de pagamento, insira o código promocional `PROMO100`. Isso zerará o valor dos primeiros 30 dias.
 5.  **Dados de Pagamento:** Informe os dados de um cartão de crédito para concluir a inscrição. O valor devido hoje será R$0,00.
 6.  **Cancelamento:** Para evitar cobranças após os 30 dias, solicite o cancelamento da assinatura diretamente pelo chat da GPT Maker antes do período de renovação.
 
@@ -800,7 +800,7 @@ Aqui estão os princípios fundamentais da aula sobre GPT-Maker e integração c
 
 **10. Acesso Gratuito ao GPT-Maker**
 *   **Link Lumpro:** Crie sua conta através do link da Lumpro.
-*   **Cupom:** No plano Basic, use o cupom `Luciana100` para 100% de desconto no primeiro mês. Lembre-se de cancelar se não for continuar.
+*   **Cupom:** No plano Basic, use o cupom `Promo100` para 100% de desconto no primeiro mês. Lembre-se de cancelar se não for continuar.
 
 ---
 
@@ -1004,7 +1004,7 @@ Aqui estão os princípios fundamentais para a criação de um Agente de Suporte
 *   **Escala:** Encaminhar para atendimento humano quando necessário.
 
 **3. Construção do Prompt (Instruções do Agente):**
-*   **Identidade:** Definir claramente quem o agente é (ex: "Você é a Luma, agente de suporte da Formação Mestres da Automação.").
+*   **Identidade:** Definir claramente quem o agente é (ex: "Você é a Luma, agente de suporte da Formação em Gestão de Automação.").
 *   **Função e Objetivo:** "Seu objetivo é ajudar clientes com dúvidas e orientações."
 *   **Restrição Crucial:** "Use APENAS as informações disponíveis na sua base de conhecimento. Não invente respostas."
 *   **Tópicos de Auxílio:** Listar explicitamente os temas que o agente pode abordar (garantia, suporte, recuperação de senha, acesso, renovação, etc.).

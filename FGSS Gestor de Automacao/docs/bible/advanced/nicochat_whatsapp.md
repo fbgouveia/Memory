@@ -2259,7 +2259,7 @@ Aqui estão os princípios fundamentais da aula:
 *   **Número:** Um número existente será desconectado do telefone e migrado exclusivamente para a Cloud API.
 *   **Recursos Beta:** Use com cautela em ambientes de produção (ex: Cloud API no telefone).
 *   **Integrações:** NicoChat oferece integrações nativas com diversas ferramentas (Google Sheets, Cal.com, CRMs de clínicas). Prioriza integrações solicitadas por parceiros.
-*   **Recursos de Aprendizagem:** O curso da Luciana oferece conteúdo completo sobre NicoChat (básico, avançado, IA, NicoTools) e um link para 14 dias de teste gratuito.
+*   **Recursos de Aprendizagem:** O curso da Especialista oferece conteúdo completo sobre NicoChat (básico, avançado, IA, NicoTools) e um link para 14 dias de teste gratuito.
 
 ---
 
