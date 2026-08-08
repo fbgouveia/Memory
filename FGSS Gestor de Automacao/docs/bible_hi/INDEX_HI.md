@@ -30,6 +30,12 @@ Clique em qualquer capítulo abaixo para abrir o manual de engenharia avançada 
 * **Orquestração LLM Local:** Conexão com Ollama, escolha de modelos (Llama 3.3 70B, nomic-embed-text) e limites de contexto.
 * **Agentes de RAG Híbrido:** Roteamento de intenções, grading de relevância e ciclos de re-escrita de queries.
 
+### 🛡️ [Capítulo 5: Resiliência Avançada, LGPD & Circuit Breakers](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible_hi/05_resiliencia_seguranca_avancada.md)
+* **Privacidade de Dados:** Mascaramento de PII (dados cadastrais sensíveis) nos logs de erro.
+* **Estabilidade de API:** Padrão Circuit Breaker para evitar desperdício de conexões e processamento em APIs fora do ar.
+* **Controle de Vazão:** Limitadores de taxa no lado do cliente (token bucket) baseados nos limites do destinatário.
+* **Autocorreção:** Probes de Healthcheck ativas para reinicialização automática de contêineres Docker travados.
+
 ---
 
 ## 🎯 Tags de Pesquisa Rápida (Grep Search H-I Targets)
@@ -39,6 +45,8 @@ Clique em qualquer capítulo abaixo para abrir o manual de engenharia avançada 
 * `#IDEMPOTENCY-KEY-CHECK` ➔ Código/lógica para checagem e bloqueio de concorrência via Redis.
 * `#DOCKER-COMPOSE-SCAFFOLD` ➔ Modelo de arquivo compose para rodar a stack local de microsserviços.
 * `#PGVECTOR-HNSW-INDEX` ➔ Comandos SQL para ativar a extensão e indexar vetores com HNSW.
+* `#LGPD-LOG-MASKING` ➔ Filtro de sanitização de dados pessoais em logs de erros/DLQ.
+* `#CIRCUIT-BREAKER-PATTERN` ➔ Algoritmo e estados do disjuntor para conexões de API.
 
 ---
 
