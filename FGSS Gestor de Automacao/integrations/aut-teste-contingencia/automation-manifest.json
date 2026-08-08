@@ -28,6 +28,8 @@
   },
   "contingency": {
     "retry_attempts": 5,
-    "use_dlq": true
+    "use_dlq": true,
+    "dlq_mode": "dual_redis_jsonl",
+    "dlq_fallback": ".tmp/dlq_fallback.jsonl"
   }
 }

@@ -3,10 +3,12 @@
 
 const { Worker } = require('bullmq');
 const logger = require('./logger');
+const dlq = require('./dlq');
 
 const redisConnection = {
   host: process.env.REDIS_HOST || 'localhost',
-  port: parseInt(process.env.REDIS_PORT || '6379')
+  port: parseInt(process.env.REDIS_PORT || '6379'),
+  maxRetriesPerRequest: null
 };
 
 // Instanciação do worker com Rate Limiting integrado (Token Bucket)
@@ -24,13 +26,11 @@ const worker = new Worker('aut-teste-contingencia_queue', async job => {
   }
 });
 
-// Event Listener para redirecionamento ao DLQ
+// Event Listener para redirecionamento ao DLQ dual (Redis + JSONL fallback)
 worker.on('failed', async (job, err) => {
   if (job.attemptsMade >= job.opts.attempts) {
     logger.error(`Tarefa ${job.id} falhou definitivamente. Movendo para DLQ.`, err, job.data);
-    
-    // TODO: Gravar registro na tabela de Dead Letter Queue (Postgres/Supabase)
-    // await db.insertDLQ(job.id, job.data, err.message);
+    await dlq.persist(job.id, 'aut-teste-contingencia_queue', logger.__test_mask(job.data), err);
   } else {
     logger.info(`Tarefa ${job.id} falhou. Tentativa ${job.attemptsMade}/${job.opts.attempts}. Erro: ${err.message}`);
   }

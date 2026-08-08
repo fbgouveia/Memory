@@ -105,6 +105,30 @@ em `PENDENCIAS.md`.
 Cada atualização deve dizer o que mudou e como foi comprovada. Não declare
 produção ativa quando algo foi validado apenas localmente.
 
+## 09 de agosto de 2026
+
+### FGSS Gestor de Automacao — testes físicos de quebra de infraestrutura
+
+- Implementada **DLQ dual** (Redis primário + JSONL append-only local fallback)
+  no projeto `aut-teste-contingencia`: módulo `src/dlq.js` com `persist`,
+  `readAll`, `clear`, `close`. Fallback via stdlib `fs` (sem novas dependências).
+- `src/worker.js` passou a usar a DLQ dual (removido o TODO de gravação em DLQ).
+- Criado `src/test_chaos_break.js`: teste de quebra física massivo (200 jobs,
+  `docker stop` forçado do contêiner Redis mid-run, auditoria de integridade
+  + fase isolada de fallback JSONL com Redis down).
+- `tools/scaffold/scaffold_project.py` propagou `dlq.js`, worker dual,
+  `__test_mask` no logger e `dlq_mode: dual_redis_jsonl` no manifest.
+- `automation-manifest.json` do projeto de teste reflete a contingência dual.
+- **Comprovação:** `test_recovery_flow.js` APROVADO (DLQ + LGPD em job isolado).
+  `test_chaos_break.js` APROVADO — Fase 1: 200/200 jobs processados, 0 perdidos,
+  66 no DLQ Redis, 0 duplicatas, PII mascarado, IDs preservados; Fase 2: 3/3
+  registros gravados no JSONL com Redis down, PII mascarado, IDs preservados.
+- Descobertas técnicas registradas em `FGSS Gestor de Automacao/findings.md`
+  (armadilhas de `enableOfflineQueue`, OOM, `duplicate` sem error handler,
+  timing do kill, limpeza de jobs órfãos).
+- Validação apenas local; sem deploy em produção.
+
+
 
 
 

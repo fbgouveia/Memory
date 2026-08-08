@@ -35,7 +35,9 @@ def create_manifest(project_id, project_name, owner):
         },
         "contingency": {
             "retry_attempts": 5,
-            "use_dlq": True
+            "use_dlq": True,
+            "dlq_mode": "dual_redis_jsonl",
+            "dlq_fallback": ".tmp/dlq_fallback.jsonl"
         }
     }
 
@@ -122,10 +124,95 @@ const logger = {
     const erroLimpo = erro && erro.stack ? erro.stack : erro;
     const payloadLimpo = payload ? mascararDadosSensiveis(payload) : '';
     console.error(`[ERROR] ${new Date().toISOString()} - ${mensagem}`, { error: erroLimpo, payload: payloadLimpo });
-  }
+  },
+  __test_mask: mascararDadosSensiveis
 };
 
 module.exports = logger;
+"""
+
+def create_dlq_js(project_id):
+    project_underscore = project_id.replace('-', '_')
+    return f"""// Dead Letter Queue Dual: Redis primario + JSONL local append-only (fallback).
+// tag: #DLQ-DUAL-CONTINGENCIA
+// Contrato: se Redis cair, o payload sanitizado sobrevive em arquivo local.
+// Auditoria consolida Redis + JSONL para prova de integridade pos-queda.
+
+const fs = require('fs');
+const path = require('path');
+const Redis = require('ioredis');
+const logger = require('./logger');
+
+const DLQ_LIST_KEY = process.env.DLQ_REDIS_KEY || 'dlq_{project_underscore}';
+const FALLBACK_FILE = process.env.DLQ_FALLBACK_FILE || path.join(process.cwd(), '.tmp', 'dlq_fallback.jsonl');
+
+const redis = new Redis({{
+  host: process.env.REDIS_HOST || '127.0.0.1',
+  port: parseInt(process.env.REDIS_PORT || '6379'),
+  maxRetriesPerRequest: 1,
+  enableOfflineQueue: false,
+  retryStrategy: (times) => Math.min(times * 100, 500)
+}});
+
+function buildRecord(jobId, origemFila, payloadMascarado, err) {{
+  return {{
+    jobId, origemFila, payload: payloadMascarado,
+    erro: err && err.message ? err.message : String(err),
+    stack: err && err.stack ? err.stack : null,
+    timestamp: new Date().toISOString()
+  }};
+}}
+
+function persistFallback(record) {{
+  try {{
+    fs.mkdirSync(path.dirname(FALLBACK_FILE), {{ recursive: true }});
+    fs.appendFileSync(FALLBACK_FILE, JSON.stringify({{ ...record, destino: 'jsonl' }}) + '\\n');
+    return {{ destino: 'jsonl', ok: true }};
+  }} catch (e) {{
+    logger.error('[DLQ] Falha critica: nem Redis nem JSONL disponivel.', e);
+    return {{ destino: 'none', ok: false, error: e.message }};
+  }}
+}}
+
+async function persist(jobId, origemFila, payloadMascarado, err) {{
+  const record = buildRecord(jobId, origemFila, payloadMascarado, err);
+  try {{
+    await redis.rpush(DLQ_LIST_KEY, JSON.stringify({{ ...record, destino: 'redis' }}));
+    return {{ destino: 'redis', ok: true }};
+  }} catch (e) {{
+    logger.error('[DLQ] Redis indisponivel, fallback para JSONL local.', e);
+    return persistFallback(record);
+  }}
+}}
+
+async function readAll() {{
+  const redisRecords = [];
+  try {{
+    const raw = await redis.lrange(DLQ_LIST_KEY, 0, -1);
+    for (const r of raw) redisRecords.push(JSON.parse(r));
+  }} catch (e) {{
+    logger.error('[DLQ] Erro lendo Redis na auditoria.', e);
+  }}
+  const jsonlRecords = [];
+  try {{
+    if (fs.existsSync(FALLBACK_FILE)) {{
+      const lines = fs.readFileSync(FALLBACK_FILE, 'utf8').split('\\n').filter(Boolean);
+      for (const l of lines) jsonlRecords.push(JSON.parse(l));
+    }}
+  }} catch (e) {{
+    logger.error('[DLQ] Erro lendo JSONL na auditoria.', e);
+  }}
+  return {{ redis: redisRecords, jsonl: jsonlRecords, all: [...redisRecords, ...jsonlRecords] }};
+}}
+
+async function clear() {{
+  try {{ await redis.del(DLQ_LIST_KEY); }} catch (_) {{}}
+  try {{ if (fs.existsSync(FALLBACK_FILE)) fs.unlinkSync(FALLBACK_FILE); }} catch (_) {{}}
+}}
+
+async function close() {{ try {{ await redis.quit(); }} catch (_) {{}} }}
+
+module.exports = {{ persist, readAll, clear, close, FALLBACK_FILE, DLQ_LIST_KEY }};
 """
 
 def create_worker_js(project_id):
@@ -134,10 +221,12 @@ def create_worker_js(project_id):
 
 const { Worker } = require('bullmq');
 const logger = require('./logger');
+const dlq = require('./dlq');
 
 const redisConnection = {
   host: process.env.REDIS_HOST || 'localhost',
-  port: parseInt(process.env.REDIS_PORT || '6379')
+  port: parseInt(process.env.REDIS_PORT || '6379'),
+  maxRetriesPerRequest: null
 };
 
 // Instanciação do worker com Rate Limiting integrado (Token Bucket)
@@ -155,13 +244,11 @@ const worker = new Worker('{project_id}_queue', async job => {
   }
 });
 
-// Event Listener para redirecionamento ao DLQ
+// Event Listener para redirecionamento ao DLQ dual (Redis + JSONL fallback)
 worker.on('failed', async (job, err) => {
   if (job.attemptsMade >= job.opts.attempts) {
     logger.error(`Tarefa ${job.id} falhou definitivamente. Movendo para DLQ.`, err, job.data);
-    
-    // TODO: Gravar registro na tabela de Dead Letter Queue (Postgres/Supabase)
-    // await db.insertDLQ(job.id, job.data, err.message);
+    await dlq.persist(job.id, '{project_id}_queue', logger.__test_mask(job.data), err);
   } else {
     logger.info(`Tarefa ${job.id} falhou. Tentativa ${job.attemptsMade}/${job.opts.attempts}. Erro: ${err.message}`);
   }
@@ -292,19 +379,23 @@ def main():
     with open(os.path.join(out_dir, "src/logger.js"), "w", encoding="utf-8") as f:
         f.write(create_logger_js())
         
-    # 4. src/worker.js
+    # 4. src/dlq.js
+    with open(os.path.join(out_dir, "src/dlq.js"), "w", encoding="utf-8") as f:
+        f.write(create_dlq_js(project_id))
+        
+    # 5. src/worker.js
     with open(os.path.join(out_dir, "src/worker.js"), "w", encoding="utf-8") as f:
         f.write(create_worker_js(project_id))
         
-    # 5. src/index.js
+    # 6. src/index.js
     with open(os.path.join(out_dir, "src/index.js"), "w", encoding="utf-8") as f:
         f.write(create_index_js(project_id))
         
-    # 6. package.json
+    # 7. package.json
     with open(os.path.join(out_dir, "package.json"), "w", encoding="utf-8") as f:
         f.write(create_package_json(project_id))
         
-    # 7. README.md
+    # 8. README.md
     with open(os.path.join(out_dir, "README.md"), "w", encoding="utf-8") as f:
         f.write(create_readme(args.name, project_id))
         

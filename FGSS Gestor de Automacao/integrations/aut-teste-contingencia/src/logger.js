@@ -29,7 +29,9 @@ const logger = {
     const erroLimpo = erro && erro.stack ? erro.stack : erro;
     const payloadLimpo = payload ? mascararDadosSensiveis(payload) : '';
     console.error(`[ERROR] ${new Date().toISOString()} - ${mensagem}`, { error: erroLimpo, payload: payloadLimpo });
-  }
+  },
+  __test_mask: mascararDadosSensiveis
 };
 
 module.exports = logger;
+

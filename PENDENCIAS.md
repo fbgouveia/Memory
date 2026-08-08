@@ -74,7 +74,7 @@ As pendências completas da integração com o Admin também estão registradas 
 - [x] Definir o schema JSON padrão do `automation-manifest.json`. (Concluído)
 - [x] Implementar a estrutura inicial para a Lâmina de Contingência (DLQ e erros). (Concluído)
 - [x] Criar o utilitário CLI para scaffold de novas automações. (Concluído)
-- [ ] Construir testes de quebra de infraestrutura simulando quedas de banco e Redis para auditar a integridade de gravação no DLQ do worker.
+- [x] Construir testes de quebra de infraestrutura simulando quedas de banco e Redis para auditar a integridade de gravação no DLQ do worker. (Concluído em 09/08/2026: DLQ dual Redis+JSONL implementada; `test_chaos_break.js` aprova 200 jobs com `docker stop` forçado do Redis mid-run — 0 perdidos, 0 duplicatas, PII mascarado; fallback JSONL comprovado com Redis down. Prova em `ATUALIZACOES.md`.)
 
 Ao fechar um item, marque-o aqui e registre a prova em `ATUALIZACOES.md`.
 
