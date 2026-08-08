@@ -72,9 +72,12 @@ este arquivo como lista de tarefas.
 - **Governança de Automações:** Sem um manifesto unificado (`automation-manifest.json`), o crescimento do ecossistema de automações gera amnésia técnica e financeira. Evidência: dificuldade de rastrear quem usa qual API e com qual custo em projetos legados. Consequência: toda nova automação passará a conter um manifesto de metadados próprio.
 - **E-books vs. Resumos de Aulas (Extração de PDF):** Os e-books do material de treinamento do Mestres da Automação são PDFs de difícil extração de texto por `pypdf`. Evidência: arquivos txt resultantes possuíam menos de 5KB com cabeçalhos de licença vazios. Consequência: a ingestão foca nos resumos de aulas estruturados (88 arquivos válidos), que contêm 100% da matéria acadêmica, roteiros de reunião, checklists de implementação e a minuta do contrato de serviços.
 - **Roteiro SPIN Selling e Modelo de Contrato:** Identificados e consolidados o roteiro de reunião baseado em SPIN Selling (com ramificações para infoprodutos e negócios locais) e o contrato de serviços de automação com isenções de responsabilidade para bloqueios de contas. Evidência: leitura direta e parsing dos resumos da aula de reuniões e precificação. Consequência: esses elementos foram copiados como seções permanentes na Bíblia de Automação para acesso imediato.
+- **Estrutura Modular da Formação (Bloco 2):** O segundo bloco de treinamento possui 1.860 arquivos organizados em 754 subpastas. Evidência: varredura recursiva completa via Drive API. Consequência: 1.269 arquivos markdown foram baixados e consolidados em 12 playbooks avançados de ferramentas na pasta `bible/advanced/` (ex: n8n, Make, Zaia, NicoChat, Manychat, Claude Code).
+- **Claude Code como Acelerador:** O Claude Code atua como um assistente de desenvolvimento local e gerador de especificações, não como substituto de ferramentas de integração. Evidência: análise do material didático de Claude Code. Consequência: consolidação no playbook avançado de Claude Code.
 
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a
 descoberta gerar trabalho, crie também um item em `PENDENCIAS.md`.
+
 

@@ -92,11 +92,14 @@ em `PENDENCIAS.md`.
 - **Ingestão de Conhecimento e Download:** Criado e executado o script de raspagem scratch `download_and_extract.py` para baixar via HTTPS (autenticado por `gcloud`) e extrair textos de 88 arquivos do Google Drive.
 - **Escrita da Bíblia de Automação:** Desenvolvidos 5 capítulos temáticos e o `INDEX.md` mapeador de rotas dentro da pasta `FGSS Gestor de Automacao/docs/bible/`.
 - **Governança Inicial do Projeto:** Criados os arquivos `README.md` (pilares e diagrama) e `AGENTS.md` (regras e persona do Chairman) na raiz do repositório `FGSS Gestor de Automacao`.
-- **Comprovação:** Ingestão executada com sucesso via tarefa em segundo plano (exit code 0), geração física dos arquivos markdown validados e verificação de integridade git.
+- **Ingestão Avançada (Bloco 2):** Criados e executados os scripts scratch `count_gdrive_files.py` e `download_markdown.py` para varredura recursiva e download paralelo de 1.269 arquivos markdown (12.1MB) do segundo bloco do Drive.
+- **Geração de Playbooks Avançados:** Processadas as lições individuais em 12 playbooks avançados específicos de ferramentas (como n8n, Make, Zaia, NicoChat, Manychat, Claude Code) salvos em `docs/bible/advanced/` e mapeados no `INDEX.md`.
+- **Comprovação:** Ingestão concluída com sucesso via tarefas de background paralelas (exit code 0), playbooks gerados e validados no sistema de arquivos local, e git track dos novos arquivos markdown.
 
 ## Regra de manutenção
 
 Cada atualização deve dizer o que mudou e como foi comprovada. Não declare
 produção ativa quando algo foi validado apenas localmente.
+
 
 

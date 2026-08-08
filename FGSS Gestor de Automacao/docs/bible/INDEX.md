@@ -37,6 +37,21 @@ Clique em qualquer capítulo ou seção abaixo para abrir o documento detalhado 
 * **Gestão de Pipeline:** Movimentação automática de Cards em CRMs (ex: Active Campaign, HubSpot) baseada em ações do usuário.
 * **Recuperação e Logística:** Rastreio de pedido físico, atualização de entrega via WhatsApp e solicitação de reembolso facilitada.
 
+### 🛠️ Playbooks Avançados de Ferramentas e Engenharia
+
+* **[n8n Avançado](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/n8n_advanced.md):** Nodes de controle, sub-workflows, JavaScript, loops e otimização de execuções.
+* **[Make Avançado](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/make_advanced.md):** Cenários complexos, iterators/aggregators, tratamento de erros e Webhooks.
+* **[Orquestração de Agentes com Zaia](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/zaia_agents.md):** Criação de agentes inteligentes com contextos e ferramentas integradas.
+* **[Criação de Assistentes com GPT Maker](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/gpt_maker.md):** Assistentes personalizados e integrações.
+* **[Chatbots e Integrações NicoChat](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/nicochat_whatsapp.md):** Funções básicas e avançadas com NicoTools.
+* **[Engenharia Assistida por Claude Code](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/claude_code_engineering.md):** Uso prático do Claude Code para acelerar o desenvolvimento local.
+* **[Bíblia da Engenharia de Prompts](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/prompt_engineering_bible.md):** Técnicas avançadas de escrita de prompts e prevenção de alucinações.
+* **[CRM Automatizado e Funis de Vendas](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/crm_automated.md):** Integrações com CRMs e funis de captação avançados.
+* **[Gestão de Métricas e Dashboards](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/metrics_dashboards.md):** Dashboards e relatórios inteligentes direto no WhatsApp.
+* **[Agentes SDR de Prospecção (Luke)](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/luke_sdr_agents.md):** Prospecção ativa de clientes de automação.
+* **[Instagram & WhatsApp no Manychat](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/manychat_instagram.md):** Fluxos avançados no Manychat e disparos em massa.
+* **[API Oficial Descomplicado](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible/advanced/api_oficial_descomplicado.md):** Conexão e utilização de WhatsApp Cloud API Oficial.
+
 ---
 
 ## 🎯 Tags de Pesquisa Rápida (Grep Search Targets)
@@ -48,3 +63,8 @@ Quando precisar pesquisar via linha de comando ou localizador de símbolos da ID
 * `#ANCORAGEM-PITCH` ➔ Scripts exatos de ancoragem e venda de recorrência na call de fechamento.
 * `#CARRINHO-ABANDONADO` ➔ Estrutura de mensagens e regras de tempo para abandono de carrinho.
 * `#PIX-BOLETO-FOLLOWUP` ➔ Lógica de lembrete de PIX e boleto para maximizar conversão.
+* `#N8N-CONTROL-NODES` ➔ Nodes de controle e loops avançados em n8n.
+* `#MAKE-ROUTING-FILTERS` ➔ Uso avançado de roteamento e filtros de erro em Make.
+* `#PROMPT-STRUCTURE-PROMPT` ➔ Framework P.R.O.M.P.T. canônico para escrita de instruções.
+* `#CLAUDE-CODE-COMMANDS` ➔ Comandos essenciais de terminal do Claude Code.
+
