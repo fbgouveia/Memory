@@ -7,9 +7,10 @@ Documento de transição e histórico de decisões do projeto.
 ## 📅 9 de agosto de 2026
 
 ### 1. Pendências (Abertas)
-- [ ] Definir o schema JSON padrão do `automation-manifest.json`.
-- [ ] Implementar a estrutura inicial para a Lâmina de Contingência (DLQ e erros).
-- [ ] Criar o utilitário CLI para scaffold de novas automações.
+- [x] Definir o schema JSON padrão do `automation-manifest.json`.
+- [x] Implementar a estrutura inicial para a Lâmina de Contingência (DLQ e erros).
+- [x] Criar o utilitário CLI para scaffold de novas automações.
+- [ ] Construir o primeiro microsserviço de teste real no Docker testando quebras de fila.
 
 ### 2. Atualizações (Concluídas na sessão)
 - **Definição da Função de Chairman:** Consolidado o papel estratégico do agente como "Chairman de Gestão de Automação" para todas as áreas e nichos de negócios.
@@ -22,11 +23,12 @@ Documento de transição e histórico de decisões do projeto.
 - **Geração de Playbooks Avançados:** Processadas as lições individuais em 12 playbooks avançados específicos de ferramentas (como n8n, Make, Zaia, NicoChat, Manychat, Claude Code) salvos em `docs/bible/advanced/` e mapeados no `INDEX.md`.
 - **Sanitização de Referências de Marca:** Criado e executado o script scratch `sanitize_and_synthesize.py` para remover referências proprietárias (ex: Luciana Papini, Mestres da Automação) e substituí-las por nomenclaturas genéricas (ex: Chairman de Automação, Formação em Gestão de Automação) em todos os md da Bíblia.
 - **Catálogo de Oportunidades G-T-M:** Criado o documento `100_oportunidades_negocios.md` mapeando 100 nichos com dores e soluções baseadas na Bíblia Go-To-Market.
-- **Escrita da Bíblia High Intelligence (H-I):** Desenvolvidos 4 capítulos temáticos avançados e o `INDEX_HI.md` mapeador dentro de `docs/bible_hi/`.
+- **Escrita da Bíblia High Intelligence (H-I):** Desenvolvidos 5 capítulos temáticos avançados e o `INDEX_HI.md` mapeador dentro de `docs/bible_hi/`.
 - **Catálogo de Oportunidades H-I:** Criado o documento `100_oportunidades_hi.md` mapeando 100 corporações/plataformas de escala com gargalos complexos de engenharia e soluções H-I.
+- **Instrumentação do CLI de Scaffold e Schemas:** Criados o arquivo `automation-manifest-schema.json` na pasta `schemas/` e a ferramenta CLI `scaffold_project.py` na pasta `tools/scaffold/`. Instanciada a primeira integração de testes `aut-teste-contingencia` via terminal.
 
 ### 3. Descobertas
-- **Processo Dinâmico de Pesquisa (Preflight):** Fixar um conjunto de perguntas-chave estático para autoatualização engessa a IA em padrões passados. A evolução rápida de APIs (como Gemini, OpenAI, n8n) exige queries de busca dinâmicas baseadas na interseção entre o escopo da tarefa e o horizonte tecnológico atual no início das sessões.
+- **Processo Dinâmico de Pesquisa (Preflight):** Fixar um conjunto de perguntas-chave estático para autoatualização engessa a IA em padrões passados. A evolução rápida de APIs (como Gemini, OpenAI, n8n) exige queries de busca dinâmicas baseadas na interseção entre o escopo da tarefa e o horizonte tecnológico atual no início das sesões.
 - **Governança de Automações:** Sem um manifesto unificado (`automation-manifest.json`), o crescimento do ecossistema de automações gera amnésia técnica e financeira. Toda nova automação passará a conter um manifesto de metadados próprio.
 - **E-books vs. Resumos de Aulas (Extração de PDF):** Os e-books do material de treinamento do Mestres da Automação são PDFs de difícil extração de texto por `pypdf`. A ingestão foca nos resumos de aulas estruturados (88 arquivos válidos), que contêm 100% da matéria acadêmica, roteiros de reunião, checklists de implementação e a minuta do contrato de serviços.
 - **Roteiro SPIN Selling e Modelo de Contrato:** Identificados e consolidados o roteiro de reunião baseado em SPIN Selling (com ramificações para infoprodutos e negócios locais) e o contrato de serviços de automação com isenções de responsabilidade para bloqueios de contas. Copiados como seções permanentes na Bíblia de Automação para acesso imediato.
@@ -38,3 +40,4 @@ Documento de transição e histórico de decisões do projeto.
 - **Requisitos de n8n v3.0 (2026):** n8n descontinuará instalação via npm/npx global, tornando obrigatório o deploy conteinerizado via Docker. Todos os scaffolds futuros devem nascer baseados em contêineres.
 - **Requisitos de Memória do Redis (BullMQ):** BullMQ requer obrigatoriamente a política `maxmemory-policy noeviction` no Redis para evitar a perda silenciosa de chaves de travas ou metadados de jobs ativos, necessitando de limpeza explícita no código cliente via `removeOnComplete` / `removeOnFail`.
 - **Matryoshka Embeddings (MRL):** Busca vetorial local pode ser otimizada fatiando os vetores para 256/512 dimensões com re-normalização euclidiana no cliente, reduzindo o consumo de RAM em mais de 80% no Postgres/pgvector.
+- **Princípio da Inteligência Embarcada:** A documentação teórica da agência é condensada ativamente através de validadores de schemas rígidos (JSON Schema) e automatização de pastas estruturadas (CLI de Scaffold), garantindo que as melhores práticas de resiliência e LGPD sejam seguidas por padrão sem inflar o volume de leitura (obesidade de conteúdo).
