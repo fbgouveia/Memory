@@ -2,6 +2,9 @@
 
 Bem-vindo à Bíblia de Conhecimento sobre Gestão de Automação do ecossistema [CÉREBRO](file:///Users/felipegouveia/Developer/C%C3%89REBRO/). 
 
+> [!NOTE]
+> Esta é a **Bíblia Go-To-Market / MVP (G-T-M Bible)**. Para acessar a arquitetura avançada de engenharia e contingência, visite a **[Bíblia High Intelligence (H-I Bible)](file:///Users/felipegouveia/Developer/C%C3%89REBRO/FGSS%20Gestor%20de%20Automacao/docs/bible_hi/INDEX_HI.md)**.
+
 Este documento serve como o **Mapeador de Rotas Central** para permitir o acesso cirúrgico e direto às informações de que precisamos, sem desperdício de tokens ou tempo de leitura linear.
 
 ---
