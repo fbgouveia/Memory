@@ -95,12 +95,14 @@ em `PENDENCIAS.md`.
 - **Ingestão Avançada (Bloco 2):** Criados e executados os scripts scratch `count_gdrive_files.py` e `download_markdown.py` para varredura recursiva e download paralelo de 1.269 arquivos markdown (12.1MB) do segundo bloco do Drive.
 - **Geração de Playbooks Avançados:** Processadas as lições individuais em 12 playbooks avançados específicos de ferramentas (como n8n, Make, Zaia, NicoChat, Manychat, Claude Code) salvos em `docs/bible/advanced/` e mapeados no `INDEX.md`.
 - **Sanitização de Referências de Marca:** Criado e executado o script scratch `sanitize_and_synthesize.py` para remover referências proprietárias (ex: Luciana Papini, Mestres da Automação) e substituí-las por nomenclaturas genéricas (ex: Chairman de Automação, Formação em Gestão de Automação) em todos os md da Bíblia.
-- **Comprovação:** Ingestão concluída com sucesso via tarefas de background paralelas (exit code 0), playbooks gerados, sanitizados via script python regex local, e integridade de conteúdo livre de termos proprietários comprovada por `grep`.
+- **Catálogo de Oportunidades G-T-M:** Criado o documento `100_oportunidades_negocios.md` mapeando 100 nichos com dores e soluções baseadas na Bíblia Go-To-Market.
+- **Comprovação:** Geração física do catálogo com exatamente 100 itens catalogados e validados por contagem estruturada do script gerador, e git track do novo arquivo markdown.
 
 ## Regra de manutenção
 
 Cada atualização deve dizer o que mudou e como foi comprovada. Não declare
 produção ativa quando algo foi validado apenas localmente.
+
 
 
 
