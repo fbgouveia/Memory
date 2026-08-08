@@ -55,6 +55,11 @@ este arquivo como lista de tarefas.
   raiz (estes três arquivos de memória, `AGENTS.md`, `README.md`, manuais) não
   tem histórico nem como voltar atrás. Ver `PENDENCIAS.md`.
 
+## 7 de agosto de 2026
+
+- O script de execução `last30days.py` do repositório `mvanhorn/last30days-skill` requer Python 3.12+. Evidência: erro de execução de preflight com o Python 3.9.6 nativo do macOS. Consequência: a execução local e integrações devem apontar explicitamente para o interpretador moderno instalado no sistema em `/Users/felipegouveia/.local/bin/python3.12` ou fazer uso do gerenciador `uv`.
+- A pasta de skill `last30days` antiga que residia em `AGENTES_SKILLS/skills/last30days` era uma versão obsoleta e incompleta. Evidência: o arquivo `SKILL.md` antigo possuía apenas ~15 KB, comparado aos ~222 KB da versão oficial nova clonada, e seu script executável continha apenas 16 KB contra 153 KB do atual. Consequência: substituímos inteiramente a skill pela versão atualizada, criando o backup `last30days.old`.
+
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a

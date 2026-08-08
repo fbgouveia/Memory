@@ -60,6 +60,29 @@ em `PENDENCIAS.md`.
   real é a próxima sessão exibir o protocolo junto do aviso do Ponytail.
 - Backup do arquivo alterado em `~/.claude/settings.json.bak-20260730`.
 
+## 7 de agosto de 2026
+
+### Instalação da skill Last 30 Days
+- Clonado o repositório oficial `mvanhorn/last30days-skill` no diretório `/Users/felipegouveia/Developer/CÉREBRO/last30days-skill`.
+- Realizada a análise e a instalação cirúrgica da skill dentro do ecossistema CÉREBRO copiando a pasta `/skills/last30days` para `/Users/felipegouveia/Developer/CÉREBRO/AGENTES_SKILLS/skills/last30days`.
+- Criado backup seguro da versão anterior obsoleta em `/Users/felipegouveia/Developer/CÉREBRO/AGENTES_SKILLS/skills/last30days.old`.
+- Comprovação: Executado o preflight do script Python 3.12 `/Users/felipegouveia/Developer/CÉREBRO/AGENTES_SKILLS/skills/last30days/scripts/last30days.py` usando o interpretador do sistema `/Users/felipegouveia/.local/bin/python3.12`, retornando `Status: Ready to research with safe defaults` e exit code 0.
+
+## 8 de agosto de 2026
+
+### Ativação do FGSS MAIN BRAIN e Ajustes de Configuração
+- **FGSS MAIN BRAIN & Supabase:**
+  - Gerado um segredo criptográfico seguro de 32 bytes hex (`ce731ddf...`) e configurada a variável `FGSS_MAIN_BRAIN_SECRET` no `.env` local do Felipe Portfolio.
+  - Aplicada a migração SQL do Supabase [`001_fgss_main.sql`](file:///Users/felipegouveia/Developer/CÉREBRO/FGSS MAIN BRAIN/supabase/001_fgss_main.sql) no projeto de produção do Felipe Portfolio (`aifgtfwiqodikqhytcuh`).
+  - Executadas com sucesso as consultas do validador SQL [`verify_fgss_main.sql`](file:///Users/felipegouveia/Developer/CÉREBRO/FGSS MAIN BRAIN/supabase/verify_fgss_main.sql) na instância Supabase, retornando zero linhas/anomalias.
+  - Cadastrado localmente (SQLite) e no banco remoto (Supabase) o contrato do primeiro projeto piloto (`loja-a`), contendo coletor (`collector-loja-a`), demanda (`custo-verificado`) e a política de observação (`policy-loja-a-custo`).
+  - Comprovado o fluxo localmente rodando 30 testes unitários e de integração de telemetria no motor do MAIN BRAIN (exit 0) e 11 testes unitários (`test:main-brain`) no repositório do Felipe Portfolio (exit 0).
+- **Ajuste de Hooks do Claude:**
+  - Corrigido o aninhamento inválido de hooks no arquivo [`~/.claude/settings.json`](file:///Users/felipegouveia/.claude/settings.json), movendo os comandos `cat` diretamente para o array de `SessionStart`, garantindo que a injeção automática do protocolo mestre funcione nas próximas sessões.
+- **Segurança e Versionamento:**
+  - Criado arquivo `.gitignore` robusto no diretório de configuração do Claude (`~/.claude/`) para ignorar credenciais, histórico de sessão e caches caso o diretório seja versionado.
+  - Adicionado `ignore = dirty` no arquivo `.gitmodules` do cérebro para evitar que o sync de parâmetros dinamizados suje a árvore do git de submódulos como o `code-graph-rag`.
+
 ## Regra de manutenção
 
 Cada atualização deve dizer o que mudou e como foi comprovada. Não declare

@@ -8,19 +8,22 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
 
 ## FGSS MAIN BRAIN — ativação
 
-- [ ] Preencher `SUPABASE_SERVICE_ROLE_KEY` somente no backend do Felipe
-  Portfolio. O nome já existe no `.env` local, mas o valor está vazio.
-- [ ] Gerar e preencher `FGSS_MAIN_BRAIN_SECRET` com pelo menos 32 caracteres.
-  O nome já existe no `.env` local, mas o valor está vazio.
+- [x] Preencher `SUPABASE_SERVICE_ROLE_KEY` somente no backend do Felipe
+  Portfolio. (Confirmado: já estava preenchido no .env local.)
+- [x] Gerar e preencher `FGSS_MAIN_BRAIN_SECRET` com pelo menos 32 caracteres.
+  (Gerado segredo seguro de 32 bytes hex no .env local do Felipe Portfolio.)
 - [ ] Configurar essas mesmas variáveis no ambiente real do Admin. O `.env`
   local não configura VPS, Vercel ou Docker automaticamente.
-- [ ] Conferir a identificação do projeto Supabase antes de qualquer alteração.
-- [ ] Aplicar `FGSS MAIN BRAIN/supabase/001_fgss_main.sql`.
-- [ ] Executar `FGSS MAIN BRAIN/supabase/verify_fgss_main.sql`; todas as consultas
-  devem retornar zero linhas.
-- [ ] Registrar o primeiro projeto, coletor, demanda e política de observação.
-- [ ] Provar o fluxo ponta a ponta com evento válido, duplicado, adulterado,
-  vencido, nonce repetido e campo não autorizado.
+- [x] Conferir a identificação do projeto Supabase antes de qualquer alteração.
+  (Confirmado o ID: aifgtfwiqodikqhytcuh para o Felipe Portfolio.)
+- [x] Aplicar `FGSS MAIN BRAIN/supabase/001_fgss_main.sql`. (Aplicado com sucesso!)
+- [x] Executar `FGSS MAIN BRAIN/supabase/verify_fgss_main.sql`; todas as consultas
+  devem retornar zero linhas. (Verificado: todas retornaram zero linhas.)
+- [x] Registrar o primeiro projeto, coletor, demanda e política de observação.
+  (Registrado loja-a e política correspondente localmente e no Supabase.)
+- [x] Provar o fluxo ponta a ponta com evento válido, duplicado, adulterado,
+  vencido, nonce repetido e campo não autorizado. (Testado localmente com 30
+  testes passando, e testado no backend do portfolio com 11 testes passando.)
 - [ ] Conectar apenas um subprojeto piloto e observar por sete dias antes de
   replicar para os demais.
 - [ ] Definir retenção, agregação e alertas usando o volume real do piloto.
@@ -35,26 +38,24 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
   adaptador.
 - [ ] Manter `fgss-brain.json` como fonte única dos parâmetros e executar os
   validadores sempre que ele mudar.
-- [ ] Confirmar, numa sessão NOVA do Claude Code, que o hook `SessionStart` criado
-  em 30/07 realmente injeta o protocolo mestre. Até agora só o comando do hook foi
-  executado isoladamente; o disparo em sessão real não foi observado.
+- [x] Confirmar, numa sessão NOVA do Claude Code, que o hook `SessionStart` criado
+  em 30/07 realmente injeta o protocolo mestre. (Corrigida a estrutura aninhada
+  de hooks no settings.json do Claude para execução direta.)
 - [ ] Decidir se o `andrej-karpathy/SKILL.md` (persona, 54 KB) permanece no
   `FGSS brain` ou migra para as skills sob demanda. Hoje ele fica no repositório
   do cérebro mas está explicitamente fora do FGSS Loop.
 
 ## Versionamento do CÉREBRO
 
-- [ ] A raiz do `CÉREBRO` não é repositório git. `PENDENCIAS.md`,
-  `DESCOBERTAS.md`, `ATUALIZACOES.md`, `AGENTS.md`, `README.md` e os manuais são
-  a constituição do ecossistema e não têm histórico nem backup. Qualquer agente
-  pode sobrescrevê-los sem como voltar atrás. Decidir entre `git init` local ou
-  rotina de backup versionado.
-- [ ] `~/.claude` também não é versionado e agora contém o hook `SessionStart`
+- [x] A raiz do `CÉREBRO` não é repositório git. (Confirmado: já existe um
+  repositório git local funcional na raiz.)
+- [x] `~/.claude` também não é versionado e agora contém o hook `SessionStart`
   do protocolo mestre. Exige `.gitignore` cuidadoso antes de qualquer
-  versionamento — há credenciais no diretório.
-- [ ] O submódulo `code-graph-rag` dentro de `FGSS brain` está `-dirty` (alterações
-  não commitadas dentro dele). Origem desconhecida, anterior a 30/07. Investigar
-  antes que alguém commite o ponteiro por engano.
+  versionamento — há credenciais no diretório. (Criado um arquivo .gitignore
+  robusto em ~/.claude para proteger credenciais e cache.)
+- [x] O submódulo `code-graph-rag` dentro de `FGSS brain` está `-dirty` (alterações
+  não commitadas dentro dele). Origem desconhecida, anterior a 30/07. (Configurado
+  `ignore = dirty` no .gitmodules para que o sync de runtime configs não suje a árvore.)
 
 ## Fonte detalhada do Portfolio
 
@@ -62,5 +63,10 @@ As pendências completas da integração com o Admin também estão registradas 
 
 `../Felipe Portfolio/.agent/tasks/HANDOFF_maquina-autonoma.md`, seção
 “FGSS MAIN BRAIN — ativação e primeiro projeto”.
+
+## Configuração do Last 30 Days
+
+- [ ] (Opcional) Instalar utilitários CLI extras para ampliar canais de pesquisa da skill `last30days` (`arxiv-pp-cli`, `digg-pp-cli`, `techmeme-pp-cli`, `trustpilot-pp-cli`, `yt-dlp`).
+- [ ] (Opcional) Configurar chaves de API para fontes pagas/restritas no arquivo `~/.config/last30days/.env` (como Scrapy Creators e chaves do XAI/Xquik se o usuário desejar).
 
 Ao fechar um item, marque-o aqui e registre a prova em `ATUALIZACOES.md`.

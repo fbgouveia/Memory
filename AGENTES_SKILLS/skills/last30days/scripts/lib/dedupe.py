@@ -1,120 +1,145 @@
-"""Near-duplicate detection for last30days skill."""
+"""Within-source near-duplicate detection."""
+
+from __future__ import annotations
 
 import re
-from typing import List, Set, Tuple, Union
 
-from . import schema
+from . import cjk, schema
+
+STOPWORDS = frozenset(
+    {
+        "the",
+        "a",
+        "an",
+        "to",
+        "for",
+        "how",
+        "is",
+        "in",
+        "of",
+        "on",
+        "and",
+        "with",
+        "from",
+        "by",
+        "at",
+        "this",
+        "that",
+        "it",
+        "what",
+        "are",
+        "do",
+        "can",
+    }
+) | cjk.CHINESE_STOPWORDS
 
 
 def normalize_text(text: str) -> str:
-    """Normalize text for comparison.
-
-    - Lowercase
-    - Remove punctuation
-    - Collapse whitespace
-    """
-    text = text.lower()
-    text = re.sub(r'[^\w\s]', ' ', text)
-    text = re.sub(r'\s+', ' ', text)
-    return text.strip()
+    text = re.sub(r"[^\w\s]", " ", text.lower())
+    return re.sub(r"\s+", " ", text).strip()
 
 
-def get_ngrams(text: str, n: int = 3) -> Set[str]:
-    """Get character n-grams from text."""
-    text = normalize_text(text)
-    if len(text) < n:
-        return {text}
-    return {text[i:i+n] for i in range(len(text) - n + 1)}
+def _ngrams_of_normalized(norm: str, n: int = 3) -> set[str]:
+    if len(norm) < n:
+        return {norm} if norm else set()
+    return {norm[index:index + n] for index in range(len(norm) - n + 1)}
 
 
-def jaccard_similarity(set1: Set[str], set2: Set[str]) -> float:
-    """Compute Jaccard similarity between two sets."""
-    if not set1 or not set2:
+def get_ngrams(text: str, n: int = 3) -> set[str]:
+    return _ngrams_of_normalized(normalize_text(text), n)
+
+
+def jaccard_similarity(left: set[str], right: set[str]) -> float:
+    if not left or not right:
         return 0.0
-    intersection = len(set1 & set2)
-    union = len(set1 | set2)
-    return intersection / union if union > 0 else 0.0
+    union = left | right
+    if not union:
+        return 0.0
+    return len(left & right) / len(union)
 
 
-def get_item_text(item: Union[schema.RedditItem, schema.XItem]) -> str:
-    """Get comparable text from an item."""
-    if isinstance(item, schema.RedditItem):
-        return item.title
-    else:
-        return item.text
+def token_jaccard(text_a: str, text_b: str) -> float:
+    tokens_a = {
+        token
+        for token in cjk.segment(normalize_text(text_a))
+        if len(token) > 1 and token not in STOPWORDS
+    }
+    tokens_b = {
+        token
+        for token in cjk.segment(normalize_text(text_b))
+        if len(token) > 1 and token not in STOPWORDS
+    }
+    return jaccard_similarity(tokens_a, tokens_b)
 
 
-def find_duplicates(
-    items: List[Union[schema.RedditItem, schema.XItem]],
-    threshold: float = 0.7,
-) -> List[Tuple[int, int]]:
-    """Find near-duplicate pairs in items.
+def hybrid_similarity(text_a: str, text_b: str) -> float:
+    return max(
+        jaccard_similarity(get_ngrams(text_a), get_ngrams(text_b)),
+        token_jaccard(text_a, text_b),
+    )
 
-    Args:
-        items: List of items to check
-        threshold: Similarity threshold (0-1)
 
-    Returns:
-        List of (i, j) index pairs where i < j and items are similar
+def _tokenize(normalized: str) -> frozenset[str]:
+    return frozenset(
+        tok for tok in cjk.segment(normalized)
+        if len(tok) > 1 and tok not in STOPWORDS
+    )
+
+
+class _PreparedText:
+    """Pre-computed text representations for fast repeated similarity checks."""
+
+    __slots__ = ("ngrams", "tokens")
+
+    def __init__(self, raw: str) -> None:
+        norm = normalize_text(raw)
+        self.ngrams = _ngrams_of_normalized(norm)
+        self.tokens = _tokenize(norm)
+
+
+def prepared_similarity(a: _PreparedText, b: _PreparedText) -> float:
+    return max(
+        jaccard_similarity(a.ngrams, b.ngrams),
+        jaccard_similarity(a.tokens, b.tokens),
+    )
+
+
+def item_text(item: schema.SourceItem) -> str:
+    parts = [item.title, item.body, item.author or "", item.container or ""]
+    return " ".join(part for part in parts if part).strip()
+
+
+def dedupe_items(items: list[schema.SourceItem], threshold: float = 0.7) -> list[schema.SourceItem]:
+    """Remove near-duplicates while keeping earlier, better-scored items.
+
+    Jobs are deduped by exact URL only: distinct postings on the same careers
+    board share heavy boilerplate (company intro, "TL;DR", benefits) that trips
+    fuzzy text similarity and collapses unrelated roles (a 26-role board fell to
+    7). A unique posting URL is an unambiguous identity, so use it instead.
     """
-    duplicates = []
-
-    # Pre-compute n-grams
-    ngrams = [get_ngrams(get_item_text(item)) for item in items]
-
-    for i in range(len(items)):
-        for j in range(i + 1, len(items)):
-            similarity = jaccard_similarity(ngrams[i], ngrams[j])
-            if similarity >= threshold:
-                duplicates.append((i, j))
-
-    return duplicates
-
-
-def dedupe_items(
-    items: List[Union[schema.RedditItem, schema.XItem]],
-    threshold: float = 0.7,
-) -> List[Union[schema.RedditItem, schema.XItem]]:
-    """Remove near-duplicates, keeping highest-scored item.
-
-    Args:
-        items: List of items (should be pre-sorted by score descending)
-        threshold: Similarity threshold
-
-    Returns:
-        Deduplicated items
-    """
-    if len(items) <= 1:
-        return items
-
-    # Find duplicate pairs
-    dup_pairs = find_duplicates(items, threshold)
-
-    # Mark indices to remove (always remove the lower-scored one)
-    # Since items are pre-sorted by score, the second index is always lower
-    to_remove = set()
-    for i, j in dup_pairs:
-        # Keep the higher-scored one (lower index in sorted list)
-        if items[i].score >= items[j].score:
-            to_remove.add(j)
-        else:
-            to_remove.add(i)
-
-    # Return items not marked for removal
-    return [item for idx, item in enumerate(items) if idx not in to_remove]
-
-
-def dedupe_reddit(
-    items: List[schema.RedditItem],
-    threshold: float = 0.7,
-) -> List[schema.RedditItem]:
-    """Dedupe Reddit items."""
-    return dedupe_items(items, threshold)
-
-
-def dedupe_x(
-    items: List[schema.XItem],
-    threshold: float = 0.7,
-) -> List[schema.XItem]:
-    """Dedupe X items."""
-    return dedupe_items(items, threshold)
+    kept: list[schema.SourceItem] = []
+    kept_prepared: list[_PreparedText] = []
+    seen_job_urls: set[str] = set()
+    for item in items:
+        if item.source == "jobs":
+            url = (item.url or "").strip()
+            if url and url in seen_job_urls:
+                continue
+            if url:
+                seen_job_urls.add(url)
+            kept.append(item)
+            continue
+        text = item_text(item)
+        if not text:
+            kept.append(item)
+            continue
+        prep = _PreparedText(text)
+        is_duplicate = False
+        for existing_prep in kept_prepared:
+            if prepared_similarity(prep, existing_prep) >= threshold:
+                is_duplicate = True
+                break
+        if not is_duplicate:
+            kept.append(item)
+            kept_prepared.append(prep)
+    return kept
