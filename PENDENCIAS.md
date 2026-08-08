@@ -70,8 +70,8 @@ As pendências completas da integração com o Admin também estão registradas 
 
 ## FGSS Gestor de Automacao
 
-- [ ] Criar o `README.md` explicativo da arquitetura na pasta `FGSS Gestor de Automacao`.
-- [ ] Criar o arquivo `AGENTS.md` definindo o comportamento do Chairman de Automação.
+- [x] Criar o `README.md` explicativo da arquitetura na pasta `FGSS Gestor de Automacao`. (Concluído)
+- [x] Criar o arquivo `AGENTS.md` definindo o comportamento do Chairman de Automação. (Concluído)
 - [ ] Definir o schema JSON padrão do `automation-manifest.json`.
 - [ ] Implementar a estrutura inicial para a Lâmina de Contingência (DLQ e erros).
 - [ ] Criar o utilitário CLI para scaffold de novas automações.

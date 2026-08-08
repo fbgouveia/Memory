@@ -70,8 +70,11 @@ este arquivo como lista de tarefas.
 
 - **Processo Dinâmico de Pesquisa (Preflight):** Fixar um conjunto de perguntas-chave estático para autoatualização engessa a IA em padrões passados. Evidência: a evolução rápida de APIs (como Gemini, OpenAI, n8n) torna checklists estáticos obsoletos em meses. Consequência: adotar queries de busca dinâmicas geradas a partir da interseção entre o escopo da tarefa e o horizonte tecnológico atual no início das sessões.
 - **Governança de Automações:** Sem um manifesto unificado (`automation-manifest.json`), o crescimento do ecossistema de automações gera amnésia técnica e financeira. Evidência: dificuldade de rastrear quem usa qual API e com qual custo em projetos legados. Consequência: toda nova automação passará a conter um manifesto de metadados próprio.
+- **E-books vs. Resumos de Aulas (Extração de PDF):** Os e-books do material de treinamento do Mestres da Automação são PDFs de difícil extração de texto por `pypdf`. Evidência: arquivos txt resultantes possuíam menos de 5KB com cabeçalhos de licença vazios. Consequência: a ingestão foca nos resumos de aulas estruturados (88 arquivos válidos), que contêm 100% da matéria acadêmica, roteiros de reunião, checklists de implementação e a minuta do contrato de serviços.
+- **Roteiro SPIN Selling e Modelo de Contrato:** Identificados e consolidados o roteiro de reunião baseado em SPIN Selling (com ramificações para infoprodutos e negócios locais) e o contrato de serviços de automação com isenções de responsabilidade para bloqueios de contas. Evidência: leitura direta e parsing dos resumos da aula de reuniões e precificação. Consequência: esses elementos foram copiados como seções permanentes na Bíblia de Automação para acesso imediato.
 
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a
 descoberta gerar trabalho, crie também um item em `PENDENCIAS.md`.
+
