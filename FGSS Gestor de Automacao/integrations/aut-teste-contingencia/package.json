@@ -1,0 +1,18 @@
+{
+  "name": "aut-teste-contingencia",
+  "version": "1.0.0",
+  "description": "Automa\u00e7\u00e3o integrada estruturada sob padr\u00e3o C\u00c9REBRO H-I.",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "dev": "nodemon src/index.js"
+  },
+  "dependencies": {
+    "bullmq": "^5.0.0",
+    "express": "^4.19.0",
+    "ioredis": "^5.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

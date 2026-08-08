@@ -1,0 +1,47 @@
+version: '3.8'
+
+services:
+  # Redis local para orquestrar o BullMQ e chaves de idempotência
+  redis_aut_teste_contingencia:
+    image: redis:7-alpine
+    container_name: redis_aut-teste-contingencia
+    command: redis-server --appendonly yes --maxmemory-policy noeviction
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    networks:
+      - network_aut_teste_contingencia
+
+  # Servidor principal da integração
+  app_aut_teste_contingencia:
+    image: node:18-alpine
+    container_name: app_aut-teste-contingencia
+    working_dir: /usr/src/app
+    volumes:
+      - .:/usr/src/app
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+      - PORT=3000
+      - REDIS_HOST=redis_aut_teste_contingencia
+      - REDIS_PORT=6379
+    depends_on:
+      - redis_aut_teste_contingencia
+    command: npm run dev
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000/healthz"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 10s
+    networks:
+      - network_aut_teste_contingencia
+
+volumes:
+  redis_data:
+
+networks:
+  network_aut_teste_contingencia:
+    driver: bridge
