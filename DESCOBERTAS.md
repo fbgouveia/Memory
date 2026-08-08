@@ -60,6 +60,11 @@ este arquivo como lista de tarefas.
 - O script de execução `last30days.py` do repositório `mvanhorn/last30days-skill` requer Python 3.12+. Evidência: erro de execução de preflight com o Python 3.9.6 nativo do macOS. Consequência: a execução local e integrações devem apontar explicitamente para o interpretador moderno instalado no sistema em `/Users/felipegouveia/.local/bin/python3.12` ou fazer uso do gerenciador `uv`.
 - A pasta de skill `last30days` antiga que residia em `AGENTES_SKILLS/skills/last30days` era uma versão obsoleta e incompleta. Evidência: o arquivo `SKILL.md` antigo possuía apenas ~15 KB, comparado aos ~222 KB da versão oficial nova clonada, e seu script executável continha apenas 16 KB contra 153 KB do atual. Consequência: substituímos inteiramente a skill pela versão atualizada, criando o backup `last30days.old`.
 
+## 8 de agosto de 2026
+
+- A sintaxe correta do hook `SessionStart` no Claude Code requer que a chave mapeie diretamente para um array plano de objetos de ação de comando (`{"type": "command", "command": "..."}`). Evidência: o formato anteriormente configurado aninhado sob `{ "hooks": [ ... ] }` impedia que os comandos fossem executados no início das sessões. Consequência: simplificamos a estrutura em `~/.claude/settings.json`, corrigindo o disparo automático do protocolo mestre.
+- Modificar o arquivo `.env.example` de um submódulo (neste caso, `code-graph-rag` por conta do script `sync_runtime_config.py` do cérebro) faz com que o repositório pai enxergue o submódulo como dirty/modificado. Evidência: o status indicava `modified content`. Consequência: configurar `ignore = dirty` no `.gitmodules` para o submódulo remove este ruído e previne o commit de ponteiros acidentais no repositório do cérebro.
+
 ## Como adicionar uma descoberta
 
 Registre data, evidência e consequência. Não registre opinião como fato. Se a
