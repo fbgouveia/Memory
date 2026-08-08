@@ -96,12 +96,14 @@ em `PENDENCIAS.md`.
 - **Geração de Playbooks Avançados:** Processadas as lições individuais em 12 playbooks avançados específicos de ferramentas (como n8n, Make, Zaia, NicoChat, Manychat, Claude Code) salvos em `docs/bible/advanced/` e mapeados no `INDEX.md`.
 - **Sanitização de Referências de Marca:** Criado e executado o script scratch `sanitize_and_synthesize.py` para remover referências proprietárias (ex: Luciana Papini, Mestres da Automação) e substituí-las por nomenclaturas genéricas (ex: Chairman de Automação, Formação em Gestão de Automação) em todos os md da Bíblia.
 - **Catálogo de Oportunidades G-T-M:** Criado o documento `100_oportunidades_negocios.md` mapeando 100 nichos com dores e soluções baseadas na Bíblia Go-To-Market.
+- **Catálogo de Oportunidades H-I:** Criado o documento `100_oportunidades_hi.md` mapeando 100 corporações/plataformas de escala com dores estruturais e soluções de alta engenharia baseadas na Bíblia High Intelligence.
 - **Comprovação:** Geração física do catálogo com exatamente 100 itens catalogados e validados por contagem estruturada do script gerador, e git track do novo arquivo markdown.
 
 ## Regra de manutenção
 
 Cada atualização deve dizer o que mudou e como foi comprovada. Não declare
 produção ativa quando algo foi validado apenas localmente.
+
 
 
 
