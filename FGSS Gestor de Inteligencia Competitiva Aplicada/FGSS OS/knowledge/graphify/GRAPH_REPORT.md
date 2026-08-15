@@ -1,4 +1,4 @@
-# Graph Report - /tmp/thefounderos-graph  (2026-08-15)
+# Graph Report - /tmp/fgss-os-graph  (2026-08-15)
 
 ## Corpus Check
 - cluster-only mode — file stats not available

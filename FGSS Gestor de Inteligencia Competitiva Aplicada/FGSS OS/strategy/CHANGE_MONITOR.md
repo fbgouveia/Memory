@@ -21,11 +21,11 @@ parceria, aquisição, nova entidade legal ou feature equivalente ao moat FGSS.
 
 ## Procedimento
 
-1. Executar `python3 thefounderos/tools/collect_public.py`.
-2. Executar `python3 thefounderos/tools/collect_ecosystem.py`.
+1. Executar `python3 FGSS OS/tools/collect_public.py`.
+2. Executar `python3 FGSS OS/tools/collect_ecosystem.py`.
 3. Preservar os manifestos anteriores antes da corrida se o objetivo for delta;
    os coletores atuais regeneram os diretórios de captura.
-4. Executar `python3 thefounderos/tools/audit.py` e aceitar somente zero erro.
+4. Executar `python3 FGSS OS/tools/audit.py` e aceitar somente zero erro.
 5. Comparar URL, status, tamanho, SHA-256, commit, oferta, preço e claims.
 6. Classificar o delta: factual, claim, inference, unknown ou correção.
 7. Atualizar scorecard/battlecard apenas com evidência e registrar no HANDOFF.

@@ -16,7 +16,7 @@
   - `npm run typecheck`: passou;
   - `npm run build`: passou com acesso de rede para as fontes do Google; a
     primeira tentativa restrita falhou somente na resolução desse host;
-  - seed isolado em `/tmp/thefounderos-demo.db`: passou, com seis departamentos,
+  - seed isolado em `/tmp/fgss-os-demo.db`: passou, com seis departamentos,
     30 agentes, 36 ferramentas e 13 itens de roadmap.
 - Graphify em ambiente isolado: 1.773 nós, 4.270 arestas, 90 comunidades, 99%
   de arestas extraídas, nenhum ciclo de importação reportado.

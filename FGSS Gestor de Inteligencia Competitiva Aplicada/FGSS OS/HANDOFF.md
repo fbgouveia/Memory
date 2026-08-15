@@ -2,7 +2,7 @@
 
 Atualizado em 15 de agosto de 2026 para a transferência a:
 
-`/Users/felipe/Developer/Memory/FGSS Gestor de Inteligencia Competitiva Aplicada/thefounderos`
+`/Users/felipe/Developer/Memory/FGSS Gestor de Inteligencia Competitiva Aplicada/FGSS OS`
 
 Este documento é a memória operacional autossuficiente do subprojeto. Ele deve
 ser lido integralmente antes de uma nova coleta ou mudança estratégica.
@@ -85,7 +85,7 @@ No snapshot isolado e sem credenciais:
 - `npm test`: passou, 888/888;
 - `npm run typecheck`: passou;
 - `npm run build`: passou; foi necessário acesso às fontes Google;
-- `FOUNDER_OS_DB=/tmp/thefounderos-demo.db npm run seed`: passou, criando 6
+- `FOUNDER_OS_DB=/tmp/fgss-os-demo.db npm run seed`: passou, criando 6
   departamentos, 30 agentes, 36 ferramentas e 13 itens de roadmap.
 
 O Graphify identificou `getDb()`/`openDb()` como hubs de acoplamento. Não há
@@ -324,7 +324,7 @@ Backlog acordado:
 Executar a partir desta pasta:
 
 ```bash
-PYTHONPYCACHEPREFIX=/tmp/thefounderos-pycache python3 -m py_compile tools/*.py
+PYTHONPYCACHEPREFIX=/tmp/fgss-os-pycache python3 -m py_compile tools/*.py
 python3 tools/audit.py
 python3 tools/compare_manifests.py \
   inventory/ecosystem_manifest.json inventory/ecosystem_manifest.json
@@ -360,7 +360,7 @@ com as alterações paralelas já existentes em nenhum dos dois repositórios.
 
 - Diretório movido para o caminho de destino declarado neste documento.
 - Verificação pós-movimento: 467 arquivos, aproximadamente 10 MB.
-- `PYTHONPYCACHEPREFIX=/tmp/thefounderos-relocated-pycache python3 -m
+- `PYTHONPYCACHEPREFIX=/tmp/fgss-os-relocated-pycache python3 -m
   py_compile tools/*.py`: passou.
 - `python3 tools/audit.py` no destino: `status: pass`, 56 registros do site,
   332 arquivos do snapshot, 34 registros externos e zero erro.
