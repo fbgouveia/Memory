@@ -1,5 +1,43 @@
 # Descobertas do ecossistema CÉREBRO
 
+## 16 de agosto de 2026 — padrões visuais e arquitetura demo do TheFounderOS
+
+- O organograma "vivo" do TheFounderOS (/os anatomia) é uma árvore SVG com
+  flip de 3 camadas (front/back/gloss) e pipeline ring animado. Evidência:
+  `os.html` seções com ids `anatomy`, `hx-anatomy-front/back/gloss`,
+  `pipeline`, `pipeline-connectors`. Consequência: FGSS.io deve implementar
+  organograma como vista do Invariant Engine (F1) — estados/transições
+  visualizados, sem copiar paleta copper/blue nem branding Heuresis.
+- As demos "vivas" do TheFounderOS (/heuresis-os/*) usam arquitetura "thin
+  skin": zero lógica de negócio no front-end, tudo vem do backend via API.
+  Evidência: `creator-os/app.js` linha 2 — "Thin skin over the verbs/model:
+  the 18 backing sources in their native views + clickable detail pages. No
+  business logic here — every gate lives server-side." Consequência: FGSS.io
+  deve adotar esta separação no Blueprint SDK (F5) — UI nunca contém gates ou
+  invariantes.
+- O truque "fixtures + shim" faz demos parecerem vivas sem backend.
+  Evidência: `heuresis-shim.js` intercepta `window.fetch`, serve
+  `fixtures.json` congelado, mutations retornam `{ ok: true }` no-op.
+  Consequência: FGSS.io deve implementar demo mode rotulado (não fingindo
+  ser produção) no Blueprint SDK (F5) — snapshots congelados com banner
+  "demo mode" visível.
+- O gate visual (`<span class="gate">`) marca ações que precisam de
+  aprovação. Evidência: `creator-os/app.js` função `contentCard` —
+  `mini('c-advance', c.id, (nextIsPublish ? '<span class="gate"></span>' :
+  '') + 'Advance →')`. Consequência: FGSS.io deve implementar gates visuais
+  no Cockpit de exceções (F3) — toda ação irreversível tem indicador visual
+  antes do clique.
+- O "cinto de ferramentas rotativo" mostra iframes com `pointer-events-none`
+  (não interativos, só visual). Evidência: `os-belt` section com iframes
+  escalados. Consequência: FGSS.io NÃO deve usar `pointer-events-none` em
+  iframes (engana o usuário); o carrossel de ferramentas deve ser interativo
+  ou claramente rotulado como preview.
+- O repo do FGSS.io é privado e está em outro computador. Evidência: GitHub
+  API retorna Not Found para `fbgouveia/Felipe-Portfolio`; MCP search não
+  lista privados; usuário confirmou "LOCALMENTE ESTA EM OUTRO COMPUTADOR".
+  Consequência: F1-F5 permanece especificação até auth ser configurada (gh
+  CLI ou token).
+
 ## 16 de agosto de 2026 — CrewAI como 2º concorrente
 
 - CrewAI é o concorrente mais similar ao TheFounderOS em modelo open-source +

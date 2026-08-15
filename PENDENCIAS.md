@@ -87,15 +87,48 @@ As pendências completas da integração com o Admin também estão registradas 
   scheme; site re-coletado; audit 0 erros.)
 - [x] Corrigir `crewai/tools/audit.py` LICENSE check: aceita MIT via permission
   text OU título literal. (Concluído em 16/08/2026.)
+- [x] Destilar padrões visuais e de interação do TheFounderOS em
+  `FGSS OS/knowledge/site/VISUAL_AND_INTERACTION_PATTERNS.md` (1053 linhas:
+  organograma vivo, live map/brain graph, dashboards Kanban com gates, thin
+  skin architecture, demo mode fixtures+shim, cinto de ferramentas rotativo).
+  Mapeado a F1-F5. (Concluído em 16/08/2026.)
 - [ ] Destilar lacunas de absorção do TheFounderOS identificadas em 16/08/2026:
   JSON-LD/SEO, preços/garantias, BENNETT OS/Heuresis, 4 workspaces/personas,
   14+ OS licenciados não capturados. Sem rede externa; usar HTMLs já em disco.
+- [ ] **Implementar visuais interativos do TheFounderOS no FGSS.io** (F1-F5),
+  adaptando princípios, não copiando expressão. Detalhado em
+  `FGSS OS/knowledge/site/VISUAL_AND_INTERACTION_PATTERNS.md`:
+  - **Organograma vivo** (F1 Invariant Engine): árvore da estrutura da
+    empresa com estados/transições visualizados, flip de camadas, nós
+    expandíveis. Não copiar paleta copper/blue nem branding Heuresis.
+  - **Live map / brain graph** (F1): grafo de nós representando o
+    conhecimento e estado do negócio, interativo.
+  - **Dashboards Kanban com gates** (F3 Cockpit de exceções): board/lane
+    com indicador visual de gate para ações que precisam de aprovação;
+    toda métrica abre lineage.
+  - **Arquitetura "thin skin"** (F5 Blueprint SDK): UI separada de lógica
+    de negócio; zero gates no front, tudo vem do backend.
+  - **Demo mode "fixtures + shim"** (F5): demos parecem vivas mas são
+    snapshots congelados, **claramente rotuladas como demo**, não fingindo
+    ser produção. Mutations no-op em demo mode.
+  - **Cinto de ferramentas rotativo** (F5): carrossel horizontal mostrando
+    as ferramentas/dispositivos disponíveis.
+  - Bloqueado até repo `Felipe-Portfolio` acessível.
+- [ ] Avançar F1-F5 como spec executável (schemas JSON + testes de contrato)
+  pronto para importar quando repo `Felipe-Portfolio` acessível. (Detalhes em
+  `foundation/AGENTS.md`.)
 - [ ] Amplir allowlist do `FGSS OS/collect_public.py` para `/robots.txt`,
   `/sitemap.xml`, `/manifest.json`, `/.well-known/security.txt` e os 14
   `*-os` licenciados — somente na próxima coleta autorizada.
+- [ ] Coletor `FGSS OS/collect_public.py` não recebeu as correções do CrewAI
+  (path collision: host no filename; LICENSE check flexível). Bugs conhecidos.
 - [ ] Localizar e autorizar o repositório real do `FGSS.io`; então implementar
   primeiro o Invariant Engine e o Capability Registry, com testes de contrato,
-  antes de qualquer reprodução de interface.
+  antes de qualquer reprodução de interface. **Repo localizado: é privado em
+  `fbgouveia/Felipe-Portfolio` (GitHub), em outro computador. Precisa de
+  auth via gh CLI ou token para ler conteúdo.**
+- [ ] Iniciar primeira pesquisa original em `research/` (mercado, tecnologia,
+  plano de negócios). Protocolo definido em `research/AGENTS.md`.
 - [ ] Preservar a baseline TheFounderOS de 15/08/2026 antes de nova coleta e
   iniciar série temporal de commits, releases, issues, ofertas, preços, reviews
   e denominadores usando `FGSS OS/tools/compare_manifests.py`.

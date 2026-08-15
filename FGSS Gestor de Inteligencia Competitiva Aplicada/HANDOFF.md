@@ -27,8 +27,13 @@ produz requisitos originais para o produto FGSS.io.
 
 ### Fundação FGSS.io (especificação)
 
-- **Estado**: PRÉ-IMPLEMENTAÇÃO. Repo real do FGSS.io não localizado.
+- **Estado**: PRÉ-IMPLEMENTAÇÃO. Repo localizado: é privado em
+  `fbgouveia/Felipe-Portfolio` (GitHub), em outro computador. Sem auth
+  neste ambiente — precisa gh CLI ou token para ler conteúdo.
 - **Backlog**: F1-F5 detalhados em `foundation/AGENTS.md`.
+- **Visuais F1-F5**: padrões destilados em
+  `FGSS OS/knowledge/site/VISUAL_AND_INTERACTION_PATTERNS.md` (1053 linhas).
+  Implementação bloqueada até repo acessível. Registrado em `PENDENCIAS.md`.
 
 ### Pesquisas (a iniciar)
 
@@ -41,7 +46,8 @@ produz requisitos originais para o produto FGSS.io.
 1. Fechar lacunas de absorção do TheFounderOS (sem rede externa).
 2. Iniciar primeira pesquisa original em `research/`.
 3. Avançar F1-F5 como spec executável (schemas + testes de contrato).
-4. Localizar repo real do FGSS.io para começar implementação.
+4. Configurar auth para repo `fbgouveia/Felipe-Portfolio` (gh CLI ou token)
+   e começar implementação.
 
 ## Commits da sessão
 
@@ -50,7 +56,8 @@ produz requisitos originais para o produto FGSS.io.
 - `a3b0259` — CrewAI site knowledge distillation
 - `8237c9b` — registros globais atualizados
 - `b59d59a` — fix 2 bugs (path collision + LICENSE)
-- `20666d4` — pendências atualizadas
+- `20664d4` — 2 bugs CrewAI corrigidos, audit pass
+- `c69b2ed` — handoff do gestor atualizado
 
 ## Guardrails finais
 

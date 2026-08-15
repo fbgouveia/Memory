@@ -1,5 +1,30 @@
 # Atualizações do ecossistema CÉREBRO
 
+## 16 de agosto de 2026 — sessão completa: fundação + 2 dossiês + visuais
+
+- Fundação do gestor estabelecida: `AGENTS.md`, `HANDOFF.md`,
+  `foundation/AGENTS.md`, `research/AGENTS.md`. Commit `ab6615c`.
+- Diretório do dossiê renomeado de `thefounderos/` para `FGSS OS/` em disco
+  e git, removendo referências ao nome do concorrente em paths. Commit
+  `ab6615c`.
+- Dossiê CrewAI criado em `competitors/crewai/`: site (449 capturados, 51
+  erros), repo MIT (26.369 arquivos, commit `754d732`), ecossistema (10
+  records), 11 knowledge files, 6 strategy files. Commits `a58d6a4`,
+  `a3b0259`.
+- Bugs do coletor CrewAI corrigidos: `collect_public.py` path collision
+  (host no filename) + `audit.py` LICENSE check flexível. Audit pass, 0
+  erros. Commit `b59d59a`.
+- Padrões visuais do TheFounderOS destilados: organograma vivo (SVG tree,
+  3-layer flip), live map/brain graph, dashboards Kanban com gates,
+  arquitetura thin skin, demo mode fixtures+shim, cinto de ferramentas
+  rotativo. Arquivo:
+  `FGSS OS/knowledge/site/VISUAL_AND_INTERACTION_PATTERNS.md`
+  (1053 linhas). Mapeado a F1-F5.
+- Repo FGSS.io localizado: privado em `fbgouveia/Felipe-Portfolio`, em outro
+  computador. Sem auth neste ambiente.
+- Prova: todos os commits pushed para `origin/main`. Audit dos dois dossiês:
+  pass.
+
 ## 16 de agosto de 2026 — dossiê do 2º concorrente (CrewAI)
 
 - Criado o dossiê de CrewAI em `competitors/crewai/`, seguindo o mesmo
