@@ -81,13 +81,12 @@ As pendências completas da integração com o Admin também estão registradas 
   (Concluído em 16/08/2026: site 449 páginas, repo MIT 26.369 arquivos,
   ecossistema 10 records, 11 knowledge files, 6 strategy files, audit
   reportado, commits `a58d6a4` + `a3b0259` pushed.)
-- [ ] Corrigir bug do coletor `crewai/tools/collect_public.py`: 9 URLs
-  colidem no mesmo path `home.html` (collector não diferencia host
-  subdomínio na hora de gerar o filename). 16 erros de size/hash mismatch
-  no audit decorrem disso.
-- [ ] Corrigir `crewai/tools/audit.py` LICENSE check: o arquivo MIT do
-  CrewAI não contém a string literal "MIT License" (usa "Copyright (c)
-  2025 crewAI, Inc." + permissão MIT). Falso positivo.
+- [x] Corrigir bug do coletor `crewai/tools/collect_public.py`: 9 URLs
+  colidiam no mesmo path `home.html` por ignorar host no filename. (Concluído
+  em 16/08/2026: `local_path()` agora prepends host; `canonical()` normaliza
+  scheme; site re-coletado; audit 0 erros.)
+- [x] Corrigir `crewai/tools/audit.py` LICENSE check: aceita MIT via permission
+  text OU título literal. (Concluído em 16/08/2026.)
 - [ ] Destilar lacunas de absorção do TheFounderOS identificadas em 16/08/2026:
   JSON-LD/SEO, preços/garantias, BENNETT OS/Heuresis, 4 workspaces/personas,
   14+ OS licenciados não capturados. Sem rede externa; usar HTMLs já em disco.
