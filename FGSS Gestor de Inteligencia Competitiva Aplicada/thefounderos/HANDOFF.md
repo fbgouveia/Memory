@@ -366,6 +366,13 @@ com as alterações paralelas já existentes em nenhum dos dois repositórios.
   332 arquivos do snapshot, 34 registros externos e zero erro.
 - A origem foi removida somente depois do commit/push `2a8382a`, que preserva
   este handoff e permite recuperação integral pelo histórico.
+- Adição no repositório `Memory`: commit `83d35b9`, enviado a `origin/main`.
+- Remoção na origem Knowledge Absorber: commit `0b2e964`, também enviado a
+  `origin/main` após a validação do destino.
+- `ATUALIZACOES.md`, `PENDENCIAS.md` e `DESCOBERTAS.md` globais do repo `Memory`
+  receberam registros desta transferência no worktree. Eles já continham
+  alterações paralelas anteriores e, por segurança, não foram incluídos no
+  commit isolado deste subprojeto.
 
 ## 11. Guardrails finais
 
