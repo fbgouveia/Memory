@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>How are you handling agent spending limits in production crews? - CrewAI Community Support - CrewAI</title>
+    <meta name="description" content="Running a crew in production and realizing there’s no native way to 
+cap what a crew spends before it runs. 
+The problem isn’t visibility — I can see costs after the fact. The 
+problem is enforcement. If a task loops or …">
+    <meta name="generator" content="Discourse 2026.8.0-latest.1 - https://github.com/discourse/discourse version 3bcc19a5d2df81fcdfda6fa461ede9e9cac92c48">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/dd5538a5110a9677e7e0d33a25c15efe4c257a38_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/ecda97e72f77c7100e0a761444b1c991925cc789_2_180x180.png">
+<meta name="theme-color" media="all" content="#fff">
+
+<meta name="color-scheme" content="light">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568" />
+
+<meta name="discourse-track-view-session-id" content="64E8RYriOMyTRCqf1xa9pGGFKG32xlHb"><meta name="discourse-beacon-pageview-enabled" content="true"><meta name="discourse-engagement-tracking-enabled" content="true">
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.crewai.com/opensearch.xml" title="CrewAI Search">
+
+    
+    <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/color_definitions_light-default_-1_18_19438fcabc837211bcf1b410c68f3dc280eb0215.css?__ws=community.crewai.com" media="all" rel="stylesheet" class="light-scheme"/>
+
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/automation_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/checklist_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-adplugin_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-assign"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-chat-integration_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-data-explorer_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-details_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-docs_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-docs"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-events"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-gamification"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-github_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-lazy-videos_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-local-dates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-narrative-bot_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-policy_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-post-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-post-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-presence_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-solved_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-subscriptions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-subscriptions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-templates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-topic-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-user-notes_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-yearly-review_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-yearly-review"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/footnote_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/hosted-site_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/spoiler-alert_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="chat_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-assign_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-events_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-gamification_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-events_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_4_d15e48126b3cf0bd9ca957ee2ddcf3afcbddd469.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="clickable topic"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_14_0e546bcd2c4eee77a58ab284362a26bbed3278c5.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="14" data-theme-name="panels"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_15_8361ab8d866da36d2a86422b05b0cd5c090e60e2.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="15" data-theme-name="primary button"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_16_a92a9ddc1c7d53e8777d670440c97eeb27fb8d5e.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="16" data-theme-name="rounded"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_18_7a264dc4fed621c1f31b924970b29024db19c827.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="18" data-theme-name="fully theme"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/mobile_theme_14_1643d3b2a777c4f694f2258add3f3e2fb45e9626.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="mobile_theme" data-theme-id="14" data-theme-name="panels"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/desktop_theme_14_d564c4069440fb33b07b870d065d929e20468815.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="14" data-theme-name="panels"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;How are you handling agent spending limits in production crews?&#39;" href="https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568.rss" />
+    <meta property="og:site_name" content="CrewAI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/ecda97e72f77c7100e0a761444b1c991925cc789.png" />
+<meta property="og:url" content="https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568" />
+<meta name="twitter:url" content="https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568" />
+<meta property="og:title" content="How are you handling agent spending limits in production crews?" />
+<meta name="twitter:title" content="How are you handling agent spending limits in production crews?" />
+<meta property="og:description" content="Running a crew in production and realizing there’s no native way to  cap what a crew spends before it runs.  The problem isn’t visibility — I can see costs after the fact. The  problem is enforcement. If a task loops or an agent retries  aggressively, the money is already gone by the time you notice.  What I’ve been testing: adding a check_spend tool to agents that  incur costs. Before any paid API call, the agent calls the tool with  the estimated amount. The tool either approves or blocks base..." />
+<meta name="twitter:description" content="Running a crew in production and realizing there’s no native way to  cap what a crew spends before it runs.  The problem isn’t visibility — I can see costs after the fact. The  problem is enforcement. If a task loops or an agent retries  aggressively, the money is already gone by the time you notice.  What I’ve been testing: adding a check_spend tool to agents that  incur costs. Before any paid API call, the agent calls the tool with  the estimated amount. The tool either approves or blocks base..." />
+<meta property="og:article:section" content="CrewAI Community Support" />
+<meta property="og:article:section:color" content="3AB54A" />
+<meta property="og:article:tag" content="agent" />
+<meta property="article:published_time" content="2026-06-08T22:52:00+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">CrewAI</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568">How are you handling agent spending limits in production crews?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/community-support/7" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>CrewAI Community Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+      <div class="topic-category">
+        <div class='discourse-tags list-tags'>
+            <a href='https://community.crewai.com/tag/agent' class='discourse-tag' rel="tag">agent</a>
+        </div>
+      </div>
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="http://schema.org/DiscussionForumPosting">
+      <meta itemprop='headline' content='How are you handling agent spending limits in production crews?'>
+      <link itemprop='url' href='https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568'>
+      <meta itemprop='datePublished' content='2026-06-08T22:52:00Z'>
+      <meta itemprop='keywords' content='agent'>
+          <meta itemprop='articleSection' content='CrewAI Community Support'>
+        <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+          <meta itemprop='name' content='CrewAI'>
+            <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+              <meta itemprop='url' content='https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png'>
+            </div>
+        </div>
+
+
+
+          <div id='post_1'  class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Billionaire664'><span itemprop="name">Billionaire664</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Billionaire664'>
+                
+              </span>
+
+                <link itemprop="mainEntityOfPage" href="https://community.crewai.com/t/how-are-you-handling-agent-spending-limits-in-production-crews/7568">
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2026-06-08T22:52:00Z' class='post-time'>
+                    June 8, 2026, 10:52pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-06-08T22:52:00Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Running a crew in production and realizing there’s no native way to<br>
+cap what a crew spends before it runs.</p>
+<p>The problem isn’t visibility — I can see costs after the fact. The<br>
+problem is enforcement. If a task loops or an agent retries<br>
+aggressively, the money is already gone by the time you notice.</p>
+<p>What I’ve been testing: adding a check_spend tool to agents that<br>
+incur costs. Before any paid API call, the agent calls the tool with<br>
+the estimated amount. The tool either approves or blocks based on a<br>
+policy. The key is it’s structural — the check happens before the<br>
+call, not after.</p>
+<p>Has anyone solved this differently in their crews? Curious what<br>
+patterns people are using for hard limits vs just monitoring.</p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="0" />
+                <span class='post-likes'></span>
+              </div>
+
+
+            
+
+
+          </div>
+
+    </div>
+
+
+    <div id="related-topics" class="more-topics__list " role="complementary" aria-labelledby="related-topics-title">
+  <h3 id="related-topics-title" class="more-topics__list-title">
+    Related topics
+  </h3>
+  <div class="topic-list-container" itemscope itemtype='http://schema.org/ItemList'>
+    <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+    <table class='topic-list'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th class="replies">Replies</th>
+          <th class="views">Views</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="topic-list-item" id="topic-list-item-7566">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='1'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/can-your-crewai-agent-spend-money-without-your-permission/7566' class='title raw-link raw-topic-link'>Can your CrewAI agent spend money without your permission?</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>4</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>71</span>
+            </td>
+            <td>
+              August 3, 2026
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-7725">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='2'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/field-note-treating-your-agents-token-spend-like-a-ci-cost-gate/7725' class='title raw-link raw-topic-link'>Field note: treating your agent&#39;s token spend like a CI cost gate</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>0</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>12</span>
+            </td>
+            <td>
+              August 10, 2026
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-7583">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='3'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/budget-guardrail-for-crews/7583' class='title raw-link raw-topic-link'>Budget guardrail for crews</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>0</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>24</span>
+            </td>
+            <td>
+              June 16, 2026
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-1916">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='4'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/how-to-monitor-crewai-workflow-including-costs/1916' class='title raw-link raw-topic-link'>How to monitor CrewAI workflow, including costs?</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/feature/23' class='discourse-tag'>feature</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>248</span>
+            </td>
+            <td>
+              December 9, 2024
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-765">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='5'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/how-to-limit-token-usage-for-infinite-loops/765' class='title raw-link raw-topic-link'>How to limit token usage? (For infinite loops)</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>8</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>1237</span>
+            </td>
+            <td>
+              October 15, 2024
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

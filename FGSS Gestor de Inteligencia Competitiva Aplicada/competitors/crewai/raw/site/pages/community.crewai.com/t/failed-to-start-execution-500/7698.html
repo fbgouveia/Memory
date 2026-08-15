@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Failed to start execution (500) - General - CrewAI</title>
+    <meta name="description" content="Studio automation fails on Run with ‘Failed to start execution (500)’. The identical crew runs fine locally with gpt-4o-mini. LLM connection (OpenAI) is valid, $5 credit, no agent warnings. Traces stay on ‘waiting for e…">
+    <meta name="generator" content="Discourse 2026.8.0-latest.1 - https://github.com/discourse/discourse version 3bcc19a5d2df81fcdfda6fa461ede9e9cac92c48">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/dd5538a5110a9677e7e0d33a25c15efe4c257a38_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/ecda97e72f77c7100e0a761444b1c991925cc789_2_180x180.png">
+<meta name="theme-color" media="all" content="#fff">
+
+<meta name="color-scheme" content="light">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://community.crewai.com/t/failed-to-start-execution-500/7698" />
+
+<meta name="discourse-track-view-session-id" content="lvJAxnR1USFMXec43WhgZ0oC873jdmI1"><meta name="discourse-beacon-pageview-enabled" content="true"><meta name="discourse-engagement-tracking-enabled" content="true">
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.crewai.com/opensearch.xml" title="CrewAI Search">
+
+    
+    <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/color_definitions_light-default_-1_18_19438fcabc837211bcf1b410c68f3dc280eb0215.css?__ws=community.crewai.com" media="all" rel="stylesheet" class="light-scheme"/>
+
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/automation_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/checklist_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-adplugin_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-assign"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-chat-integration_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-data-explorer_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-details_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-docs_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-docs"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-events"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-gamification"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-github_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-lazy-videos_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-local-dates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-narrative-bot_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-policy_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-post-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-post-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-presence_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-solved_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-subscriptions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-subscriptions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-templates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-topic-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-user-notes_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-yearly-review_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-yearly-review"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/footnote_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/hosted-site_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/spoiler-alert_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="chat_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-assign_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-events_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-gamification_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-events_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_4_d15e48126b3cf0bd9ca957ee2ddcf3afcbddd469.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="clickable topic"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_14_0e546bcd2c4eee77a58ab284362a26bbed3278c5.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="14" data-theme-name="panels"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_15_8361ab8d866da36d2a86422b05b0cd5c090e60e2.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="15" data-theme-name="primary button"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_16_a92a9ddc1c7d53e8777d670440c97eeb27fb8d5e.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="16" data-theme-name="rounded"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_18_7a264dc4fed621c1f31b924970b29024db19c827.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="18" data-theme-name="fully theme"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/mobile_theme_14_1643d3b2a777c4f694f2258add3f3e2fb45e9626.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="mobile_theme" data-theme-id="14" data-theme-name="panels"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/desktop_theme_14_d564c4069440fb33b07b870d065d929e20468815.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="14" data-theme-name="panels"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Failed to start execution (500)&#39;" href="https://community.crewai.com/t/failed-to-start-execution-500/7698.rss" />
+    <meta property="og:site_name" content="CrewAI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/ecda97e72f77c7100e0a761444b1c991925cc789.png" />
+<meta property="og:url" content="https://community.crewai.com/t/failed-to-start-execution-500/7698" />
+<meta name="twitter:url" content="https://community.crewai.com/t/failed-to-start-execution-500/7698" />
+<meta property="og:title" content="Failed to start execution (500)" />
+<meta name="twitter:title" content="Failed to start execution (500)" />
+<meta property="og:description" content="Studio automation fails on Run with ‘Failed to start execution (500)’. The identical crew runs fine locally with gpt-4o-mini. LLM connection (OpenAI) is valid, $5 credit, no agent warnings. Traces stay on ‘waiting for events’ — execution never starts. Free plan. What’s causing the 500?" />
+<meta name="twitter:description" content="Studio automation fails on Run with ‘Failed to start execution (500)’. The identical crew runs fine locally with gpt-4o-mini. LLM connection (OpenAI) is valid, $5 credit, no agent warnings. Traces stay on ‘waiting for events’ — execution never starts. Free plan. What’s causing the 500?" />
+<meta property="og:article:section" content="General" />
+<meta property="og:article:section:color" content="F1592A" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="1 min 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2026-07-31T08:14:20+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"Failed to start execution (500)","datePublished":"2026-07-31T08:14:20.042Z","mainEntity":{"@type":"Question","answerCount":1,"author":{"@type":"Person","name":"skerdi","url":"https://community.crewai.com/u/skerdi"},"dateModified":"2026-07-31T08:20:49.342Z","datePublished":"2026-07-31T08:14:20.042Z","name":"Failed to start execution (500)","text":"Studio automation fails on Run with ‘Failed to start execution (500)’. The identical crew runs fine locally with gpt-4o-mini. LLM connection (OpenAI) is valid, $5 credit, no agent warnings. Traces stay on ‘waiting for events’ — execution never starts. Free plan. What’s causing the 500?","upvoteCount":0,"suggestedAnswer":[{"@type":"Answer","author":{"@type":"Person","name":"wartzarbee2","url":"https://community.crewai.com/u/wartzarbee2"},"dateModified":"2026-07-31T21:14:01.188Z","datePublished":"2026-07-31T21:14:01.152Z","text":"For anyone hitting this — worth checking whether the failure is deterministic across reruns or intermittent; capturing the exact traceback + the crew/agent config that triggered it makes it far easier for others here to reproduce and help.","upvoteCount":1,"url":"https://community.crewai.com/t/failed-to-start-execution-500/7698/2"}]}}</script>
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">CrewAI</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/failed-to-start-execution-500/7698">Failed to start execution (500)</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/general/4" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="https://schema.org/QAPage">
+      <meta itemprop='name' content='Failed to start execution (500)'>
+      <link itemprop='url' href='https://community.crewai.com/t/failed-to-start-execution-500/7698'>
+      <meta itemprop='datePublished' content='2026-07-31T08:14:20Z'>
+      <meta itemprop='keywords' content=''>
+
+        <div itemprop="mainEntity" itemscope="itemscope" itemtype="https://schema.org/Question">
+          <meta itemprop='answerCount' content='1'><meta itemprop='datePublished' content='2026-07-31T08:14:20Z'><meta itemprop='name' content='Failed to start execution (500)'><meta itemprop='upvoteCount' content='0'>
+
+
+          <div id='post_1' data-qa-question="true" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/skerdi'><span itemprop="name">skerdi</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/skerdi'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2026-07-31T08:14:20Z' class='post-time'>
+                    July 31, 2026,  8:14am
+                  </time>
+                  <meta itemprop='dateModified' content='2026-07-31T08:20:49Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <blockquote>
+<p><em>Studio automation fails on Run with ‘Failed to start execution (500)’. The identical crew runs fine locally with gpt-4o-mini. LLM connection (OpenAI) is valid, $5 credit, no agent warnings. Traces stay on ‘waiting for events’ — execution never starts. Free plan. What’s causing the 500?</em></p>
+</blockquote>
+            </div>
+
+
+
+            
+
+
+          </div>
+          <div id='post_2' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/wartzarbee2'><span itemprop="name">wartzarbee2</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/wartzarbee2'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-07-31T21:14:01Z' class='post-time'>
+                    July 31, 2026,  9:14pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-07-31T21:14:01Z'>
+              <span itemprop="position">2</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>For anyone hitting this — worth checking whether the failure is deterministic across reruns or intermittent; capturing the exact traceback + the crew/agent config that triggered it makes it far easier for others here to reproduce and help.</p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='1'><meta itemprop='url' content='https://community.crewai.com/t/failed-to-start-execution-500/7698/2'>
+          </div>
+
+        </div>
+    </div>
+
+
+    <div id="related-topics" class="more-topics__list " role="complementary" aria-labelledby="related-topics-title">
+  <h3 id="related-topics-title" class="more-topics__list-title">
+    Related topics
+  </h3>
+  <div class="topic-list-container" itemscope itemtype='http://schema.org/ItemList'>
+    <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+    <table class='topic-list'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th class="replies">Replies</th>
+          <th class="views">Views</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="topic-list-item" id="topic-list-item-5930">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='1'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/i-m-using-crewai-with-azure-openai-gpt-4o-to-generate-a-short-story-but-the-execution-gets-stuck-after-printing-the-crew-kickoff-message/5930' class='title raw-link raw-topic-link'>I’m using CrewAI with Azure OpenAI (gpt-4o) to generate a short story, but the execution gets stuck after printing the crew kickoff message</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>75</span>
+            </td>
+            <td>
+              May 24, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-6203">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='2'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/why-is-there-no-error-information-when-fails/6203' class='title raw-link raw-topic-link'>Why is there no error information when fails?</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>153</span>
+            </td>
+            <td>
+              June 11, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-528">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='3'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/running-o1-mini-i-get-a-stop-issuse/528' class='title raw-link raw-topic-link'>Running o1 mini i get a stop issuse</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>4</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>477</span>
+            </td>
+            <td>
+              September 26, 2024
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-1138">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='4'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/invalid-format-i-missed-the-action-after-thought-i-will-do-right-next-and-don-t-use-a-tool-i-have-already-used/1138' class='title raw-link raw-topic-link'>Invalid Format: I missed the ‘Action:’ after ‘Thought:’. I will do right next, and don’t use a tool I have already used</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/openai/1' class='discourse-tag'>openai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>5</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>1447</span>
+            </td>
+            <td>
+              May 14, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-5957">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='5'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-is-not-running-properly/5957' class='title raw-link raw-topic-link'>Crewai is not running properly</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>10</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>372</span>
+            </td>
+            <td>
+              May 27, 2025
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

@@ -125,7 +125,11 @@ def audit(root: Path) -> int:
             errors.append(f"repository hash mismatch: {item['path']}")
 
     license_path = snapshot / "LICENSE"
-    if not license_path.is_file() or "MIT License" not in license_path.read_text(encoding="utf-8"):
+    license_text = license_path.read_text(encoding="utf-8") if license_path.is_file() else ""
+    if not license_path.is_file() or (
+        "Permission is hereby granted, free of charge" not in license_text
+        and "MIT License" not in license_text
+    ):
         errors.append("MIT LICENSE missing or invalid")
 
     audio_suffixes = {".aac", ".flac", ".m4a", ".mp3", ".ogg", ".wav"}

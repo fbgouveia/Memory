@@ -83,7 +83,7 @@ def canonical(url: str, *, page: bool = False) -> str:
     parts = urllib.parse.urlsplit(url)
     path = re.sub(r"/{2,}", "/", parts.path or "/")
     query = "" if page else parts.query
-    return urllib.parse.urlunsplit((parts.scheme.lower(), parts.netloc.lower(), path, query, ""))
+    return urllib.parse.urlunsplit(("https", parts.netloc.lower(), path, query, ""))
 
 
 def same_origin(url: str) -> bool:
@@ -93,9 +93,13 @@ def same_origin(url: str) -> bool:
 
 def local_path(root: Path, url: str, media_type: str, category: str) -> Path:
     parts = urllib.parse.urlsplit(url)
+    host = parts.netloc.lower()
+    if host.startswith("www."):
+        host = host[4:]
+    host_safe = re.sub(r"[^A-Za-z0-9._-]+", "_", host)
     path = urllib.parse.unquote(parts.path).strip("/") or "home"
     safe = "/".join(re.sub(r"[^A-Za-z0-9._-]+", "_", p) for p in path.split("/"))
-    target = root / "raw" / "site" / ("pages" if category == "page" else "assets") / safe
+    target = root / "raw" / "site" / ("pages" if category == "page" else "assets") / host_safe / safe
     if category == "page" and not target.suffix:
         target = target.with_suffix(".html")
     elif category != "page" and not target.suffix:
