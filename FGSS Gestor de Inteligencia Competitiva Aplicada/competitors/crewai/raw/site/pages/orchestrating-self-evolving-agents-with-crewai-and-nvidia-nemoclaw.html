@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/orchestrating-self-evolving-agents-with-crewai-and-nvidia-nemoclaw/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw">
+    <meta property="og:description" content="The technology landscape in early 2026 is undergoing a shift similar to the rise of the modern web stack. AI is moving beyond simple prompt-based interactions toward autonomous, continuously evolving agents. These long-running agents, which many experienced recently on a more personal level through “claws”, can break down">
+    <meta property="og:url" content="https://blog.crewai.com/orchestrating-self-evolving-agents-with-crewai-and-nvidia-nemoclaw/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/03/ArticleCover.png">
+    <meta property="article:published_time" content="2026-03-17T19:19:21.000Z">
+    <meta property="article:modified_time" content="2026-03-17T19:23:27.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw">
+    <meta name="twitter:description" content="The technology landscape in early 2026 is undergoing a shift similar to the rise of the modern web stack. AI is moving beyond simple prompt-based interactions toward autonomous, continuously evolving agents. These long-running agents, which many experienced recently on a more personal level through “claws”, can break down">
+    <meta name="twitter:url" content="https://blog.crewai.com/orchestrating-self-evolving-agents-with-crewai-and-nvidia-nemoclaw/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/03/ArticleCover.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="480">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw",
+    "url": "https://blog.crewai.com/orchestrating-self-evolving-agents-with-crewai-and-nvidia-nemoclaw/",
+    "datePublished": "2026-03-17T19:19:21.000Z",
+    "dateModified": "2026-03-17T19:23:27.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/03/ArticleCover.png",
+        "width": 1200,
+        "height": 480
+    },
+    "description": "The technology landscape in early 2026 is undergoing a shift similar to the rise of the modern web stack. AI is moving beyond simple prompt-based interactions toward autonomous, continuously evolving agents. These long-running agents, which many experienced recently on a more personal level through “claws”, can break down goals, execute code, and operate independently for extended periods.\n\nWhile this unlocks major productivity gains, it also creates new trust and security challenges for enterpr",
+    "mainEntityOfPage": "https://blog.crewai.com/orchestrating-self-evolving-agents-with-crewai-and-nvidia-nemoclaw/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=D6OJpxckK_6QDJ1o"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=zbOBSN8qHrr3rC6Y">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="5680cac1-b239-44fa-8d35-e950a9a367d3" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template gh-font-heading-inter gh-font-body-inter has-wide-image is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post">
+            <header class="gh-article-header gh-canvas">
+
+                <h1 class="gh-article-title">Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw</h1>
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2026-03-17">Mar 17, 2026</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">8 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2026/03/ArticleCover.png 300w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2026/03/ArticleCover.png 720w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2026/03/ArticleCover.png 960w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/03/ArticleCover.png 1200w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2026/03/ArticleCover.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/03/ArticleCover.png"
+            alt="Orchestrating Self-Evolving Agents with CrewAI and NVIDIA NemoClaw"
+        >
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>The technology landscape in early 2026 is undergoing a shift similar to the rise of the modern web stack. AI is moving beyond simple prompt-based interactions toward autonomous, continuously evolving agents. These long-running agents, which many experienced recently on a more personal level through “claws”, can break down goals, execute code, and operate independently for extended periods.</p><p>While this unlocks major productivity gains, it also creates new trust and security challenges for enterprises. Running autonomous agents safely requires strong orchestration, secure runtimes, and high governance levels. The combination of <a href="https://github.com/crewaiinc/crewai?ref=blog.crewai.com" rel="noreferrer">CrewAI</a> for agent orchestration and <a href="https://github.com/NVIDIA/NemoClaw?ref=blog.crewai.com" rel="noreferrer">NVIDIA NemoClaw</a> for secure execution provides the capability, autonomy, and safety needed to run these systems in production.</p><p>A key moment in this shift came with the OpenClaw project in early 2026, which demonstrated that self-evolving agents could plan complex tasks, generate their own tools, and run continuous workflows. As agent frameworks rapidly become the new AI application layer, enterprises must balance capability, autonomy, and safety. The NemoClaw stack helps close this gap, allowing organizations to deploy powerful autonomous systems while maintaining control over their infrastructure and data.</p><p>We're also working together on NVIDIA NemoClaw, an open source stack that simplifies running OpenClaw always-on assistants more safely, with a single command. It installs the NVIDIA OpenShell Runtime, part of the NVIDIA Agent Toolkit, a secure environment for running autonomous agents, and open source models like NVIDIA Nemotron.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/03/Generated-Image-March-17--2026---9_57AM--1-.jpg" class="kg-image" alt="" loading="lazy" width="2000" height="1129" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/03/Generated-Image-March-17--2026---9_57AM--1-.jpg 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/03/Generated-Image-March-17--2026---9_57AM--1-.jpg 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/03/Generated-Image-March-17--2026---9_57AM--1-.jpg 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2400/2026/03/Generated-Image-March-17--2026---9_57AM--1-.jpg 2400w" sizes="(min-width: 720px) 720px"></figure><h2 id="crewai-as-the-definitive-orchestration-backbone-for-long-running-agents">CrewAI as the Definitive Orchestration Backbone for Long-Running Agents</h2><p>CrewAI has played a key role in the rise of multi-agent-based AI systems by providing the orchestration needed to manage teams of autonomous agents. From the beginning, it was designed to handle complex, multi-step workflows that go far beyond simple single-model interactions.</p><p>The framework is built around a dual-layer architecture: Flows and Crews. This structure makenables it possiblthe tocoordination coordinateof long-running processes and agent collaboration, which are essential for modern agentic systems.</p><h3 id="the-flow-first-architecture-for-deterministic-control">The Flow-First Architecture for Deterministic Control</h3><p>In production environments, not every use case requires full agency, some might require a higher degree of control and different levels of agency, CrewAI addresses this with Flows, which act as the deterministic backbone of an agentic system. A Flow manages the system's structure, handling logic, state management, loops, and conditional execution paths. By separating predictable process control (the Flow) from the reasoning tasks handled by agents (the Crew) and any ad hoc LLM calls, developers can build systems that are both intelligent and reliable.</p><p>This architecture has already proven itself at scale. CrewAI has powered roughly 2 billion agentic executions over the past year and is currently used by more than 60% of Fortune 500, demonstrating readiness for enterprise workloads.</p><h3 id="state-management-and-persistent-memory-systems">State Management and Persistent Memory Systems</h3><p>For agents to handle long-running tasks like deep research, regulatory compliance checks or even software audits, they need the ability to maintain context over time. CrewAI provides a flexible state system that allows data to move smoothly between workflow steps. It supports both unstructured state (dictionaries) for flexibility and structured state (Pydantic models) for stronger validation and type safety.</p><p>Persistence is also essential when agents need to pause for human input or recover from interruptions. CrewAI’s @persist() decorator automatically saves workflow state so execution can resume later. In addition, both Crews and Flow and its agents get a persistent cognitive memory layer, allowing them to retain information across sessions and gradually accumulate knowledge, consolidating and even strategically forgetting over time. This shift, from stateless interactions to agents with memory, marks an important step in optimizing long-running agent workflows that can learn from executions itself and human feedback.</p><h2 id="the-trust-gap-challenges-of-self-evolving-autonomy-in-the-enterprise">The Trust Gap: Challenges of Self-Evolving Autonomy in the Enterprise</h2><p>As agents evolve from simple task executors into self-improving systems that can even modify the very environment they operate in, traditional approaches to application security start to break down. The core challenge is that a self-evolving agent can modify the very environment in which it operates, introducing new layers of operational and security risk.</p><p>Before autonomous agents can be widely deployed in enterprise environments, these risks, ranging from unpredictable behavior to access and data security concerns, must be carefully managed through stronger runtime controls and infrastructure-level safeguards.</p><h3 id="security-concerns-and-unbounded-agency">Security Concerns and Unbounded Agency</h3><p>Autonomous agents that write code and manage their own tools are inherently difficult to trust. When an agent has permissions to install packages or modify local files, it creates real risks such as unauthorized access or data exfiltration. This challenge is often referred to as the “production reality gap,” where many agent projects fail because their architecture cannot provide the level of control and confidence enterprises require.</p><p>Several factors contribute to this problem. Most agents operate with implicit trust, inheriting the full permissions of the user who launched them. Security checks are often built inside the agent itself, which means a self-evolving agent could theoretically bypass them by rewriting its own logic. There are also privacy risks, where sensitive local context could be sent to external models, and limited observability, making it hard to audit the many small decisions agents make during long-running tasks.</p><p>CrewAI addresses these risks through a few of its features like guardrails, human in the loop, its hierarchical manager–worker architecture, which enables strict task-level tool scoping or Flows for more granular control on the agency level. Agents are restricted to the tools defined for their tasks, improving security compared to mesh or swarm-style systems. For enterprises that also need infrastructure-level governance, like sandboxing, policy enforcement, and privacy routing, the NemoClaw stack provides the ideal complementary layer.</p><h1 id="nvidia-nemoclaw-a-new-standard-for-safe-agent-execution">NVIDIA NemoClaw: A New Standard for Safe Agent Execution</h1><p>NVIDIA has addressed the infrastructure gap with NVIDIA NemoClaw, an open-source stack that simplifies running OpenClaw always-on assistants more safely, with a single command. NemoClaw incorporates policy-based privacy and security guardrails, giving users control over their agents' behavior and data handling. This enables self-evolving claws to run more safely in clouds, on prem, RTX PCs and DGX Spark.</p><p>Under the hood, NemoClaw brings together the NeMo framework for agent reasoning pipelines, Nemotron models for local inference, and NIM microservices for deployment, packaging them into a single stack that can be up and running with one command.</p><h3 id="the-foundational-pillars-of-nemoclaw-stack-architecture">The Foundational Pillars of NemoClaw Stack Architecture</h3><p>For runtime security, NemoClaw includes the NVIDIA OpenShell Runtime, part of the NVIDIA Agent Toolkit. The NVIDIA OpenShell Runtime provides three core capabilities:</p>
+<!--kg-card-begin: html-->
+<div style="width:100%;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid #e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji'">
+  <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+    <colgroup>
+      <col style="width:20%">
+      <col style="width:22%">
+      <col style="width:58%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Building Block</th>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Primary Function</th>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Security Implementation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#dbeafe;color:#2563eb;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="m6.75 7.5 3 2.25-3 2.25m4.5 0h3m-9 8.25h13.5A2.25 2.25 0 0 0 21 17.25V6.75A2.25 2.25 0 0 0 18.75 4.5H5.25A2.25 2.25 0 0 0 3 6.75v10.5A2.25 2.25 0 0 0 5.25 20.25Z"/></svg></span><br/>Sandbox</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#eff6ff;color:#1d4ed8">Isolated<br/>Execution</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word">Programmable isolation that handles skill<br/>development and verification; agents can<br/>break the sandbox without touching the host</td>
+      </tr>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#ede9fe;color:#7c3aed;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75m-3-7.036A11.959 11.959 0 0 1 3.598 6 11.99 11.99 0 0 0 3 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></span><br/>Policy Engine</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#f5f3ff;color:#6d28d9">Fine-Grained<br/>Control</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word">Evaluates every action at the binary,<br/>destination, and method level across<br/>the filesystem and network</td>
+      </tr>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#dcfce7;color:#16a34a;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M7.5 21 3 16.5m0 0L7.5 12M3 16.5h13.5m0-13.5L21 7.5m0 0L16.5 12M21 7.5H7.5"/></svg></span><br/>Privacy Router</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#f0fdf4;color:#15803d">Context<br/>Management</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;word-wrap:break-word;overflow-wrap:break-word">Routes inference to local open models or<br/>public frontier models based on enterprise<br/>cost and privacy policies</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--kg-card-end: html-->
+<p>The sandbox is purpose-built for long-running autonomous agents within NemoClaw, including the process of learning new skills during execution. It validates new skills at runtime and supports live policy updates as developers approve additional permissions or capabilities.</p><h3 id="infrastructure-layer-policy-enforcement">Infrastructure-Layer Policy Enforcement</h3><p>A key innovation is that the NVIDIA OpenShell Runtime enforces every action at the infrastructure level, not within the agent's own code. This means that even if an agent's internal logic changes or behaves unexpectedly, the runtime will still block any action that violates defined security policies .A key innovation in <strong>NemoClaw</strong> is that every action is enforced at the <strong>infrastructure level</strong>, not within the agent’s own code. This design ensures that even if an agent’s internal logic changes or behaves unexpectedly, the runtime will still block any action that violates defined security policies.</p><p>Agents begin with <strong>zero permissions</strong>, and any request for additional access must be explicitly justified and approved by a human developer. Every approval or denial is recorded, creating a clear <strong>audit trail</strong> that maintains transparency and control over how autonomous agents operate.</p><h2 id="synergy-between-crewai-and-nvidia-nemoclaw">Synergy Between CrewAI and NVIDIA NemoClaw</h2><p>The combination of <strong>CrewAI</strong> and <strong>NVIDIA NemoClaw</strong> creates a strong foundation for enterprise AI systems. CrewAI handles the <strong>high-level orchestration</strong>, —managing agent roles, workflows, and collaboration, —while NemoClaw provides the secure stack for policy enforcement, privacy controls, and system-level governance.NemoClaw provides the <strong>secure runtime environment</strong>, including policy enforcement, privacy controls, and system-level governance.</p><p>Together, they allow organizations to take advantage ofleverage autonomous, long-running agents while still maintaining <strong>enterprise-grade security, control, and observability</strong>. This pairing enables teams to build powerful and mission-critical agentic systems without exposing critical infrastructure or data to unnecessary risk.</p><h3 id="integrating-flows-with-secure-sandboxes">Integrating Flows with Secure Sandboxes</h3><p>CrewAI developers can run their agent crews inside the NemoClaw stack without making any code changes, making it easy to add enterprise-grade infrastructure security to existing workflows.CrewAI developers can run their agent crews inside NemoClaw sandboxes without making code changes, which makes &nbsp;it easy to add enterprise-grade security to existing workflows. This is especially useful for complex systems like the NVIDIA AI-Q research blueprint, an open architecture designed for agents that analyze enterprise and web data to produce well-cited research reports. Running these workflows inside the NemoClaw stack ensures that the entire research process stays within a controlled and trusted environment.</p><p>The AI-Q architecture typically uses a multi-agent setup with three main roles: an Orchestrator, a Planner, and a Researcher. The Orchestrator manages the overall loop, the Planner maps the research strategy, and the Researcher collects evidence through specialized agents. When these roles are implemented with CrewAI and executed within NemoClaw, organizations can generate deep research outputs in minutes while still enforcing strict privacy, policy, and resource controls.</p><h3 id="accelerating-the-ai-data-flywheel">Accelerating the AI Data Flywheel</h3><p>The integration of these technologies enables the creation of a "data flywheel," where agentic systems continuously improve through observation and feedback. The NVIDIA NeMo Agent Toolkit adds intelligence to these agents across any framework, enhancing speed and accuracy through enterprise-grade instrumentation. This toolkit allows developers to profile their agents, identify bottlenecks, and optimize hyperparameters such as LLM type and temperature to improve performance.</p>
+<!--kg-card-begin: html-->
+<div style="width:100%;margin-top:2rem;border-radius:14px;overflow:hidden;box-shadow:0 2px 12px rgba(0,0,0,0.08);border:1px solid #e2e8f0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif,'Apple Color Emoji'">
+  <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+    <colgroup>
+      <col style="width:18%">
+      <col style="width:24%">
+      <col style="width:58%">
+    </colgroup>
+    <thead>
+      <tr>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Optimization Metric</th>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Mechanism</th>
+        <th style="padding:14px 22px;text-align:left;color:#94a3b8;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;background:#0f172a">Impact on Agent Performance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#fef3c7;color:#d97706;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3.75 13.5l10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75z"/></svg></span><br/>Latency</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#fefce8;color:#a16207">NVIDIA Dynamo<br/>Integration</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word">Accelerates deployment and improves<br/>worker latency via agent-aware routing</td>
+      </tr>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#dbeafe;color:#2563eb;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg></span><br/>Accuracy</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#eff6ff;color:#1d4ed8">Hyperparameter<br/>Optimizer</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word">Automatically selects optimal LLM settings<br/>and prompts for better groundedness</td>
+      </tr>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#dcfce7;color:#16a34a;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M3 7.5L7.5 3m0 0L12 7.5M7.5 3v13.5m13.5-6L16.5 21m0 0L12 16.5m4.5 4.5V7.5"/></svg></span><br/>Throughput</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#f0fdf4;color:#15803d">NVIDIA Nemotron<br/>Models</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;border-bottom:1px solid #f1f5f9;word-wrap:break-word;overflow-wrap:break-word">The recently released Nemotron 3 Super<br/>delivers 5x faster token generation compared<br/>to previous Nemotron Super model</td>
+      </tr>
+      <tr>
+        <td style="padding:18px 22px;vertical-align:middle;font-weight:600;font-size:15px;color:#0f172a;background:#fff;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-flex;align-items:center;justify-content:center;width:32px;height:32px;border-radius:8px;background:#ede9fe;color:#7c3aed;margin-right:10px;vertical-align:middle"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="none" viewBox="0 0 24 24" stroke-width="1.8" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75m-3-7.036A11.959 11.959 0 013.598 6 11.99 11.99 0 003 9.749c0 5.592 3.824 10.29 9 11.623 5.176-1.332 9-6.03 9-11.622 0-1.31-.21-2.571-.598-3.751h-.152c-3.196 0-6.1-1.248-8.25-3.285Z"/></svg></span><br/>Security</td>
+        <td style="padding:18px 22px;vertical-align:middle;background:#fff;word-wrap:break-word;overflow-wrap:break-word"><span style="display:inline-block;padding:4px 12px;border-radius:20px;font-size:12.5px;font-weight:600;background:#f5f3ff;color:#6d28d9">Red Teaming<br/>&amp; Profiling</span></td>
+        <td style="padding:18px 22px;vertical-align:middle;font-size:14px;line-height:1.6;color:#475569;background:#fff;word-wrap:break-word;overflow-wrap:break-word">Simulates attacks and profiles risks<br/>to harden agents against prompt injection</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
+<!--kg-card-end: html-->
+<h1 id="hardware-foundations-for-persistent-agent-workloads">Hardware Foundations for Persistent Agent Workloads</h1><p>The next generation of agentic AI will require hardware capable of supporting <strong>long-running autonomous processes</strong> and the heavy computational demands of modern large models. NVIDIA’s <strong>DGX Station</strong>, powered by the <strong>GB300 superchip architecture</strong>, is designed as a high-performance development platform built for these kinds of advanced AI workloads.</p><h3 id="the-dgx-station-with-nemoclaw">The DGX Station with NemoClaw</h3><p>The <strong>DGX Station</strong> functions as a desktop-class supercomputer designed to support frontier-level AI workloads. Unlike standard developer machines, it is built to handle extremely large models and intensive compute tasks locally.</p><p>More importantly, the system is optimized for <strong>persistent runtimes and multi-agent workloads</strong>, making it well suited for long-running autonomous agents. This stability allows complex agent systems to operate continuously, supporting scenarios where agents must run, learn, and execute tasks around the clock.</p><p>The <strong>DGX Station</strong> also includes <strong>ECC memory</strong> and <strong>Multi-Instance GPU (MIG)</strong> partitioning, allowing multiple agent workloads to run simultaneously without interfering with each other. This makes it possible for teams to run several long-running agents or experiments on the same system while maintaining stability and isolation.</p><p>When combined with the <strong>NemoClaw stackruntime</strong>, this setup creates a trusted environment for developing and operating autonomous agents. Enterprise IT teams can provide developers with powerful workstations while still maintaining strict control, ensuring that the <strong>trusted agent boundary</strong> is enforced both at the hardware level and within the runtime environment.</p><h3 id="the-role-of-local-open-models">The Role of Local Open Models</h3><p>At the core of this hardware and software stack are the <strong>Nemotron open models</strong>, which are designed specifically for <strong>agentic workloads</strong> such as reasoning, coding, and retrieval-augmented generation (RAG). These models provide the reasoning capabilities needed for autonomous systems that must plan, analyze information, and execute complex tasks.</p><p>By running Nemotron models <strong>locally on DGX Station</strong>, organizations can keep sensitive data and context on-device. External frontier models can be used only when enterprise policies explicitly allow it. This <strong>privacy-aware routing approach</strong> is critical for organizations in regulated industries like finance and healthcare, where maintaining strict control over data access and model usage is essential.</p><h2 id="get-started">Get Started</h2><p>The era of autonomous, self-evolving agents has arrived. The opportunity now is not just to experiment with AI, but to build secure, production-ready agentic systems that deliver real business value.</p><p>Developers and enterprises should start by combining CrewAI for orchestration with NVIDIA NemoClaw for secure agent deployment, NVIDIA NemoClaw for secure runtime governance, running on high-performance infrastructure such as DGX Station. This stack enables teams to deploy long-running agents that can reason, collaborate, and evolve, —while maintaining strict security, privacy, and policy controls.</p><p>Now is the time to move beyond isolated AI tools and begin building trusted agentic workflows. Start prototyping crews, deploy them inside secure runtimes, and design the systems that will power the next generation of intelligent software.</p>
+            </section>
+        </article>
+
+    
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="69b86ab152df6600014a4745"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="69b86ab152df6600014a4745" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>

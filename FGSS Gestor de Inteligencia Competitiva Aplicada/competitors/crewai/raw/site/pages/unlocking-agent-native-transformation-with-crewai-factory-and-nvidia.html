@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Unlocking agent-native transformation with CrewAI Factory and NVIDIA</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/unlocking-agent-native-transformation-with-crewai-factory-and-nvidia/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Unlocking agent-native transformation with CrewAI Factory and NVIDIA">
+    <meta property="og:description" content="Day 1 of CrewAI Launch Week 01 (May 2025)
+
+CrewAI Enterprise makes it easy for organizations to build, run and monitor Agentic AI workflows in the cloud – and to automate business processes on day one. However, in practice, large enterprises often need to run AI applications on their own infrastructure">
+    <meta property="og:url" content="https://blog.crewai.com/unlocking-agent-native-transformation-with-crewai-factory-and-nvidia/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/favicon-2.svg">
+    <meta property="article:published_time" content="2025-05-19T06:02:01.000Z">
+    <meta property="article:modified_time" content="2025-05-20T00:00:10.000Z">
+    <meta property="article:tag" content="CrewAI Factory">
+    <meta property="article:tag" content="NVIDIA">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Unlocking agent-native transformation with CrewAI Factory and NVIDIA">
+    <meta name="twitter:description" content="Day 1 of CrewAI Launch Week 01 (May 2025)
+
+CrewAI Enterprise makes it easy for organizations to build, run and monitor Agentic AI workflows in the cloud – and to automate business processes on day one. However, in practice, large enterprises often need to run AI applications on their own infrastructure">
+    <meta name="twitter:url" content="https://blog.crewai.com/unlocking-agent-native-transformation-with-crewai-factory-and-nvidia/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/favicon-1.svg">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="CrewAI Factory, NVIDIA">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="48">
+    <meta property="og:image:height" content="48">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "Unlocking agent-native transformation with CrewAI Factory and NVIDIA",
+    "url": "https://blog.crewai.com/unlocking-agent-native-transformation-with-crewai-factory-and-nvidia/",
+    "datePublished": "2025-05-19T06:02:01.000Z",
+    "dateModified": "2025-05-20T00:00:10.000Z",
+    "keywords": "CrewAI Factory, NVIDIA",
+    "description": "Day 1 of CrewAI Launch Week 01 (May 2025)\n\nCrewAI Enterprise makes it easy for organizations to build, run and monitor Agentic AI workflows in the cloud – and to automate business processes on day one. However, in practice, large enterprises often need to run AI applications on their own infrastructure due to security and data privacy requirements.\n\nThat’s why we’re excited to announce CrewAI Enterprise is now available for deployment on customer infrastructure via CrewAI Factory – whether in a ",
+    "mainEntityOfPage": "https://blog.crewai.com/unlocking-agent-native-transformation-with-crewai-factory-and-nvidia/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=a9c25f0c37"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=a9c25f0c37">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="3584328a-bcc0-4591-bc16-2118a5ea3c80" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template tag-crewai-factory tag-hash-shane tag-nvidia gh-font-heading-inter gh-font-body-inter is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post tag-crewai-factory tag-hash-shane tag-nvidia no-image">
+
+            <header class="gh-article-header gh-canvas">
+                    <a class="gh-article-tag" href="https://blog.crewai.com/tag/crewai-factory/">CrewAI Factory</a>
+
+                <h1 class="gh-article-title">Unlocking agent-native transformation with CrewAI Factory and NVIDIA</h1>
+
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2025-05-19">May 19, 2025</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">3 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+                            </header>
+
+            <section class="gh-content gh-canvas">
+                <p><em>Day 1 of CrewAI </em><a href="https://www.crewai.com/launch-week?ref=blog.crewai.com" rel="noreferrer"><em>Launch Week 01</em></a><em> (May 2025)</em></p><p>CrewAI Enterprise makes it easy for organizations to build, run and monitor Agentic AI workflows in the cloud – and to automate business processes on day one. However, in practice, large enterprises often need to run AI applications on their own infrastructure due to security and data privacy requirements.</p><p>That’s why we’re excited to announce CrewAI Enterprise is now available for deployment on customer infrastructure via CrewAI Factory – whether in a data center or a virtual private cloud. CrewAI Factory provides the same benefits and capabilities of CrewAI Enterprise, but in a customer-managed form factor that provides:</p><ul><li>Management and monitoring</li><li>Real-time testing and tracing</li><li>No-code development</li><li>Enterprise tools and connectors</li><li>Encrypted communication and storage</li><li>Secure operations (e.g., SOC2/HIPPA/FedRAMP High)</li></ul><h2 id="deploy-anywhere">Deploy anywhere</h2><p></p><p><strong>AWS/Azure VPCs – </strong>AWS Fargate and Azure Container Apps support enables enterprises to run on their own VPCs and with their own cloud databases (e.g., AWS RDS/Azure Database).</p><p><strong>Kubernetes clusters – </strong>Kubernetes deployment via Helm enables enterprises to run on their own AWS Elastic Kubernetes Service, Azure Kubernetes Service and Google Kubernetes Service clusters as well as Red Hat OpenShift (on premises or in the cloud).</p><p><strong>Serverless scaling, high availability</strong> – A serverless, container-based architecture not only simplifies deployment, but provides automatic scaling via resource allocation and high availability via persistent volumes and database replicas.</p><p><strong>Secure authentication</strong> – Native integration with Auth0 and Microsoft Entra ID for customer-managed, enterprise-wide authentication.</p><h2 id="become-agent-native">Become agent-native</h2><p>CrewAI Factory not only helps enterprises meet security and data privacy requirements for AI applications, it bridges the gap between CrewAI’s agent-powered and agent-native adoption levels. It’s one thing to deploy a handful of agentic workflows and see the potential for massive impact on the business. It’s another to embrace Agentic AI as means to fundamentally transform business processes and accelerate growth.</p><figure class="kg-card kg-image-card"><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcO-D-5SOTRBpG0DD2BDQjy1uJ0YBep5c_GO7EYDVuMMNN3Kl1qEL4I-_mzp3AJ31sj_nPuwUfNec4tHLDxbWl3aGljho7gIpD7eA47WXdKZJ6bF-JcjloxmF0mTxeD8BluUadYCA?key=7vuOug7aLRpNrSaK6l4Kyg" class="kg-image" alt="" loading="lazy" width="624" height="351"></figure><p>With CrewAI, enterprises can scale several orders of magnitude – a dozen agentic workflows vs. hundreds if not thousands, a handful of simple use cases vs. hundreds of critical use cases spanning multiple teams, departments or business units.</p><p>The path to becoming agent-native is the real promise of CrewAI Factory. Beyond a framework for orchestrating agents, it’s a complete platform designed to infuse Agentic AI into the DNA of innovative enterprises.</p><h2 id="build-an-ai-factory">Build an AI factory</h2><p>CrewAI worked with NVIDIA to help enterprises with this transformation, with CrewAI Factory providing the Agentic AI platform and NVIDIA AI Enterprise providing specialized models and tools for agents via NVIDIA NeMo and NVIDIA NIM microservices.</p><p>The integration of NIM microservices enables CrewAI customers to build and deploy agents built on NVIDIA NeMo Retriever, NVIDIA Llama Nemotron and NVIDIA NeMO Guardrails models. With access to these models and secure, high-performance inference, agentic workflows on CrewAI Factory benefit from advanced reasoning and tool use as well as higher accuracy when retrieving knowledge from unstructured data. NVIDIA hosts a number of reference AI blueprints, with one for code documentation submitted by CrewAI <a href="https://build.nvidia.com/crewai/code-documentation-for-software-development?ref=blog.crewai.com"><u>here</u></a>.</p><figure class="kg-card kg-image-card"><img src="https://lh7-rt.googleusercontent.com/docsz/AD_4nXcvtKl7bjplbzCnkjiOC76RcnFDXcFteVPUOSWfZhyISGmOpQsf7D86nTd3B5YYBtlaQy7jbxz-3gfYa0KgO6YLYy8yU2ropQoRsgf3eD2N7fJND5ehdFFwtGebJKx38PUJik4gnA?key=7vuOug7aLRpNrSaK6l4Kyg" class="kg-image" alt="" loading="lazy" width="624" height="307"></figure><p>The deployment of CrewAI Factory and NVIDIA AI Enterprise provides customers with their own AI factory, running on their own infrastructure and with no limits on scale and specialization.</p><blockquote>Agentic AI is empowering organizations to innovate faster in virtually every industry, CrewAI and NVIDIA are working together to empower enterprises to orchestrate intelligent, multi-agent systems that reason, plan, and act, scaling productivity through intelligent AI teammates.”<br><br>John Fanelli, VP of Enterprise Software at NVIDIA.</blockquote><p>CrewAI's first <a href="https://www.crewai.com/launch-week?ref=blog.crewai.com" rel="noreferrer">launch week</a> is just getting started. Stay tuned as we have a lot more to share, and sign up for our <a href="https://www.crewai.com/webinar-taking-agentic-ai-to-the-next-level?ref=blog.crewai.com" rel="noreferrer">webinar</a> this Thursday to discover how we're taking Agentic AI to the next level!</p>
+            </section>
+
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/creating-a-center-of-gravity-for-the-agentic-ai-ecosystem/">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Creating a center of gravity for the Agentic AI ecosystem</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">First things first, thank you to everyone who attended our very first launch week webinar!
+
+It was absolutely incredible to see 2,600+ people register for a webinar in a matter of days, and even more so to see everyone immediately introducing themselves, connecting with other community members and asking</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-05-22">May 22, 2025</time>
+                    <script
+    data-ghost-comment-count="682f9c741435e60001338e25"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/enabling-domain-experts-to-build-and-deploy-agentic-workflows-without-the-need-to-write-code/">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Enabling domain experts to build and deploy agentic workflows without the need to write code</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Day 3 of CrewAI Launch Week 01 (May 2025)
+
+CrewAI OSS provides developers with a unique combination of abstraction and flexibility that makes it easy to build multi-agent workflows that perform complex tasks autonomously.
+
+And it powers CrewAI Enterprise, a cloud-native platform that adds features and capabilities organizations</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-05-21">May 21, 2025</time>
+                    <script
+    data-ghost-comment-count="682ddfc067ed8e0001e17536"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post no-image">
+    <a class="gh-card-link" href="/how-crewai-is-evolving-beyond-orchestration-to-create-the-most-powerful-agentic-ai-platform/">
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">How CrewAI is evolving beyond orchestration to create the most powerful Agentic AI platform</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Day 2 of CrewAI Launch Week 01 (May 2025)
+
+There are a handful of well-known agent frameworks and platforms, and you know what? They can all demonstrate the value of agents with a simple proof of concept. They all support agent planning, orchestration, memory management and tool use – the</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-05-20">May 20, 2025</time>
+                    <script
+    data-ghost-comment-count="682c8030947cab0001739be7"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="68278e77896a030001e376d8"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="68278e77896a030001e376d8" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>

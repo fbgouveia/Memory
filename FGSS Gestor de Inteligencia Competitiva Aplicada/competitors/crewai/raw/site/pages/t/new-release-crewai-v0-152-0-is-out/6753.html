@@ -1,0 +1,803 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>New Release CrewAI v0.152.0 is out! - Announcements - CrewAI</title>
+    <meta name="description" content="Core Improvements &amp; Fixes
+
+
+Custom Flow Naming: You can now name your flows for easier project management and multi-user setups. This addresses a major request for clarity across large and collaborative projects. 
+
+
+RAG …">
+    <meta name="generator" content="Discourse 2026.8.0-latest.1 - https://github.com/discourse/discourse version 3bcc19a5d2df81fcdfda6fa461ede9e9cac92c48">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/dd5538a5110a9677e7e0d33a25c15efe4c257a38_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/ecda97e72f77c7100e0a761444b1c991925cc789_2_180x180.png">
+<meta name="theme-color" media="all" content="#fff">
+
+<meta name="color-scheme" content="light">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753" />
+
+<meta name="discourse-track-view-session-id" content="JzcQC03BphsS6whLxX8WSTeRGgoarRio"><meta name="discourse-beacon-pageview-enabled" content="true"><meta name="discourse-engagement-tracking-enabled" content="true">
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.crewai.com/opensearch.xml" title="CrewAI Search">
+
+    
+    <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/color_definitions_light-default_-1_18_19438fcabc837211bcf1b410c68f3dc280eb0215.css?__ws=community.crewai.com" media="all" rel="stylesheet" class="light-scheme"/>
+
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/automation_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/checklist_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-adplugin_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-assign"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-chat-integration_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-data-explorer_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-details_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-docs_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-docs"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-events"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-gamification"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-github_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-lazy-videos_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-local-dates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-narrative-bot_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-policy_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-post-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-post-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-presence_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-solved_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-subscriptions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-subscriptions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-templates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-topic-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-user-notes_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-yearly-review_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-yearly-review"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/footnote_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/hosted-site_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/spoiler-alert_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="chat_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-assign_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-events_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-gamification_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-events_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_4_d15e48126b3cf0bd9ca957ee2ddcf3afcbddd469.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="clickable topic"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_14_0e546bcd2c4eee77a58ab284362a26bbed3278c5.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="14" data-theme-name="panels"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_15_8361ab8d866da36d2a86422b05b0cd5c090e60e2.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="15" data-theme-name="primary button"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_16_a92a9ddc1c7d53e8777d670440c97eeb27fb8d5e.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="16" data-theme-name="rounded"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_18_7a264dc4fed621c1f31b924970b29024db19c827.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="18" data-theme-name="fully theme"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/mobile_theme_14_1643d3b2a777c4f694f2258add3f3e2fb45e9626.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="mobile_theme" data-theme-id="14" data-theme-name="panels"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/desktop_theme_14_d564c4069440fb33b07b870d065d929e20468815.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="14" data-theme-name="panels"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;New Release CrewAI v0.152.0 is out!&#39;" href="https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753.rss" />
+    <meta property="og:site_name" content="CrewAI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/ecda97e72f77c7100e0a761444b1c991925cc789.png" />
+<meta property="og:url" content="https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753" />
+<meta name="twitter:url" content="https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753" />
+<meta property="og:title" content="New Release CrewAI v0.152.0 is out!" />
+<meta name="twitter:title" content="New Release CrewAI v0.152.0 is out!" />
+<meta property="og:description" content="Core Improvements &amp; Fixes   Custom Flow Naming: You can now name your flows for easier project management and multi-user setups. This addresses a major request for clarity across large and collaborative projects.    RAG (Retrieval-Augmented Generation) Refactor: All RAG components have been moved to a dedicated root module. This streamlines importing and paves the way for more modular workflows. Action: Review and update your import statements—see the RAG migration guide.    Memory Bug Fixes (Me..." />
+<meta name="twitter:description" content="Core Improvements &amp; Fixes   Custom Flow Naming: You can now name your flows for easier project management and multi-user setups. This addresses a major request for clarity across large and collaborative projects.    RAG (Retrieval-Augmented Generation) Refactor: All RAG components have been moved to a dedicated root module. This streamlines importing and paves the way for more modular workflows. Action: Review and update your import statements—see the RAG migration guide.    Memory Bug Fixes (Me..." />
+<meta property="og:article:section" content="Announcements" />
+<meta property="og:article:section:color" content="BF1E2E" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="3 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="2 ❤" />
+<meta property="article:published_time" content="2025-07-31T15:03:53+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">CrewAI</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/new-release-crewai-v0-152-0-is-out/6753">New Release CrewAI v0.152.0 is out!</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/announcements/6" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>Announcements</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="http://schema.org/DiscussionForumPosting">
+      <meta itemprop='headline' content='New Release CrewAI v0.152.0 is out!'>
+      <link itemprop='url' href='https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753'>
+      <meta itemprop='datePublished' content='2025-07-31T15:03:53Z'>
+      <meta itemprop='keywords' content=''>
+          <meta itemprop='articleSection' content='Announcements'>
+        <div itemprop='publisher' itemscope itemtype="http://schema.org/Organization">
+          <meta itemprop='name' content='CrewAI'>
+            <div itemprop='logo' itemscope itemtype="http://schema.org/ImageObject">
+              <meta itemprop='url' content='https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png'>
+            </div>
+        </div>
+
+
+
+          <div id='post_1'  class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Tony_Wood'><span itemprop="name">Tony_Wood</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Tony_Wood'>
+                
+              </span>
+
+                <link itemprop="mainEntityOfPage" href="https://community.crewai.com/t/new-release-crewai-v0-152-0-is-out/6753">
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2025-07-31T15:03:53Z' class='post-time'>
+                    July 31, 2025,  3:03pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-07-31T15:57:55Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <h2><a name="p-11700-core-improvements-fixes-1" class="anchor" href="#p-11700-core-improvements-fixes-1" aria-label="Heading link"></a><strong>Core Improvements &amp; Fixes</strong></h2>
+<ul>
+<li>
+<p><strong>Custom Flow Naming:</strong> You can now name your flows for easier project management and multi-user setups. This addresses a major request for clarity across large and collaborative projects.</p>
+</li>
+<li>
+<p><strong>RAG (Retrieval-Augmented Generation) Refactor:</strong> All RAG components have been moved to a dedicated root module. This streamlines importing and paves the way for more modular workflows. <strong>Action:</strong> Review and update your import statements—see the <a href="https://docs.crewai.com/rag-migration">RAG migration guide</a>.</p>
+</li>
+<li>
+<p><strong>Memory Bug Fixes (Mem0):</strong> Targeted fixes improve (but do not fully resolve) agent memory save/search reliability. Data loss risks persist; backup regularly and track <a href="https://github.com/crewAIInc/crewAI/issues/3220">Mem0 issue #3220</a> for progress.</p>
+</li>
+<li>
+<p><strong>Clearer Import Errors:</strong> Improved import validation makes diagnosing setup problems easier.</p>
+</li>
+<li>
+<p><strong>Signup/Login Consistency:</strong> All references now standardise on “login” for a clearer onboarding experience.</p>
+</li>
+</ul>
+<h2><a name="p-11700-new-features-enhancements-2" class="anchor" href="#p-11700-new-features-enhancements-2" aria-label="Heading link"></a><strong>New Features &amp; Enhancements</strong></h2>
+<ul>
+<li>
+<p><strong>Timezone Support for Timestamps:</strong> All timestamp outputs now respect timezone settings, benefitting global and distributed teams while reducing scheduling and audit confusion.</p>
+</li>
+<li>
+<p><strong>First External Contributor:</strong> Celebrating manuka99 for their direct contributions in this version—our development community keeps growing!</p>
+</li>
+</ul>
+<h2><a name="p-11700-documentation-guides-3" class="anchor" href="#p-11700-documentation-guides-3" aria-label="Heading link"></a><strong>Documentation &amp; Guides</strong></h2>
+<ul>
+<li>
+<p><strong>Google Vertex AI Documentation Correction:</strong> Model name references are now correct, reducing integration barriers.</p>
+</li>
+<li>
+<p><strong><a href="https://docs.crewai.com/rag-migration">RAG Migration Guide</a>:</strong> Required reading if you use or extend RAG features; explains all breaking import path changes.</p>
+</li>
+<li>
+<p><strong>Ongoing Docs Fixes:</strong> Additional documentation errors remain open (<a href="https://github.com/crewAIInc/crewAI/issues/3240">#3240</a>), so expect more improvements soon. Your feedback speeds this process—share what blocks you in the <a href="https://github.com/crewAIInc/crewAI/issues">issue tracker</a>.</p>
+</li>
+</ul>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="1" />
+                <span class='post-likes'>1 Like</span>
+              </div>
+
+
+            
+
+
+          </div>
+          <div id='post_2' itemprop="comment" itemscope="itemscope" itemtype="http://schema.org/Comment" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Tony_Wood'><span itemprop="name">Tony_Wood</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Tony_Wood'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2025-07-31T15:04:42Z' class='post-time'>
+                    July 31, 2025,  3:04pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-07-31T15:06:19Z'>
+              <span itemprop="position">2</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <h1><a name="p-11701-crewai-q3-2025-cross-analysis-of-releases-issues-community-feedback-v01520-2025-05-31-to-2025-07-31-1" class="anchor" href="#p-11701-crewai-q3-2025-cross-analysis-of-releases-issues-community-feedback-v01520-2025-05-31-to-2025-07-31-1" aria-label="Heading link"></a><strong>CrewAI Q3 2025: Cross-Analysis of Releases, Issues &amp; Community Feedback (v0.152.0, 2025-05-31 to 2025-07-31)</strong></h1>
+<p><em>Prepared for the entire CREWAI community. This report surfaces actionable patterns, direct linkages, and opportunities for improving both product and community experience, based on comprehensive release notes, GitHub issue tracking, documentation, and blog highlights from 2025-05-31 to 2025-07-31.</em></p>
+<hr>
+<h2><a name="p-11701-executive-summary-2" class="anchor" href="#p-11701-executive-summary-2" aria-label="Heading link"></a><strong>Executive Summary</strong></h2>
+<p>CrewAI v0.152.0 (released 2025-07-30) focused on workflow clarity—adding custom flow naming, refactoring Retrieval-Augmented Generation (RAG) modules, and improving memory and timestamp management. The community appreciates these features, especially for scaling projects and running multi-region deployments. However, unresolved platform bugs, persistent memory issues (notably with Mem0), compatibility blockers for Mac and Windows, and a visible backlog of feature/documentation requests define areas needing urgent focus. The release brought cleaner structure, but several critical issues remain open, affecting new and existing users.</p>
+<p><strong>Key insights:</strong></p>
+<ul>
+<li>
+<p>Memory handling (Mem0) and OS-specific (Windows/Mac) platform blockers are top recurring pain-points.</p>
+</li>
+<li>
+<p>Feature work (custom flows, RAG refactor) aligns with long-standing user requests for modularity and large-scale workflows.</p>
+</li>
+<li>
+<p>Documentation errors/coverage gaps directly hinder onboarding and integration.</p>
+</li>
+<li>
+<p>Integration/automation tool bugs are a growing source of frustration as users scale use-cases and bring new tools.</p>
+</li>
+</ul>
+<hr>
+<h2><a name="p-11701-h-1-whats-new-changed-major-releases-3" class="anchor" href="#p-11701-h-1-whats-new-changed-major-releases-3" aria-label="Heading link"></a><strong>1. What’s New &amp; Changed: Major Releases</strong></h2>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th><strong>Version</strong></th>
+<th><strong>Release Date</strong></th>
+<th><strong>Major Additions &amp; Fixes</strong></th>
+<th><strong>Major Docs or Blog Highlights</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>v0.152.0</td>
+<td>2025-07-30</td>
+<td>- Custom flow names</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+</div><ul>
+<li>RAG components refactored to root module</li>
+<li>Timezone support for timestamps</li>
+<li>Mem0 bug fixes</li>
+<li>Clearer import errors</li>
+<li>All “signup” to “login”</li>
+<li>Contributor: manuka99 | - Google Vertex AI docs model name fix</li>
+<li><a href="https://docs.crewai.com/rag-migration">RAG migration guide</a> |</li>
+</ul>
+<p><em>Full changelog: <a href="https://github.com/joaomdmoura/crewAI/releases/tag/0.152.0">CrewAI v0.152.0 Release Notes</a></em></p>
+<hr>
+<h2><a name="p-11701-h-2-top-issues-community-pain-points-4" class="anchor" href="#p-11701-h-2-top-issues-community-pain-points-4" aria-label="Heading link"></a><strong>2. Top Issues &amp; Community Pain-Points</strong></h2>
+<p><strong><img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"> = Still open or recurring in support channels</strong></p>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th><strong>Theme / Blocker</strong></th>
+<th><strong>Raised In</strong></th>
+<th><strong>Major Linked Issues/Threads</strong></th>
+<th><strong>Resolution/Status</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Mem0 memory handling—save/search fails, possible data loss</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3220">#3220</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"> (critical risk)</td>
+</tr>
+<tr>
+<td>Disabling reasoning mode ineffective</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3242">#3242</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Windows path length limits—memory storage crashes</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3236">#3236</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Mac OS ChromaDB dependency failures—platform blocked</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3202">#3202</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Weave integration hangs CrewAI on start</td>
+<td>GitHub (crewAI-tools)</td>
+<td><a href="https://github.com/crewAIInc/crewAI-tools/issues/394">#394</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>SeleniumScrapingTool fails after first use</td>
+<td>GitHub (crewAI-tools)</td>
+<td><a href="https://github.com/crewAIInc/crewAI-tools/issues/379">#379</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>DirectoryReadTool returns too much content—practicability impaired</td>
+<td>GitHub (crewAI-tools)</td>
+<td><a href="https://github.com/crewAIInc/crewAI-tools/issues/342">#342</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Documentation errors slow onboarding/integration</td>
+<td>GitHub (crewAI &amp; tools)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3240">#3240</a>, <a href="https://github.com/crewAIInc/crewAI-tools/issues/396">#396</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Logging conflicts—custom logger breaks CrewAI logging</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3197">#3197</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>JSON output: IndexError if tasks_output empty / LLMGuardrail result parse fails</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3185">#3185</a>, <a href="https://github.com/crewAIInc/crewAI/issues/3191">#3191</a></td>
+<td>Open <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"></td>
+</tr>
+<tr>
+<td>Feature: Fast apply model as edit_file tool</td>
+<td>GitHub (crewAI)</td>
+<td><a href="https://github.com/crewAIInc/crewAI/issues/3238">#3238</a></td>
+<td>Open</td>
+</tr>
+</tbody>
+</table>
+</div><p><em>Note: <img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"> = major irritant or unresolved for some user groups</em></p>
+<hr>
+<h2><a name="p-11701-h-3-cross-system-patterns-linking-table-5" class="anchor" href="#p-11701-h-3-cross-system-patterns-linking-table-5" aria-label="Heading link"></a><strong>3. Cross-System Patterns &amp; Linking Table</strong></h2>
+<h3><a name="p-11701-key-cross-references-6" class="anchor" href="#p-11701-key-cross-references-6" aria-label="Heading link"></a><strong>Key Cross-References</strong></h3>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th><strong>Product Change / Feature</strong></th>
+<th><strong>Issue(s) Closed / Improved</strong></th>
+<th><strong>Forum or Community Feedback (trends)</strong></th>
+<th><strong>Docs / Blog Updates</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Custom flow names; improved workflow personalisation</td>
+<td>Responds to earlier requests for multi-project/user clarity</td>
+<td>Applauded in user comments; aids project org</td>
+<td>Info in release notes and doc update</td>
+</tr>
+<tr>
+<td>RAG component refactor</td>
+<td>Breaking: import paths changed; migration needed</td>
+<td>Transitional pain flagged in bug/upgrade Qs</td>
+<td><a href="https://docs.crewai.com/rag-migration">RAG migration guide</a></td>
+</tr>
+<tr>
+<td>Mem0 memory handling</td>
+<td>Still open: data loss, search, save reliability</td>
+<td>Ongoing: data loss/work interruptions</td>
+<td>Mentioned in update; no full root-cause doc yet</td>
+</tr>
+<tr>
+<td>Enhanced timestamp accuracy (timezones)</td>
+<td>Direct response to global team feedback</td>
+<td>Positive for distributed teams; fewer time misalignments</td>
+<td>Release notes</td>
+</tr>
+<tr>
+<td>Documentation clarifications/fixes (Vertex AI, general)</td>
+<td>Docs errors/requests still open</td>
+<td>Onboarding pain (tool Decorator, Vertex AI)</td>
+<td>Docs and issue tracker updates</td>
+</tr>
+<tr>
+<td>Windows/Mac compatibility</td>
+<td>Windows path bug, Mac ChromaDB failure (blockers)</td>
+<td>Recurrent platform-specific support requests</td>
+<td>None yet</td>
+</tr>
+</tbody>
+</table>
+</div><p><strong>Pattern:</strong> Features and doc updates often follow 2–6 week gaps after issue reporting; several bugs and doc gaps recur for &gt;1 release cycle. Community workaround discussions frequently precede or force official fixes (e.g. import clarifications, logging, structuring of outputs, memory handling advice).</p>
+<hr>
+<h2><a name="p-11701-h-4-trends-relationships-7" class="anchor" href="#p-11701-h-4-trends-relationships-7" aria-label="Heading link"></a><strong>4. Trends &amp; Relationships</strong></h2>
+<ul>
+<li>
+<p>Memory and agent state management is a core pain-point; critical bugs in Mem0 and file path handling block teams from reliable deployment.</p>
+</li>
+<li>
+<p>Support for custom/structured workflows (custom flow names, modular RAG components) is a new area of strength—these followed months of repeated user requests.</p>
+</li>
+<li>
+<p>OS/platform compatibility—especially for Mac and Windows—remains fragile and is a common cause for “stuck” or churned new users.</p>
+</li>
+<li>
+<p>Documentation continues to lag behind release and feature velocity; onboarding and troubleshooting are slowed by patchy, outdated, or incorrect guides.</p>
+</li>
+<li>
+<p>Integration tool stability (plugins like Weave, scraping tools) is challenged as user base expands and automates more workflows.</p>
+</li>
+<li>
+<p>Community collaboration: Many fixes/feature ideas originate in user discussions and are adopted into the official project (highlight: first external contributor in this release).</p>
+</li>
+</ul>
+<hr>
+<h2><a name="p-11701-h-5-faqs-frequently-asked-questions-8" class="anchor" href="#p-11701-h-5-faqs-frequently-asked-questions-8" aria-label="Heading link"></a><strong>5. FAQs (Frequently Asked Questions)</strong></h2>
+<p><strong>Q1: What’s the biggest code-related change in v0.152.0?</strong><br>
+<em>The RAG (Retrieval-Augmented Generation) components have moved to a dedicated top-level module. Update your import statements. Use the <a href="https://docs.crewai.com/rag-migration">RAG migration guide</a>.</em></p>
+<p><strong>Q2: How do I avoid Mem0 memory bugs or data loss?</strong><br>
+<em>Workarounds are limited; backup frequently and avoid high-concurrency workloads. Track bug <a href="https://github.com/crewAIInc/crewAI/issues/3220">#3220</a> for fixes.</em></p>
+<p><strong>Q3: Why won’t CrewAI start on Mac or with Weave/ChromaDB plugins?</strong><br>
+<em>These are known open issues (<a href="https://github.com/crewAIInc/crewAI/issues/3202">#3202</a> for Mac/ChromaDB, <a href="https://github.com/crewAIInc/crewAI-tools/issues/394">#394</a> for Weave) blocking some platform/integration set-ups. Monitor tracker for status.</em></p>
+<hr>
+<h2><a name="p-11701-h-6-data-matrices-references-9" class="anchor" href="#p-11701-h-6-data-matrices-references-9" aria-label="Heading link"></a><strong>6. Data Matrices &amp; References</strong></h2>
+<h4><a name="p-11701-github-issues-status-table-10" class="anchor" href="#p-11701-github-issues-status-table-10" aria-label="Heading link"></a><strong>GitHub Issues: Status Table</strong></h4>
+<div class="md-table">
+<table>
+<thead>
+<tr>
+<th><strong>Type</strong></th>
+<th><strong>Total</strong></th>
+<th><strong>Open</strong></th>
+<th><strong>Closed</strong></th>
+<th><strong>Blockers*</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Bugs</td>
+<td>8</td>
+<td>8</td>
+<td>0</td>
+<td>5</td>
+</tr>
+<tr>
+<td>Enhancements</td>
+<td>7</td>
+<td>7</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Docs</td>
+<td>3</td>
+<td>3</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td>Task/Other</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+<td>0</td>
+</tr>
+<tr>
+<td><strong>Total:</strong></td>
+<td>18</td>
+<td>18</td>
+<td>0</td>
+<td>5</td>
+</tr>
+</tbody>
+</table>
+</div><p>*Blockers/high-priority:</p>
+<ul>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI/issues/3220">Mem0 memory save/search issue</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI/issues/3242">Disable reasoning mode bug</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI/issues/3236">Windows memory path crash</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI/issues/3202">Mac ChromaDB failure</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI-tools/issues/394">Weave integration hang</a></p>
+</li>
+</ul>
+<p><strong>Full links:</strong></p>
+<ul>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI/issues">Project Issues</a></p>
+</li>
+<li>
+<p><a href="https://github.com/crewAIInc/crewAI-tools/issues">Tools Issues</a></p>
+</li>
+<li>
+<p><a href="https://docs.crewai.com/">Docs Releases</a></p>
+</li>
+</ul>
+<hr>
+<h2><a name="p-11701-h-7-recommendations-next-steps-11" class="anchor" href="#p-11701-h-7-recommendations-next-steps-11" aria-label="Heading link"></a><strong>7. Recommendations &amp; Next Steps</strong></h2>
+<h3><a name="p-11701-for-the-team-12" class="anchor" href="#p-11701-for-the-team-12" aria-label="Heading link"></a><strong>For the Team:</strong></h3>
+<ul>
+<li>
+<p><strong>Prioritise Critical Bugs:</strong> Resolve Mem0 memory issues, Windows path limits, Mac ChromaDB incompatibility, and plugin-induced hangs—these block diverse users.</p>
+</li>
+<li>
+<p><strong>Accelerate Documentation Patches:</strong> Close documentation requests quickly, especially for integrations, onboarding, and any breaking changes (e.g., RAG refactor).</p>
+</li>
+<li>
+<p><strong>Proactive Community Updates:</strong> Maintain a changelog page and a “known issues” alert—especially for blockers affecting onboarding/productivity.</p>
+</li>
+<li>
+<p><strong>OS/Platform Testing:</strong> Enhance CI/CD pipelines to run real-world workflow/regression tests for Mac and Windows users, not just Linux.</p>
+</li>
+<li>
+<p><strong>Support Community Fixes:</strong> Highlight contributors in each release and triage/respond to popular enhancement threads to improve morale and adoption.</p>
+</li>
+</ul>
+<h3><a name="p-11701-for-community-members-13" class="anchor" href="#p-11701-for-community-members-13" aria-label="Heading link"></a><strong>For Community Members:</strong></h3>
+<ul>
+<li>
+<p><strong>Check the Issue Tracker Before Upgrading:</strong> See if your main workflow or environment is affected by open bugs before updating or adopting new features.</p>
+</li>
+<li>
+<p><strong>Backup Agents &amp; Data Frequently:</strong> Until Mem0/hardening fixes are confirmed, prioritise data resilience for any memory-intensive workflow.</p>
+</li>
+<li>
+<p><strong>Contribute Documentation Examples:</strong> Share working workflows or setups as doc pull requests or community forum posts; this helps everyone and speeds up official patching.</p>
+</li>
+<li>
+<p><strong>Report Integration Pain Early:</strong> If a plugin or platform breaks, raise an actionable GitHub issue with environment details to help spot patterns faster.</p>
+</li>
+</ul>
+<hr>
+<p><img src="https://emoji.discourse-cdn.com/twitter/heart.png?v=15" title=":heart:" class="emoji" alt=":heart:" loading="lazy" width="20" height="20"> Thank you for shaping CrewAI. For the latest support and to contribute a solution, join <a href="https://github.com/crewAIInc/">the CrewAI GitHub Community</a> and keep building!</p>
+<hr>
+<p><strong>Legend</strong>:<br>
+<img src="https://emoji.discourse-cdn.com/twitter/orange_circle.png?v=15" title=":orange_circle:" class="emoji" alt=":orange_circle:" loading="lazy" width="20" height="20"> = Recurring or still open<br>
+<img src="https://emoji.discourse-cdn.com/twitter/white_check_mark.png?v=15" title=":white_check_mark:" class="emoji" alt=":white_check_mark:" loading="lazy" width="20" height="20"> = Closed/resolved<br>
+Release/data as of 2025-07-31. For feedback or clarification, reply in the next community sync, pull request, or open a thread.</p>
+<hr>
+<p><em>Prepared by CREWAI community data analyst based on releases, GitHub issues, docs, and official posts, 2025-05-31 to 2025-07-31.</em></p>
+            </div>
+
+              <div itemprop="interactionStatistic" itemscope="itemscope" itemtype="http://schema.org/InteractionCounter">
+                  <meta itemprop="interactionType" content="http://schema.org/LikeAction"/>
+                  <meta itemprop="userInteractionCount" content="1" />
+                <span class='post-likes'>1 Like</span>
+              </div>
+
+
+            
+
+
+          </div>
+
+    </div>
+
+
+    <div id="related-topics" class="more-topics__list " role="complementary" aria-labelledby="related-topics-title">
+  <h3 id="related-topics-title" class="more-topics__list-title">
+    Related topics
+  </h3>
+  <div class="topic-list-container" itemscope itemtype='http://schema.org/ItemList'>
+    <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+    <table class='topic-list'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th class="replies">Replies</th>
+          <th class="views">Views</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="topic-list-item" id="topic-list-item-6989">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='1'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/new-release-0-175-0/6989' class='title raw-link raw-topic-link'>New Release - 0.175.0</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/announcements/6' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Announcements</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>306</span>
+            </td>
+            <td>
+              August 28, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-6672">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='2'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/new-release-0-150-0/6672' class='title raw-link raw-topic-link'>New Release - 0.150.0</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/announcements/6' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Announcements</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>264</span>
+            </td>
+            <td>
+              July 24, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-7142">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='3'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/new-release-crewai-1-1-0-is-out/7142' class='title raw-link raw-topic-link'>New Release: CrewAI 1.1.0 is out! 🚨</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/announcements/6' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Announcements</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>1011</span>
+            </td>
+            <td>
+              October 22, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-7008">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='4'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-version-0-177-0-release-notes/7008' class='title raw-link raw-topic-link'>🚀 CrewAI Version 0.177.0 Release Notes</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/announcements/6' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Announcements</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>0</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>321</span>
+            </td>
+            <td>
+              September 4, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-6984">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='5'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-version-0-165-1-release-notes/6984' class='title raw-link raw-topic-link'>🚀 CrewAI Version 0.165.1 Release Notes</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/announcements/6' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Announcements</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>0</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>275</span>
+            </td>
+            <td>
+              August 25, 2025
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

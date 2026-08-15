@@ -1,0 +1,83 @@
+{
+  "audited_at": "2026-08-15T14:53:00.113694+00:00",
+  "status": "fail",
+  "site": {
+    "records": 2817,
+    "status_counts": {
+      "captured": 449,
+      "error": 51,
+      "external_reference": 2317
+    },
+    "media_type_counts": {
+      "external/unknown": 2368,
+      "text/html": 449
+    },
+    "local_media_counts": {
+      "audio": 0,
+      "video": 0,
+      "images": 0
+    }
+  },
+  "repository": {
+    "files": 26369,
+    "bytes": 352713677,
+    "extension_counts": {
+      ".css": 1,
+      ".csv": 1,
+      ".example": 1,
+      ".gif": 3,
+      ".j2": 2,
+      ".js": 3,
+      ".json": 16,
+      ".jsonc": 4,
+      ".lock": 1,
+      ".md": 104,
+      ".mdx": 24041,
+      ".mp4": 1,
+      ".pdf": 2,
+      ".png": 91,
+      ".py": 1302,
+      ".sh": 1,
+      ".svg": 1,
+      ".test": 1,
+      ".toml": 12,
+      ".txt": 3,
+      ".typed": 5,
+      ".wav": 1,
+      ".yaml": 742,
+      ".yml": 19,
+      "[no extension]": 11
+    },
+    "commit": "754d7323beb2fd042e33444a115ea2d5a47193f0",
+    "license": "MIT"
+  },
+  "ecosystem": {
+    "records": 10,
+    "status_counts": {
+      "captured": 10
+    },
+    "category_counts": {
+      "github_api": 9,
+      "package_registry": 1
+    }
+  },
+  "errors": [
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "site size mismatch: raw/site/pages/home.html",
+    "site hash mismatch: raw/site/pages/home.html",
+    "MIT LICENSE missing or invalid"
+  ]
+}

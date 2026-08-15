@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Trying to understand CrewAI- is this really about agents, or just managing LLM calls? - General - CrewAI</title>
+    <meta name="description" content="I am a faculty member at a US University.  I got interested in crewai because we have an upcoming project where we evaluate our courses and compare them against industry trends and so on for relevancy discussions.  I tho…">
+    <meta name="generator" content="Discourse 2026.8.0-latest.1 - https://github.com/discourse/discourse version 3bcc19a5d2df81fcdfda6fa461ede9e9cac92c48">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/dd5538a5110a9677e7e0d33a25c15efe4c257a38_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/ecda97e72f77c7100e0a761444b1c991925cc789_2_180x180.png">
+<meta name="theme-color" media="all" content="#fff">
+
+<meta name="color-scheme" content="light">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244" />
+
+<meta name="discourse-track-view-session-id" content="1kakXbVuWH1vD4IVluuJYHfGjup9eE6L"><meta name="discourse-beacon-pageview-enabled" content="true"><meta name="discourse-engagement-tracking-enabled" content="true">
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.crewai.com/opensearch.xml" title="CrewAI Search">
+
+    
+    <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/color_definitions_light-default_-1_18_19438fcabc837211bcf1b410c68f3dc280eb0215.css?__ws=community.crewai.com" media="all" rel="stylesheet" class="light-scheme"/>
+
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/automation_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/checklist_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-adplugin_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-assign"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-chat-integration_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-data-explorer_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-details_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-docs_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-docs"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-events"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-gamification"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-github_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-lazy-videos_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-local-dates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-narrative-bot_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-policy_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-post-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-post-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-presence_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-solved_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-subscriptions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-subscriptions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-templates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-topic-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-user-notes_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-yearly-review_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-yearly-review"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/footnote_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/hosted-site_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/spoiler-alert_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="chat_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-assign_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-events_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-gamification_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-events_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_4_d15e48126b3cf0bd9ca957ee2ddcf3afcbddd469.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="clickable topic"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_14_0e546bcd2c4eee77a58ab284362a26bbed3278c5.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="14" data-theme-name="panels"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_15_8361ab8d866da36d2a86422b05b0cd5c090e60e2.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="15" data-theme-name="primary button"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_16_a92a9ddc1c7d53e8777d670440c97eeb27fb8d5e.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="16" data-theme-name="rounded"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_18_7a264dc4fed621c1f31b924970b29024db19c827.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="18" data-theme-name="fully theme"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/mobile_theme_14_1643d3b2a777c4f694f2258add3f3e2fb45e9626.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="mobile_theme" data-theme-id="14" data-theme-name="panels"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/desktop_theme_14_d564c4069440fb33b07b870d065d929e20468815.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="14" data-theme-name="panels"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Trying to understand CrewAI- is this really about agents, or just managing LLM calls?&#39;" href="https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244.rss" />
+    <meta property="og:site_name" content="CrewAI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/ecda97e72f77c7100e0a761444b1c991925cc789.png" />
+<meta property="og:url" content="https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244" />
+<meta name="twitter:url" content="https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244" />
+<meta property="og:title" content="Trying to understand CrewAI- is this really about agents, or just managing LLM calls?" />
+<meta name="twitter:title" content="Trying to understand CrewAI- is this really about agents, or just managing LLM calls?" />
+<meta property="og:description" content="I am a faculty member at a US University.  I got interested in crewai because we have an upcoming project where we evaluate our courses and compare them against industry trends and so on for relevancy discussions.  I thought it may work for this use case.  I decided to implement a simple test for just grading and see how it goes.  I created three “agents”, one to pull a student’s discussion posts from the discussion forum, one to grade based on a rubric and instructions and one to use the gradin..." />
+<meta name="twitter:description" content="I am a faculty member at a US University.  I got interested in crewai because we have an upcoming project where we evaluate our courses and compare them against industry trends and so on for relevancy discussions.  I thought it may work for this use case.  I decided to implement a simple test for just grading and see how it goes.  I created three “agents”, one to pull a student’s discussion posts from the discussion forum, one to grade based on a rubric and instructions and one to use the gradin..." />
+<meta property="og:article:section" content="General" />
+<meta property="og:article:section:color" content="F1592A" />
+<meta name="twitter:label1" value="Reading time" />
+<meta name="twitter:data1" value="2 mins 🕑" />
+<meta name="twitter:label2" value="Likes" />
+<meta name="twitter:data2" value="1 ❤" />
+<meta property="article:published_time" content="2025-12-13T18:48:30+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"Trying to understand CrewAI- is this really about agents, or just managing LLM calls?","datePublished":"2025-12-13T18:48:30.797Z","mainEntity":{"@type":"Question","answerCount":6,"author":{"@type":"Person","name":"Kami","url":"https://community.crewai.com/u/Kami"},"dateModified":"2025-12-13T19:21:45.368Z","datePublished":"2025-12-13T18:48:30.797Z","name":"Trying to understand CrewAI- is this really about agents, or just managing LLM calls?","text":"I am a faculty member at a US University.  I got interested in crewai because we have an upcoming project where we evaluate our courses and compare them against industry trends and so on for relevancy discussions.  I thought it may work for this use case.\n\nI decided to implement a simple test for ju&hellip;","upvoteCount":0,"suggestedAnswer":[{"@type":"Answer","author":{"@type":"Person","name":"Teemu_Lantta","url":"https://community.crewai.com/u/Teemu_Lantta"},"dateModified":"2026-01-10T13:48:13.310Z","datePublished":"2026-01-10T13:48:13.292Z","text":"Hi Kami,\n\nYour observation is spot on and touches the very core of the “Agent vs. Workflow” debate.\n\nThe reason your implementation feels like a series of scripted LLM calls is that there is no Accountability Layer between the steps. In a typical workflow, agents are often just “unreliable narrators&hellip;","upvoteCount":0,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/2"},{"@type":"Answer","author":{"@type":"Person","name":"Teemu_Lantta","url":"https://community.crewai.com/u/Teemu_Lantta"},"dateModified":"2026-01-10T13:49:12.027Z","datePublished":"2026-01-10T13:49:12.005Z","text":"My concept is here in case you want to take a look: <a href=\"https://github.com/fxg55647/Neutral-Witness-\" class=\"inline-onebox\" rel=\"noopener nofollow ugc\">GitHub - fxg55647/Neutral-Witness-: An Accountability Infrastructure for Claims in Agent and Human Systems<\/a>","upvoteCount":0,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/3"},{"@type":"Answer","author":{"@type":"Person","name":"Tony_Wood","url":"https://community.crewai.com/u/Tony_Wood"},"dateModified":"2026-01-12T17:30:01.209Z","datePublished":"2026-01-12T17:30:01.197Z","text":"Great question. CrewAI is a goal based agentic tool.. So you give you lead crew a goal and craft your agents, tasks and tools (the measn for it to achive that goal)… So in that way is agentic..\n\nThere are lots of options and ways to change and configure based o nthe task including using flows <a href=\"https://docs.crewai.com/en/concepts/flows\" class=\"inline-onebox\">Flows &hellip;<\/a>","upvoteCount":0,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/4"},{"@type":"Answer","author":{"@type":"Person","name":"SystemFlowStudio","url":"https://community.crewai.com/u/SystemFlowStudio"},"dateModified":"2026-02-13T02:45:25.062Z","datePublished":"2026-02-13T02:45:25.048Z","text":"It’s closer to orchestrated autonomy than just LLM calls — but only if you’re actually enforcing agent roles + constraints.\n\nA lot of people accidentally build “multi-prompt pipelines” and call it agents. The difference shows up when:\n\nagents can fail independently\n\ntask ownership is enforced\n\n&hellip;","upvoteCount":0,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/5"},{"@type":"Answer","author":{"@type":"Person","name":"major_tiwari","url":"https://community.crewai.com/u/major_tiwari"},"dateModified":"2026-02-14T14:31:52.295Z","datePublished":"2026-02-14T14:31:52.277Z","text":"<a class=\"mention\" href=\"/u/kami\">@Kami<\/a>\n\nCrewAI is both—out of the box it’s great at orchestrating LLM calls, and it becomes truly “agentic” only if you turn on autonomy features (planning, tool use, memory/state, reflection loops, delegation, and self-stop criteria). Your current setup used it as a managed workflow; to see agents, &hellip;","upvoteCount":1,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/6"},{"@type":"Answer","author":{"@type":"Person","name":"Matthewjon","url":"https://community.crewai.com/u/Matthewjon"},"dateModified":"2026-07-23T08:59:36.699Z","datePublished":"2026-07-23T08:59:36.671Z","text":"I found this discussion really helpful. As someone who’s still learning CrewAI and AI agents, I also wondered where the line is between workflow automation and true agent behavior. The explanations about goals, memory, delegation, and feedback loops made that distinction much clearer. Thanks everyon&hellip;","upvoteCount":0,"url":"https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/7"}]}}</script>
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">CrewAI</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244">Trying to understand CrewAI- is this really about agents, or just managing LLM calls?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/general/4" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #F1592A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>General</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="https://schema.org/QAPage">
+      <meta itemprop='name' content='Trying to understand CrewAI- is this really about agents, or just managing LLM calls?'>
+      <link itemprop='url' href='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244'>
+      <meta itemprop='datePublished' content='2025-12-13T18:48:30Z'>
+      <meta itemprop='keywords' content=''>
+
+        <div itemprop="mainEntity" itemscope="itemscope" itemtype="https://schema.org/Question">
+          <meta itemprop='answerCount' content='6'><meta itemprop='datePublished' content='2025-12-13T18:48:30Z'><meta itemprop='name' content='Trying to understand CrewAI- is this really about agents, or just managing LLM calls?'><meta itemprop='upvoteCount' content='0'>
+
+
+          <div id='post_1' data-qa-question="true" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Kami'><span itemprop="name">Kami</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Kami'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2025-12-13T18:48:30Z' class='post-time'>
+                    December 13, 2025,  6:48pm
+                  </time>
+                  <meta itemprop='dateModified' content='2025-12-13T19:21:45Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>I am a faculty member at a US University.  I got interested in crewai because we have an upcoming project where we evaluate our courses and compare them against industry trends and so on for relevancy discussions.  I thought it may work for this use case.</p>
+<p>I decided to implement a simple test for just grading and see how it goes.  I created three “agents”, one to pull a student’s discussion posts from the discussion forum, one to grade based on a rubric and instructions and one to use the grading results to craft a feedback response.  Also one more at the end that just looks at all the results and provides a summary for the instructor.  It worked fine.</p>
+<p>The issue is, what I implemented is just a series of LLM calls and not much more.  One pushes the forum export and receives that student’s specific work.  Grader pushes that plus rubric and grading instructions, receives an evaluation. Feedback writer pushes that plus instructions on tone etc and receives an email.  I could easily do all of this manually, using custom gpts or gemini gems.  This is nice automation, but I am not seeing the agent angle.</p>
+<p>For me, agents imply:</p>
+<ul>
+<li>
+<p>A goal or objective.</p>
+</li>
+<li>
+<p>The ability to plan or decompose that goal into tasks.</p>
+</li>
+<li>
+<p>Iterative reasoning with feedback loops.</p>
+</li>
+<li>
+<p>Some notion of state and progress.</p>
+</li>
+<li>
+<p>A stopping condition that is internally determined rather than externally scripted.</p>
+</li>
+</ul>
+<p>That implies loops, reflection, self correction, tool use decisions, and termination logic that emerges from the agent’s own reasoning rather than being told specifically what to do.</p>
+<p>Is the difference I am seeing here because of my implementation?  My real project of looking at courses and their relevancy wouldn’t be all that different.  It would still be a bunch of calls to gather various bits of information, and then calling an LLM to evaluate all of it together.</p>
+<p>If crewai is not really an agent framework but an automated managed workflow of LLM calls, there is nothing wrong with that.  This was helpful to me, and the other project would also benefit from automation.  I just want to understand the terms and what I am doing. If I left some capabilities unexplored and I can tap into more agentic behavior as I described above, that’s great to learn.</p>
+            </div>
+
+
+
+            
+
+
+          </div>
+          <div id='post_2' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Teemu_Lantta'><span itemprop="name">Teemu_Lantta</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Teemu_Lantta'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-01-10T13:48:13Z' class='post-time'>
+                    January 10, 2026,  1:48pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-01-10T13:48:13Z'>
+              <span itemprop="position">2</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Hi Kami,</p>
+<p>Your observation is spot on and touches the very core of the “Agent vs. Workflow” debate.</p>
+<p>The reason your implementation feels like a series of scripted LLM calls is that there is no Accountability Layer between the steps. In a typical workflow, agents are often just “unreliable narrators” passing text to each other without any formal validation of their claims.</p>
+<p>For a system to be truly agentic, it needs what I call Claim Admissibility. An agent shouldn’t just output text; it should produce a Claim that must be validated against Evidence before the next agent (or human) accepts it.</p>
+<p>I have been exploring a framework called Neutral Witness &amp; AI Flight Recorder that addresses exactly the points you raised:</p>
+<p>Iterative Reasoning: Instead of just moving to the next step, an agent’s output is evaluated by a “Neutral Witness”. If the claim (e.g., a grade) isn’t admissible based on the evidence (the rubric and student post), the agent is forced back into a reasoning loop.</p>
+<p>Internal Stopping Condition: The process only terminates when the claims meet the admissibility threshold, rather than just reaching the end of a script.</p>
+<p>State and Progress: The AI Flight Recorder creates an immutable “epistemic chain.” In your course evaluation project, this would provide a permanent, auditable record of why a certain course was deemed relevant, making the AI’s “thought process” legally and academically defensible.</p>
+<p>I am currently investigating the best way to integrate this Neutral Witness architecture directly into frameworks like CrewAI to move beyond simple “managed workflows” toward true, accountable autonomy. The conceptual framework is ready, and I am just starting the actual implementation phase.</p>
+<p>Does this perspective help answer your question about the “agent angle” you were looking for? I’d love to hear your thoughts on whether an accountability-first approach would satisfy the requirements of your university project.</p>
+<p>P.S. One key feature of this architecture is that it supports confidential evaluation. It can compare sensitive data against constraints (like private student records vs. grading rubrics) and confirm admissibility without revealing the underlying private details to other agents or the system logs.</p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/2'>
+          </div>
+          <div id='post_3' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Teemu_Lantta'><span itemprop="name">Teemu_Lantta</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Teemu_Lantta'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-01-10T13:49:12Z' class='post-time'>
+                    January 10, 2026,  1:49pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-01-10T13:49:12Z'>
+              <span itemprop="position">3</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>My concept is here in case you want to take a look: <a href="https://github.com/fxg55647/Neutral-Witness-" class="inline-onebox" rel="noopener nofollow ugc">GitHub - fxg55647/Neutral-Witness-: An Accountability Infrastructure for Claims in Agent and Human Systems</a></p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/3'>
+          </div>
+          <div id='post_4' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Tony_Wood'><span itemprop="name">Tony_Wood</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Tony_Wood'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-01-12T17:30:01Z' class='post-time'>
+                    January 12, 2026,  5:30pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-01-12T17:30:01Z'>
+              <span itemprop="position">4</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Great question. CrewAI is a goal based agentic tool.. So you give you lead crew a goal and craft your agents, tasks and tools (the measn for it to achive that goal)… So in that way is agentic..</p>
+<p>There are lots of options and ways to change and configure based o nthe task including using flows <a href="https://docs.crewai.com/en/concepts/flows" class="inline-onebox">Flows - CrewAI</a></p>
+<p>When I want a job done right… I use CrewAI</p>
+<p>Have a look at some of the examples and see if it is the type of tool you want to achieve your goals <a href="https://docs.crewai.com/en/examples/example" class="inline-onebox">CrewAI Examples - CrewAI</a></p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/4'>
+          </div>
+          <div id='post_5' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/SystemFlowStudio'><span itemprop="name">SystemFlowStudio</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/SystemFlowStudio'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-02-13T02:45:25Z' class='post-time'>
+                    February 13, 2026,  2:45am
+                  </time>
+                  <meta itemprop='dateModified' content='2026-02-13T02:45:25Z'>
+              <span itemprop="position">5</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>It’s closer to <em>orchestrated autonomy</em> than just LLM calls — but only if you’re actually enforcing agent roles + constraints.</p>
+<p>A lot of people accidentally build “multi-prompt pipelines” and call it agents. The difference shows up when:</p>
+<ul>
+<li>
+<p>agents can fail independently</p>
+</li>
+<li>
+<p>task ownership is enforced</p>
+</li>
+<li>
+<p>retries don’t explode tokens</p>
+</li>
+</ul>
+<p>If you’re not seeing those differences yet, your setup is probably too permissive.</p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/5'>
+          </div>
+          <div id='post_6' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/major_tiwari'><span itemprop="name">major_tiwari</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/major_tiwari'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-02-14T14:31:52Z' class='post-time'>
+                    February 14, 2026,  2:31pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-02-14T14:31:52Z'>
+              <span itemprop="position">6</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p><a class="mention" href="/u/kami">@Kami</a></p>
+<p><strong>CrewAI is both</strong>—out of the box it’s great at orchestrating LLM calls, <strong>and it becomes truly “agentic” only if you turn on autonomy features</strong> (planning, tool use, memory/state, reflection loops, delegation, and self-stop criteria). Your current setup used it as a managed workflow; to see agents, you need to enable those behaviors.</p>
+<p><strong>What makes it agentic in CrewAI (practically):</strong></p>
+<ul>
+<li>
+<p><strong>Goal → Plan → Tasks:</strong> Use <em>process</em> modes like <code>hierarchical</code> or <code>continuous</code> so a manager agent decomposes work and delegates.</p>
+</li>
+<li>
+<p><strong>State &amp; Memory:</strong> Persist context via agent memory, task outputs, scratchpads; reuse it across iterations.</p>
+</li>
+<li>
+<p><strong>Tooling &amp; Decisions:</strong> Give agents tools (RAG, web, code, file I/O) and let them choose which/when to call.</p>
+</li>
+<li>
+<p><strong>Reflection &amp; Retry:</strong> Enable self-critique loops (<code>max_iter</code>, review/critique roles, verifier agents).</p>
+</li>
+<li>
+<p><strong>Autonomous Stop:</strong> Define <em>success/termination criteria</em> (e.g., “rubric coverage ≥ X, confidence ≥ Y,” or “no new sources found”) rather than fixed steps.</p>
+</li>
+<li>
+<p><strong>Multi-agent roles:</strong> Manager → Researcher → Grader → Feedback Writer → Verifier; allow back-and-forth, not just a straight pipeline.</p>
+</li>
+</ul>
+<p><strong>For your course-relevancy project, make it agentic by:</strong></p>
+<ol>
+<li>
+<p><strong>Manager agent</strong> sets objectives (e.g., “map course outcomes to current industry skills frameworks”).</p>
+</li>
+<li>
+<p><strong>Researchers</strong> choose tools (web/RAG/APIs) to gather job trends and standards; loop until novelty drops.</p>
+</li>
+<li>
+<p><strong>Mapper</strong> aligns syllabus → skills, flags gaps; <strong>Critic</strong> checks coverage and evidence.</p>
+</li>
+<li>
+<p><strong>Grader</strong> scores relevancy with a <strong>self-check</strong> and <strong>verifier</strong> pass; stop when confidence/coverage thresholds met.</p>
+</li>
+<li>
+<p><strong>Reporter</strong> composes an instructor summary with traceable citations.</p>
+</li>
+</ol>
+<p>If you script the steps linearly, it’s managed calls. If you give agents goals, tools, memory, autonomy, and stop conditions, <strong>CrewAI behaves like agents.</strong></p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='1'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/6'>
+          </div>
+          <div id='post_7' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Matthewjon'><span itemprop="name">Matthewjon</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Matthewjon'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-07-23T08:59:36Z' class='post-time'>
+                    July 23, 2026,  8:59am
+                  </time>
+                  <meta itemprop='dateModified' content='2026-07-23T08:59:36Z'>
+              <span itemprop="position">7</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>I found this discussion really helpful. As someone who’s still learning CrewAI and AI agents, I also wondered where the line is between workflow automation and true agent behavior. The explanations about goals, memory, delegation, and feedback loops made that distinction much clearer. Thanks everyone for sharing your perspectives!</p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/trying-to-understand-crewai-is-this-really-about-agents-or-just-managing-llm-calls/7244/7'>
+          </div>
+
+        </div>
+    </div>
+
+
+    <div id="related-topics" class="more-topics__list " role="complementary" aria-labelledby="related-topics-title">
+  <h3 id="related-topics-title" class="more-topics__list-title">
+    Related topics
+  </h3>
+  <div class="topic-list-container" itemscope itemtype='http://schema.org/ItemList'>
+    <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+    <table class='topic-list'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th class="replies">Replies</th>
+          <th class="views">Views</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="topic-list-item" id="topic-list-item-750">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='1'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-content-generation-vs-business-workflows/750' class='title raw-link raw-topic-link'>CrewAI Content generation vs Business workflows</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/feature/23' class='discourse-tag'>feature</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>162</span>
+            </td>
+            <td>
+              July 14, 2026
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-3063">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='2'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/decision-making-algorithms-used-in-crewai/3063' class='title raw-link raw-topic-link'>Decision making Algorithms used in CrewAI</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>7</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>297</span>
+            </td>
+            <td>
+              May 17, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-3778">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='3'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/can-we-create-agentic-framework-with-crewai-without-using-llm/3778' class='title raw-link raw-topic-link'>Can we create agentic framework with crewai without using LLM</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/crews/16' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Crews</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/feature/23' class='discourse-tag'>feature</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>6</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>563</span>
+            </td>
+            <td>
+              March 8, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-4996">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='4'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/retroalimentation-among-agents-iterative-agent-system/4996' class='title raw-link raw-topic-link'>Retroalimentation among agents / Iterative agent system</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/crews/16' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #BF1E2E'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>Crews</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/task/18' class='discourse-tag'>task</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/feature/23' class='discourse-tag'>feature</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>2</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>122</span>
+            </td>
+            <td>
+              March 29, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-7507">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='5'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/seeking-insights-from-developers-building-with-crew-agents/7507' class='title raw-link raw-topic-link'>Seeking insights from developers building with Crew Agents</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/general/4' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #F1592A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>General</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/task/18' class='discourse-tag'>task</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>48</span>
+            </td>
+            <td>
+              July 23, 2026
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

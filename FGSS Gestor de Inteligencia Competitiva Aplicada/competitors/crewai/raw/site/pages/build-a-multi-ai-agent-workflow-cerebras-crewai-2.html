@@ -1,0 +1,570 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Build a Multi-AI Agent Workflow with Cerebras and CrewAI</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <meta name="description" content="Build multi-ai agent workflows with CrewAI and Cerebras&#x27; fast inference speed">
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/build-a-multi-ai-agent-workflow-cerebras-crewai-2/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Build a Multi-AI Agent Workflow with Cerebras and CrewAI">
+    <meta property="og:description" content="Build multi-ai agent workflows with CrewAI and Cerebras&#x27; fast inference speed">
+    <meta property="og:url" content="https://blog.crewai.com/build-a-multi-ai-agent-workflow-cerebras-crewai-2/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png">
+    <meta property="article:published_time" content="2024-10-22T21:32:37.000Z">
+    <meta property="article:modified_time" content="2026-04-29T20:30:27.000Z">
+    <meta property="article:tag" content="Tutorials">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Build a Multi-AI Agent Workflow with Cerebras and CrewAI">
+    <meta name="twitter:description" content="Build multi-ai agent workflows with CrewAI and Cerebras&#x27; fast inference speed">
+    <meta name="twitter:url" content="https://blog.crewai.com/build-a-multi-ai-agent-workflow-cerebras-crewai-2/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Tutorials">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="677">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "Build a Multi-AI Agent Workflow with Cerebras and CrewAI",
+    "url": "https://blog.crewai.com/build-a-multi-ai-agent-workflow-cerebras-crewai-2/",
+    "datePublished": "2024-10-22T21:32:37.000Z",
+    "dateModified": "2026-04-29T20:30:27.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png",
+        "width": 1200,
+        "height": 677
+    },
+    "keywords": "Tutorials",
+    "description": "Build multi-ai agent workflows with CrewAI and Cerebras' fast inference speed",
+    "mainEntityOfPage": "https://blog.crewai.com/build-a-multi-ai-agent-workflow-cerebras-crewai-2/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=D6OJpxckK_6QDJ1o"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=zbOBSN8qHrr3rC6Y">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="3c4dfd89-7062-4c19-a84c-a5996feec737" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template tag-tutorials tag-hash-tony tag-hash-sarah gh-font-heading-inter gh-font-body-inter is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post tag-tutorials tag-hash-tony tag-hash-sarah">
+
+            <header class="gh-article-header gh-canvas">
+                    <a class="gh-article-tag" href="https://blog.crewai.com/tag/tutorials/">Tutorials</a>
+
+                <h1 class="gh-article-title">Build a Multi-AI Agent Workflow with Cerebras and CrewAI</h1>
+
+                    <p class="gh-article-excerpt">Build multi-ai agent workflows with CrewAI and Cerebras&#x27; fast inference speed</p>
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2024-10-22">Oct 22, 2024</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">6 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2024/10/per-01--6-.png 300w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/10/per-01--6-.png 720w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2024/10/per-01--6-.png 960w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png 1200w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2024/10/per-01--6-.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png"
+            alt="Build a Multi-AI Agent Workflow with Cerebras and CrewAI"
+        >
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>In this tutorial, we'll create a simple multi-ai agent workflow where an agent researches emerging technologies in a given field or topic using CrewAI and Cerebras.</p><h2 id="about-cerebras">About Cerebras</h2><p><a href="http://cerebras.ai/?ref=blog.crewai.com">Cerebras</a> inference is the fastest in the world, and we’re powering the next generation of AI applications. With the Cerebras Inference API, you can run Llama3.1 8B and Llama3.1 70B 10x faster than on GPUs. Our inference runs on the Wafer Scale Engine 3 (WSE3), Cerebras’s custom hardware designed for AI.</p><p>Come join us in building next-level, innovative applications with an inference speed never seen before. Get started with Cerebras here: <a href="http://cloud.cerebras.ai/?ref=blog.crewai.com">cloud.cerebras.ai</a></p><p>Additional links:</p><ul><li><a href="https://cerebras.ai/inference?ref=blog.crewai.com">Inference API</a></li><li><a href="https://docs.cerebras.net/en/latest/?ref=blog.crewai.com">Docs</a></li><li><a href="https://www.notion.so/b756a6a2f39149c6b40e9154004c4e64?pvs=21&ref=blog.crewai.com">Fellows Program</a></li></ul><h2 id="about-crewai">About CrewAI</h2><p><a href="https://www.crewai.com/?ref=blog.crewai.com">CrewAI</a> is an open-source framework for building and orchestrating multi-agent AI workflows. It allows developers to define autonomous agents with specific roles, goals, and backstories. These agents can utilize tools, process tasks, and interact with each other to accomplish complex objectives.</p><p>Powered by language models (LLMs), CrewAI simplifies the development of AI applications that require coordination between multiple agents, making it easier to build sophisticated and scalable AI systems.</p><h3 id="prerequisites">Prerequisites</h3><p>Ensure you have the following before getting started:</p><ul><li>Python 3.7 or higher</li></ul><p>A Cerebras Inference API key. Set it in your <code>.env</code> file as such:</p><pre><code class="language-markdown">CEREBRAS_API_KEY=csk-*************************************
+</code></pre><p>Install <code>crewai</code> and <code>crewai-tools</code> packages. Install them using this command:</p><pre><code class="language-bash">pip install crewai crewai_tools
+</code></pre><h3 id="configuring-cerebras-llms-within-crewai">Configuring Cerebras LLMs within CrewAI</h3><div class="kg-card kg-callout-card kg-callout-card-red"><div class="kg-callout-emoji">💡</div><div class="kg-callout-text">It's <b><strong style="white-space: pre-wrap;">HIGHLY</strong></b> recommended to store your API key securely, such as in environment variables, rather than hardcoding it.</div></div><pre><code class="language-Python">from crewai import LLM
+import os
+
+# Configure the LLM to use Cerebras
+cerebras_llm = LLM(
+    model="cerebras/llama3.1-70b", # Replace with your chosen Cerebras model name, e.g., "cerebras/llama3.1-8b"
+    api_key=os.environ.get("CEREBRAS_API_KEY"), # Your Cerebras API key
+    base_url="https://api.cerebras.ai/v1",
+    temperature=0.5,
+    # Optional parameters:
+    # top_p=1,
+    # max_completion_tokens=8192, # Max tokens for the response
+    # response_format={"type": "json_object"} # Ensures the response is in JSON format
+)</code></pre><h3 id="defining-an-agent">Defining an Agent</h3><p>In CrewAI, an <strong>agent</strong> is an autonomous entity that performs <strong>tasks</strong> based on a defined <strong>role, goal,</strong> and <strong>backstory.</strong> Agents can utilize tools and are powered by language models (LLMs).</p><pre><code class="language-Python">from crewai import Agent
+from crewai_tools import SerperDevTool
+
+# Agent definition
+researcher = Agent(
+    role='{topic} Senior Researcher',
+    goal='Uncover groundbreaking technologies in {topic} for the year 2024',
+    backstory='Driven by curiosity, you explore and share the latest innovations.',
+    tools=[SerperDevTool()],
+    llm=cerebras_llm
+)
+</code></pre><ul><li><strong>Role:</strong> Defines the agent's position, using <code>{topic}</code> as a placeholder for fine grained dynamic assignment.</li><li><strong>Goal:</strong> What the agent aims to achieve.</li><li><strong>Backstory:</strong> Adds depth to the agent, influencing its behavior.</li><li><strong>Tools:</strong> External tools the agent can utilize (e.g., web search using <code>SerperDevTool</code>).</li><li><strong>LLM:</strong> CrewAI class that specifies the language model to be used by agents, in this case, Cerebras.</li></ul><h2 id="defining-a-task">Defining a Task</h2><p>A <strong>Task</strong> in CrewAI represents a unit of work assigned to an agent.</p><pre><code class="language-Python">from crewai import Task
+
+# Define a research task for the Senior Researcher agent
+research_task = Task(
+    description='Identify the next big trend in {topic} with pros and cons.',
+    expected_output='A 3-paragraph report on emerging {topic} technologies.',
+    agent=researcher
+)
+</code></pre><ul><li><strong>Description:</strong> Details what the task entails.</li><li><strong>Expected Output:</strong> Specifies the desired result.</li><li><strong>Agent:</strong> Assigns the task to the defined agent.</li></ul><h2 id="executing-the-workflow">Executing the Workflow</h2><p>Now, let's set up the <strong>Crew</strong> and run the process.</p><h3 id="what-is-a-crew"><strong>What is a Crew?</strong></h3><p>A Crew is a collection of agents and tasks that work together to execute a process. It serves as the orchestrator, managing the flow of tasks among agents according to a specified process pattern.</p><p>By forming a crew, you can:</p><ul><li><strong>Organize Agents and Tasks:</strong> Group related agents and their corresponding tasks into a cohesive unit.</li><li><strong>Control Execution Flow:</strong> Define how and in what order tasks are executed (e.g., sequentially or in parallel).</li><li><strong>Manage Inputs and Outputs:</strong> Pass dynamic inputs to agents and collect their outputs.</li></ul><h3 id="setting-up-the-crew">Setting up the Crew</h3><pre><code class="language-Python">from crewai import Crew, Process
+
+def main():
+    # Forming the crew and kicking off the process
+    crew = Crew(
+        agents=[researcher],
+        tasks=[research_task],
+        process=Process.sequential,
+        verbose=True  # Enables detailed logging
+    )
+    result = crew.kickoff(inputs={'topic': 'AI Agents'})
+    print(result)
+
+if __name__ == "__main__":
+    main()
+</code></pre><ul><li><strong>Crew:</strong><ul><li><strong>Agents:</strong> A list of agents involved in the workflow.</li><li><strong>Tasks:</strong> A list of tasks to be executed.</li><li><strong>Process:</strong> Defines the execution strategy. <code>Process.sequential</code> means tasks are executed one after another.</li><li><strong>Verbose:</strong> When set to <code>True</code>, provides detailed output during execution.</li></ul></li><li><strong>kickoff():</strong> Starts the execution of the crew's tasks, optionally accepting dynamic inputs to replace placeholders like <code>{topic}</code>.</li></ul><h2 id="full-example-code">Full Example Code</h2><p>You can find the complete code combining all the steps in this <a href="https://github.com/tonykipkemboi/crewai-cerebras-integration-demo/tree/main?ref=blog.crewai.com">GitHub Repository</a>.</p><pre><code class="language-Python">from crewai import Agent, Task, Crew, Process, LLM
+from crewai_tools import SerperDevTool
+import os
+
+# Configure the LLM to use Cerebras
+cerebras_llm = LLM(
+    model="cerebras/llama3.1-70b",  # Replace with your chosen Cerebras model name
+    api_key=os.environ.get("CEREBRAS_API_KEY"),  # Your Cerebras API key
+    base_url="https://api.cerebras.ai/v1",
+    temperature=0.5,
+)
+
+# Agent definition
+researcher = Agent(
+    role='{topic} Senior Researcher',
+    goal='Uncover groundbreaking technologies in {topic} for the year 2024',
+    backstory='Driven by curiosity, you explore and share the latest innovations.',
+    tools=[SerperDevTool()],
+    llm=cerebras_llm
+)
+
+# Define a research task for the Senior Researcher agent
+research_task = Task(
+    description='Identify the next big trend in {topic} with pros and cons.',
+    expected_output='A 3-paragraph report on emerging {topic} technologies.',
+    agent=researcher
+)
+
+def main():
+    # Forming the crew and kicking off the process
+    crew = Crew(
+        agents=[researcher],
+        tasks=[research_task],
+        process=Process.sequential,
+        verbose=True
+    )
+    result = crew.kickoff(inputs={'topic': 'AI Agents'})
+    print(result)
+
+if __name__ == "__main__":
+    main()
+</code></pre><h2 id="running-the-agent-script">Running the Agent Script</h2><p>To run the script:</p><ol><li>Ensure all prerequisites are met.</li><li>Save the script to a file, e.g., <code>crewai_cerebras_integration.py</code>.</li></ol><p>Run the script:</p><pre><code class="language-bash">python crewai_cerebras_integration_demo.py
+</code></pre><h2 id="expected-output">Expected Output</h2><p>The output will be a 3-paragraph report on emerging AI agent technologies for 2024, generated by the <code>researcher</code> agent using the Cerebras LLM.</p><p><strong>Example Output:</strong></p><pre><code class="language-yaml"># Emerging AI Agents Technologies: A 3-Paragraph Report
+
+The year 2024 is expected to be a significant year for AI Agents technologies. 
+According to various sources, including Forbes, CNBC, and PCG, AI Agents are going to revolutionize the way businesses operate. 
+These agents are expected to autonomously manage supply chains, optimize inventory levels, forecast demand, and even handle complex logistics planning. 
+Moreover, AI Agents will transform business processes, increase automation in workflows, improve customer service and satisfaction, and provide cost savings by reducing operational costs.
+
+However, there are also concerns about the pros and cons of AI Agents. 
+Some of the cons include issues like ethics and dependency on technology. 
+Furthermore, there are risks associated with the use of AI Agents, such as new security risks and the potential for job displacement. 
+Despite these concerns, many experts believe that the benefits of AI Agents outweigh the drawbacks. As Agentic AI becomes more prevalent, it is expected to change the tech stack, HR practices, and the way of getting things done.
+
+In conclusion, AI Agents are going to play a significant role in shaping the future of businesses. 
+With their ability to autonomously manage tasks and processes, they are expected to bring about increased efficiency, accuracy, and cost savings. 
+However, it is essential to be aware of the potential risks and challenges associated with the use of AI Agents and to take steps to mitigate them. 
+As the technology continues to evolve, it will be interesting to see how AI Agents transform various industries and revolutionize the way we work.
+</code></pre><p>You can also watch a full video tutorial of the same code here:</p><figure class="kg-card kg-embed-card"><iframe width="200" height="113" src="https://www.youtube.com/embed/yDlr2fz29dA?feature=oembed" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen="" title="Configuring Cerebras LLMs for CrewAI Agents"></iframe></figure><h2 id="conclusion">Conclusion</h2><p>By integrating Cerebras's lightning-fast inference with CrewAI's flexible multi-agent framework, developers can build sophisticated AI applications that perform complex tasks efficiently. This combination is particularly powerful for research-intensive applications where speed and scalability are crucial.</p><h2 id="next-steps">Next Steps</h2><ul><li><strong>Experiment with Different Models:</strong> Try using different Cerebras models like <code>"cerebras/llama3.1-8b"</code> to see how it affects performance.</li><li><strong>Add More Agents:</strong> Introduce additional agents to handle other tasks, such as data analysis or content generation.</li><li><strong>Enhance Tasks:</strong> Make tasks more complex by adding subtasks or integrating more tools. </li></ul><h2 id="references">References</h2><ul><li><a href="https://cloud.cerebras.ai/?ref=blog.crewai.com">Cerebras Cloud Platform</a></li><li><a href="https://docs.crewai.com/concepts/llms?ref=blog.crewai.com">CrewAI Documentation</a></li></ul><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://github.com/tonykipkemboi/crewai-cerebras-integration-demo/tree/main?ref=blog.crewai.com"><div class="kg-bookmark-content"><div class="kg-bookmark-title">GitHub - tonykipkemboi/crewai-cerebras-integration-demo: A demo showing how to integrate Cerebras LLMs with your CrewAI Agents.</div><div class="kg-bookmark-description">A demo showing how to integrate Cerebras LLMs with your CrewAI Agents. - tonykipkemboi/crewai-cerebras-integration-demo</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://github.githubassets.com/assets/pinned-octocat-093da3e6fa40.svg" alt=""><span class="kg-bookmark-author">GitHub</span><span class="kg-bookmark-publisher">tonykipkemboi</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://opengraph.githubassets.com/4beed8025351be6594b1cdea8a48d5f20acaf0e565e7627047070a48816bde8f/tonykipkemboi/crewai-cerebras-integration-demo" alt="" onerror="this.style.display = 'none'"></div></a></figure>
+            </section>
+
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/getting-started-with-crewai-build-your-first-crew/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2025/05/CrewAI-101-Video--2-.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/05/CrewAI-101-Video--2-.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2025/05/CrewAI-101-Video--2-.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2025/05/CrewAI-101-Video--2-.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2025/05/CrewAI-101-Video--2-.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/05/CrewAI-101-Video--2-.png"
+                    alt="Build your First CrewAI Agents"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Build your First CrewAI Agents</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">A step-by-step guide to creating collaborative AI agent crews with the CrewAI framework</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-05-08">May 8, 2025</time>
+                    <script
+    data-ghost-comment-count="67f6a126bec2ff00012a5948"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/enhancing-crewai-with-copilotkit-integration/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2025/03/COPILOTKIT_CREWAI.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/03/COPILOTKIT_CREWAI.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2025/03/COPILOTKIT_CREWAI.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2025/03/COPILOTKIT_CREWAI.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2025/03/COPILOTKIT_CREWAI.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/03/COPILOTKIT_CREWAI.png"
+                    alt="CrewAI x CopilotKit integration"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Enhancing CrewAI with CopilotKit Integration</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Unlock the power of AI agents with the seamless integration of CrewAI&#39;s multi-agent orchestration and CopilotKit&#39;s frontend tools. This collaboration empowers developers to build more dynamic, intelligent AI agents that enhance user engagement and streamline workflows.</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-03-27">Mar 27, 2025</time>
+                    <script
+    data-ghost-comment-count="67e5575d28fa180001ec72e1"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/configuring-azure-openai-with-crewai-a-comprehensive-guide/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2024/11/Untitled-design-1-1.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/11/Untitled-design-1-1.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2024/11/Untitled-design-1-1.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/11/Untitled-design-1-1.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2024/11/Untitled-design-1-1.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/11/Untitled-design-1-1.png"
+                    alt="Configuring Azure OpenAI with CrewAI: A Comprehensive Guide"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Configuring Azure OpenAI with CrewAI: A Comprehensive Guide</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2024-11-13">Nov 13, 2024</time>
+                    <script
+    data-ghost-comment-count="673521a47864b10001ea3c98"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="6712ceb7a55e2100010a5dcd"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="6712ceb7a55e2100010a5dcd" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>

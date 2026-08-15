@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Can AI Agents help small businesses answer repetitive customer questions? - CrewAI Community Support - CrewAI</title>
+    <meta name="description" content="Hi everyone, 
+I’ve been exploring CrewAI for practical business use cases beyond software development. 
+One area I find interesting is helping small local businesses answer repetitive customer questions automatically. Cu…">
+    <meta name="generator" content="Discourse 2026.8.0-latest.1 - https://github.com/discourse/discourse version 3bcc19a5d2df81fcdfda6fa461ede9e9cac92c48">
+<link rel="icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/dd5538a5110a9677e7e0d33a25c15efe4c257a38_2_32x32.png">
+<link rel="apple-touch-icon" type="image/png" href="https://us1.discourse-cdn.com/flex025/uploads/crewai/optimized/1X/ecda97e72f77c7100e0a761444b1c991925cc789_2_180x180.png">
+<meta name="theme-color" media="all" content="#fff">
+
+<meta name="color-scheme" content="light">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, viewport-fit=cover">
+<link rel="canonical" href="https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673" />
+
+<meta name="discourse-track-view-session-id" content="kG5NGFVyX0cI9IpDMNVJzAP0jHwZ8wKv"><meta name="discourse-beacon-pageview-enabled" content="true"><meta name="discourse-engagement-tracking-enabled" content="true">
+<link rel="search" type="application/opensearchdescription+xml" href="https://community.crewai.com/opensearch.xml" title="CrewAI Search">
+
+    
+    <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/color_definitions_light-default_-1_18_19438fcabc837211bcf1b410c68f3dc280eb0215.css?__ws=community.crewai.com" media="all" rel="stylesheet" class="light-scheme"/>
+
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common"  />
+
+
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/automation_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="automation"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="chat"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/checklist_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="checklist"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-adplugin_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-adplugin"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-ai"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-assign"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-chat-integration_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-chat-integration"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-data-explorer_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-data-explorer"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-details_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-details"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-docs_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-docs"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-events"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-gamification"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-github_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-github"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-lazy-videos_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-lazy-videos"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-local-dates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-local-dates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-narrative-bot_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-narrative-bot"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-policy_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-policy"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-post-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-post-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-presence_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-presence"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-reactions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-solved_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-solved"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-subscriptions_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-subscriptions"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-templates_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-templates"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-topic-voting_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-topic-voting"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-user-notes_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-user-notes"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-yearly-review_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="discourse-yearly-review"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/footnote_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="footnote"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/hosted-site_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="hosted-site"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="poll"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/spoiler-alert_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="spoiler-alert"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="chat_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-ai_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-assign_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-assign_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-events_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-gamification_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_mobile_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="discourse-reactions_mobile"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/chat_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="chat_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-ai_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-ai_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-events_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-events_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-gamification_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-gamification_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/discourse-reactions_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="discourse-reactions_desktop"  />
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/poll_desktop_18717038a656b5533615fe5fc3ba61eb50b0b32c.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="poll_desktop"  />
+
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_4_d15e48126b3cf0bd9ca957ee2ddcf3afcbddd469.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="4" data-theme-name="clickable topic"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_14_0e546bcd2c4eee77a58ab284362a26bbed3278c5.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="14" data-theme-name="panels"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_15_8361ab8d866da36d2a86422b05b0cd5c090e60e2.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="15" data-theme-name="primary button"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_16_a92a9ddc1c7d53e8777d670440c97eeb27fb8d5e.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="16" data-theme-name="rounded"/>
+<link href="https://sea1.discourse-cdn.com/flex025/stylesheets/common_theme_18_7a264dc4fed621c1f31b924970b29024db19c827.css?__ws=community.crewai.com" media="all" rel="stylesheet" data-target="common_theme" data-theme-id="18" data-theme-name="fully theme"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/mobile_theme_14_1643d3b2a777c4f694f2258add3f3e2fb45e9626.css?__ws=community.crewai.com" media="(width < 40rem)" rel="stylesheet" data-target="mobile_theme" data-theme-id="14" data-theme-name="panels"/>
+  <link href="https://sea1.discourse-cdn.com/flex025/stylesheets/desktop_theme_14_d564c4069440fb33b07b870d065d929e20468815.css?__ws=community.crewai.com" media="(width >= 40rem)" rel="stylesheet" data-target="desktop_theme" data-theme-id="14" data-theme-name="panels"/>
+
+    
+    
+        <link rel="alternate nofollow" type="application/rss+xml" title="RSS feed of &#39;Can AI Agents help small businesses answer repetitive customer questions?&#39;" href="https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673.rss" />
+    <meta property="og:site_name" content="CrewAI" />
+<meta property="og:type" content="website" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/fdcfd252ae0c6f9f344beab04113e9d9dc84f3c8.png" />
+<meta property="og:image" content="https://us1.discourse-cdn.com/flex025/uploads/crewai/original/1X/ecda97e72f77c7100e0a761444b1c991925cc789.png" />
+<meta property="og:url" content="https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673" />
+<meta name="twitter:url" content="https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673" />
+<meta property="og:title" content="Can AI Agents help small businesses answer repetitive customer questions?" />
+<meta name="twitter:title" content="Can AI Agents help small businesses answer repetitive customer questions?" />
+<meta property="og:description" content="Hi everyone,  I’ve been exploring CrewAI for practical business use cases beyond software development.  One area I find interesting is helping small local businesses answer repetitive customer questions automatically. Customers often ask things like:   How much will this service cost? What items do you accept? Can this be recycled or donated? Do you offer same-day service?  Instead of writing custom replies every time, it seems possible to build a CrewAI workflow connected to a small knowledge b..." />
+<meta name="twitter:description" content="Hi everyone,  I’ve been exploring CrewAI for practical business use cases beyond software development.  One area I find interesting is helping small local businesses answer repetitive customer questions automatically. Customers often ask things like:   How much will this service cost? What items do you accept? Can this be recycled or donated? Do you offer same-day service?  Instead of writing custom replies every time, it seems possible to build a CrewAI workflow connected to a small knowledge b..." />
+<meta property="og:article:section" content="CrewAI Community Support" />
+<meta property="og:article:section:color" content="3AB54A" />
+<meta property="article:published_time" content="2026-07-24T12:25:41+00:00" />
+<meta property="og:ignore_canonical" content="true" />
+
+
+    <script type="application/ld+json">{"@context":"http://schema.org","@type":"QAPage","name":"Can AI Agents help small businesses answer repetitive customer questions?","datePublished":"2026-07-24T12:25:41.116Z","mainEntity":{"@type":"Question","answerCount":1,"author":{"@type":"Person","name":"Matthewjon","url":"https://community.crewai.com/u/Matthewjon"},"dateModified":"2026-07-24T12:25:41.238Z","datePublished":"2026-07-24T12:25:41.116Z","name":"Can AI Agents help small businesses answer repetitive customer questions?","text":"Hi everyone,\n\nI’ve been exploring CrewAI for practical business use cases beyond software development.\n\nOne area I find interesting is helping small local businesses answer repetitive customer questions automatically. Customers often ask things like:\n\nHow much will this service cost?\n\nWhat items do &hellip;","upvoteCount":0,"suggestedAnswer":[{"@type":"Answer","author":{"@type":"Person","name":"Matthewjon","url":"https://community.crewai.com/u/Matthewjon"},"dateModified":"2026-07-29T08:22:19.855Z","datePublished":"2026-07-29T08:22:19.825Z","text":"Small update after a few more days of testing.\n\nI continued experimenting with this use case and found that response quality depends much more on how the business knowledge is organized than on prompt engineering alone.\n\nI’m currently testing against a real business knowledge base rather than synthe&hellip;","upvoteCount":0,"url":"https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673/2"}]}}</script>
+  </head>
+  <body class="crawler ">
+    
+    <header>
+  <a href="/">CrewAI</a>
+</header>
+
+    <div id="main-outlet" class="wrap" role="main">
+        <div id="topic-title">
+    <h1>
+      <a href="/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673">Can AI Agents help small businesses answer repetitive customer questions?</a>
+    </h1>
+
+      <div class="topic-category" itemscope itemtype="http://schema.org/BreadcrumbList">
+          <span itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem">
+            <a href="/c/community-support/7" class="badge-wrapper bullet" itemprop="item">
+              <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+              <span class='badge-category clear-badge'>
+                <span class='category-name' itemprop='name'>CrewAI Community Support</span>
+              </span>
+            </a>
+            <meta itemprop="position" content="1" />
+          </span>
+      </div>
+
+  </div>
+
+  
+
+    <div itemscope="itemscope" itemtype="https://schema.org/QAPage">
+      <meta itemprop='name' content='Can AI Agents help small businesses answer repetitive customer questions?'>
+      <link itemprop='url' href='https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673'>
+      <meta itemprop='datePublished' content='2026-07-24T12:25:41Z'>
+      <meta itemprop='keywords' content=''>
+
+        <div itemprop="mainEntity" itemscope="itemscope" itemtype="https://schema.org/Question">
+          <meta itemprop='answerCount' content='1'><meta itemprop='datePublished' content='2026-07-24T12:25:41Z'><meta itemprop='name' content='Can AI Agents help small businesses answer repetitive customer questions?'><meta itemprop='upvoteCount' content='0'>
+
+
+          <div id='post_1' data-qa-question="true" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Matthewjon'><span itemprop="name">Matthewjon</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Matthewjon'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time  datetime='2026-07-24T12:25:41Z' class='post-time'>
+                    July 24, 2026, 12:25pm
+                  </time>
+                  <meta itemprop='dateModified' content='2026-07-24T12:25:41Z'>
+              <span itemprop="position">1</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Hi everyone,</p>
+<p>I’ve been exploring CrewAI for practical business use cases beyond software development.</p>
+<p>One area I find interesting is helping small local businesses answer repetitive customer questions automatically. Customers often ask things like:</p>
+<ul>
+<li>How much will this service cost?</li>
+<li>What items do you accept?</li>
+<li>Can this be recycled or donated?</li>
+<li>Do you offer same-day service?</li>
+</ul>
+<p>Instead of writing custom replies every time, it seems possible to build a CrewAI workflow connected to a small knowledge base so the agent can provide consistent answers.</p>
+<p>I also think combining CrewAI with semantic search or a lightweight RAG system could make responses much more accurate, especially when the business already has FAQs, documentation, or a detailed <strong>pricing guide</strong>.</p>
+<p>For those already using CrewAI:</p>
+<ul>
+<li>Are you using RAG or simple prompt engineering?</li>
+<li>How do you keep answers accurate when business information changes?</li>
+<li>Would you recommend a vector database for small business knowledge bases, or is a simpler approach enough?</li>
+</ul>
+<p>I’d love to hear about real-world implementations and best practices.</p>
+<p>Thanks!</p>
+            </div>
+
+
+
+            
+
+
+          </div>
+          <div id='post_2' itemprop="suggestedAnswer" itemscope="itemscope" itemtype="https://schema.org/Answer" class='topic-body crawler-post'>
+            <div class='crawler-post-meta'>
+              <span class="creator" itemprop="author" itemscope="itemscope" itemtype="http://schema.org/Person">
+                <a rel='nofollow' href='https://community.crewai.com/u/Matthewjon'><span itemprop="name">Matthewjon</span></a>
+                  <meta itemprop='url' content='https://community.crewai.com/u/Matthewjon'>
+                
+              </span>
+
+
+
+              <span class="crawler-post-infos">
+                  <time itemprop="datePublished" datetime='2026-07-29T08:22:19Z' class='post-time'>
+                    July 29, 2026,  8:22am
+                  </time>
+                  <meta itemprop='dateModified' content='2026-07-29T08:22:19Z'>
+              <span itemprop="position">2</span>
+              </span>
+            </div>
+            <div class='post' itemprop="text">
+              <p>Small update after a few more days of testing.</p>
+<p>I continued experimenting with this use case and found that response quality depends much more on how the business knowledge is organized than on prompt engineering alone.</p>
+<p>I’m currently testing against a real business knowledge base rather than synthetic examples because it contains service pages, FAQs, pricing information, and informational content that change over time. I’m documenting everything in this resource while comparing different retrieval strategies.</p>
+<p>At the moment I’m evaluating:</p>
+<ul>
+<li>A single knowledge base vs multiple smaller collections</li>
+<li>Static documentation vs frequently updated business content</li>
+<li>Simple retrieval vs lightweight RAG</li>
+<li>Metadata filtering vs semantic search</li>
+</ul>
+<p>So far the biggest challenge has been keeping the knowledge base synchronized whenever business content changes.</p>
+<p>If anyone has tested similar production workflows with CrewAI, I’d be interested to know what architecture worked best.</p>
+            </div>
+
+
+
+            
+
+<meta itemprop='upvoteCount' content='0'><meta itemprop='url' content='https://community.crewai.com/t/can-ai-agents-help-small-businesses-answer-repetitive-customer-questions/7673/2'>
+          </div>
+
+        </div>
+    </div>
+
+
+    <div id="related-topics" class="more-topics__list " role="complementary" aria-labelledby="related-topics-title">
+  <h3 id="related-topics-title" class="more-topics__list-title">
+    Related topics
+  </h3>
+  <div class="topic-list-container" itemscope itemtype='http://schema.org/ItemList'>
+    <meta itemprop='itemListOrder' content='http://schema.org/ItemListOrderDescending'>
+    <table class='topic-list'>
+      <thead>
+        <tr>
+          <th>Topic</th>
+          <th></th>
+          <th class="replies">Replies</th>
+          <th class="views">Views</th>
+          <th>Activity</th>
+        </tr>
+      </thead>
+      <tbody>
+          <tr class="topic-list-item" id="topic-list-item-4239">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='1'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-is-not-accurate-when-retrieving-memories/4239' class='title raw-link raw-topic-link'>CrewAI is not accurate when retrieving memories</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/memory/28' class='discourse-tag'>memory</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>0</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>200</span>
+            </td>
+            <td>
+              February 27, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-750">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='2'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/crewai-content-generation-vs-business-workflows/750' class='title raw-link raw-topic-link'>CrewAI Content generation vs Business workflows</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/agent/17' class='discourse-tag'>agent</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/feature/23' class='discourse-tag'>feature</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>162</span>
+            </td>
+            <td>
+              July 14, 2026
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-4110">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='3'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/assigning-questions-to-specialized-agents/4110' class='title raw-link raw-topic-link'>Assigning questions to specialized agents</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>2</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>123</span>
+            </td>
+            <td>
+              February 23, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-625">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='4'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/creating-a-conversable-agent-in-crewai-with-human-in-the-loop-interaction/625' class='title raw-link raw-topic-link'>Creating a Conversable Agent in CrewAI with Human-in-the-Loop Interaction</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>21</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>11192</span>
+            </td>
+            <td>
+              June 30, 2025
+            </td>
+          </tr>
+          <tr class="topic-list-item" id="topic-list-item-5537">
+            <td class="main-link" itemprop='itemListElement' itemscope itemtype='http://schema.org/ListItem'>
+              <meta itemprop='position' content='5'>
+              <span class="link-top-line">
+                <a itemprop='url' href='https://community.crewai.com/t/dynamic-knowledge/5537' class='title raw-link raw-topic-link'>Dynamic Knowledge</a>
+              </span>
+              <div class="link-bottom-line">
+                  <a href='/c/community-support/7' class='badge-wrapper bullet'>
+                    <span class='badge-category-bg' style='background-color: #3AB54A'></span>
+                    <span class='badge-category clear-badge'>
+                      <span class='category-name'>CrewAI Community Support</span>
+                    </span>
+                  </a>
+                  <div class="discourse-tags">
+                      <a href='https://community.crewai.com/tag/crewai/21' class='discourse-tag'>crewai</a>
+                      ,&nbsp;
+                      <a href='https://community.crewai.com/tag/memory/28' class='discourse-tag'>memory</a>
+                      
+                  </div>
+              </div>
+            </td>
+            <td class="replies">
+              <span class='posts' title='posts'>1</span>
+            </td>
+            <td class="views">
+              <span class='views' title='views'>226</span>
+            </td>
+            <td>
+              April 27, 2025
+            </td>
+          </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+
+
+
+    </div>
+    <footer class="container wrap">
+  <nav class='crawler-nav'>
+    <ul>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/' itemprop="url">Home </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/categories' itemprop="url">Categories </a>
+        </span>
+      </li>
+      <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+        <span itemprop='name'>
+          <a href='/guidelines' itemprop="url">Guidelines </a>
+        </span>
+      </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/tos' itemprop="url">Terms of Service </a>
+          </span>
+        </li>
+        <li itemscope itemtype='http://schema.org/SiteNavigationElement'>
+          <span itemprop='name'>
+            <a href='/privacy' itemprop="url">Privacy Policy </a>
+          </span>
+        </li>
+    </ul>
+  </nav>
+  <p class='powered-by-link'>Powered by <a href="https://www.discourse.org">Discourse</a>, best viewed with JavaScript enabled</p>
+</footer>
+
+    
+    
+  </body>
+  
+</html>

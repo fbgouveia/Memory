@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Configuring Azure OpenAI with CrewAI: A Comprehensive Guide</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <meta name="description" content="A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.">
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/configuring-azure-openai-with-crewai-a-comprehensive-guide/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Configuring Azure OpenAI with CrewAI: A Comprehensive Guide">
+    <meta property="og:description" content="A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.">
+    <meta property="og:url" content="https://blog.crewai.com/configuring-azure-openai-with-crewai-a-comprehensive-guide/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/Untitled-design-1-1.png">
+    <meta property="article:published_time" content="2024-11-13T22:20:52.000Z">
+    <meta property="article:modified_time" content="2024-11-13T22:20:52.000Z">
+    <meta property="article:tag" content="Tutorials">
+    
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Configuring Azure OpenAI with CrewAI: A Comprehensive Guide">
+    <meta name="twitter:description" content="A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.">
+    <meta name="twitter:url" content="https://blog.crewai.com/configuring-azure-openai-with-crewai-a-comprehensive-guide/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/Untitled-design-1-1.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:label2" content="Filed under">
+    <meta name="twitter:data2" content="Tutorials">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="1094">
+    <meta property="og:image:height" content="615">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "Configuring Azure OpenAI with CrewAI: A Comprehensive Guide",
+    "url": "https://blog.crewai.com/configuring-azure-openai-with-crewai-a-comprehensive-guide/",
+    "datePublished": "2024-11-13T22:20:52.000Z",
+    "dateModified": "2024-11-13T22:20:52.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/Untitled-design-1-1.png",
+        "width": 1094,
+        "height": 615
+    },
+    "keywords": "Tutorials",
+    "description": "A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.",
+    "mainEntityOfPage": "https://blog.crewai.com/configuring-azure-openai-with-crewai-a-comprehensive-guide/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=D6OJpxckK_6QDJ1o"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=zbOBSN8qHrr3rC6Y">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="43314598-373c-4791-b321-d1996da61528" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template tag-tutorials tag-hash-tony gh-font-heading-inter gh-font-body-inter is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post tag-tutorials tag-hash-tony">
+
+            <header class="gh-article-header gh-canvas">
+                    <a class="gh-article-tag" href="https://blog.crewai.com/tag/tutorials/">Tutorials</a>
+
+                <h1 class="gh-article-title">Configuring Azure OpenAI with CrewAI: A Comprehensive Guide</h1>
+
+                    <p class="gh-article-excerpt">A step-by-step guide to set up and configure Azure OpenAI within CrewAI framework for your AI Agents.</p>
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2024-11-13">Nov 13, 2024</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">3 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2024/11/Untitled-design-1-1.png 300w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/11/Untitled-design-1-1.png 720w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2024/11/Untitled-design-1-1.png 960w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/11/Untitled-design-1-1.png 1200w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2024/11/Untitled-design-1-1.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/11/Untitled-design-1-1.png"
+            alt="Configuring Azure OpenAI with CrewAI: A Comprehensive Guide"
+        >
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>Not going to bore you with an intro, so here's the guide.</p><p><strong>1. Set Up Azure OpenAI</strong></p><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/image-1-1-1-1-1-1.png" class="kg-image" alt="" loading="lazy" width="1098" height="866" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2024/11/image-1-1-1-1-1-1.png 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2024/11/image-1-1-1-1-1-1.png 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/image-1-1-1-1-1-1.png 1098w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Create Azure OpenAI</span></figcaption></figure><ul><li><strong>Create an Azure OpenAI Resource</strong>:<ul><li>Sign in to the <a href="https://portal.azure.com/?ref=blog.crewai.com">Azure portal</a>.</li><li>Navigate to <strong>"Create a resource"</strong> &gt; <strong>"AI + Machine Learning"</strong> &gt; <strong>"Azure OpenAI"</strong>.</li><li>Fill in the required details and create the resource.</li></ul></li><li><strong>Retrieve API Keys and Endpoint</strong>:</li></ul><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/image-2-1.png" class="kg-image" alt="" loading="lazy" width="1138" height="774" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2024/11/image-2-1.png 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2024/11/image-2-1.png 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/image-2-1.png 1138w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">API Keys &amp; Endpoint</span></figcaption></figure><ul><ul><li>After creating the resource, go to its <strong>"Keys and Endpoint"</strong> section.</li><li>Copy the <strong>Endpoint URL</strong> and one of the <strong>API keys</strong> (Key1 or Key2) for later use.</li></ul></ul><p><strong>2. Configure Environment Variables</strong></p><p>Set the following environment variables in your <code>.env</code> file in the root directory to allow CrewAI to authenticate with Azure OpenAI:</p><pre><code class="language-bash">AZURE_API_KEY=your-api-key # Replace with KEY1 or KEY2
+AZURE_API_BASE=https://example.openai.azure.com/  # Replace with your endpoint
+AZURE_API_VERSION=2024-08-01-preview # API version
+</code></pre><p>Replace <code>your-api-key</code> with the API key obtained earlier and <code>https://example.openai.azure.com/</code> with the Endpoint URL.</p><p><strong>3. Update <code>agents.yml</code> Configuration</strong></p><p>Modify your <code>agents.yml</code> file to specify the Azure OpenAI model for your agent:</p><pre><code class="language-yaml">researcher:
+  role: &gt;
+    {topic} Senior Data Researcher
+  goal: &gt;
+    Uncover cutting-edge developments in {topic}
+  backstory: &gt;
+    You're a seasoned researcher with a knack for uncovering the latest
+    developments in {topic}. Known for your ability to find the most relevant
+    information and present it in a clear and concise manner.
+  llm: azure/gpt-4o-mini
+
+reporting_analyst:
+  role: &gt;
+    {topic} Reporting Analyst
+  goal: &gt;
+    Create detailed reports based on {topic} data analysis and research findings
+  backstory: &gt;
+    You're a meticulous analyst with a keen eye for detail. You're known for
+    your ability to turn complex data into clear and concise reports, making
+    it easy for others to understand and act on the information you provide.
+  llm: azure/gpt-4o-mini
+</code></pre><p>Ensure that the <code>llm</code> field is set to the appropriate Azure model you intend to use.</p><p><strong>4. Troubleshooting</strong></p><ul><li><strong>API Errors</strong>: Verify your API key, endpoint URL, and network connectivity.</li><li><strong>Unexpected Outputs</strong>: Refine prompts and adjust parameters like <code>temperature</code> or <code>top_p</code>.</li><li><strong>Performance Issues</strong>: Consider using a more powerful model or optimizing your queries.</li><li><strong>Timeouts</strong>: Increase the <code>timeout</code> parameter or optimize input data to prevent delays.</li><li><strong>Rate Limit Errors</strong>: If you encounter a <code>RateLimitError</code> with error <code>code 429</code>, it indicates that your requests have exceeded the token rate limit of your current Azure OpenAI pricing tier. To resolve this, consider requesting a quota increase. If your application's requirements exceed the current limits, you can request a quota increase through the Azure portal. Visit <a href="https://aka.ms/oai/quotaincrease?ref=blog.crewai.com">https://aka.ms/oai/quotaincrease</a> for more information.</li></ul><figure class="kg-card kg-image-card kg-card-hascaption"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/Screenshot-2024-11-13-at-4.45.10-PM-1.png" class="kg-image" alt="" loading="lazy" width="1828" height="381" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2024/11/Screenshot-2024-11-13-at-4.45.10-PM-1.png 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2024/11/Screenshot-2024-11-13-at-4.45.10-PM-1.png 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2024/11/Screenshot-2024-11-13-at-4.45.10-PM-1.png 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/11/Screenshot-2024-11-13-at-4.45.10-PM-1.png 1828w" sizes="(min-width: 720px) 720px"><figcaption><span style="white-space: pre-wrap;">Error code 429</span></figcaption></figure><p>By following these steps, you can effectively integrate Azure OpenAI with CrewAI, enabling your agents to perform tasks with enhanced intelligence and efficiency.</p><p>Please reference our docs below for more detailed information.</p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://docs.crewai.com/concepts/llms?ref=blog.crewai.com"><div class="kg-bookmark-content"><div class="kg-bookmark-title">LLMs - CrewAI</div><div class="kg-bookmark-description">Learn how to configure and optimize LLMs for your CrewAI projects.</div><div class="kg-bookmark-metadata"><img class="kg-bookmark-icon" src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/icon/apple-touch-icon.png" alt=""><span class="kg-bookmark-author">CrewAI</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/thumbnail/og" alt="" onerror="this.style.display = 'none'"></div></a></figure>
+            </section>
+
+        </article>
+
+                <div class="gh-read-next gh-canvas">
+                <section class="gh-pagehead">
+                    <h4 class="gh-pagehead-title">Read next</h4>
+                </section>
+
+                <div class="gh-topic gh-topic-grid">
+                    <div class="gh-topic-content">
+                            <article class="gh-card post featured">
+    <a class="gh-card-link" href="/getting-started-with-crewai-build-your-first-crew/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2025/05/CrewAI-101-Video--2-.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/05/CrewAI-101-Video--2-.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2025/05/CrewAI-101-Video--2-.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2025/05/CrewAI-101-Video--2-.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2025/05/CrewAI-101-Video--2-.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/05/CrewAI-101-Video--2-.png"
+                    alt="Build your First CrewAI Agents"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Build your First CrewAI Agents</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">A step-by-step guide to creating collaborative AI agent crews with the CrewAI framework</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-05-08">May 8, 2025</time>
+                    <script
+    data-ghost-comment-count="67f6a126bec2ff00012a5948"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/enhancing-crewai-with-copilotkit-integration/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2025/03/COPILOTKIT_CREWAI.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/03/COPILOTKIT_CREWAI.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2025/03/COPILOTKIT_CREWAI.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2025/03/COPILOTKIT_CREWAI.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2025/03/COPILOTKIT_CREWAI.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2025/03/COPILOTKIT_CREWAI.png"
+                    alt="CrewAI x CopilotKit integration"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Enhancing CrewAI with CopilotKit Integration</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Unlock the power of AI agents with the seamless integration of CrewAI&#39;s multi-agent orchestration and CopilotKit&#39;s frontend tools. This collaboration empowers developers to build more dynamic, intelligent AI agents that enhance user engagement and streamline workflows.</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2025-03-27">Mar 27, 2025</time>
+                    <script
+    data-ghost-comment-count="67e5575d28fa180001ec72e1"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                            <article class="gh-card post">
+    <a class="gh-card-link" href="/build-a-multi-ai-agent-workflow-cerebras-crewai-2/">
+            <figure class="gh-card-image">
+                <img
+                    srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2024/10/per-01--6-.png 300w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/10/per-01--6-.png 720w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2024/10/per-01--6-.png 960w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2024/10/per-01--6-.png 1200w,
+                            https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2024/10/per-01--6-.png 2000w"
+                    sizes="(max-width: 1200px) 100vw, 1200px"
+                    src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2024/10/per-01--6-.png"
+                    alt="Build a Multi-AI Agent Workflow with Cerebras and CrewAI"
+                >
+            </figure>
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h3 class="gh-card-title">Build a Multi-AI Agent Workflow with Cerebras and CrewAI</h3>
+            </header>
+
+                    <div class="gh-card-excerpt">Build multi-ai agent workflows with CrewAI and Cerebras&#39; fast inference speed</div>
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">João (Joe) Moura</span>
+                <time class="gh-card-date" datetime="2024-10-22">Oct 22, 2024</time>
+                    <script
+    data-ghost-comment-count="6712ceb7a55e2100010a5dcd"
+    data-ghost-comment-count-empty=""
+    data-ghost-comment-count-singular="comment"
+    data-ghost-comment-count-plural="comments"
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name="gh-card-comments"
+    data-ghost-comment-count-autowrap="true"
+>
+</script>
+            </footer>
+        </div>
+    </a>
+</article>                    </div>
+                </div>
+            </div>
+
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="673521a47864b10001ea3c98"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="673521a47864b10001ea3c98" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>

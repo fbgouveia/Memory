@@ -1,0 +1,10 @@
+{
+  "repository_url": "https://github.com/crewAIInc/crewAI",
+  "snapshot_path": "raw/repository/crewAI",
+  "commit": "754d7323beb2fd042e33444a115ea2d5a47193f0",
+  "commit_date": "2026-08-13T21:27:35-04:00",
+  "license": "MIT",
+  "captured_at": "2026-08-16T00:00:00Z",
+  "clone_method": "git clone --depth 1 --no-tags",
+  "git_history_removed": true
+}

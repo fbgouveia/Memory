@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Agent Harnesses Are Dead. Long Live Agent Harnesses.</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/agent-harnesses-are-dead-long-live-agent-harnesses/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="Agent Harnesses Are Dead. Long Live Agent Harnesses.">
+    <meta property="og:description" content="I said it at a Dev Day 2025 (DeepLearning.AI conference) last year:
+
+Frameworks are cheap.
+
+A few people in the audience looked uncomfortable. But I think the statement aged well.
+
+Now it&#x27;s not just frameworks.  Harnesses are getting the same treatment, and the cycle is only getting faster.">
+    <meta property="og:url" content="https://blog.crewai.com/agent-harnesses-are-dead-long-live-agent-harnesses/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/04/had.png">
+    <meta property="article:published_time" content="2026-04-14T14:40:55.000Z">
+    <meta property="article:modified_time" content="2026-04-14T14:40:55.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Agent Harnesses Are Dead. Long Live Agent Harnesses.">
+    <meta name="twitter:description" content="I said it at a Dev Day 2025 (DeepLearning.AI conference) last year:
+
+Frameworks are cheap.
+
+A few people in the audience looked uncomfortable. But I think the statement aged well.
+
+Now it&#x27;s not just frameworks.  Harnesses are getting the same treatment, and the cycle is only getting faster.">
+    <meta name="twitter:url" content="https://blog.crewai.com/agent-harnesses-are-dead-long-live-agent-harnesses/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/04/had.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="480">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "Agent Harnesses Are Dead. Long Live Agent Harnesses.",
+    "url": "https://blog.crewai.com/agent-harnesses-are-dead-long-live-agent-harnesses/",
+    "datePublished": "2026-04-14T14:40:55.000Z",
+    "dateModified": "2026-04-14T14:40:55.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/04/had.png",
+        "width": 1200,
+        "height": 480
+    },
+    "description": "I said it at a Dev Day 2025 (DeepLearning.AI conference) last year:\n\nFrameworks are cheap.\n\nA few people in the audience looked uncomfortable. But I think the statement aged well.\n\nNow it's not just frameworks.  Harnesses are getting the same treatment, and the cycle is only getting faster. Building anything is getting cheaper by the month. Vibe-code an app over the weekend. Spin up an agent with a few API calls. The distance between idea and working prototype has collapsed to almost nothing, an",
+    "mainEntityOfPage": "https://blog.crewai.com/agent-harnesses-are-dead-long-live-agent-harnesses/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=D6OJpxckK_6QDJ1o"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=zbOBSN8qHrr3rC6Y">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="3112a2ed-b69f-45df-a714-e1742c3b6cb9" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template gh-font-heading-inter gh-font-body-inter is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post">
+
+            <header class="gh-article-header gh-canvas">
+
+                <h1 class="gh-article-title">Agent Harnesses Are Dead. Long Live Agent Harnesses.</h1>
+
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2026-04-14">Apr 14, 2026</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">4 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2026/04/had.png 300w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2026/04/had.png 720w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2026/04/had.png 960w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/04/had.png 1200w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2026/04/had.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/04/had.png"
+            alt="Agent Harnesses Are Dead. Long Live Agent Harnesses."
+        >
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>I said it at a Dev Day 2025 (<a href="https://ai-dev.deeplearning.ai/?ref=blog.crewai.com" rel="noreferrer"><u>DeepLearning.AI</u></a> conference) last year:</p><blockquote>Frameworks are cheap.</blockquote><p>A few people in the audience looked uncomfortable. But I think the statement aged well.</p><p>Now it's not just frameworks.&nbsp; Harnesses are getting the same treatment, and the cycle is only getting faster. Building anything is getting cheaper by the month. Vibe-code an app over the weekend. Spin up an agent with a few API calls. The distance between idea and working prototype has collapsed to almost nothing, and will collapse to nothing faster than most expect.</p><p>And yet the industry is spending most of its energy debating what to call the building tools.</p><p>We built our harness back in 2023 when we launched, what people now all agree to be the right abstraction, of multi agentic opinionated agent abstractions and eventually exposed its internals (the framework, a.k.a. CrewAI Flows). The combination of Agents, Crews and Flows, allowed for a massive array of use cases and adoption across major enterprises.</p><p>We have seen the industry evolve and we keep on building towards the future. You can expect some launches soon, but I want to start introducing how we all got here and where the industry is going.</p><h2 id="the-vocabulary-changes-faster-than-the-value"><strong>The vocabulary changes faster than the value</strong></h2><p>The industry has been cycling through terminology. Frameworks became scaffolds. Scaffolds became harnesses. The idea is that each generation is more opinionated. Harnesseses ship with planning, memory, file systems, and compaction built in.</p><p>But the underlying dynamic hasn't changed and meanwhile the building layer keeps getting cheaper.</p><p>@garrytan put it well this last week: the harness should be thin. The harness is plumbing. Plumbing matters, but nobody builds an exciting defensible product on plumbing.</p><p>Meanwhile, some are arguing that harnesses are the new defensible layer, that frameworks are dead but harnesses will endure. I think that's wishful thinking. The same forces that commoditized frameworks are already starting to commoditize harnesses. Model providers keep absorbing the stack and every quarter, another primitive moves behind an API.</p><p>We have a framework ourselves (CrewAI Flows) and a Harness (CrewAI Crews and Agents, with memory, tools, caching, context engineering, prompts, skills, mcp, etc.. you get it), so I'm not saying this from the sidelines, I'm on the front row watching it happen to a category I'm helping build. The entire conversation is furniture rearrangement.&nbsp;</p><p>So if the harness is dying, what lives? The answer isn't another layer of tooling. It's something else entirely.</p><p>The building is getting cheaper and that affects incumbent SaaS as much as it affects startups and enterprises, rearranging the furniture doesn't change that.</p><h2 id="the-things-that-compound"><strong>The things that compound</strong></h2><p>When building gets cheap, the value moves to the layers that can't be replicated overnight. Distribution. Proprietary data that took years to assemble. Products that capture intelligence as customers use them and get better over time. Trust earned through production. It’s usually a&nbsp; combination of these things that create separation between great and mediocre software nowadays.</p><p>You can't vibe-code the thousandth customer's accumulated patterns feeding back into the product. That flywheel is earned, not built.</p><h2 id="companies-want-to-vibe-code-their-own-tools"><strong>Companies want to vibe-code their own tools</strong></h2><p>Here's something I've been thinking about a lot.</p><p>The reason companies are excited about building their own internal tools with AI isn't just cost, it's that they only use a fraction of every piece of software they buy. Every user in an enterprise runs a customized version of their tools in their heads. The three features they actually use, the workarounds they've built, the workflows that don't necessarily map to any vendor's assumptions.</p><p>So when building gets cheap, their first instinct is: I'll just build exactly what I need, and I won't say they're wrong to think that way.</p><p>But I think the real opportunity is harder than vibe-coding, and potentially more valuable.</p><h2 id="entangled-software-entangled-agentic-systems"><strong>Entangled Software </strong><em>(Entangled Agentic Systems)</em></h2><p>What if instead of customers building their own stripped-down versions of your product, the product itself adapted to each customer? Actually learned from how they work and reshaped itself around their behavior.</p><p>I've been calling this entangled software. The concept comes from physics, when two particles become entangled, the state of one instantly reflects the state of the other. In entangled software, the product and the customer influence each other. The customer's behavior shapes the software. The software shapes how the customer works and over time, they become inseparable.</p><p>This is the opposite of how software has worked for thirty years. We've always built tools and asked humans to adapt to them.&nbsp;</p><p>But entangled software flips that. The software adapts to behavior instead of behavior adapting to software. This is something that wouldn’t be possible without agents until recently but now opens the doors for completely user experiences.</p><p>This also applies to agentic systems, where they are now starting to evolve into entangled agentic systems, and those are in many ways fundamentally different.</p><p>A selected few are working towards this, us included, and I have many ideas about what the final version of this will look like for agents, especially CrewAI Agents. Once entangled agentic systems are truly deployed with a customer's processes, data, and way of working, they become fully entangled.</p><p>Entangled Software is the future of Agents, and we recently have been able to peek at what full entangled agentic systems look like and how transformative they can be. I'll be talking more about these soon.</p><h2 id="the-road-not-the-car"><strong>The road, not the car</strong></h2><p>The framework and harness debate is about how to build the car. Important for sure, but the companies that win this era won't be the ones that built the best car, but the ones that built the road. The infrastructure of trust, data, and adaptation that every car needs to drive on. Harnesses as they were are dead. Yes, that is how fast things are moving. What they evolve into is what matters.</p><p>At CrewAI, we have built the car. Now we're perfecting the road.</p><h2 id="where-crewai-is-going"><strong>Where CrewAI is going</strong></h2><p>We build both the framework (CrewAI Flows) and the Harness (CrewAI Crews and Agents). Now we're building what comes after both.</p><p>CrewAI has long evolved and is now becoming a platform where agents don't just execute tasks, they learn from every customer's workflows, adapt to how each organization actually operates, and get better the more they're used. Not through configuration but through entanglement.</p><p>We're building toward a world where you don't set up agents, they emerge from how your team works. Your processes, your data, your patterns become the agent's intelligence. That's not a framework. That's not a harness. It's something new.</p><p>I have never been more bullish in the agentic future.</p>
+            </section>
+
+        </article>
+
+    
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="69ddde15c3987800014c3951"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="69ddde15c3987800014c3951" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>

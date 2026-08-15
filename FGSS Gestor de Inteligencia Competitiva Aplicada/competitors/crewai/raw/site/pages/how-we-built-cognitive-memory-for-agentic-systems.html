@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>How we built Cognitive Memory for Agentic Systems</title>
+    <link rel="stylesheet" href="https://blog.crewai.com/assets/built/screen.css?v=b6T6FB2EXTMMI1Nt">
+
+    <link rel="icon" href="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w256h256/format/png/2024/10/favicon.svg" type="image/png">
+    <link rel="canonical" href="https://blog.crewai.com/how-we-built-cognitive-memory-for-agentic-systems/">
+    <meta name="referrer" content="no-referrer-when-downgrade">
+    
+    <meta property="og:site_name" content="CrewAI">
+    <meta property="og:type" content="article">
+    <meta property="og:title" content="How we built Cognitive Memory for Agentic Systems">
+    <meta property="og:description" content="Many agentic systems start every run from zero, the system and its agents discover the same context, calls the same tools, makes the same mistakes, every. single. time. That&#x27;s not just inefficient, it creates a major ceiling on what agentic systems can do.
+
+The obvious fix is to bolt">
+    <meta property="og:url" content="https://blog.crewai.com/how-we-built-cognitive-memory-for-agentic-systems/">
+    <meta property="og:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/02/cam.png">
+    <meta property="article:published_time" content="2026-03-05T18:28:17.000Z">
+    <meta property="article:modified_time" content="2026-03-05T18:28:17.000Z">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="How we built Cognitive Memory for Agentic Systems">
+    <meta name="twitter:description" content="Many agentic systems start every run from zero, the system and its agents discover the same context, calls the same tools, makes the same mistakes, every. single. time. That&#x27;s not just inefficient, it creates a major ceiling on what agentic systems can do.
+
+The obvious fix is to bolt">
+    <meta name="twitter:url" content="https://blog.crewai.com/how-we-built-cognitive-memory-for-agentic-systems/">
+    <meta name="twitter:image" content="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/02/cam.png">
+    <meta name="twitter:label1" content="Written by">
+    <meta name="twitter:data1" content="João (Joe) Moura">
+    <meta name="twitter:site" content="@crewAIInc">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="480">
+    
+    <script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "publisher": {
+        "@type": "Organization",
+        "name": "CrewAI",
+        "url": "https://blog.crewai.com/",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png"
+        }
+    },
+    "author": {
+        "@type": "Person",
+        "name": "João (Joe) Moura",
+        "image": {
+            "@type": "ImageObject",
+            "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg",
+            "width": 589,
+            "height": 589
+        },
+        "url": "https://blog.crewai.com/author/joao/",
+        "sameAs": []
+    },
+    "headline": "How we built Cognitive Memory for Agentic Systems",
+    "url": "https://blog.crewai.com/how-we-built-cognitive-memory-for-agentic-systems/",
+    "datePublished": "2026-03-05T18:28:17.000Z",
+    "dateModified": "2026-03-05T18:28:17.000Z",
+    "image": {
+        "@type": "ImageObject",
+        "url": "https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/02/cam.png",
+        "width": 1200,
+        "height": 480
+    },
+    "description": "Many agentic systems start every run from zero, the system and its agents discover the same context, calls the same tools, makes the same mistakes, every. single. time. That's not just inefficient, it creates a major ceiling on what agentic systems can do.\n\nThe obvious fix is to bolt on some sort of memory into the system, store everything, retrieve by similarity with vectors, hope for the best.\nBut naive memory implementations creates its own problems like context bloats, outdated information p",
+    "mainEntityOfPage": "https://blog.crewai.com/how-we-built-cognitive-memory-for-agentic-systems/"
+}
+    </script>
+
+    <meta name="generator" content="Ghost 6.57">
+    <link rel="alternate" type="application/rss+xml" title="CrewAI" href="https://blog.crewai.com/rss/">
+    <script defer src="https://cdn.jsdelivr.net/ghost/portal@~2.69/umd/portal.min.js" data-i18n="true" data-ghost="https://blog.crewai.com/" data-key="5a7ce3efa58befb6ebf99e0dee" data-api="https://crewai.ghost.io/ghost/api/content/" data-locale="en" crossorigin="anonymous"></script><style id="gh-members-styles">.gh-post-upgrade-cta-content,
+.gh-post-upgrade-cta {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 100%;
+    color: #ffffff;
+    font-size: 16px;
+}
+
+.gh-post-upgrade-cta-content {
+    border-radius: 8px;
+    padding: 40px 4vw;
+}
+
+.gh-post-upgrade-cta h2 {
+    color: #ffffff;
+    font-size: 28px;
+    letter-spacing: -0.2px;
+    margin: 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta p {
+    margin: 20px 0 0;
+    padding: 0;
+}
+
+.gh-post-upgrade-cta small {
+    font-size: 16px;
+    letter-spacing: -0.2px;
+}
+
+.gh-post-upgrade-cta a {
+    color: #ffffff;
+    cursor: pointer;
+    font-weight: 500;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a:hover {
+    color: #ffffff;
+    opacity: 0.8;
+    box-shadow: none;
+    text-decoration: underline;
+}
+
+.gh-post-upgrade-cta a.gh-btn {
+    display: block;
+    background: #ffffff;
+    text-decoration: none;
+    margin: 28px 0 0;
+    padding: 8px 18px;
+    border-radius: 4px;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.gh-post-upgrade-cta a.gh-btn:hover {
+    opacity: 0.92;
+}</style>
+    <script defer src="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/sodo-search.min.js" data-key="5a7ce3efa58befb6ebf99e0dee" data-styles="https://cdn.jsdelivr.net/ghost/sodo-search@~1.8/umd/main.css" data-sodo-search="https://crewai.ghost.io/" data-locale="en" crossorigin="anonymous"></script>
+    
+    <link href="https://blog.crewai.com/webmentions/receive/" rel="webmention">
+    <script defer src="/public/cards.min.js?v=d6d6a5b20c"></script>
+    <link rel="stylesheet" type="text/css" href="/public/cards.min.css?v=d6d6a5b20c">
+    <script defer src="/public/comment-counts.min.js?v=oFYkaGLdiMqB8VN9" data-ghost-comments-counts-api="https://blog.crewai.com/members/api/comments/counts/"></script>
+    <script defer src="/public/member-attribution.min.js?v=fGWxp7cZ6mmurhvN"></script>
+    <script defer src="/public/ghost-stats.min.js?v=XExDLZJ3NKpv0kSa" data-stringify-payload="false" data-datasource="analytics_events" data-storage="localStorage" data-host="https://blog.crewai.com/.ghost/analytics/api/v1/page_hit"  tb_site_uuid="9424691b-cbff-4d03-ab09-94ce04022a63" tb_post_uuid="f2793ec0-f9a4-4754-817b-563a8f62fccb" tb_post_type="post" tb_member_uuid="undefined" tb_member_status="undefined" tb_gift_link=""></script><style>:root {--ghost-accent-color: #EB6658;}</style>
+    <link rel="preconnect" href="https://fonts.bunny.net"><link rel="stylesheet" href="https://fonts.bunny.net/css?family=inter:400,500,600"><style>:root {--gh-font-heading: Inter;--gh-font-body: Inter;}</style>
+</head>
+
+<body class="post-template gh-font-heading-inter gh-font-body-inter is-head-left-logo has-serif-body is-head-brand">
+<div class="gh-site">
+
+    <header id="gh-head" class="gh-head gh-outer">
+        <div class="gh-head-inner gh-inner">
+            <div class="gh-head-brand">
+                <div class="gh-head-brand-wrapper">
+                    
+                    <a class="gh-head-logo" href="https://blog.crewai.com">
+                            <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/crewai_logo.png" alt="CrewAI">
+                    </a>
+                    
+                </div>
+                <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                <button class="gh-burger"></button>
+            </div>
+
+            <nav class="gh-head-menu">
+                <ul class="nav">
+    <li class="nav-home"><a href="https://blog.crewai.com/">Home</a></li>
+    <li class="nav-docs"><a href="https://docs.crewai.com">Docs</a></li>
+    <li class="nav-open-source"><a href="https://www.crewai.com/open-source">Open Source</a></li>
+    <li class="nav-enterprise"><a href="https://www.crewai.com/enterprise">Enterprise</a></li>
+</ul>
+
+            </nav>
+
+            <div class="gh-head-actions">
+                    <button class="gh-search gh-icon-btn" aria-label="Search this site" data-ghost-search><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" width="20" height="20"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"></path></svg></button>
+                    <div class="gh-head-members">
+                                <a class="gh-head-link" href="#/portal/signin" data-portal="signin">Sign in</a>
+                                <a class="gh-head-btn gh-btn gh-primary-btn" href="#/portal/signup" data-portal="signup">Subscribe</a>
+                    </div>
+            </div>
+        </div>
+    </header>
+
+    
+<main class="gh-main">
+        <article class="gh-article post">
+
+            <header class="gh-article-header gh-canvas">
+
+                <h1 class="gh-article-title">How we built Cognitive Memory for Agentic Systems</h1>
+
+
+                    <aside class="gh-article-sidebar">
+
+        <div class="gh-author-image-list instapaper_ignore">
+                <a class="gh-author-image" href="/author/joao/">
+                        <img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2024/10/profile_new.jpg" alt="João (Joe) Moura">
+                </a>
+        </div>
+
+        <div class="gh-author-name-list">
+                <h4 class="gh-author-name">
+                    <a href="/author/joao/">João (Joe) Moura</a>
+                </h4>
+                
+        </div>
+
+        <div class="gh-article-meta">
+            <div class="gh-article-meta-inner">
+                <time class="gh-article-date" datetime="2026-03-05">Mar 5, 2026</time>
+                    <span class="gh-article-meta-sep"></span>
+                    <span class="gh-article-length">9 min</span>
+            </div>
+        </div>
+
+    </aside>
+
+                    <figure class="gh-article-image">
+        <img
+            srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w300/2026/02/cam.png 300w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w720/2026/02/cam.png 720w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w960/2026/02/cam.png 960w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/02/cam.png 1200w,
+                    https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2000/2026/02/cam.png 2000w"
+            sizes="(max-width: 1200px) 100vw, 1200px"
+            src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1200/2026/02/cam.png"
+            alt="How we built Cognitive Memory for Agentic Systems"
+        >
+    </figure>
+            </header>
+
+            <section class="gh-content gh-canvas">
+                <p>Many agentic systems start every run from zero, the system and its agents discover the same context, calls the same tools, makes the same mistakes, every. single. time. That's not just inefficient, it creates a major ceiling on what agentic systems can do.</p><p>The obvious fix is to bolt on some sort of memory into the system, store everything, retrieve by similarity with vectors, hope for the best. <br>But naive memory implementations creates its own problems like context bloats, outdated information poisoning new executions, the agent hallucinates and by the end of it you traded one problem for a worse one.</p><p>We lived this, CrewAI processes billions agentic executions and we saw what happens when memory is treated as a storage problem, and we saw what happens when it's not.</p><p>So we rebuild our entire memory system from scratch, focused on actually supporting production agentic systems. Not as a database with a search layer but as a cognitive process, one that encodes selectively, resolves its own contradictions, forgets on purpose, and knows when it doesn't know. We had the opportunity to use LanceDB as the database behind this implementation what has also been full of pleasant surprises, from being super easy to setup, fast to run and very much on the edge.</p><p>Here's how we built it and how to use it.</p><h2 id="why-naive-memory-makes-it-worse">Why Naive Memory Makes It Worse</h2><p>The market's answer to stateless agents has been to bolt on memory as a service, store everything, embed it, retrieve by similarity. Some approaches do this cleanly, others give you a key-value store with namespaces and leave the rest to you. </p><p>The more sophisticated options build temporal knowledge graphs that track when facts changed, all impressive infrastructure, but still infrastructure.</p><p>The pattern is the same everywhere: memory is treated as a storage and retrieval problem. The developer is responsible for deciding what's worth remembering, how to organize it, when retrieval is confident enough to act on, and what to do when two memories contradict each other. Your agent learns one thing on Monday and another conflicting on Friday. Now it remembers both.</p><p>And none of them ask the question that actually matters: is the retrieval confident enough to act on? They all return results but none of them say "I'm not sure, let me look deeper."</p><p>This is what happens at scale when you treat memory as data instead of cognition.</p><h2 id="memory-is-cognition-not-storage">Memory Is Cognition, Not Storage</h2><p>Human memory doesn't work by storing everything and searching by similarity, it encodes selectively, deciding what matters and where it fits, it consolidates, resolving conflicts between what you knew and what you just learned. It retrieves adaptively, sometimes instantly, sometimes by working through what it knows step by step. And it forgets, not by accident, but because forgetting is what keeps memory useful.</p><p>If you really think about, memory itself resembles a lot an Agentic System itself and that's the model we followed, CrewAI's new Cognition Memory system is built around five cognitive operations: encode, consolidate, recall, extract, and forget. Each one is an active process, not a passive read or write, so when you store a memory, the system analyzes its content, assigns importance, detects contradictions, and places it in a self-organizing hierarchy. When you retrieve, the system evaluates its own confidence and decides whether to go deeper.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Generated-Image-February-11--2026---2_26AM.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1116" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/02/Generated-Image-February-11--2026---2_26AM.jpeg 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/02/Generated-Image-February-11--2026---2_26AM.jpeg 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/02/Generated-Image-February-11--2026---2_26AM.jpeg 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2400/2026/02/Generated-Image-February-11--2026---2_26AM.jpeg 2400w" sizes="(min-width: 720px) 720px"></figure><p>The result is five methods. Here's the full API.</p><h2 id="crewais-cognitive-memory">CrewAI's Cognitive Memory</h2><p>CrewAI's new Cognition Memory is an agentic system on itself that uses CrewAI Flows behind the scenes, full inception. It is available everywhere in your agentic systems:</p><ul><li>You can use it on a single Agent.</li><li>Turn it on in a Crew and all it's agents automatically load and persist memories across tasks, but they can also proactively remember and recall as tools when context matters. </li><li>Use it in a Flow and you get a persistence layer that complements state, where state handles what's ephemeral within a run, memory handles what should compound across runs.</li></ul><p>Another cool piece of the implementation bellow is that you can take it with you and have different agent access the same memory while having different setting on how to recall it, by having different weights for the components that go into recalling, like the half life of memories and such.</p><p>The native implementation carries an extremely simple DSL implementation, in regular CrewAI fashion, so those five cognitive operations map to five methods:</p>
+<!--kg-card-begin: html-->
+<pre style="font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; font-size: 15px "><span style="color: rgb(0, 0, 255); font-weight: 400;">from</span> crewai.memory <span style="color: rgb(0, 0, 255); font-weight: 400;">import</span> Memory
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># New Coginitive Memory Class</span>
+memory = Memory()
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># Adding new memories directly</span>
+memory.remember(<span style="color: rgb(163, 21, 21); font-weight: 400;">"We decided to use PostgreSQL for the user database."</span>)
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># Recalling memories directly</span>
+results = memory.recall(<span style="color: rgb(163, 21, 21); font-weight: 400;">"What database are we using?"</span>)
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># Extracting memorable facts from a string</span>
+facts = memory.extract_memories(<span style="color: rgb(163, 21, 21); font-weight: 400;">"Long text with many possible facts"</span>)
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># Getting the memory tree</span>
+memory.tree()
+
+<span style="color: rgb(0, 128, 0); font-weight: 400;"># Forget certain memories</span>
+<span style="color: rgb(170, 13, 145); font-weight: 400;">from</span> datetime <span style="color: rgb(170, 13, 145); font-weight: 400;">import</span> datetime, timedelta
+memory.forget(scope=<span style="color: rgb(196, 26, 22); font-weight: 400;">"/"</span>, older_than=datetime.utcnow() - timedelta(days=<span style="color: rgb(28, 0, 207); font-weight: 400;">30</span>))</pre>
+<!--kg-card-end: html-->
+<p>Each method triggers its own cognitive pipeline. </p><p><code>remember()</code> doesn't just store, it analyzes what you're saving, detects contradictions against what it already knows, and resolves them. </p><p><code>recall()</code> doesn't just search, it evaluates its own confidence and goes deeper when it's not sure. </p><p>The memory system itself is agentic, every operation is a reasoning process, not a read or write.</p><p>In a Crew, it's one line:</p>
+<!--kg-card-begin: html-->
+<pre style="font-size:15px; font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; ">crew = Crew(
+    agents=[researcher, analyst],
+    tasks=[...],
+    memory=<span style="color: rgb(170, 13, 145); font-weight: 400;">True</span>,
+)</pre>
+<!--kg-card-end: html-->
+<p>Agents load relevant context before each task and persist what they learn after. They can also use remember and recall as tools, the agent itself decides when something is worth storing or when it needs past context. The system handles persistence by default, the agent takes over when it knows better.</p><p>In a Flow:</p>
+<!--kg-card-begin: html-->
+<pre style="font-size:15px; font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(170, 13, 145); font-weight: 400;">class</span> <span style="color: rgb(92, 38, 153); font-weight: 400;">ResearchFlow</span>(<span style="color: rgb(92, 38, 153); font-weight: 400;">Flow</span>):
+<span style="color: rgb(100, 56, 32); font-weight: 400;">    @start()</span>
+    <span style="color: rgb(170, 13, 145); font-weight: 400;">def</span> <span style="color: rgb(28, 0, 207); font-weight: 400;">research</span>(<span style="color: rgb(92, 38, 153); font-weight: 400;">self</span>):
+        past = self.recall(<span style="color: rgb(196, 26, 22); font-weight: 400;">"previous findings on this topic"</span>)
+        self.remember(<span style="color: rgb(196, 26, 22); font-weight: 400;">f"Found: <span style="color: rgb(0, 0, 0); font-weight: 400;">{findings}</span>"</span>, scope=<span style="color: rgb(196, 26, 22); font-weight: 400;">"/research"</span>)
+
+<span style="color: rgb(100, 56, 32); font-weight: 400;">    @listen(<span style="color: rgb(92, 38, 153); font-weight: 400;">research</span>)</span>
+    <span style="color: rgb(170, 13, 145); font-weight: 400;">def</span> <span style="color: rgb(28, 0, 207); font-weight: 400;">analyze</span>(<span style="color: rgb(92, 38, 153); font-weight: 400;">self</span>):
+        context = self.recall(<span style="color: rgb(196, 26, 22); font-weight: 400;">"all research findings"</span>)</pre>
+<!--kg-card-end: html-->
+<p>You stop over-engineering state for things that should just be remembered. <br>Think of  state is for what matters right now and memory is for what matters next time.</p><p>Now let's look at what's actually happening under the hood.</p><h2 id="under-the-memory-hood-two-cognitive-flows"><strong>Under the Memory Hood: Two Cognitive Flows</strong></h2><p>There are 2 main agentic systems powering this cognitive memory, and Encoding Flow, and a Recall Flow.</p><h3 id="encoding-agentic-system">Encoding Agentic System</h3><p>When you call <code>remember()</code>, the CrewAI Flow runs an encoding pipeline that analyzes the content and produces a <code>MemoryAnalysis</code>:</p>
+<!--kg-card-begin: html-->
+<pre style="font-size:15px; font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(170, 13, 145); font-weight: 400;">class</span> <span style="color: rgb(92, 38, 153); font-weight: 400;">MemoryAnalysis</span>(<span style="color: rgb(92, 38, 153); font-weight: 400;">BaseModel</span>):
+    scope: <span style="color: rgb(92, 38, 153); font-weight: 400;">str</span>          <span style="color: rgb(0, 116, 0); font-weight: 400;"># Where this belongs in the hierarchy</span>
+    categories: <span style="color: rgb(92, 38, 153); font-weight: 400;">list</span>    <span style="color: rgb(0, 116, 0); font-weight: 400;"># What this is about</span>
+    importance: <span style="color: rgb(92, 38, 153); font-weight: 400;">float</span>   <span style="color: rgb(0, 116, 0); font-weight: 400;"># How much this matters (0-1)</span>
+</pre>
+<!--kg-card-end: html-->
+<p>The system decides where a memory belongs, what it's about, and how important it is, all without you specifying anything. No schema designed, the structure actually emerges from the system itself. You can override scope, categories, and importance when you want control.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Generated-Image-February-13--2026---10_49PM.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1116" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/02/Generated-Image-February-13--2026---10_49PM.jpeg 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/02/Generated-Image-February-13--2026---10_49PM.jpeg 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/02/Generated-Image-February-13--2026---10_49PM.jpeg 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2400/2026/02/Generated-Image-February-13--2026---10_49PM.jpeg 2400w" sizes="(min-width: 720px) 720px"></figure><p>Every <code>remember()</code> call also triggers a similarity search against existing memories, similarly as how humans do as you learn new things and find ways to cluster than together and even infer new information based on that.</p><p>Walk through the example: </p><p>You stored "We use PostgreSQL for the user database" last month. Now you're storing "We migrated to MySQL last week." </p><p>In other systems, both coexist and retrieval is a coin flip. In Cognitive Memory, the consolidation logic detects the similarity, recognizes the contradiction, and produces a plan: update the old record's content, preserve the migration context, delete the stale fact, so you get one coherent memory instead of two competing ones.</p><p>In CrewAI's memory, the consolidation step in the encoding flow detects the similarity, recognizes the contradiction, and produces a plan: update the old record's content, preserve the migration context, delete the stale fact, so you end up with one coherent memory instead of two competing ones.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Generated-Image-February-13--2026---10_50PM--1-.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="1116" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/02/Generated-Image-February-13--2026---10_50PM--1-.jpeg 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/02/Generated-Image-February-13--2026---10_50PM--1-.jpeg 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/02/Generated-Image-February-13--2026---10_50PM--1-.jpeg 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2400/2026/02/Generated-Image-February-13--2026---10_50PM--1-.jpeg 2400w" sizes="(min-width: 720px) 720px"></figure><h3 id="recall-agentic-system">Recall Agentic System</h3><p>Recall Flow does two things other systems don't: it scores results by what actually matters, and it knows when to search deeper. </p><p>Composite scoring blends three signals instead of just one, similarity, recency and importance, applying a specific weight for each (that you have full control to customize as well on the access layer of the memory, while the memory itself remains intact)</p><p><code>score = (similarity × w_sim) + (recency × w_rec) + (importance × w_imp)</code></p><p>This is why a critical architecture decision from six months ago outranks a trivial note from yesterday that happens to mention "database." Pure vector search returns the trivial note. But a cognitive composite scoring returns the decision. </p><p>It analyzes the query, selects which scopes to search, retrieves candidates, then evaluates its own confidence. If needed it will search deeper, broader the scopes, and try different strategies, all that while keeping tracks of what's missing as <code>evidence_gaps</code>.</p><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Generated-Image-February-11--2026---2_29PM-1.jpeg" class="kg-image" alt="" loading="lazy" width="2000" height="644" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/02/Generated-Image-February-11--2026---2_29PM-1.jpeg 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/02/Generated-Image-February-11--2026---2_29PM-1.jpeg 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/02/Generated-Image-February-11--2026---2_29PM-1.jpeg 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Generated-Image-February-11--2026---2_29PM-1.jpeg 2000w" sizes="(min-width: 720px) 720px"></figure><h2 id="atomic-memories"><strong>Atomic Memories</strong></h2><p>Agents don't think in clean, individual facts, like a research agent returns a 500 word summary, meanwhile an analyst produces a report covering six topic, if you store any of that as one memory, you're back to the blob problem and retrieval pulls everything when you need one fact, and consolidation can't resolve a contradiction buried inside a paragraph.</p><p>As part of our new Cognitive Memory there is the ability to extract memories from agentic executions and bigger blobs of text, <code>extract_memories()</code> decomposes raw output into self-contained atomic facts:</p>
+<!--kg-card-begin: html-->
+<pre style="font-size:15px; font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; ">raw = <span style="color: rgb(196, 26, 22); font-weight: 400;">"""After reviewing the infrastructure options, the team 
+recommends PostgreSQL for the user database due to its JSONB 
+support. Estimated cost is $2,400/month on RDS. The compliance 
+team flagged that all user data must stay in EU regions. 
+DevOps prefers managed services over self-hosted to reduce 
+on-call burden."""</span>
+
+facts = memory.extract_memories(raw)
+<span style="color: rgb(0, 116, 0); font-weight: 400;"># → "Team recommends PostgreSQL for user database due to JSONB support"</span>
+<span style="color: rgb(0, 116, 0); font-weight: 400;"># → "Estimated database cost is $2,400/month on RDS"  </span>
+<span style="color: rgb(0, 116, 0); font-weight: 400;"># → "Compliance requires all user data to remain in EU regions"</span>
+<span style="color: rgb(0, 116, 0); font-weight: 400;"># → "DevOps prefers managed services over self-hosted"</span></pre>
+<!--kg-card-end: html-->
+<p>In this example above, each extracted fact enters the full cognitive pipeline independently, the database recommendation gets encoded with high importance under <code>/infrastructure/database</code> while the compliance requirement gets its own scope under <code>/compliance</code>. So later when you store "We're switching to MySQL," consolidation resolves against the PostgreSQL recommendation specifically, not against a blob that also mentions cost estimates and team preferences.</p><p>This is also what powers automatic memory in Crews. When an agent completes a task with <code>memory=True</code>, the system runs extraction on the output, decomposes it into atomic facts, and feeds each one through encoding and consolidation. You write one flag and the system handles everything for you.</p><h2 id="what-this-unlocks">What This Unlocks</h2><p>The real shift isn't that your agents remember things, it's that your Agentic Systems compound.</p><p>Without memory, every run is independent, roughly same cost, same latency, same discovery process, same ceiling but using Cognitive Memory, each run makes the next one better, an agent that's processed a thousand customer tickets doesn't just have a thousand memories. It has consolidated patterns, resolved contradictions, built a hierarchy of what matters, so run 1,001 is fundamentally different from run 1, it's faster, cheaper, more reliable, because the system has learned and evolved.</p><p>This also drastically changes what you can build:</p><p><strong>Human-in-the-loop systems that learn from corrections. </strong>A Flow with <code>@human_feedback(learn=True)</code> doesn't just collect approvals, it distills each correction into a generalizable lesson and stores it in memory. Next run, the system recalls those lessons and applies them before the human even sees the output. The reviewer who used to rewrite every draft now just approves, because the system learned what they care about.</p><p><strong>Research systems that accumulate expertise.</strong> A research Flow that runs weekly doesn't start from scratch each time, it recalls what it found before, identifies what's changed, and focuses on the delta and after a few executions, it's not doing research, it's maintaining a living knowledge base that gets more refined with every cycle.</p><p><strong>Multi-agent teams with shared understanding.</strong> Agents share a memory but recall differently, a planning agent weights importance while an execution agent weights recency, so you find yourself with same knowledge but being able to tap into it through different lenses. Like a team where the architect remembers principles and the engineer remembers what shipped last sprint.</p><p><strong>Systems that shift from execution to exploration.</strong> This is probably the biggest unlock: Stateless agents can only execute, given input, produce output. Agents with cognitive memory can explore, try an approach, remember what worked, refine on the next run. They develop strategies. They get better at getting better.</p><p>And every cognitive operation described in this post, encoding, consolidation, adaptive recall, is itself a CrewAI Flow. The memory system is an agentic system built on the same platform you use to build yours. It's so great we get to use our own product to build our product, proof that the architecture holds when the problem is hard enough to demand it.</p><h2 id="try-it-yourself">Try it yourself!</h2><p>As simple as:</p><pre><code class="language-shell">pip install crewai</code></pre><p>and then you can quickly try with one single agent in a python shell:</p>
+<!--kg-card-begin: html-->
+<pre style="font-size:15px;font-family:monospace;color: rgb(0, 0, 0); background-color: rgb(255, 255, 255); font-weight: 400; "><span style="color: rgb(170, 13, 145); font-weight: 400;">from</span> crewai <span style="color: rgb(170, 13, 145); font-weight: 400;">import</span> Agent
+
+agent = Agent(
+    role=<span style="color: rgb(196, 26, 22); font-weight: 400;">"Technical Advisor"</span>,
+    goal=<span style="color: rgb(196, 26, 22); font-weight: 400;">"Help the team make infrastructure decisions"</span>,
+    backstory=<span style="color: rgb(196, 26, 22); font-weight: 400;">"Senior engineer with deep knowledge of agentic systems"</span>,
+    memory=<span style="color: rgb(170, 13, 145); font-weight: 400;">True</span>
+)
+
+agent.kickoff(<span style="color: rgb(196, 26, 22); font-weight: 400;">"what are the benefits of using CrewAI to build agentic systems?"</span>)</pre>
+<!--kg-card-end: html-->
+<p>after that you can actually navigate all memories generated by running, in the same directory:</p><pre><code class="language-shell">crewai memory</code></pre><figure class="kg-card kg-image-card"><img src="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/2026/02/Screenshot-2026-02-13-at-00.12.14.png" class="kg-image" alt="" loading="lazy" width="2000" height="1300" srcset="https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w600/2026/02/Screenshot-2026-02-13-at-00.12.14.png 600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1000/2026/02/Screenshot-2026-02-13-at-00.12.14.png 1000w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w1600/2026/02/Screenshot-2026-02-13-at-00.12.14.png 1600w, https://storage.ghost.io/c/94/24/9424691b-cbff-4d03-ab09-94ce04022a63/content/images/size/w2400/2026/02/Screenshot-2026-02-13-at-00.12.14.png 2400w" sizes="(min-width: 720px) 720px"></figure>
+            </section>
+
+        </article>
+
+    
+                <div class="gh-comments gh-read-next gh-canvas">
+            <section class="gh-pagehead">
+                <h4 class="gh-pagehead-title">Comments (<script
+    data-ghost-comment-count="698bce9c0d132c0001fed13d"
+    data-ghost-comment-count-empty="0"
+    data-ghost-comment-count-singular=""
+    data-ghost-comment-count-plural=""
+    data-ghost-comment-count-tag="span"
+    data-ghost-comment-count-class-name=""
+    data-ghost-comment-count-autowrap="true"
+>
+</script>)</h3>
+            </section>
+            
+        <script defer src="https://cdn.jsdelivr.net/ghost/comments-ui@~1.5/umd/comments-ui.min.js" data-locale="en" data-ghost-comments="https://blog.crewai.com/" data-api="https://crewai.ghost.io/ghost/api/content/" data-admin="https://crewai.ghost.io/ghost/" data-key="5a7ce3efa58befb6ebf99e0dee" data-title="" data-count="false" data-post-id="698bce9c0d132c0001fed13d" data-color-scheme="auto" data-avatar-saturation="60" data-accent-color="#EB6658" data-comments-enabled="all" data-publication="CrewAI" crossorigin="anonymous"></script>
+    
+        </div>
+</main>
+
+    <footer class="gh-foot gh-outer">
+        <div class="gh-foot-inner gh-inner">
+                <section class="gh-subscribe">
+                    <h3 class="gh-subscribe-title">Subscribe to CrewAI</h3>
+                        <div class="gh-subscribe-description">Don&#x27;t miss out on the latest news. Sign up now to get access to the library of members-only articles.</div>
+                    <button class="gh-subscribe-btn gh-btn" data-portal="signup"><svg width="20" height="20" viewBox="0 0 20 20" fill="none" stroke="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <path d="M3.33332 3.33334H16.6667C17.5833 3.33334 18.3333 4.08334 18.3333 5.00001V15C18.3333 15.9167 17.5833 16.6667 16.6667 16.6667H3.33332C2.41666 16.6667 1.66666 15.9167 1.66666 15V5.00001C1.66666 4.08334 2.41666 3.33334 3.33332 3.33334Z" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M18.3333 5L9.99999 10.8333L1.66666 5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+</svg> Subscribe now</button>
+                </section>
+
+            <nav class="gh-foot-menu">
+                
+            </nav>
+
+            <div class="gh-copyright">
+                    CrewAI © 2026. Powered by <a href="https://ghost.org/" target="_blank" rel="noopener">Ghost</a>
+            </div>
+        </div>
+    </footer>
+
+</div>
+
+    <div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="pswp__bg"></div>
+
+    <div class="pswp__scroll-wrap">
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)"></button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)"></button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://blog.crewai.com/assets/built/main.min.js?v=spqNLU0axTPGHdD5"></script>
+
+
+
+</body>
+
+</html>
