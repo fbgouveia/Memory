@@ -1,5 +1,35 @@
 # Descobertas do ecossistema CÉREBRO
 
+## 16 de agosto de 2026 — CrewAI como 2º concorrente
+
+- CrewAI é o concorrente mais similar ao TheFounderOS em modelo open-source +
+  educação. Evidência: repo MIT `crewAIInc/crewAI` com 57.102 stars, framework
+  Python de agentes role-based, parceria educacional com Andrew Ng. Consequência:
+  dossiê criado em `competitors/crewai/`; `competitors/` agora é estrutura
+  permanente do gestor.
+- A telemetria default-on do CrewAI OSS detecta "coding agents" e linka uso OSS
+  a conta enterprise via `project_id`. Evidência: release notes capturados no
+  GitHub API. Consequência: risco de privacidade para usuários OSS; flag
+  registrado em strategy e battlecard como vantagem FGSS (egress allowlist,
+  consent ledger, telemetria opt-in).
+- CrewAI tem orchestration ceiling reportado pela comunidade após 6-12 meses.
+  Evidência: theaiinsider.tech (2026-06-05) e threads da comunidade Discourse
+  capturadas. Consequência: FGSS deve projetar F1 (Invariant Engine) para não
+  reproduzir esse teto; graph de dependências e state machine determinístico.
+- Pricing do CrewAI é bipolar: Free (50 execuções/mês) vs Enterprise (custom,
+  45-day onboarding). Evidência: `crewai.com/pricing` capturado. Consequência:
+  espaço para FGSS ocupar mid-tier com pricing transparente e auditável.
+- Bug do coletor: 9 URLs de subdomínios diferentes (crewai.com,
+  www.crewai.com, docs.crewai.com, etc.) colidem no mesmo `home.html`.
+  Evidência: audit reporta 16 erros de size/hash mismatch.
+  Consequência: `collect_public.py` precisa incluir host no filename;
+  registrado em `PENDENCIAS.md`.
+- O `audit.py` copiado do TheFounderOS espera a string literal "MIT License"
+  no arquivo LICENSE. O CrewAI usa "Copyright (c) 2025 crewAI, Inc." + texto
+  MIT permissivo sem o título. Evidência: `head -3 LICENSE` confirma. Consequência:
+  falso positivo; checker precisa ser mais flexível; registrado em
+  `PENDENCIAS.md`.
+
 ## 16 de agosto de 2026 — separação gestor vs. dossiê no Gestor de Inteligência Competitiva
 
 - O `FGSS Gestor de Inteligência Competitiva Aplicada` é vertente de memória

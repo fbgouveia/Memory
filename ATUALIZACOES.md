@@ -1,5 +1,36 @@
 # Atualizações do ecossistema CÉREBRO
 
+## 16 de agosto de 2026 — dossiê do 2º concorrente (CrewAI)
+
+- Criado o dossiê de CrewAI em `competitors/crewai/`, seguindo o mesmo
+  protocolo do TheFounderOS (allowlist, CONTRACT, ECOSYSTEM_CONTRACT,
+  coletores stdlib, audit, knowledge, strategy).
+- Baseline congelada: site (449 capturados, 51 erros, 2.317 refs externas),
+  repo MIT (26.369 arquivos, commit `754d732`, ~353MB), ecossistema (10
+  records GitHub API + PyPI, zero erros).
+- Knowledge produzido: `TECHNICAL_ARCHITECTURE.md` (Python >=3.10, uv
+  workspace, 1.302 arquivos .py, 310 testes, MIT), `PRODUCT_AND_MARKET.md`
+  (Crews/Flows/Agents, OSS vs AMP), `SALES_AND_DISTRIBUTION.md` (57.102
+  stars, 8.152 forks, 40 releases, PyPI 412 versões), 5 site distillations
+  (PRODUCT_OVERVIEW, PRICING_AND_OFFERS, CASE_STUDIES, SEO, COMMUNITY),
+  `COMPETITOR_INTELLIGENCE_MODEL.md` com 18 camadas.
+- Strategy produzido: COMPETITIVE_ANALYSIS, FGSS_BATTLECARD,
+  TECHNOLOGY_MATURITY_SCORECARD, THREAT_SCENARIOS, FGSS_INJECTION_BLUEPRINT
+  (mapeado a F1-F5), CHANGE_MONITOR.
+- Descobertas-chave: CrewAI tem maturidade técnica alta (CI, 310 testes,
+  MCP/A2A nativo, 17 providers de observabilidade) mas lacunas de governança
+  (telemetria default-on que detecta coding agents e linka a conta
+  enterprise, auth/multi-tenancy fraca no OSS, Python-only). Pricing: Free
+  vs Enterprise (custom), sem mid-tier visível. 5 case studies (PwC, IBM,
+  AWS, Gelato, Brickell) classificados `commercial_claim`.
+- Audit reportado: `status: fail` com 17 erros conhecidos (16 por bug do
+  coletor de path collision em `home.html` + 1 falso positivo de LICENSE
+  check). Ambos registrados em `PENDENCIAS.md` para correção.
+- Commits: `a58d6a4` (dossiê baseline) + `a3b0259` (site knowledge
+  distillation). Push confirmado para `origin/main`.
+- Prova: subagentes executaram coleta, audit, destilação e strategy em
+  paralelo; crivo humano confirmou commit/push e consistência estrutural.
+
 ## 16 de agosto de 2026 — fundação do Gestor de Inteligência Competitiva Aplicada
 
 - Estabelecida a fundação do `FGSS Gestor de Inteligência Competitiva

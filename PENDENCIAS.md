@@ -77,10 +77,21 @@ As pendências completas da integração com o Admin também estão registradas 
 - [x] Renomear diretório do dossiê de `thefounderos/` para `FGSS OS/` em disco
   e no git, removendo qualquer referência ao nome do concorrente em paths de
   arquivo. (Concluído em 16/08/2026.)
+- [x] Criar dossiê do 2º concorrente (CrewAI) sob `competitors/crewai/`.
+  (Concluído em 16/08/2026: site 449 páginas, repo MIT 26.369 arquivos,
+  ecossistema 10 records, 11 knowledge files, 6 strategy files, audit
+  reportado, commits `a58d6a4` + `a3b0259` pushed.)
+- [ ] Corrigir bug do coletor `crewai/tools/collect_public.py`: 9 URLs
+  colidem no mesmo path `home.html` (collector não diferencia host
+  subdomínio na hora de gerar o filename). 16 erros de size/hash mismatch
+  no audit decorrem disso.
+- [ ] Corrigir `crewai/tools/audit.py` LICENSE check: o arquivo MIT do
+  CrewAI não contém a string literal "MIT License" (usa "Copyright (c)
+  2025 crewAI, Inc." + permissão MIT). Falso positivo.
 - [ ] Destilar lacunas de absorção do TheFounderOS identificadas em 16/08/2026:
   JSON-LD/SEO, preços/garantias, BENNETT OS/Heuresis, 4 workspaces/personas,
   14+ OS licenciados não capturados. Sem rede externa; usar HTMLs já em disco.
-- [ ] Amplir allowlist do `collect_public.py` para `/robots.txt`,
+- [ ] Amplir allowlist do `FGSS OS/collect_public.py` para `/robots.txt`,
   `/sitemap.xml`, `/manifest.json`, `/.well-known/security.txt` e os 14
   `*-os` licenciados — somente na próxima coleta autorizada.
 - [ ] Localizar e autorizar o repositório real do `FGSS.io`; então implementar
