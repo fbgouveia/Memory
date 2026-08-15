@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>finance-os · System of Record</title>
+  <link rel="stylesheet" href="/heuresis-os/design/fonts.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/tokens.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/heuresis.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo wordmark-os">finance-os<span class="copper">.</span></span><span class="kicker eyebrow-sm">System of Record</span></div>
+
+      <div class="quick">
+        <div class="quick-h">Quick Action</div>
+        <button class="qa" data-act="new-income"><span class="gate"></span> New Income</button>
+        <button class="qa" data-act="new-expense"><span class="gate"></span> New Expense</button>
+        <button class="qa" data-act="new-transfer"><span class="gate"></span> New Transfer</button>
+        <button class="qa" data-act="new-subscription">＋ New Subscription</button>
+        <button class="qa" data-act="new-goal">＋ New Goal</button>
+        <button class="qa" data-act="new-debt">＋ New Debt</button>
+        <button class="qa" data-act="new-investment">＋ New Investment</button>
+        <button class="qa" data-act="new-account">＋ New Account</button>
+        <button class="qa" data-act="set-budget"><span class="gate"></span> Set Budget</button>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-h">Navigation</div>
+        <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a href="#/accounts" data-route="accounts">Accounts</a>
+        <a href="#/incomes" data-route="incomes">Incomes</a>
+        <a href="#/expenses" data-route="expenses">Expenses</a>
+        <a href="#/budget" data-route="budget">Budget</a>
+        <a href="#/subscriptions" data-route="subscriptions">Subscription</a>
+        <a href="#/transfers" data-route="transfers">Transfers</a>
+        <a href="#/debts" data-route="debts">Debt &amp; Liabilities</a>
+        <a href="#/report" data-route="report">Report <span class="badge" id="nav-flags"></span></a>
+        <a href="#/networth" data-route="networth">Net Worth</a>
+        <a href="#/goals" data-route="goals">Finance Goals</a>
+        <a href="#/investments" data-route="investments">Investment</a>
+      </nav>
+    </aside>
+
+    <main id="main"></main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-head"><h3 id="modal-title"></h3><button class="x" id="modal-x" aria-label="close">✕</button></div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/heuresis-os/heuresis-shim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

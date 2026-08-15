@@ -1,0 +1,73 @@
+{
+  "audited_at": "2026-08-15T13:57:24.975200+00:00",
+  "status": "pass",
+  "site": {
+    "records": 56,
+    "status_counts": {
+      "captured": 50,
+      "external_reference": 6
+    },
+    "media_type_counts": {
+      "application/javascript": 21,
+      "external/unknown": 6,
+      "font/woff2": 1,
+      "image/png": 3,
+      "image/webp": 6,
+      "text/css": 11,
+      "text/html": 8
+    },
+    "local_media_counts": {
+      "audio": 0,
+      "video": 0,
+      "images": 9
+    }
+  },
+  "repository": {
+    "files": 332,
+    "bytes": 1944760,
+    "extension_counts": {
+      ".css": 1,
+      ".example": 1,
+      ".json": 3,
+      ".md": 3,
+      ".mjs": 2,
+      ".svg": 1,
+      ".ts": 235,
+      ".tsx": 83,
+      ".yml": 1,
+      "[no extension]": 2
+    },
+    "commit": "6b852ab77c2fb43133c55de52202f99a87585830",
+    "license": "MIT"
+  },
+  "ecosystem": {
+    "records": 34,
+    "status_counts": {
+      "captured": 24,
+      "captured_redacted": 1,
+      "extracted": 3,
+      "summarized_not_archived": 6
+    },
+    "category_counts": {
+      "commerce_offer": 1,
+      "commerce_profile": 1,
+      "community_profile": 1,
+      "company_profile": 1,
+      "ecosystem_reference": 1,
+      "github_api": 9,
+      "image": 4,
+      "javascript": 1,
+      "lead_form": 1,
+      "legal_route": 2,
+      "page": 1,
+      "policy": 1,
+      "reference_inventory": 1,
+      "sales_form": 1,
+      "social_profile": 1,
+      "spa_route": 5,
+      "stylesheet": 1,
+      "tracking_script": 1
+    }
+  },
+  "errors": []
+}

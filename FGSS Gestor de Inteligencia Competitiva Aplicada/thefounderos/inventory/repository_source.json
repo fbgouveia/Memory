@@ -1,0 +1,9 @@
+{
+  "origin": "https://github.com/Bennettxai/FounderOS-DEMO.git",
+  "branch": "main",
+  "commit": "6b852ab77c2fb43133c55de52202f99a87585830",
+  "commit_date": "2026-08-14T20:48:09-04:00",
+  "commit_subject": "CI: run tests, typecheck, and a production build on every push and PR",
+  "license": "MIT",
+  "snapshot_path": "raw/repository/FounderOS-DEMO"
+}

@@ -1,0 +1,13 @@
+{
+  "validated_at": "2026-08-15",
+  "source_commit": "6b852ab77c2fb43133c55de52202f99a87585830",
+  "environment": "isolated snapshot validation in /tmp; no credentials",
+  "checks": [
+    {"command": "npm ci", "status": "pass"},
+    {"command": "npm test", "status": "pass", "test_files": 101, "tests": 888},
+    {"command": "npm run typecheck", "status": "pass"},
+    {"command": "npm run build", "status": "pass", "note": "required network access to resolve Google Fonts"},
+    {"command": "FOUNDER_OS_DB=/tmp/thefounderos-demo.db npm run seed", "status": "pass", "departments": 6, "agents": 30, "tools": 36, "roadmap_items": 13},
+    {"command": "python3 thefounderos/tools/audit.py", "status": "pass", "errors": 0}
+  ]
+}

@@ -1,0 +1,52 @@
+[
+  {
+    "source_url": "https://calendly.com/len-agencyaccelerant/45min",
+    "host": "calendly.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://calendly.com/len-agencyaccelerant/45min?embed_domain=agencyaccelerant.ai&embed_type=Inline&hide_gdpr_banner=1",
+    "host": "calendly.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://connect.facebook.net/en_US/fbevents.js",
+    "host": "connect.facebook.net",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://event.webinarjam.com/register/r0wm81sn/embed-button?formTemplate=2&formColor=5&buttonText=Save%20your%20FREE%20spot%20now!",
+    "host": "event.webinarjam.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://fast.vidalytics.com/embeds/BNMw3AeC/St5rfTagV2vOu67p/",
+    "host": "fast.vidalytics.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://fast.vidalytics.com/embeds/BNMw3AeC/udtu4VTmmLkOuMdf/",
+    "host": "fast.vidalytics.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://form.typeform.com/to/UCLDIMAp",
+    "host": "form.typeform.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://t.me/+thu8kzD8yQllYzZh",
+    "host": "t.me",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://www.facebook.com/tr?id=1232228825680058&ev=PageView&noscript=1",
+    "host": "www.facebook.com",
+    "status": "external_reference"
+  },
+  {
+    "source_url": "https://www.youtube.com/embed/${t}",
+    "host": "www.youtube.com",
+    "status": "external_reference"
+  }
+]

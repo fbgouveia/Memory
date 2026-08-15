@@ -1,0 +1,422 @@
+{
+  "source_form_id": "UCLDIMAp",
+  "title": "Agency Accelerants - Organic",
+  "type": "quiz",
+  "public": true,
+  "allow_indexing": false,
+  "partial_responses_to_all_integrations": true,
+  "fields": [
+    {
+      "id": "aA4g7uuXVtqP",
+      "ref": "52d660f3-3edb-4d4d-8bfe-d9dba0028371",
+      "title": "Which of the following describes you best?",
+      "type": "multiple_choice",
+      "required": true,
+      "description": "The reason we are asking is so we can best help you accomplish your goals",
+      "choices": [
+        {
+          "id": "vNxbrrS8sjKM",
+          "ref": "af33d637-d614-4d79-934e-9584152bbb1b",
+          "label": "I'm a corporate executive, director or manager"
+        },
+        {
+          "id": "7ARoT9OXG9gk",
+          "ref": "00a512a7-96da-4862-8333-b7c6d88c139b",
+          "label": "I work in a corporate but in a non-managerial role"
+        },
+        {
+          "id": "qFW5jQQL65yd",
+          "ref": "19a13fcd-9926-40b8-b73c-9cbd5e299afa",
+          "label": "I work a 9-5 job, but it's not corporate"
+        },
+        {
+          "id": "k9Wd8VaGHxih",
+          "ref": "21e12dfb-7473-4b6a-a907-4787f18e693b",
+          "label": "I'm a business owner"
+        },
+        {
+          "id": "oq5FJHfmiqPu",
+          "ref": "f662665f-9900-46a8-a4ec-8ea3aac800a8",
+          "label": "I'm a Student"
+        },
+        {
+          "id": "CKXWDZJ8XxDi",
+          "ref": "a98798f1-077b-4ed9-abe7-038798fc6c53",
+          "label": "I'm currently unemployed"
+        }
+      ]
+    },
+    {
+      "id": "en7ZMa2nJDyD",
+      "ref": "116bff35-3e7e-4cf1-9558-d46b9a54e1d4",
+      "title": "What is your long term goal with Al?",
+      "type": "multiple_choice",
+      "required": true,
+      "choices": [
+        {
+          "id": "dTcbGNpyDM9B",
+          "ref": "0fd92e3d-ea53-4554-b94f-614a8c4f2075",
+          "label": "Financial independence"
+        },
+        {
+          "id": "2N9hxHL7AQ7u",
+          "ref": "44693528-fbfa-479d-9cd9-ecdc7092d1ca",
+          "label": "Transitioning my career to running an Al Business"
+        },
+        {
+          "id": "K4CmAIchOU7Z",
+          "ref": "89f9ccba-b5cd-45f8-b5f1-1c0edf7316ad",
+          "label": "Making a full time income $20K+ / Month"
+        },
+        {
+          "id": "Y2jFakB9XxBw",
+          "ref": "74a7a555-311b-4159-98ba-1d0f4a2d81df",
+          "label": "Exploring something new"
+        }
+      ]
+    },
+    {
+      "id": "F1LvaF2YeKn2",
+      "ref": "73b8b33a-4d06-4afc-bbac-1247657c956e",
+      "title": "Where are you located?",
+      "type": "multiple_choice",
+      "required": true,
+      "description": "We can only help people in certain regions as of now. ",
+      "choices": [
+        {
+          "id": "GlM52RA1Fnmr",
+          "ref": "483a22f3-16e8-4c63-ab54-0fd3ae8c98ab",
+          "label": "North America"
+        },
+        {
+          "id": "YNFukpTErVeZ",
+          "ref": "6d80ee6a-127b-4270-9ea7-04e85afe2cc9",
+          "label": "Europe"
+        },
+        {
+          "id": "KJNmW6nOiEC4",
+          "ref": "fa2fbd5b-90d1-4983-a924-c33b43151ec3",
+          "label": "Australia"
+        },
+        {
+          "id": "OyMx3gGCwaRq",
+          "ref": "5e14f51c-a198-4612-b4da-a5cd32b8d0cd",
+          "label": "United Kingdom"
+        },
+        {
+          "id": "JTeAfhlexFjo",
+          "ref": "03d9ecc8-6bed-49c3-bd2b-d82363aee628",
+          "label": "UAE, Saudi, Kuwait, Bahrain, Oman"
+        },
+        {
+          "id": "49hogSPKvb9E",
+          "ref": "3d2ef399-e2cb-4304-9385-297607225eca",
+          "label": "Singapore, Hong Kong, Japan, South Korea"
+        },
+        {
+          "id": "8v6y5iiOYTne",
+          "ref": "a54ff23b-e539-4743-bcb5-0c93c3b3004d",
+          "label": "Other"
+        }
+      ]
+    },
+    {
+      "id": "0lRXnC0it3t6",
+      "ref": "dc81b990-1b00-410b-83ed-6c76d23a0d53",
+      "title": "What is your monthly income / salary",
+      "type": "multiple_choice",
+      "required": true,
+      "choices": [
+        {
+          "id": "VeaV0bFlWLaY",
+          "ref": "f5084129-4966-42b3-b7b8-c008f8e02c4c",
+          "label": "Below $1,000"
+        },
+        {
+          "id": "nLe4EGwNMIoV",
+          "ref": "f7a0d84a-d1bd-4d26-aabb-3672ae96d36d",
+          "label": "$1,000 - $3,000"
+        },
+        {
+          "id": "WraJB6MXk8UY",
+          "ref": "2b26713c-0e62-4003-9d64-95693b7e4cd2",
+          "label": "$3,000 - $5,000"
+        },
+        {
+          "id": "DNyYQJ7wAAEf",
+          "ref": "51acee2a-914d-48cc-b08c-ea066be6906e",
+          "label": "$5,000 - $8,000"
+        },
+        {
+          "id": "Gtu1vmsv88qe",
+          "ref": "cf9b52b4-bc02-4d4d-ad96-5dc39a4fc8bc",
+          "label": "$8,000+"
+        }
+      ]
+    },
+    {
+      "id": "2TVrpYRyel7P",
+      "ref": "b3d219aa-6588-4aa0-9c8e-deefad873bd2",
+      "title": "Imagine....it's 6 months from today, and you have now accomplished your goal of building a successful AI Business\n\nTo make this your reality... how much are you willing to invest into (i) starting your successful online AI business and (ii) receiving world-class *mentorship *_*and*_* platforms*?\n\nPlease ONLY include funds that you currently available or accessible via credit card or Affirm/Klarna. Exclude future available funds.",
+      "type": "multiple_choice",
+      "required": true,
+      "choices": [
+        {
+          "id": "jMOZ7vlGRG74",
+          "ref": "30944d71-0b87-4a1d-80c1-8b19bffc739f",
+          "label": "Under $2,000"
+        },
+        {
+          "id": "rGxdhIwvS1fg",
+          "ref": "5e2f5ae1-7676-4c6d-9923-c2a6d6a01d6f",
+          "label": "$2,000 - $5,000"
+        },
+        {
+          "id": "N7BP8GELRtNa",
+          "ref": "68317d46-2b61-44f1-bba5-5afd1f3b457e",
+          "label": "$5,000 - $8,000"
+        },
+        {
+          "id": "dWl3IJAEci4v",
+          "ref": "12587024-4d46-4a57-8b01-62bff35ab213",
+          "label": "$8,000"
+        }
+      ]
+    },
+    {
+      "id": "tW71NwTbGiVp",
+      "ref": "af0f9718-997b-4037-94f2-64d9e119bc1c",
+      "title": "Are you an adult in the USA or do you have a credit card? \\*",
+      "type": "multiple_choice",
+      "required": false,
+      "choices": [
+        {
+          "id": "i721KnZKdr10",
+          "ref": "201f797c-65e7-4aa7-a8b1-51d361f152ab",
+          "label": "I am 18+, in the USA, and I have a credit card"
+        },
+        {
+          "id": "ZO8j2kIoLGwb",
+          "ref": "dec0f77c-0bd5-4968-af43-a9b6f7df6e91",
+          "label": "I am not in the USA, but I do have a credit card"
+        },
+        {
+          "id": "pWXj5sq2Hfki",
+          "ref": "0899f27c-12a6-4f4d-9828-153cfa27a389",
+          "label": "I am 18+, in the US, but I do not have a credit card"
+        },
+        {
+          "id": "8Ihl1ElzBWKh",
+          "ref": "c46a5c76-ade4-4a82-bd6f-0b248c0ee6df",
+          "label": "I am not in the USA, and I do not have a credit card"
+        }
+      ]
+    },
+    {
+      "id": "6FaYYAEE4qeD",
+      "ref": "0588ba68-1f1b-4adf-917d-b063f76b525e",
+      "title": "Your Contact Details ",
+      "type": "contact_info",
+      "required": null,
+      "description": "This helps us stay in touch through out the application process :)",
+      "fields": [
+        {
+          "id": "Dqn6CaXzpUTZ",
+          "ref": "d3ee9635-a458-4167-b7c2-3956568cf0e8",
+          "title": "First name",
+          "type": "short_text",
+          "required": true
+        },
+        {
+          "id": "IaiaBrITxwFj",
+          "ref": "e4c13597-18b2-40ce-885b-c8f53e879a1b",
+          "title": "Last name",
+          "type": "short_text",
+          "required": true
+        },
+        {
+          "id": "Qlz3OfsC7chb",
+          "ref": "32691ecc-ed85-4b8b-873c-5f6e6eb4452b",
+          "title": "Phone number",
+          "type": "phone_number",
+          "required": true
+        },
+        {
+          "id": "yL5XjCLLHIWp",
+          "ref": "b924cec6-8099-471d-a2e0-2ae82a2a9db2",
+          "title": "Email",
+          "type": "email",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "6TLmUqhNwX4S",
+      "ref": "6d586fca-3a1a-4320-a580-afcfe1cb8723",
+      "title": "Book a time here",
+      "type": "calendly",
+      "required": true
+    }
+  ],
+  "logic": [
+    {
+      "type": "field",
+      "ref": "b3d219aa-6588-4aa0-9c8e-deefad873bd2",
+      "actions": [
+        {
+          "action": "jump",
+          "details": {
+            "to": {
+              "type": "field",
+              "value": "af0f9718-997b-4037-94f2-64d9e119bc1c"
+            }
+          },
+          "condition": {
+            "op": "is",
+            "vars": [
+              {
+                "type": "field",
+                "value": "b3d219aa-6588-4aa0-9c8e-deefad873bd2"
+              },
+              {
+                "type": "choice",
+                "value": "30944d71-0b87-4a1d-80c1-8b19bffc739f"
+              }
+            ]
+          }
+        },
+        {
+          "action": "jump",
+          "details": {
+            "to": {
+              "type": "field",
+              "value": "0588ba68-1f1b-4adf-917d-b063f76b525e"
+            }
+          },
+          "condition": {
+            "op": "always",
+            "vars": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "field",
+      "ref": "af0f9718-997b-4037-94f2-64d9e119bc1c",
+      "actions": [
+        {
+          "action": "jump",
+          "details": {
+            "to": {
+              "type": "thankyou",
+              "value": "f1477be0-d4eb-4db4-b787-0c253fcc1c42"
+            }
+          },
+          "condition": {
+            "op": "or",
+            "vars": [
+              {
+                "op": "is",
+                "vars": [
+                  {
+                    "type": "field",
+                    "value": "af0f9718-997b-4037-94f2-64d9e119bc1c"
+                  },
+                  {
+                    "type": "choice",
+                    "value": "c46a5c76-ade4-4a82-bd6f-0b248c0ee6df"
+                  }
+                ]
+              },
+              {
+                "op": "is",
+                "vars": [
+                  {
+                    "type": "field",
+                    "value": "af0f9718-997b-4037-94f2-64d9e119bc1c"
+                  },
+                  {
+                    "type": "choice",
+                    "value": "0899f27c-12a6-4f4d-9828-153cfa27a389"
+                  }
+                ]
+              }
+            ]
+          }
+        },
+        {
+          "action": "jump",
+          "details": {
+            "to": {
+              "type": "field",
+              "value": "0588ba68-1f1b-4adf-917d-b063f76b525e"
+            }
+          },
+          "condition": {
+            "op": "always",
+            "vars": []
+          }
+        }
+      ]
+    },
+    {
+      "type": "field",
+      "ref": "73b8b33a-4d06-4afc-bbac-1247657c956e",
+      "actions": [
+        {
+          "action": "jump",
+          "details": {
+            "to": {
+              "type": "field",
+              "value": "dc81b990-1b00-410b-83ed-6c76d23a0d53"
+            }
+          },
+          "condition": {
+            "op": "always",
+            "vars": []
+          }
+        }
+      ]
+    }
+  ],
+  "welcome_screens": [],
+  "thankyou_screens": [
+    {
+      "id": "yBG3u0DVVOw6",
+      "ref": "5b717b55-5fd7-49b0-acf3-22277f153916",
+      "title": "Booking Page",
+      "type": "url_redirect",
+      "properties": {
+        "redirect_url": "https://agencyaccelerant.ai/confirmation"
+      }
+    },
+    {
+      "id": "d4fCiuQOfrT1",
+      "ref": "f1477be0-d4eb-4db4-b787-0c253fcc1c42",
+      "title": "DM \"AISA\" to Bennett on Instagram",
+      "type": "thankyou_screen",
+      "properties": {
+        "show_button": true,
+        "share_icons": true,
+        "button_mode": "default_redirect",
+        "button_text": "Create a typeform"
+      }
+    },
+    {
+      "id": "DefaultTyScreen",
+      "ref": "default_tys",
+      "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+      "type": "thankyou_screen",
+      "properties": {
+        "show_button": true,
+        "share_icons": false,
+        "button_mode": "default_redirect",
+        "button_text": "Create a *typeform*"
+      },
+      "attachment": {
+        "type": "image",
+        "href": "https://public-assets.typeform.com/public/admin/2dpnUBBkz2VN.gif"
+      }
+    }
+  ]
+}

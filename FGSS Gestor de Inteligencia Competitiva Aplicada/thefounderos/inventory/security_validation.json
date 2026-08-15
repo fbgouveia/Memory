@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-08-15T00:00:00+00:00",
+  "scope": "public FounderOS-DEMO snapshot at 6b852ab77c2f",
+  "method": "npm audit --omit=dev --json plus passive source/history review; no live target testing",
+  "npm_audit": {
+    "dependencies": {"prod": 153, "dev": 192, "optional": 84, "total": 353},
+    "vulnerable_packages": {"high": 8, "critical": 0, "total": 8},
+    "packages": [
+      {"name": "axios", "direct": false, "aggregate_severity": "high", "fix_available": true},
+      {"name": "form-data", "direct": false, "aggregate_severity": "high", "fix_available": true},
+      {"name": "imapflow", "direct": true, "aggregate_severity": "high", "fix_available": true},
+      {"name": "ip-address", "direct": false, "aggregate_severity": "high", "fix_available": true},
+      {"name": "nanoid", "direct": false, "aggregate_severity": "high", "fix_available": true},
+      {"name": "next", "direct": true, "aggregate_severity": "high", "fix_available": "major upgrade suggested by npm"},
+      {"name": "nodemailer", "direct": false, "aggregate_severity": "high", "fix_available": true},
+      {"name": "postcss", "direct": false, "aggregate_severity": "high", "fix_available": "through Next.js upgrade"}
+    ],
+    "interpretation": "An installed advisory is not proof of exploitability. Reachability and runtime configuration were not established."
+  },
+  "repository_security": {
+    "tests_passed": 888,
+    "typecheck": "pass",
+    "production_build": "pass",
+    "current_source_has_request_auth_middleware": false,
+    "public_issue_2_auth_exposure": "open",
+    "public_pr_1_auth": "marked merged by GitHub API but absent from current source and current five-commit history",
+    "live_exploitation_attempted": false
+  },
+  "license_inventory": {
+    "installed_packages_reviewed": 264,
+    "unknown": 0,
+    "counts": {"MIT": 214, "ISC": 21, "Apache-2.0": 17, "other_permissive_or_creative_commons": 12},
+    "application_license": "MIT",
+    "caveat": "The commercial website, brand and visual assets are not automatically covered by the repository MIT license."
+  }
+}

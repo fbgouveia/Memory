@@ -1,0 +1,104 @@
+/* styles.css — second-brain-os app skin. Layout + app-specific components only;
+   tokens/fonts/components come from /design (library/design). Tokens only — NO raw hex. */
+
+:root { --side: 248px; }
+
+/* ---------------- app shell ---------------- */
+.app { display: grid; grid-template-columns: var(--side) 1fr; min-height: 100vh; }
+.sidebar {
+  position: sticky; top: 0; align-self: start; height: 100vh; overflow-y: auto;
+  border-right: 1px solid var(--line); padding: 20px 16px;
+  display: flex; flex-direction: column; gap: 22px; background: var(--page);
+}
+.brand { display: flex; flex-direction: column; gap: 6px; }
+.brand .logo { font-size: 22px; line-height: 1.1; overflow-wrap: anywhere; }
+.quick-h, .nav-h {
+  font-family: var(--mono); font-size: 10.5px; font-weight: 500;
+  letter-spacing: 0.16em; text-transform: uppercase; color: var(--t5); margin-bottom: 9px;
+}
+.quick { display: flex; flex-direction: column; gap: 6px; }
+.qa {
+  font-family: var(--sans); font-size: 12.5px; font-weight: 500; letter-spacing: -0.01em;
+  color: var(--t1); background: transparent; text-align: left;
+  border: 1px solid var(--line2); border-radius: var(--r-ctl); padding: 8px 10px;
+  transition: border-color .12s, background .12s;
+}
+.qa:hover { border-color: var(--t3); background: var(--panel); }
+
+.nav { display: flex; flex-direction: column; gap: 1px; }
+.nav a {
+  padding: 8px 10px; font-size: 13px; font-weight: 500; color: var(--t2);
+  border-left: 2px solid transparent; border-radius: 0 var(--r-ctl) var(--r-ctl) 0;
+}
+.nav a:hover { background: var(--panel); color: var(--t1); }
+.nav a.active { border-left-color: var(--t1); background: var(--panel); color: var(--t1); font-weight: 600; }
+.nav .badge {
+  float: right; font-family: var(--mono); font-size: 10px; font-weight: 500;
+  color: var(--page); background: var(--t1); border-radius: var(--r-ctl);
+  padding: 1px 6px; min-width: 18px; text-align: center;
+}
+.nav .badge:empty { display: none; }
+.foot { margin-top: auto; color: var(--t5); line-height: 1.5; }
+
+main { padding: 28px 32px 80px; min-width: 0; }
+
+/* ---------------- section header ---------------- */
+.head { margin-bottom: 18px; }
+.head h1 { font-size: 24px; }
+.head .accent { font-family: var(--serif); font-style: italic; font-weight: 400; color: var(--t3); }
+.callout {
+  display: flex; gap: 10px; align-items: flex-start;
+  background: var(--panel); border: 1px solid var(--line); border-radius: var(--r-card);
+  padding: 11px 14px; margin: 12px 0 18px;
+  font-size: 12.5px; line-height: 1.5; color: var(--t3); max-width: 920px;
+}
+.callout .i { font-family: var(--mono); color: var(--t4); }
+.callout b { font-family: var(--mono); font-weight: 500; color: var(--t1); }
+
+/* ---------------- cards / metrics ---------------- */
+.grid { display: grid; gap: 14px; }
+.grid.cols-4 { grid-template-columns: repeat(4, 1fr); }
+.grid.cols-3 { grid-template-columns: repeat(3, 1fr); }
+.grid.cols-2 { grid-template-columns: repeat(2, 1fr); }
+@media (max-width: 1000px) { .grid.cols-4, .grid.cols-3 { grid-template-columns: repeat(2, 1fr); } }
+.card {
+  border: 1px solid var(--line); border-radius: var(--r-card); padding: 16px 16px 14px;
+  background: var(--page); display: flex; flex-direction: column; gap: 8px;
+}
+.card .metric { font-family: var(--mono); font-size: 30px; font-weight: 500; letter-spacing: -0.02em; color: var(--t1); }
+.card .metric small { font-size: 15px; color: var(--t4); }
+.card .cap { font-family: var(--mono); font-size: 10px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--t4); }
+.card .sub { font-size: 12px; color: var(--t4); }
+.card h3 { font-size: 13px; margin-bottom: 4px; }
+
+.section-h {
+  display: flex; align-items: baseline; justify-content: space-between;
+  margin: 26px 0 12px;
+}
+.section-h h2 { font-size: 15px; }
+.section-h .eyebrow { color: var(--t5); }
+
+/* ---------------- progress bar ---------------- */
+.bar { height: 6px; border-radius: 999px; background: var(--line); overflow: hidden; }
+.bar > i { display: block; height: 100%; background: var(--t1); }
+
+/* ---------------- status marks (shape, never colour) ---------------- */
+.state { display: inline-flex; align-items: center; gap: 7px; }
+.state .lbl { font-family: var(--mono); font-size: 11px; color: var(--t3); }
+.flag {
+  font-family: var(--mono); font-size: 10px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--t2); border: 1px solid var(--line2); border-radius: var(--r-ctl); padding: 2px 6px;
+}
+.flag.review { border-color: var(--t3); color: var(--t1); }
+
+/* ---------------- rows / actions ---------------- */
+td .row-acts { display: flex; gap: 6px; justify-content: flex-end; }
+.muted { color: var(--t4); }
+.mono { font-family: var(--mono); }
+.err-inline { font-size: 12px; color: var(--t2); font-family: var(--mono); }
+
+/* modal note reuses .modal-note from heuresis.css */
+.modal form { padding: 16px 18px 18px; display: flex; flex-direction: column; gap: 13px; }
+.modal .field-row { display: flex; gap: 10px; }
+.modal .field-row .field { flex: 1; }
+.modal .actions { display: flex; justify-content: flex-end; gap: 8px; margin-top: 4px; }

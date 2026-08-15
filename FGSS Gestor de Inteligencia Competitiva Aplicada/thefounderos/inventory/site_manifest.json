@@ -1,0 +1,777 @@
+{
+  "schema_version": 1,
+  "captured_at": "2026-08-15T13:06:56.809189+00:00",
+  "base_url": "https://www.thefounderos.com/",
+  "max_items": 500,
+  "max_bytes_per_item": 52428800,
+  "records": [
+    {
+      "source_url": "https://www.thefounderos.com/",
+      "category": "page",
+      "discovered_from": [
+        "seed"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 175654,
+      "sha256": "4ab17bdde3e11f08cbd6dbff82ab33f95e3fe7cf28dfe6c2f21d9369b6ec90d9",
+      "local_path": "raw/site/pages/home.html"
+    },
+    {
+      "source_url": "https://go.agencyaccelerant.ai/api/js/latest.js",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/",
+        "https://www.thefounderos.com/os",
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "link",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://agencyaccelerant.ai",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/",
+        "https://www.thefounderos.com/os",
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "a",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://github.com/Bennettxai/FounderOS-DEMO",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/",
+        "https://www.thefounderos.com/os",
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "a",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://instagram.com/bennettx.ai",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/",
+        "https://www.thefounderos.com/os",
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "a",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/os",
+      "category": "page",
+      "discovered_from": [
+        "seed"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/os",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 434939,
+      "sha256": "1464e4fac1d7bb46928cd87cbdee949723fc5bb90acf81ef5b04ef3bb3c778b1",
+      "local_path": "raw/site/pages/os.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/waitlist",
+      "category": "page",
+      "discovered_from": [
+        "seed"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/waitlist",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 33704,
+      "sha256": "0781d1bef8d32dde24231fc9703ef09885309830f688bce06e221b2b60bdceff",
+      "local_path": "raw/site/pages/waitlist.html"
+    },
+    {
+      "source_url": "https://embed.typeform.com/next/embed.js",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "link",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://form.typeform.com/to/VsRNRmhk",
+      "category": "external_reference",
+      "discovered_from": [
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "external_reference",
+      "html_tag": "a",
+      "html_attr": "href"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/creator-os/index.html",
+      "category": "page",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/creator-os/index.html",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 2798,
+      "sha256": "f33103588e5a9200572afabc40b25bd1abad1cea1e784ab37c3f00076c3781ac",
+      "local_path": "raw/site/pages/heuresis-os/creator-os/index.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/crm-os/index.html",
+      "category": "page",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/crm-os/index.html",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 2391,
+      "sha256": "137d5b2d774bdf5e498f121ee5e6e2e3db2411cc602f762832ea7da8a8a16599",
+      "local_path": "raw/site/pages/heuresis-os/crm-os/index.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/finance-os/index.html",
+      "category": "page",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/finance-os/index.html",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 2898,
+      "sha256": "ec8da3c5bd5da5a0c67c6811295c1d632020ca1feacc9646562340a84f6439d7",
+      "local_path": "raw/site/pages/heuresis-os/finance-os/index.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/project-management-os/index.html",
+      "category": "page",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/project-management-os/index.html",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 2323,
+      "sha256": "b589a846c4a7ee1b059329057b78c21c0a2f28f4787c55455215598fdbb51c4b",
+      "local_path": "raw/site/pages/heuresis-os/project-management-os/index.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/index.html",
+      "category": "page",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/index.html",
+      "http_status": 200,
+      "media_type": "text/html",
+      "bytes": 2284,
+      "sha256": "9e3433cad7963b50207c508d329d794ba2a19e62037b00006c188643bfe5f35f",
+      "local_path": "raw/site/pages/heuresis-os/second-brain-os/index.html"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/media/bb3ef058b751a6ad-s.p.woff2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/media/bb3ef058b751a6ad-s.p.woff2",
+      "http_status": 200,
+      "media_type": "font/woff2",
+      "bytes": 40480,
+      "sha256": "1e06740a02a443fb7f3eeda8fcaa685a0f6c620e3f01e6666e847295469ce3ad",
+      "local_path": "raw/site/assets/_next/static/media/bb3ef058b751a6ad-s.p.woff2"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/brand/founder-os-transparent-tight.png",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/brand/founder-os-transparent-tight.png",
+      "http_status": 200,
+      "media_type": "image/png",
+      "bytes": 30033,
+      "sha256": "2d6e3ccd32bc4b90e71cd5a15c7cc7646b02d64fbd2cc9d96d585b7327dbc725",
+      "local_path": "raw/site/assets/brand/founder-os-transparent-tight.png"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/css/cf4d0e6ed17da273.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/css/cf4d0e6ed17da273.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 51500,
+      "sha256": "0b443c500fbe3abc4d3e2b3659339e4463dcc5775c1054499f8a13629f99757c",
+      "local_path": "raw/site/assets/_next/static/css/cf4d0e6ed17da273__q_923781b141.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/css/c786a09d31e6d0d0.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/css/c786a09d31e6d0d0.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 4678,
+      "sha256": "6cbf2d05bcc1b6344ccca80dce065be70ff82ed6b5c683089106fcb5aa264a8f",
+      "local_path": "raw/site/assets/_next/static/css/c786a09d31e6d0d0__q_923781b141.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/webpack-4e7e0eb448a0666c.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/webpack-4e7e0eb448a0666c.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 3905,
+      "sha256": "b66396750ed687dc317b5ff5a8d9c31678501098606ba92cd7124474d069feb1",
+      "local_path": "raw/site/assets/_next/static/chunks/webpack-4e7e0eb448a0666c__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/fd9d1056-f25210761ef24526.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/fd9d1056-f25210761ef24526.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 172834,
+      "sha256": "b8bddf9481d859d648e1e050f8322eb3defe3dd3f9bd13f4c44dd6f2ecf5ab80",
+      "local_path": "raw/site/assets/_next/static/chunks/fd9d1056-f25210761ef24526__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/117-273c85518bed7e25.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/117-273c85518bed7e25.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 124798,
+      "sha256": "79c683e60a3844bc342e6c018df600832a598451709720461bd40cc06ec17cc9",
+      "local_path": "raw/site/assets/_next/static/chunks/117-273c85518bed7e25__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/main-app-2dcde4753ea0d175.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/main-app-2dcde4753ea0d175.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 461,
+      "sha256": "d7008163f1ed16ecb840d251190ac8a9d02132df87f25781faef1499945f9bdc",
+      "local_path": "raw/site/assets/_next/static/chunks/main-app-2dcde4753ea0d175__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/408-0252184e07981dc7.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/408-0252184e07981dc7.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 21412,
+      "sha256": "2e1c5cce194ef474ff1260154251b141af381bdc93814bb2a33ddf1cdbc20f1d",
+      "local_path": "raw/site/assets/_next/static/chunks/408-0252184e07981dc7__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/939-25b61c0a73313ec4.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/939-25b61c0a73313ec4.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 16364,
+      "sha256": "bd4d411e331878f20e76a62e515b279ee400fa57b4feb679d0cbe1453e8c0378",
+      "local_path": "raw/site/assets/_next/static/chunks/939-25b61c0a73313ec4__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/531-5604621780cfbc06.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/531-5604621780cfbc06.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 11325,
+      "sha256": "98b956b7b2976ec34b3a162aa3b9de009e7195b7b18c3ee0969f3e6b50373936",
+      "local_path": "raw/site/assets/_next/static/chunks/531-5604621780cfbc06__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/640-3df6aaf264e089fe.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/640-3df6aaf264e089fe.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 170324,
+      "sha256": "77d28a66f20f2eda7a162b57158e4d5377f29edb3e7ae37d2cd28edf1c32e7b4",
+      "local_path": "raw/site/assets/_next/static/chunks/640-3df6aaf264e089fe__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/538-c8d7c53397b2b6b2.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/538-c8d7c53397b2b6b2.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 16540,
+      "sha256": "fe32d2bd47993f769cd60207603acc31fdfbb2502bb86737a709a988ebccd9dc",
+      "local_path": "raw/site/assets/_next/static/chunks/538-c8d7c53397b2b6b2__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/app/page-4fbea4c7c2a0dba1.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/app/page-4fbea4c7c2a0dba1.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 27396,
+      "sha256": "8577a9993b8c1946f2483bc7db575cba0704b0c37cc9eb42445a0df9463a8d5f",
+      "local_path": "raw/site/assets/_next/static/chunks/app/page-4fbea4c7c2a0dba1__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/3-671a6fdf352e2573.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/3-671a6fdf352e2573.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 7116,
+      "sha256": "1f241e946763f92afb67a44589a35a704b5b703e6796dbcae7d72b29419e265c",
+      "local_path": "raw/site/assets/_next/static/chunks/3-671a6fdf352e2573__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/app/layout-0cbee398f2cfc4f3.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/app/layout-0cbee398f2cfc4f3.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 512,
+      "sha256": "19425aa6c50dcf86b5633df2e67d52026313b469c8959705676fdea74abb3803",
+      "local_path": "raw/site/assets/_next/static/chunks/app/layout-0cbee398f2cfc4f3__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/icon.png?e6fff0e4ea036464",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/icon.png?e6fff0e4ea036464",
+      "http_status": 200,
+      "media_type": "image/png",
+      "bytes": 34326,
+      "sha256": "dc6b6f95ccd921f5465df02563fd24b35e62841208e148f34257b5e1e46d4aab",
+      "local_path": "raw/site/assets/icon__q_1e234ad45e.png"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/apple-icon.png?5f63cbbdcb7d5c42",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/apple-icon.png?5f63cbbdcb7d5c42",
+      "http_status": 200,
+      "media_type": "image/png",
+      "bytes": 9371,
+      "sha256": "a1187d6ce064485b8da92eb468d002ba3ff7b0b96c365a2077b014baa20768ce",
+      "local_path": "raw/site/assets/apple-icon__q_65ab2a7846.png"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/polyfills-42372ed130431b0a.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/polyfills-42372ed130431b0a.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 112594,
+      "sha256": "0973c1d64c88adc8e3c950410cb58b288f72118d5965b78049438deb8f2f9683",
+      "local_path": "raw/site/assets/_next/static/chunks/polyfills-42372ed130431b0a__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/live-call.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/live-call.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 73774,
+      "sha256": "00f4ca8e9bf8c564872e5ba620bed8bb7871fc3c61932aa9a129f98533ec2b92",
+      "local_path": "raw/site/assets/live-call.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/family/f1.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/family/f1.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 17452,
+      "sha256": "64568d836b3a8a14b38d066cf7b6718efe47895f708c9735a98925f5ab122b4c",
+      "local_path": "raw/site/assets/family/f1.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/family/f2.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/family/f2.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 16388,
+      "sha256": "7a3da949d66d41564ef8e2c5eae4c3cce8122d8b982d9e8f0f0116dd3fd7ceff",
+      "local_path": "raw/site/assets/family/f2.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/family/f3.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/family/f3.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 14100,
+      "sha256": "8b63da690f78a4f66dc5e2390d303a72ab9589abdf599545278756b0518909dc",
+      "local_path": "raw/site/assets/family/f3.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/family/f4.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/family/f4.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 19148,
+      "sha256": "5db7b76981953682e88af8af82e2eeeae9320373c7539c08c7d463e6bdb0c167",
+      "local_path": "raw/site/assets/family/f4.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/family/f5.webp",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/family/f5.webp",
+      "http_status": 200,
+      "media_type": "image/webp",
+      "bytes": 14724,
+      "sha256": "7d05558aac90a54f904342cf44a5024e41455c6c0829e2e8211e205b9f8bfad8",
+      "local_path": "raw/site/assets/family/f5.webp"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/css/052bea3225bd61fb.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/os"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/css/052bea3225bd61fb.css?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 7934,
+      "sha256": "d7bb37fd48da85ade5b0bce598af1b01ededa3a409676a8ba8f2579e7891d456",
+      "local_path": "raw/site/assets/_next/static/css/052bea3225bd61fb__q_923781b141.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/app/os/page-001f5b1f920f1c72.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/os"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/app/os/page-001f5b1f920f1c72.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 12185,
+      "sha256": "07ac068393f4521a76d8d77adf6b8e8f249025221732dd2bfa2dc1ddae8cd3de",
+      "local_path": "raw/site/assets/_next/static/chunks/app/os/page-001f5b1f920f1c72__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/_next/static/chunks/app/waitlist/page-a2fe769671591960.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/waitlist"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/_next/static/chunks/app/waitlist/page-a2fe769671591960.js?dpl=dpl_AaiKC8kjMUoir5FkLXqT16KUDaX2",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 6106,
+      "sha256": "a1fa2ac4089501c6fcfd1cec386889c7a370f2e0fa726d942e7709d2f9807ae0",
+      "local_path": "raw/site/assets/_next/static/chunks/app/waitlist/page-a2fe769671591960__q_923781b141.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/design/fonts.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/design/fonts.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 5633,
+      "sha256": "6d83f295aa3fb6d3e7a61f1454f68b11d82f1438030b0756c66abe2ba7426369",
+      "local_path": "raw/site/assets/heuresis-os/design/fonts.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/design/tokens.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/design/tokens.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 1081,
+      "sha256": "bdf5632e7d3616538abdf249e20ac0a7b78b484d3f92705a6a1f00d4a370db9f",
+      "local_path": "raw/site/assets/heuresis-os/design/tokens.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/design/heuresis.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/design/heuresis.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 6738,
+      "sha256": "87641efe943658dd287c62404b9833bc0f3f6c264dc38bf1b4dd8b6a14478c55",
+      "local_path": "raw/site/assets/heuresis-os/design/heuresis.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/creator-os/styles.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/creator-os/styles.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 12455,
+      "sha256": "f91b6c1563bd541f87aeefd98ead96c60c9e79d9f2b2b925a76a87df05e3d342",
+      "local_path": "raw/site/assets/heuresis-os/creator-os/styles.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/heuresis-shim.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/heuresis-shim.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 1304,
+      "sha256": "bd6d73902908cb6be7d9063f97664bcbf26f35fc0ec8be2461298711b26ab71f",
+      "local_path": "raw/site/assets/heuresis-os/heuresis-shim.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/creator-os/app.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/creator-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/creator-os/app.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 37249,
+      "sha256": "dfbbe7f55bfdd9a60e12cd1832c9856dcdd6567d6a47b20819393dcdd3587e8c",
+      "local_path": "raw/site/assets/heuresis-os/creator-os/app.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/crm-os/styles.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/crm-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/crm-os/styles.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 12326,
+      "sha256": "18ef81ea38fe6508c271ebfacbd3a878be1434c44252ac87bf2676fc3fab64b1",
+      "local_path": "raw/site/assets/heuresis-os/crm-os/styles.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/crm-os/app.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/crm-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/crm-os/app.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 26343,
+      "sha256": "69fafc2b3c643fa4ab0534fb44b59d3673f4db3e71ee9c3cc8f84b5cd3a3a6e0",
+      "local_path": "raw/site/assets/heuresis-os/crm-os/app.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/finance-os/styles.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/finance-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/finance-os/styles.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 8814,
+      "sha256": "5da2c5653de2ce3b6a9219cb19a28365f3c0496290119476e360739cf48e1ea7",
+      "local_path": "raw/site/assets/heuresis-os/finance-os/styles.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/finance-os/app.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/finance-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/finance-os/app.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 35229,
+      "sha256": "7f5cbac1f59c6c5a6c256245ef5abdf403ac1fb861884dfde7569c283f2c80db",
+      "local_path": "raw/site/assets/heuresis-os/finance-os/app.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/project-management-os/styles.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/project-management-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/project-management-os/styles.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 11246,
+      "sha256": "06c8f13db2d3aa5911ac22084152e679d50f3173c3be99bf1b5532e4fb74deb2",
+      "local_path": "raw/site/assets/heuresis-os/project-management-os/styles.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/project-management-os/app.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/project-management-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/project-management-os/app.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 34191,
+      "sha256": "00dcd6efdb173e4afde719ea99b9d80ce442dc12e6f5d97efbd2654184b2358d",
+      "local_path": "raw/site/assets/heuresis-os/project-management-os/app.js"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/styles.css",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/second-brain-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/styles.css",
+      "http_status": 200,
+      "media_type": "text/css",
+      "bytes": 5108,
+      "sha256": "0ea9c8e8ebb07d22231848fc788102623cc2de86e3424878aa178a12d028df98",
+      "local_path": "raw/site/assets/heuresis-os/second-brain-os/styles.css"
+    },
+    {
+      "source_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/app.js",
+      "category": "asset",
+      "discovered_from": [
+        "https://www.thefounderos.com/heuresis-os/second-brain-os/index.html"
+      ],
+      "status": "captured",
+      "final_url": "https://www.thefounderos.com/heuresis-os/second-brain-os/app.js",
+      "http_status": 200,
+      "media_type": "application/javascript",
+      "bytes": 18968,
+      "sha256": "06a7b1b2799ada4a47fcb802baaa4190cc59ebb1595263246781ef47e137ee9c",
+      "local_path": "raw/site/assets/heuresis-os/second-brain-os/app.js"
+    }
+  ]
+}

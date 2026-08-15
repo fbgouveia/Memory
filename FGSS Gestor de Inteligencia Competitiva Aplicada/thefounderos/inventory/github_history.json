@@ -1,0 +1,19 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-08-15",
+  "repository": "Bennettxai/FounderOS-DEMO",
+  "created_at": "2026-07-07T11:58:37Z",
+  "first_public_commit": "2026-08-01T22:26:18Z",
+  "current_commit": "6b852ab77c2f",
+  "commits_in_current_history": 5,
+  "authors_in_current_history": 1,
+  "releases": 0,
+  "tags": 0,
+  "ci_added_in_current_commit": true,
+  "history_discrepancy": {
+    "github_api": "PR #1 is marked merged on 2026-08-02",
+    "current_snapshot": "authentication files and token references from that PR are absent",
+    "current_history": "the merge commit is absent",
+    "interpretation": "likely rewrite or later removal; exact cause not proven"
+  }
+}

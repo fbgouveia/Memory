@@ -1,0 +1,47 @@
+/* tokens.css — Heuresis design tokens (the durable layer). Decisions live in DESIGN.md. */
+
+:root {
+  /* surfaces */
+  --page: #ffffff;
+  --panel: #fafafa;
+
+  /* ink ramp */
+  --t1: #09090b;
+  --t2: #3f3f46;
+  --t3: #52525b;
+  --t4: #71717a;
+  --t5: #a1a1aa;
+  --t6: #d4d4d8;
+
+  /* hairlines */
+  --line: #e4e4e7;
+  --line2: #d4d4d8;
+
+  /* the one color — wordmark dot only (DESIGN.md GATE) */
+  --copper: #b46f37;
+
+  /* type */
+  --sans: 'Geist', -apple-system, BlinkMacSystemFont, sans-serif;
+  --mono: 'Geist Mono', ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --display: 'Iceland', 'Geist Mono', ui-monospace, monospace; /* OS wordmarks only */
+
+  /* radii — controls · cards · panels */
+  --r-ctl: 4px;
+  --r-card: 8px;
+  --r-panel: 12px;
+}
+
+/* approved dark surface — same hairline logic, same marks */
+[data-theme="dark"] {
+  --page: #060609;
+  --panel: #0f0f12;
+  --t1: #fafafa;
+  --t2: #a1a1aa;
+  --t3: #71717a;
+  --t4: #52525b;
+  --t5: #3f3f46;
+  --t6: #2e2e35;
+  --line: #1c1c21;
+  --line2: #2e2e35;
+}

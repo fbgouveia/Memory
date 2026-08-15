@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>creator-os · System of Record</title>
+  <link rel="stylesheet" href="/heuresis-os/design/fonts.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/tokens.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/heuresis.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo wordmark-os">creator-os<span class="copper">.</span></span><span class="kicker eyebrow-sm">System of Record</span></div>
+
+      <div class="quick">
+        <div class="quick-h">Quick Action</div>
+        <button class="qa" data-act="new-content">＋ New Content</button>
+        <button class="qa" data-act="new-task">＋ New Task</button>
+        <button class="qa" data-act="new-note">＋ New Note</button>
+        <button class="qa" data-act="new-sponsor">＋ New Sponsor</button>
+        <button class="qa" data-act="new-money">＋ Money Entry</button>
+        <button class="qa" data-act="check-habit">✓ Check Habit</button>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-h">Content Creation</div>
+        <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a href="#/inbox" data-route="inbox">Inbox <span class="badge" id="nav-inbox"></span></a>
+        <a href="#/platforms" data-route="platforms">Platforms</a>
+        <a href="#/content" data-route="content">Content Schedule</a>
+        <a href="#/calendar" data-route="calendar">Content Calendar</a>
+        <a href="#/sponsorships" data-route="sponsorships">Sponsorships</a>
+        <a href="#/topics" data-route="topics">Topics &amp; Bookmarks</a>
+        <a href="#/growth" data-route="growth">Growth &amp; Goals</a>
+        <a href="#/notes" data-route="notes">Notes &amp; Tools</a>
+        <div class="nav-h nav-gap">Work Area</div>
+        <a href="#/projects" data-route="projects">Projects &amp; Tasks</a>
+        <a href="#/finance" data-route="finance">Finance Tracker</a>
+        <a href="#/contacts" data-route="contacts">Contacts &amp; Affiliates</a>
+        <div class="nav-h nav-gap">Personal Area</div>
+        <a href="#/habits" data-route="habits">Habits Tracker</a>
+      </nav>
+    </aside>
+
+    <main id="main"></main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-head"><h3 id="modal-title"></h3><button class="x" id="modal-x" aria-label="close">✕</button></div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/heuresis-os/heuresis-shim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>project-management-os · System of Record</title>
+  <link rel="stylesheet" href="/heuresis-os/design/fonts.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/tokens.css" />
+  <link rel="stylesheet" href="/heuresis-os/design/heuresis.css" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand"><span class="logo wordmark-os">project-management-os<span class="copper">.</span></span><span class="kicker eyebrow-sm">System of Record</span></div>
+
+      <div class="quick">
+        <div class="quick-h">Quick Action</div>
+        <button class="qa" data-act="capture">＋ Capture</button>
+        <button class="qa" data-act="new-deal">＋ New Deal</button>
+        <button class="qa" data-act="log-meeting">＋ Log Meeting</button>
+        <button class="qa" data-act="new-record">＋ New Record</button>
+      </div>
+
+      <nav class="nav" id="nav">
+        <div class="nav-h">Navigation</div>
+        <a href="#/dashboard" data-route="dashboard">Dashboard</a>
+        <a href="#/inbox" data-route="inbox">Inbox <span class="badge" id="nav-inbox"></span></a>
+        <a href="#/next" data-route="next">Next Action</a>
+        <a href="#/projects" data-route="projects">Projects &amp; Tasks</a>
+        <a href="#/contacts" data-route="contacts">Contacts &amp; Companies</a>
+        <a href="#/meetings" data-route="meetings">Meetings</a>
+        <a href="#/resources" data-route="resources">Resources &amp; Notes</a>
+        <a href="#/awareness" data-route="awareness">Events &amp; News</a>
+        <a href="#/folders" data-route="folders">Folders</a>
+        <a href="#/archive" data-route="archive">Archive</a>
+      </nav>
+    </aside>
+
+    <main id="main"></main>
+  </div>
+
+  <div class="modal-backdrop" id="modal" hidden>
+    <div class="modal">
+      <div class="modal-head"><h3 id="modal-title"></h3><button class="x" id="modal-x" aria-label="close">✕</button></div>
+      <form id="modal-form"></form>
+    </div>
+  </div>
+
+  <div class="toast" id="toast" hidden></div>
+  <script src="/heuresis-os/heuresis-shim.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

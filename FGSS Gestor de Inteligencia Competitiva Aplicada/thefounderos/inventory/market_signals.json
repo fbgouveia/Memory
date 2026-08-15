@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "observed_at": "2026-08-15",
+  "rule": "Counts are point-in-time public signals, not audited revenue or customer totals.",
+  "signals": [
+    {"surface": "Instagram", "metric": "followers", "value": 76000, "precision": "rounded by source"},
+    {"surface": "Instagram", "metric": "posts", "value": 18},
+    {"surface": "LinkedIn", "metric": "followers", "value": 2000, "precision": "rounded public profile"},
+    {"surface": "GitHub FounderOS-DEMO", "metric": "stars", "value": 511},
+    {"surface": "GitHub FounderOS-DEMO", "metric": "forks", "value": 138},
+    {"surface": "Whop Agency Accelerants", "metric": "joined", "value": 2719, "precision": "public page; changed during research"},
+    {"surface": "Whop Agency Accelerants", "metric": "rating", "value": 4.8, "reviews": 14},
+    {"surface": "Whop Agency Accelerants Hub", "metric": "members", "value": 2689, "price_usd": 0},
+    {"surface": "Whop Agent Accelerator", "metric": "members", "value": 2, "price_usd": 795, "rating": 4.8, "reviews_observed_in_search": 13},
+    {"surface": "Skool Agency Accelerants", "metric": "members", "value": 141, "price_usd_month": 97},
+    {"surface": "Skool Life Upgrade AI", "metric": "members", "value": 20, "price_usd_month": 29}
+  ],
+  "commercial_claims_not_independently_verified": [
+    "$1.2M+ in combined member results",
+    "members land first $5K+ clients 3x faster",
+    "30 students crossed the $5K/month plateau",
+    "Merydian described as a seven-figure agency",
+    "FounderOS saves 20+ hours/week and added $120K in two months"
+  ]
+}

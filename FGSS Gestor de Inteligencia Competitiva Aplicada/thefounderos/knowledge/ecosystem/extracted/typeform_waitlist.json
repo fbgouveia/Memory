@@ -1,0 +1,174 @@
+{
+  "source_form_id": "VsRNRmhk",
+  "title": "TheFounderOS - Cohort 2 Waitlist",
+  "type": "quiz",
+  "public": true,
+  "allow_indexing": false,
+  "partial_responses_to_all_integrations": true,
+  "fields": [
+    {
+      "id": "h97Cwsv8kQmE",
+      "ref": "c7030cff-6886-4225-8b23-76b3a4a3ada9",
+      "title": "Phone Number",
+      "type": "contact_info",
+      "required": null,
+      "description": "\nFounderOS Waitlist WhatsApp GC gets the news first",
+      "fields": [
+        {
+          "id": "42K5Uje45gSn",
+          "ref": "9aaeacfa-a903-42bc-a7ea-84547561617f",
+          "title": "Phone number",
+          "type": "phone_number",
+          "required": false
+        }
+      ]
+    },
+    {
+      "id": "p2RNBSX91ydr",
+      "ref": "758f3e36-7ffb-481a-84f0-b6681fa1da3e",
+      "title": "email",
+      "type": "contact_info",
+      "required": null,
+      "description": "Where I'll send cohort details and your spot.",
+      "fields": [
+        {
+          "id": "upKVfaAZyv0y",
+          "ref": "75de7ff9-4216-4c55-b627-e6337597a82f",
+          "title": "Email",
+          "type": "email",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "uiJyQe1VlrIk",
+      "ref": "87179b98-e1c7-4cc6-94de-c23754938d24",
+      "title": "full name",
+      "type": "contact_info",
+      "required": null,
+      "fields": [
+        {
+          "id": "CdsEN2dIfO3g",
+          "ref": "7d2405eb-2717-4593-a34a-5cf347b677b7",
+          "title": "First name",
+          "type": "short_text",
+          "required": true
+        },
+        {
+          "id": "29w5rNfUFjJc",
+          "ref": "10457c34-a0a8-47a0-b3f2-456928d41904",
+          "title": "Last name",
+          "type": "short_text",
+          "required": true
+        }
+      ]
+    },
+    {
+      "id": "sQGuAefcsjxB",
+      "ref": "9d1cd0f5-cb61-4356-9dfd-1c872472c39e",
+      "title": "current level with AI",
+      "type": "multiple_choice",
+      "required": true,
+      "description": "No judgment. It just helps me set the level right.",
+      "choices": [
+        {
+          "id": "DDoHI3Ye39Ak",
+          "ref": "1d59266b-9cb9-47ac-9b8f-063b0554a94b",
+          "label": "Beginner"
+        },
+        {
+          "id": "AszoWXte4X17",
+          "ref": "83364648-7a49-4511-9396-02f2e5202e0a",
+          "label": "Casual"
+        },
+        {
+          "id": "bI0G4b9j46np",
+          "ref": "f764cfb1-884b-4c1d-9689-3644cce304d7",
+          "label": "Confident"
+        },
+        {
+          "id": "msf0aIekKCqq",
+          "ref": "70774a25-81a1-4a14-9412-f60607513c06",
+          "label": "Advanced"
+        }
+      ]
+    },
+    {
+      "id": "0oTtAwBYKxSe",
+      "ref": "3c4647c9-3ff3-438d-a176-addc3b62e88e",
+      "title": "What do you do?",
+      "type": "short_text",
+      "required": true,
+      "description": "Industry or role. A few words is plenty."
+    },
+    {
+      "id": "E5REDt3hapfN",
+      "ref": "2c5c4619-0244-45f7-a339-0f8ced0615bf",
+      "title": "the bottleneck",
+      "type": "long_text",
+      "required": true,
+      "description": "One thing you want AI to fix for you?"
+    },
+    {
+      "id": "oSAwHVn6SPur",
+      "ref": "0ff444bf-92b0-41f9-8666-dad434d1ba11",
+      "title": "How ready are you for the next cohort?",
+      "type": "multiple_choice",
+      "required": false,
+      "choices": [
+        {
+          "id": "1k4yY7XFJoiX",
+          "ref": "cc7c11c0-4915-403e-95f6-b50e5649ad79",
+          "label": "100% Ready To Go"
+        },
+        {
+          "id": "MR4GU7CJV5LE",
+          "ref": "dfa3c4cc-a365-4c0f-8c7b-186850eb3687",
+          "label": "Need more info before I can join"
+        }
+      ]
+    }
+  ],
+  "logic": [],
+  "welcome_screens": [
+    {
+      "id": "GdoHqDjubUDb",
+      "ref": "f9bf5442-0d43-4f03-b9cc-0eb995ddcecf",
+      "title": "TheFounderOS Cohort 2 - Waitlist",
+      "properties": {
+        "show_button": true,
+        "button_text": "Start"
+      }
+    }
+  ],
+  "thankyou_screens": [
+    {
+      "id": "3H9DTAxqKmfV",
+      "ref": "c0d6f86a-1207-4d86-a52e-78134f3f9ca8",
+      "title": "Thank You, More updates coming soon.",
+      "type": "thankyou_screen",
+      "properties": {
+        "show_button": true,
+        "share_icons": true,
+        "button_mode": "default_redirect",
+        "button_text": "Create a typeform"
+      }
+    },
+    {
+      "id": "DefaultTyScreen",
+      "ref": "default_tys",
+      "title": "Thanks for completing this typeform\nNow *create your own* — it's free, easy, & beautiful",
+      "type": "thankyou_screen",
+      "properties": {
+        "show_button": true,
+        "share_icons": false,
+        "button_mode": "default_redirect",
+        "button_text": "Create a *typeform*"
+      },
+      "attachment": {
+        "type": "image",
+        "href": "https://public-assets.typeform.com/public/admin/2dpnUBBkz2VN.gif"
+      }
+    }
+  ]
+}
