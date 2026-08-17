@@ -1033,6 +1033,9 @@ produção ativa quando algo foi validado apenas localmente.
 
 - O pacote canônico passou a conter manifestos compatíveis com Codex, Claude e
   Gemini/Antigravity, mantendo uma única skill e sem duplicar o protocolo.
+- A verificação final de arquivos materializou e versionou também
+  `.claude-plugin/plugin.json`; o manifesto nativo passou novamente pelo
+  validador do Claude e o Brain manteve 28/28 testes aprovados.
 - Codex foi atualizado de v0.2.0 para v0.4.0; sessão efêmera nova carregou a
   skill do cache correto e confirmou grafo `persistent_incremental`,
   `small=skip` e gauntlet ativo em `large`.

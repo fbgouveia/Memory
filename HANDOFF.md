@@ -87,8 +87,8 @@ Documento de transição e histórico de decisões do projeto.
 
 ### 4. Versionamento e prova
 
-- `FGSS brain`: commit `746e1c6` — grafos persistentes, gauntlet e plugin
-  multiplataforma.
+- `FGSS brain`: commits `746e1c6` e `25a038f` — grafos persistentes, gauntlet,
+  plugin multiplataforma e manifesto nativo do Claude.
 - `FGSS MAIN BRAIN`: commit `b39f74c` — observabilidade sanitizada do
   gauntlet-loop.
 - Nenhum `.env`, token, senha ou conteúdo de execução foi incluído nos commits.
