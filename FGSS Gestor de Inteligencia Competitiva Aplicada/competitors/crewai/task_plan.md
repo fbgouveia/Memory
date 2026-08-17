@@ -20,16 +20,16 @@ competitiva e requisitos originais para o FGSS.io.
 - [x] Separar claims comerciais, showcase e evidência independente.
 - [ ] Executar testes, typecheck, build e lint do código público.
 - [ ] Mapear arquitetura com Graphify.
-- [ ] Produzir scorecard, battlecard, cenários e baseline de monitoramento.
-- [ ] Definir plano de incorporação FGSS com portões de aceite.
+- [x] Produzir scorecard, battlecard, cenários e baseline de monitoramento.
+- [x] Definir plano de incorporação FGSS com portões de aceite.
 - [ ] Aplicar o blueprint no repositório do produto FGSS.io quando sua
   localização e fronteira forem fornecidas.
 
 ## A — Ações e aceite
 
 1. Coleta aceita somente com manifesto sem ausências, duplicatas ou hashes
-   divergentes — exceto erros conhecidos documentados (home.html path
-   collision, LICENSE false positive).
+   divergentes. Os bugs históricos de `home.html` path collision e falso
+   positivo de LICENSE foram corrigidos; o audit atual está `pass`.
 2. Snapshot aceito somente com licença e commit de origem preservados.
 3. Código aceito como compreendido somente após testes, typecheck, build, lint
    e mapa estrutural — pendentes nesta baseline.
@@ -51,6 +51,12 @@ competitiva e requisitos originais para o FGSS.io.
 - `knowledge/ecosystem/SALES_AND_DISTRIBUTION.md`
 - `knowledge/ecosystem/CLAIMS_AND_CUSTOMER_EVIDENCE.md`
 - `knowledge/site/` (55 destilações de páginas)
+- `strategy/FGSS_BATTLECARD.md`
+- `strategy/TECHNOLOGY_MATURITY_SCORECARD.md`
+- `strategy/THREAT_SCENARIOS.md`
+- `strategy/CHANGE_MONITOR.md`
+- `strategy/FGSS_INJECTION_BLUEPRINT.md`
+- `strategy/COMPETITIVE_ANALYSIS.md`
 
 ## G — Guardrails
 

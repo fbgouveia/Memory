@@ -128,6 +128,10 @@ As pendências completas da integração com o Admin também estão registradas 
   `*-os` licenciados — somente na próxima coleta autorizada.
 - [ ] Coletor `FGSS OS/collect_public.py` não recebeu as correções do CrewAI
   (path collision: host no filename; LICENSE check flexível). Bugs conhecidos.
+- [ ] Excluir metadados do sistema operacional (`.DS_Store`, `Thumbs.db` e
+  equivalentes) dos geradores de inventário dos dossiês antes da próxima
+  regeneração; comparar o resultado com a baseline e não promover mudanças
+  apenas de timestamp.
 - [ ] Localizar e autorizar o repositório real do `FGSS.io`; então implementar
   primeiro o Invariant Engine e o Capability Registry, com testes de contrato,
   antes de qualquer reprodução de interface. **Repo localizado: é privado em
@@ -135,6 +139,11 @@ As pendências completas da integração com o Admin também estão registradas 
   auth via gh CLI ou token para ler conteúdo.**
 - [ ] Iniciar primeira pesquisa original em `research/` (mercado, tecnologia,
   plano de negócios). Protocolo definido em `research/AGENTS.md`.
+- [ ] Validar ICP, escopo, pricing e capacidade das quatro ofertas iniciais por
+  três pilotos autorizados, com exemplos sanitizados, critérios de aceite,
+  esforço, margem e decisões influenciadas; até lá são hipóteses comerciais.
+- [ ] Definir contrato de confidencialidade, segregação entre clientes,
+  retenção, descarte e SLA antes de receber evidência privada externa.
 - [ ] Preservar a baseline TheFounderOS de 15/08/2026 antes de nova coleta e
   iniciar série temporal de commits, releases, issues, ofertas, preços, reviews
   e denominadores usando `FGSS OS/tools/compare_manifests.py`.

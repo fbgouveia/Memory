@@ -3,7 +3,7 @@
 ## Verificado
 
 - O site público expôs 2.817 registros: 449 capturados (todos `text/html`),
-  51 erros e 2.317 referências externas inventariadas. Nenhuma mídia
+  51 erros e 2.318 referências externas inventariadas. Nenhuma mídia
   same-origin (imagem, áudio ou vídeo) foi capturada — o site serve HTML
   dinâmico com ativos de CDNs third-party.
 - As rotas públicas capturadas incluem home, pricing, enterprise, open-source,

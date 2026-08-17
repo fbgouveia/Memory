@@ -28,14 +28,14 @@ proposta observada oferece:
 
 ## 2. Estado terminal da baseline
 
-Última auditoria: `inventory/audit_report.json`, **FAIL** com 17 erros
-conhecidos e documentados (16 home.html path collision + 1 LICENSE false
-positive). Nenhum erro indica perda de dados ou defeito de licença; são
-limitações de checker e coletor.
+Última auditoria: `inventory/audit_report.json`, **PASS**, zero erros. Os 17
+erros da primeira baseline (16 por colisão de path em `home.html` e 1 falso
+positivo de LICENSE) foram corrigidos no coletor/auditor e permanecem apenas
+como histórico desta sessão.
 
 | Superfície | Estado congelado |
 | --- | --- |
-| Site crewai.com | 2.817 registros: 449 capturados, 51 erros, 2.317 refs externas |
+| Site crewai.com | 2.818 registros: 449 capturados, 51 erros, 2.318 refs externas |
 | Mídia same-origin | 0 imagens, 0 áudio, 0 vídeo (site usa CDNs third-party) |
 | Repo público | 26.369 arquivos; 352.713.677 bytes (336 MB); licença MIT |
 | Commit analisado | `754d7323beb2fd042e33444a115ea2d5a47193f0` (2026-08-13) |
@@ -46,7 +46,7 @@ limitações de checker e coletor.
 | Stars / Forks | 57.102 / 8.152 (`independent_signal`) |
 | PyPI | 412 versões; downloads `unknown` (API retorna -1) |
 
-Tamanho no momento da transferência: aproximadamente 515 MB e 27.276 arquivos
+Tamanho verificado no encerramento: aproximadamente 516 MB e 27.302 arquivos
 (o volume é dominado pelo snapshot do repositório com 26.369 arquivos e
 24.041 arquivos `.mdx` de documentação).
 
@@ -65,8 +65,8 @@ Tamanho no momento da transferência: aproximadamente 515 MB e 27.276 arquivos
   COMPETITOR_INTELLIGENCE_MODEL (destilação transversal).
 - `knowledge/graphify/`: vazio — grafo estrutural não foi gerado nesta
   baseline.
-- `strategy/`: vazio — battlecard, scorecard, cenários, monitor e blueprint
-  não foram produzidos nesta baseline.
+- `strategy/`: seis entregas presentes — análise competitiva, battlecard,
+  scorecard, cenários, monitor e blueprint de incorporação no FGSS.
 - `fixtures/`: vazio — reservado para fixtures de teste.
 - `tools/`: coletores stdlib, auditor e comparador de manifestos.
 - `CONTRACT.md` e `ECOSYSTEM_CONTRACT.md`: fronteiras obrigatórias.
@@ -78,17 +78,13 @@ Tamanho no momento da transferência: aproximadamente 515 MB e 27.276 arquivos
 
 - `tools/collect_public.py` congela as rotas e ativos same-origin do
   crewai.com, inventaria referências externas e recusa raízes inesperadas.
-  Resultado: 449 capturadas, 51 erros, 2.317 referências externas.
+  Resultado: 449 capturadas, 51 erros, 2.318 referências externas.
 - `tools/collect_ecosystem.py` usa allowlist explícita para GitHub API
   (`crewAIInc` org, `crewAI` repo, commits, issues, contributors, releases,
   tags, forks) e PyPI (`crewai` package). Resultado: 10 registros, 0 erros.
-- **Bug conhecido: path collision em home.html.** O coletor gravou 9 URLs
-  diferentes (home, locale variants, versões) no mesmo caminho
-  `raw/site/pages/home.html`. Apenas a última gravação corresponde ao
-  arquivo em disco; 8 entradas do manifesto têm hash/size que não match.
-  Isto produz 16 erros no audit (8 size + 8 hash). Não é perda de conteúdo
-  — cada URL foi capturada — mas 8 versões não são recuperáveis do disco.
-  Pendente de correção no coletor (não no audit.py).
+- **Bug histórico corrigido:** `local_path()` passou a incluir o host para
+  impedir colisões entre subdomínios, `canonical()` normaliza o scheme e o site
+  foi recolhido. O manifesto e o audit atuais reconciliam com zero erro.
 
 ### 4.2 Validação do código
 
@@ -120,6 +116,9 @@ ambiente isolado para validar a baseline de código.
   com classificação, proveniência e unknowns.
 - `knowledge/site/`: 55 destilações de páginas (home, pricing, case studies,
   blog, webinars, platform features, integrações, comunidade, termos, etc.).
+- `strategy/COMPETITIVE_ANALYSIS.md`, `FGSS_BATTLECARD.md`,
+  `TECHNOLOGY_MATURITY_SCORECARD.md`, `THREAT_SCENARIOS.md`,
+  `FGSS_INJECTION_BLUEPRINT.md` e `CHANGE_MONITOR.md`.
 
 ## 5. Descobertas fundamentais
 
@@ -225,20 +224,14 @@ to link OSS usage to an enterprise account" — fingerprinting de uso e
 propagação de identificadores entre OSS e enterprise exigem análise de
 finalidade, consentimento, retenção e exclusão.
 
-### 5.6 Audit e limitações conhecidas
+### 5.6 Audit e correções da baseline
 
-O audit report tem `status: fail` com 17 erros, todos conhecidos e
-documentados:
-
-1. **LICENSE false positive (1 erro):** o arquivo `LICENSE` é MIT válido
-   (texto de permissão e disclaimer padrão, copyright "Copyright (c) 2025
-   crewAI, Inc."), mas não contém a string literal "MIT License" que o
-   `audit.py:128` procura. Limitação do checker, não defeito de licença.
-   Não corrigido no `audit.py` por instrução.
-2. **home.html path collision (16 erros):** o coletor gravou 9 URLs
-   diferentes no mesmo `raw/site/pages/home.html`. 8 entradas do manifesto
-   têm hash/size que não correspondem ao arquivo em disco (última gravação).
-   Bug do coletor, não perda de conteúdo. Pendente de correção.
+O primeiro audit reportou 17 divergências: 16 por colisão de paths entre
+subdomínios e 1 porque o checker exigia o título literal "MIT License". O
+coletor passou a incluir host no path, a captura foi refeita e o checker passou
+a reconhecer o texto permissivo MIT. O relatório atual registra `status: pass`
+e `errors: []`. Isso valida integridade dos inventários, não comprova uso em
+produção, clientes, economia ou segurança enterprise.
 
 ## 6. Estratégia FGSS decidida
 
@@ -274,15 +267,13 @@ Backlog (herdado, não implementado sem o repo real do FGSS.io):
 
 ### P0 — fronteira do produto
 
-- Localizar e autorizar o repositório real do `FGSS.io`. Até isso acontecer,
-  a estratégia é especificação, não implementação.
+- Abrir e autorizar o repositório real do `FGSS.io`, já localizado como privado
+  em `fbgouveia/Felipe-Portfolio` e disponível em outro computador. Até mapear
+  esse repo, a estratégia é especificação, não implementação.
 - Mapear os componentes atuais do FGSS antes de implementar F1/F2.
 
 ### P1 — inteligência longitudinal
 
-- Corrigir o bug de path collision em `tools/collect_public.py` (múltiplas
-  URLs gravando no mesmo `home.html`). Salvar manifestos anteriores como
-  baseline antes de re-capturar.
 - Criar snapshots versionados sem sobrescrever a baseline de 16/08/2026.
 - Medir deltas semanais de site, commits, releases, issues, preços, reviews
   e contagens; mensalmente revisar termos, privacidade, tracking e oferta.
@@ -304,12 +295,6 @@ Backlog (herdado, não implementado sem o repo real do FGSS.io):
 - Não entrar em grupo, comprar produto, contatar membros ou enviar
   formulário sem autorização explícita.
 
-### P1 — estratégia
-
-- Produzir `strategy/FGSS_BATTLECARD.md`, `strategy/TECHNOLOGY_MATURITY_SCORECARD.md`,
-  `strategy/THREAT_SCENARIOS.md`, `strategy/CHANGE_MONITOR.md` e
-  `strategy/FGSS_INJECTION_BLUEPRINT.md` — `strategy/` está vazio.
-
 ### P1 — segurança FGSS
 
 - Auth e autorização por recurso antes de qualquer bind público.
@@ -324,16 +309,15 @@ Backlog (herdado, não implementado sem o repo real do FGSS.io):
 1. Confirmar a nova raiz com `pwd` e ler `AGENTS.md` + este arquivo.
 2. Rodar `git status` no repo `/Users/felipe/Developer/Memory`; não tocar nas
    mudanças paralelas existentes.
-3. Rodar `python3 tools/audit.py`. Esperar `status: fail` com 17 erros
-   conhecidos (16 home.html + 1 LICENSE). Se aparecerem erros novos,
-   investigar antes de continuar.
+3. Rodar `python3 tools/audit.py`. Esperar `status: pass` e zero erros. Se
+   aparecer divergência, investigar antes de continuar.
 4. Se a tarefa for nova coleta, copiar primeiro os manifestos atuais para um
    diretório de baseline datado, executar os coletores, auditar e comparar.
    Os coletores regeneram os diretórios de captura.
 5. Se a tarefa for validar código, executar `uv sync && pytest` e
    `ruff check && mypy lib/` em ambiente isolado.
-6. Se a tarefa for estratégia, começar por `strategy/FGSS_BATTLECARD.md` e
-  `strategy/TECHNOLOGY_MATURITY_SCORECARD.md`.
+6. Se a tarefa for estratégia, ler primeiro os seis arquivos já existentes em
+   `strategy/` e preservar classificação/proveniência.
 7. Atualizar este HANDOFF no fim, registrando comandos, resultados, hashes,
    pendências e qualquer mudança de interpretação.
 
@@ -351,8 +335,7 @@ python3 tools/compare_manifests.py \
 Resultado esperado da baseline:
 
 - py_compile: exit 0;
-- audit: `status: fail`, 17 erros conhecidos (16 home.html path collision +
-  1 LICENSE false positive). Sem erros novos.
+- audit: `status: pass`, `errors: []`.
 - comparação consigo mesma: zero added, removed e changed.
 
 Para nova captura, somente com autorização de rede:
@@ -390,6 +373,5 @@ isolada do dossiê, sem misturar com alterações paralelas do repo.
 - Não usar o código MIT para justificar cópia de marca/ativos comerciais.
 - O FGSS deve superar por governança, evidence graph, execução comprovada e
   valor auditável — não por quantidade de agentes, logos ou claims.
-- O audit tem 17 erros conhecidos e documentados; nenhum indica perda de
-  dados ou defeito de licença. Não corrigir o `audit.py` sem instrução
-  explícita.
+- O audit atual está `pass`, com zero erros. Os 17 erros da primeira execução
+  são histórico de bugs já corrigidos, não estado presente.

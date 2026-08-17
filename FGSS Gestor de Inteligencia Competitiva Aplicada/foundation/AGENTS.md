@@ -5,9 +5,11 @@ absorvidos do dossiê TheFounderOS e de pesquisas futuras.
 
 ## Estado
 
-**PRÉ-IMPLEMENTAÇÃO.** O repo real do FGSS.io não foi localizado (ver
-`PENDENCIAS.md` global). Tudo aqui é especificação, não código em produção.
-Sem o repo, F1/F2 são specs; não declarar implementação.
+**PRÉ-IMPLEMENTAÇÃO.** O repo real do FGSS.io foi localizado como privado em
+`fbgouveia/Felipe-Portfolio`, mas está em outro computador e não ficou
+acessível nesta sessão (ver `PENDENCIAS.md` global). Tudo aqui é especificação,
+não código em produção. Sem abrir e mapear o repo real, F1/F2 são specs; não
+declarar implementação.
 
 ## Backlog canônico (F1–F5)
 
@@ -54,6 +56,7 @@ valor auditável** — não por quantidade de agentes, logos ou claims.
 
 ## Próximo passo
 
-Localizar e autorizar o repo real do FGSS.io. Sem isso, F1/F2 permanecem
-especificação. Quando o repo chegar, começar por F1 (Invariant Engine) e
-F2 (Capability Registry) com testes de contrato — nunca pela interface.
+Abrir e autorizar o repo real do FGSS.io no outro computador, ler suas
+instruções e mapear os componentes atuais antes de editar. Até isso ocorrer,
+F1/F2 permanecem especificação. Começar por F1 (Invariant Engine) e F2
+(Capability Registry) com testes de contrato — nunca pela interface.

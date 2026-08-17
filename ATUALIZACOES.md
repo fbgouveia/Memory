@@ -30,7 +30,7 @@
 - Criado o dossiê de CrewAI em `competitors/crewai/`, seguindo o mesmo
   protocolo do TheFounderOS (allowlist, CONTRACT, ECOSYSTEM_CONTRACT,
   coletores stdlib, audit, knowledge, strategy).
-- Baseline congelada: site (449 capturados, 51 erros, 2.317 refs externas),
+- Baseline congelada: site (449 capturados, 51 erros, 2.318 refs externas),
   repo MIT (26.369 arquivos, commit `754d732`, ~353MB), ecossistema (10
   records GitHub API + PyPI, zero erros).
 - Knowledge produzido: `TECHNICAL_ARCHITECTURE.md` (Python >=3.10, uv
@@ -1051,3 +1051,18 @@ produção ativa quando algo foi validado apenas localmente.
   canônicos e o roteador.
 - Cursor, OpenCode, Aider e Amp não foram detectados como clientes instalados;
   nenhum arquivo desses ambientes foi criado preventivamente.
+
+### Encerramento do Gestor de Inteligência Competitiva Aplicada
+
+- Consolidado no handoff do gestor o posicionamento `services first`, com
+  catálogo inicial, quatro ofertas, roadmap de 12 meses e métricas para pilotos;
+  F1–F5 continuam pré-implementação.
+- Reconciliados o handoff e o plano do dossiê CrewAI com o estado canônico:
+  audit `pass`, 26.369 arquivos do repo congelado, seis entregas de estratégia
+  e 2.318 referências externas.
+- A fundação passou a registrar corretamente que o repo privado
+  `fbgouveia/Felipe-Portfolio` foi localizado, mas não estava acessível neste
+  ambiente; nenhuma implementação ou afirmação de integração foi feita.
+- Uma regeneração local de inventário adicionou `.DS_Store` e alterou somente
+  timestamps/contagens. O ruído foi retirado do conjunto de versionamento e a
+  baseline canônica foi preservada.

@@ -92,3 +92,39 @@ Documento de transição e histórico de decisões do projeto.
 - `FGSS MAIN BRAIN`: commit `b39f74c` — observabilidade sanitizada do
   gauntlet-loop.
 - Nenhum `.env`, token, senha ou conteúdo de execução foi incluído nos commits.
+
+---
+
+## 17 de agosto de 2026 — encerramento de Inteligência Competitiva
+
+### Pendências
+
+- Excluir metadados do sistema operacional dos geradores de inventário antes
+  da próxima regeneração e preservar a baseline ao comparar.
+- Validar ICP, escopo, pricing e capacidade das ofertas por pilotos autorizados.
+- Definir confidencialidade, segregação entre clientes, retenção, descarte e
+  SLA antes de receber evidência privada externa.
+
+### Atualizações
+
+- Consolidado o posicionamento `services first`, o catálogo de serviços, quatro
+  ofertas iniciais, roadmap e métricas de piloto do gestor.
+- Handoff e plano CrewAI reconciliados com audit `pass`, seis entregas de
+  estratégia, bugs históricos corrigidos e 2.318 referências externas.
+- Fundação FGSS.io corrigida para declarar o repo privado como localizado, mas
+  ainda não acessível neste ambiente; F1–F5 permanecem especificação.
+
+### Descobertas
+
+- `.DS_Store` alterou artificialmente um inventário regenerado; metadados do
+  sistema operacional não podem compor evidência canônica.
+- `audit: pass` prova consistência do snapshot, não capacidade em produção nem
+  resultado comercial.
+- O caminho comercial atual é serviço assistido seguido de pilotos; SaaS e
+  plataforma dependem de implementação e prova.
+
+### Prova
+
+- Nenhuma coleta externa, login, banco, produção ou código de produto foi
+  alterado neste encerramento.
+- O commit documental será registrado após sua criação.

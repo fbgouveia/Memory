@@ -540,3 +540,18 @@ descoberta gerar trabalho, crie também um item em `PENDENCIAS.md`.
   invariantes, tenant isolation, lineage, DLQ/replay e rollback são mais
   difíceis de imitar. Consequência: Invariant Engine e Capability Registry são
   as primeiras entregas propostas, antes do cockpit visual.
+
+## 17 de agosto de 2026 — encerramento de Inteligência Competitiva
+
+- **A rota comercial coerente com o estado atual é `services first`:** existe
+  método suficiente para entregas humanas assistidas, mas F1–F5 ainda são
+  especificação. Consequência: pilotos validam ICP, escopo, preço e margem antes
+  de qualquer claim de plataforma ou SaaS pronto.
+- **Metadados do sistema operacional contaminam inventários reproduzíveis:**
+  uma nova geração incluiu `.DS_Store` e elevou artificialmente a contagem do
+  snapshot CrewAI. Consequência: geradores devem excluir esses artefatos e
+  mudanças apenas de timestamp não devem virar nova baseline.
+- **`audit: pass` tem escopo limitado:** ele comprova reconciliação entre disco,
+  hashes e manifestos, não adoção, receita, segurança enterprise ou execução em
+  produção. Consequência: claims comerciais e operacionais continuam exigindo
+  evidência independente específica.
