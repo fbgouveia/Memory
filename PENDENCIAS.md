@@ -277,8 +277,10 @@ Ao fechar um item, marque-o aqui e registre a prova em `ATUALIZACOES.md`.
   `docs/CHAIRMAN_RISK_DECISION_MATRIX.md`.)
 - [ ] **P0 — 15/08/2026:** Registrar autoria, licença/direitos de uso e rastreabilidade por afirmação
   das sínteses derivadas dos dois acervos.
-- [ ] **P1 — 15/08/2026:** Restaurar/corrigir o caminho do `FGSS brain/tools/route_task.py`; o roteador
-  obrigatório não foi encontrado no caminho documentado durante esta auditoria.
+- [x] **P1 — 15/08/2026:** Restaurar/corrigir o caminho do
+  `FGSS brain/tools/route_task.py`. (Reconciliado em 17/08/2026: o roteador
+  existe no caminho canônico, responde a `--help` e integra a suíte de 28 testes
+  aprovada do FGSS Brain v4.)
 
 ## FGSS Gestor de Motion Design
 
