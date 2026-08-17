@@ -365,4 +365,5 @@ limites explícitos e linguagem que não confunda recomendação com fato.
 - Nenhuma coleta, login, submissão, banco ou código de produto foi executado.
 - Os manifests canônicos foram preservados; mudanças apenas de timestamp e a
   entrada `.DS_Store` foram excluídas do conjunto a versionar.
-- O hash do commit documental será acrescentado após sua criação.
+- Commit documental: `9638a2d` — estratégia, handoffs e registros canônicos
+  consolidados.

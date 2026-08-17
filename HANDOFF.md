@@ -127,4 +127,5 @@ Documento de transição e histórico de decisões do projeto.
 
 - Nenhuma coleta externa, login, banco, produção ou código de produto foi
   alterado neste encerramento.
-- O commit documental será registrado após sua criação.
+- Commit documental: `9638a2d` — estratégia, handoffs e registros canônicos
+  consolidados.
