@@ -1051,6 +1051,9 @@ produção ativa quando algo foi validado apenas localmente.
   canônicos e o roteador.
 - Cursor, OpenCode, Aider e Amp não foram detectados como clientes instalados;
   nenhum arquivo desses ambientes foi criado preventivamente.
+- A rotina de salvamento detectou que o catálogo injetado nesta sessão ainda
+  apontava para o caminho removido da skill v0.2.0; a execução foi recuperada
+  localizando e lendo integralmente a cópia instalada v0.4.0.
 
 ### Encerramento do Gestor de Inteligência Competitiva Aplicada
 

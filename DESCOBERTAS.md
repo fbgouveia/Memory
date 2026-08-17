@@ -555,3 +555,8 @@ descoberta gerar trabalho, crie também um item em `PENDENCIAS.md`.
   hashes e manifestos, não adoção, receita, segurança enterprise ou execução em
   produção. Consequência: claims comerciais e operacionais continuam exigindo
   evidência independente específica.
+- **Atualizar um plugin não garante que o catálogo já aponte para a nova
+  versão:** esta sessão anunciou a skill v0.2.0 removida, enquanto a v0.4.0
+  estava instalada e íntegra. Consequência: toda prova de atualização deve
+  incluir resolução do caminho em uma sessão nova, não apenas o conteúdo do
+  cache em disco.

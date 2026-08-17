@@ -104,6 +104,8 @@ Documento de transição e histórico de decisões do projeto.
 - Validar ICP, escopo, pricing e capacidade das ofertas por pilotos autorizados.
 - Definir confidencialidade, segregação entre clientes, retenção, descarte e
   SLA antes de receber evidência privada externa.
+- Revalidar em sessão nova se o catálogo do Codex deixou de anunciar o caminho
+  removido da skill FGSS v0.2.0 e passou a resolver diretamente a v0.4.0.
 
 ### Atualizações
 
@@ -122,6 +124,8 @@ Documento de transição e histórico de decisões do projeto.
   resultado comercial.
 - O caminho comercial atual é serviço assistido seguido de pilotos; SaaS e
   plataforma dependem de implementação e prova.
+- Catálogo de skill e instalação em disco podem divergir durante uma sessão;
+  a versão ativa precisa ser provada por resolução de caminho em processo novo.
 
 ### Prova
 

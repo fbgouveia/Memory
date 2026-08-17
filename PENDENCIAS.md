@@ -41,6 +41,10 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
 - [x] Reinstalar/atualizar o plugin canônico `fgss-brain` v0.4.0 no Codex e
   revalidá-lo em sessão nova depois da adição do gauntlet-loop e da política
   persistente de grafos. (Concluído em 17/08/2026.)
+- [ ] Revalidar numa próxima sessão nova o catálogo de skills do Codex: nesta
+  sessão ele anunciou o caminho removido `fgss-brain/0.2.0`, embora a instalação
+  ativa e íntegra esteja em `fgss-brain/0.4.0`. Corrigir o índice/cache se o
+  caminho antigo voltar a ser anunciado.
 - [ ] Manter `fgss-brain.json` como fonte única dos parâmetros e executar os
   validadores sempre que ele mudar.
 - [x] Confirmar, numa sessão NOVA do Claude Code, que o hook `SessionStart` criado
