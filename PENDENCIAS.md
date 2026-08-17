@@ -1,6 +1,6 @@
 # Pendências do ecossistema CÉREBRO
 
-Atualizado em: 15 de agosto de 2026.
+Atualizado em: 17 de agosto de 2026.
 
 Este arquivo registra apenas trabalho ainda aberto relacionado ao `FGSS brain` e
 ao `FGSS MAIN BRAIN`. Histórico concluído deve ir para `ATUALIZACOES.md`.
@@ -17,6 +17,9 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
 - [x] Conferir a identificação do projeto Supabase antes de qualquer alteração.
   (Confirmado o ID: aifgtfwiqodikqhytcuh para o Felipe Portfolio.)
 - [x] Aplicar `FGSS MAIN BRAIN/supabase/001_fgss_main.sql`. (Aplicado com sucesso!)
+- [ ] Validar `FGSS MAIN BRAIN/supabase/002_gauntlet_observability.sql` em um
+  PostgreSQL descartável, confirmar novamente o projeto Supabase e somente então
+  aplicar a migração; o Docker local estava desligado nesta implementação.
 - [x] Executar `FGSS MAIN BRAIN/supabase/verify_fgss_main.sql`; todas as consultas
   devem retornar zero linhas. (Verificado: todas retornaram zero linhas.)
 - [x] Registrar o primeiro projeto, coletor, demanda e política de observação.
@@ -32,15 +35,18 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
 
 ## FGSS brain
 
-- [ ] Verificar a integração global de Claude e Gemini em cada ambiente antes de
-  declarar que todas as LLMs usam o cérebro automaticamente.
-- [ ] Revalidar o plugin do Codex em sessão nova depois de qualquer mudança no
-  adaptador.
+- [x] Verificar a integração global de Claude e Gemini nos clientes instalados.
+  (Claude Code 2.1.233 e Gemini/Antigravity 1.1.12 comprovados em processos
+  novos em 17/08/2026.)
+- [x] Reinstalar/atualizar o plugin canônico `fgss-brain` v0.4.0 no Codex e
+  revalidá-lo em sessão nova depois da adição do gauntlet-loop e da política
+  persistente de grafos. (Concluído em 17/08/2026.)
 - [ ] Manter `fgss-brain.json` como fonte única dos parâmetros e executar os
   validadores sempre que ele mudar.
 - [x] Confirmar, numa sessão NOVA do Claude Code, que o hook `SessionStart` criado
-  em 30/07 realmente injeta o protocolo mestre. (Corrigida a estrutura aninhada
-  de hooks no settings.json do Claude para execução direta.)
+  em 30/07 realmente injeta o protocolo mestre. (Validada no Claude Code
+  2.1.233 a estrutura atual: evento `SessionStart` com contêiner aninhado
+  `hooks` e ações internas; a sessão nova carregou o plugin e executou o hook.)
 - [ ] Decidir se o `andrej-karpathy/SKILL.md` (persona, 54 KB) permanece no
   `FGSS brain` ou migra para as skills sob demanda. Hoje ele fica no repositório
   do cérebro mas está explicitamente fora do FGSS Loop.
@@ -163,6 +169,23 @@ As pendências completas da integração com o Admin também estão registradas 
   - [ ] Integrar rastreamento **OpenTelemetry (`bullmq-otel`)** para propagação de `trace_id` do receptor HTTP até o worker.
   - [ ] Adicionar modelo de **Thin Agent Step** no CLI de scaffold (execução determinística com chamadas de IA isoladas, passagem por referência de IDs e log de consumo de tokens).
   - [x] Atualizar o CLI de scaffold para gerar `.env.example` e `.gitignore` por padrão em novas automações. (Concluído em 13/08/2026).
+
+## FGSS Gestor de Mídias Sociais
+
+- [ ] Restaurar de uma fonte autorizada os 692 arquivos brutos ausentes dos 718
+  registros de `knowledge/INVENTORY_LUANA_ALL_TEXT.json`, atualizar os caminhos
+  absolutos herdados de `/Users/felipe/Developer/Memory` e repetir
+  `python3 tools/preflight_check.py`. Os 36 testes locais passam, mas a auditoria
+  de hashes não pode aprovar enquanto os arquivos inventariados não existirem.
+
+## FGSS Gestor de Webdesign
+
+- [ ] Antes de revisar um projeto real, complementar o pack inicial com a
+  documentação oficial atual da stack escolhida; o material WebHub foi
+  classificado como instrução de curso, não como fonte oficial vigente.
+- [ ] Executar os cinco gates no primeiro site irmão, anexando evidências
+  sanitizadas de staging, formulários, consentimento/analytics, rollback,
+  DNS/TLS, backup/restauração, monitoramento e aprovação humana.
 
 Ao fechar um item, marque-o aqui e registre a prova em `ATUALIZACOES.md`.
 

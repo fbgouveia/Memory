@@ -204,7 +204,12 @@ este arquivo como lista de tarefas.
 
 ## 8 de agosto de 2026
 
-- A sintaxe correta do hook `SessionStart` no Claude Code requer que a chave mapeie diretamente para um array plano de objetos de ação de comando (`{"type": "command", "command": "..."}`). Evidência: o formato anteriormente configurado aninhado sob `{ "hooks": [ ... ] }` impedia que os comandos fossem executados no início das sessões. Consequência: simplificamos a estrutura em `~/.claude/settings.json`, corrigindo o disparo automático do protocolo mestre.
+- No Claude Code 2.1.233, `SessionStart` exige um objeto de evento cuja lista
+  interna `hooks` contém diretamente as ações de comando. Evidência: com ações
+  diretamente em `SessionStart`, todos os plugins apareceram desativados; ao
+  restaurar o contêiner, 5 plugins foram habilitados, a skill FGSS foi carregada
+  e o hook executou. Consequência: validar a sintaxe contra o runtime instalado,
+  pois a descoberta anterior sobre um array totalmente plano ficou obsoleta.
 - Modificar o arquivo `.env.example` de um submódulo (neste caso, `code-graph-rag` por conta do script `sync_runtime_config.py` do cérebro) faz com que o repositório pai enxergue o submódulo como dirty/modificado. Evidência: o status indicava `modified content`. Consequência: configurar `ignore = dirty` no `.gitmodules` para o submódulo remove este ruído e previne o commit de ponteiros acidentais no repositório do cérebro.
 
 
@@ -290,6 +295,55 @@ este arquivo como lista de tarefas.
 - **Ingestão Canônica da Base `Respondedor_PROJECT MANAGER` via Service Account:** A Service Account local em `~/.credentials/yt_drive_sync_sa.json` possui escopos de leitura autorizados no Google Drive e efetuou com sucesso o download, hash SHA-256 e validação de 79/79 arquivos (413,63 KB). Evidência: `knowledge/INVENTORY.json` e `docs/DRIVE_INGESTION_PM.md`. Consequência: 190 termos técnicos de PM/Agile e metodologias de resposta e governança foram consolidados nos playbooks `docs/bible/01_project_management_operacao_social.md` e `docs/bible/02_respondedor_community_care_sla.md`.
 - **Auditoria Profunda de Validação de Esquemas e Falha Fechada (2026):** A auditoria identificou que tipos nulos em objetos aninhados (`humanApproval: null`, `consentRef: null`) e itens de arrays necessitavam de validação recursiva explícita no validador `contracts.py` e schemas JSON correspondentes para evitar `AttributeError` em tempo de execução. Evidência: 16 testes unitários e E2E cobrindo 100% dos caminhos de falha fechada, consentimento expirado/revogado e restrições de 7 redes sociais. Consequência: a validação de contratos agora é à prova de falhas para qualquer entrada com campos nulos válidos ou tipos inválidos em listas.
 - **A Convergência Inegociável entre Neurociência Comportamental e Engenharia Determinística:** A absorção completa de 797 arquivos (718 de psicologia/conteúdo + 79 de PM/respondedor) demonstrou que o algoritmo das plataformas sociais não é um mecanismo a ser manipulado por truques sintéticos, mas um espelho matemático que responde exclusivamente à validação de identidade (Segunda Ordem), narrativa estruturada (Método GUIA/BDA) e atendimento imediato (SLA <3 min no Direct). Evidência: compilação das 7 Bíblias Mestre em `docs/bible/` e criação do Creator Engine com 19 testes Karpathy aprovados. Consequência: a estratégia de mídias sociais agora possui alinhamento perfeito entre código, retenção psicológica e esteira de vendas.
+
+## 17 de agosto de 2026
+
+- O backup continha cinco gestores, com sobreposição real apenas em Automação e
+  YouTube. Automação tinha 33 arquivos exclusivos, 1.924 idênticos e 14
+  divergentes; YouTube tinha 5.282 exclusivos e 7 divergentes. Consequência:
+  fusões de diretório sem versão confiável devem adicionar arquivos exclusivos
+  e preservar divergências fora do caminho ativo, em vez de escolher por data
+  ou sobrescrever silenciosamente.
+- O inventário Luana do Gestor de Mídias Sociais contém 718 registros e caminhos
+  absolutos herdados de `/Users/felipe/Developer/Memory`, mas a origem
+  transferida não contém 692 dos arquivos brutos correspondentes. Evidência: 36
+  testes locais aprovados e preflight reprovado exclusivamente pela ausência
+  desses arquivos. Consequência: o Chairman local não pode ser declarado
+  integralmente validado até restaurar a fonte autorizada, atualizar os caminhos
+  e reconciliar os hashes.
+- A pasta WebHub de webdesign contém 17 aulas representadas por pares de
+  `README.md` e `summary.md`, além dos respectivos MP3; 35 artefatos textuais
+  preservam a camada instrutiva enquanto 20 artefatos pesados ou internos
+  respondem por quase todo o conjunto de 894.637.776 bytes. Consequência: a
+  memória inicial pode ser textual, versionada por snapshot e auditável sem
+  duplicar aproximadamente 895 MB de mídia.
+- Nos cinco gestores irmãos revisados, a essência estável é o Chairman como
+  revisor de contratos e evidências, não executor operacional. Consequência: o
+  Gestor de Webdesign separa brief, design, implementação, staging e prontidão
+  de produção; instrução de curso orienta perguntas, mas aprovação externa exige
+  prova sanitizada do projeto real.
+- O gauntlet-loop é independente de fornecedor quando modelado como três papéis
+  (`builder`, `critic`, `verifier`), critérios explícitos e parada
+  determinística. Consequência: Claude, Codex, Gemini ou outra LLM podem usar o
+  mesmo protocolo, mas somente tarefas `large` justificam seu custo por padrão.
+- Medir a utilidade do gauntlet não exige armazenar seu conteúdo. Ativação,
+  rodadas, candidatos, achados materiais, veredito e razão de parada permitem
+  comparar adoção e revisões aceitas. Consequência: o MAIN BRAIN preserva a
+  fronteira de privacidade e continua incapaz de comandar agentes.
+- Um grafo pode ser uma capacidade constante sem ser reconstruído em toda
+  tarefa. A data de `graphify-out/graph.json` comparada à fonte rastreada mais
+  recente distingue `missing`, `stale` e `ready`; o Graphify comprovou que uma
+  atualização reextrai apenas os arquivos alterados. Consequência: tarefas
+  médias e grandes ganham consciência estrutural persistente, enquanto tarefas
+  pequenas continuam rápidas e a primeira construção ocorre sob demanda.
+- Um único pacote pode atender Codex, Claude e Gemini/Antigravity quando mantém
+  manifestos específicos, uma skill compartilhada e adaptadores que apontam
+  para a fonte canônica. Evidência: os três clientes carregaram v0.4.0 em
+  processos novos. Consequência: novas LLMs devem receber apenas um adaptador
+  curto, nunca uma cópia divergente do protocolo.
+- No Claude Code, `--max-budget-usd` não conteve o custo de criação inicial do
+  cache de contexto durante o diagnóstico. Consequência: verificar plugins por
+  listagem e debug de inicialização e evitar chamadas repetidas de modelo.
 
 ## Como adicionar uma descoberta
 

@@ -35,6 +35,27 @@ Use `--production` ou `--external-write` quando a tarefa tiver esses riscos.
 - Grande: arquitetura, migração, produção ou alto risco. Usar o FGSS Loop
   completo.
 
+## Grafo persistente e proporcional
+
+No FGSS Brain v4, disponibilidade constante do grafo não significa executá-lo
+em toda tarefa:
+
+- pequena: pula o grafo, salvo quando `--impact-unknown` indicar raio de impacto
+  incerto;
+- média: consulta o grafo existente, constrói no primeiro uso ou atualiza se
+  estiver desatualizado;
+- grande: atualiza incrementalmente antes da consulta e usa Code Graph RAG
+  somente se o mapa direto for insuficiente.
+
+Diagnóstico:
+
+```bash
+python3 "FGSS brain/tools/graph_status.py" /caminho/do/projeto --level medium
+```
+
+Cada projeto guarda `graphify-out/graph.json`. A primeira construção é sob
+demanda; as seguintes reaproveitam o mapa ou reextraem apenas fontes alteradas.
+
 ## FGSS Loop para tarefas grandes
 
 1. Consultar somente a memória relevante.
@@ -44,6 +65,22 @@ Use `--production` ou `--external-write` quando a tarefa tiver esses riscos.
 5. Cortar dependências e código desnecessários.
 6. Testar com critérios verificáveis.
 7. Registrar apenas decisões reutilizáveis.
+
+## Gauntlet-loop condicional
+
+O roteador do FGSS Brain v4 inclui `gauntlet_loop`. Ele é ativado em tarefas
+`large` ou por pedido explícito e permanece desligado em tarefas pequenas e
+médias comuns.
+
+Quando ativo, separa três papéis: `builder` propõe, `critic` procura falhas
+materiais e `verifier` decide contra critérios verificáveis. O orçamento padrão
+é de duas rodadas e três candidatos. Qualquer LLM pode executar o protocolo;
+subagentes são uma implementação possível, não um requisito de fornecedor.
+
+O protocolo e o avaliador determinístico estão em:
+
+- `FGSS brain/instrucoes_de_funcionamento/GAUNTLET_LOOP.md`;
+- `FGSS brain/tools/gauntlet_loop.py`.
 
 ## Fonte da verdade
 
@@ -62,15 +99,17 @@ PYTHONPYCACHEPREFIX=/tmp/fgss-brain-pycache \
 
 ## Integração com LLMs
 
-- Codex: plugin global `fgss-brain@personal` está documentado como instalado.
-- Claude: precisa de regra/adaptador no ambiente utilizado.
-- Gemini: precisa de regra/adaptador no ambiente utilizado.
+- Codex: `fgss-brain@personal` v0.4.0 instalado, habilitado e comprovado em
+  sessão efêmera nova.
+- Claude Code: `fgss-brain@fgss-brain` v0.4.0 instalado e habilitado; o hook
+  global compacto e a skill foram comprovados em sessão nova.
+- Gemini/Antigravity: plugin v0.4.0 e regras globais comprovados em sessão nova.
 - Outras LLMs: devem apontar para o caminho absoluto de
   `FGSS brain/AGENTS.md`.
 
-Uma pasta existente não é uma instalação automática. A integração só está
-completa quando uma sessão nova encontra as regras e classifica corretamente
-uma tarefa pequena e uma tarefa crítica.
+Uma pasta existente não é uma instalação automática. Nos três clientes
+instalados, a integração foi comprovada por manifesto/listagem e inicialização
+nova. Um cliente futuro ainda precisa passar pela mesma prova.
 
 Consulte `FGSS brain/LLM_INTEGRATION.md` para manutenção dos adaptadores.
 

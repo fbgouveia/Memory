@@ -940,5 +940,108 @@ produção ativa quando algo foi validado apenas localmente.
 - Nenhum login, formulário, compra, booking, contato, bypass ou teste contra
   instância real ocorreu. A chave client-side encontrada no Trakyo permanece
   redigida no artefato persistido.
+## 17 de agosto de 2026
 
+### Absorção das pastas do backup
 
+- Transferidas integralmente para a raiz as pastas
+  `FGSS Gestor de Inteligencia Competitiva Aplicada`,
+  `FGSS Gestor de Midias Sociais` e `FGSS Gestor de Motion Design`.
+- `FGSS Gestor de Automacao` foi absorvida de forma aditiva: 33 arquivos
+  exclusivos entraram nos caminhos ativos, 1.924 arquivos idênticos foram
+  reutilizados e 14 versões divergentes foram preservadas em
+  `.backup-absorvido/2026-08-17/`.
+- `FGSS Gestor de Midia YouTube` foi absorvida de forma aditiva: 5.282 arquivos
+  exclusivos e os links simbólicos do backup entraram nos caminhos ativos; 7
+  versões divergentes foram preservadas em
+  `.backup-absorvido/2026-08-17/`.
+- Nenhum arquivo ativo divergente foi sobrescrito. As 21 versões preservadas
+  foram comparadas byte a byte com a origem.
+- As três pastas novas passaram em comparação integral por checksum e estrutura.
+  Após as provas, as cinco fontes e a pasta vazia `backup/` foram removidas.
+- Validações aprovadas: 1 manifesto de Automação; 5 verificações de resiliência
+  do piloto YouTube; 28 testes do Motion Chairman; auditorias `pass` e zero
+  erros dos dossiês TheFounderOS e CrewAI.
+- O Chairman de Mídias Sociais passou 36 testes locais, mas o preflight revelou
+  692 arquivos brutos ausentes do inventário Luana na própria origem. A lacuna
+  foi registrada somente em `PENDENCIAS.md`; não foi fabricado conteúdo.
+
+### Fundação do FGSS Gestor de Webdesign
+
+- Criado `FGSS Gestor de Webdesign` como Chairman irmão e revisor, separado do
+  executor responsável por construir, publicar e operar sites.
+- Absorvida em modo somente leitura a pasta WebHub autorizada: 25 pastas e 55
+  arquivos inventariados; 34 Markdown e o índice foram preservados localmente;
+  17 MP3, um ZIP, checkpoint e banco vetorial ficaram apenas inventariados.
+- Criado inventário com checksums remotos, SHA-256 local, política de inclusão e
+  snapshot canônico
+  `a1097c09c1e75407e5cafdecdf2f2a1e8f81615ec94e6580acfff8384b6a9ab8`.
+- Sintetizado pack inicial de 12 afirmações com classificação e proveniência por
+  fonte, sem promover instrução de curso a prova de produção.
+- Criados quatro schemas VLAEG fechados, cinco gates cumulativos e reviewer
+  determinístico com rejeição de campos proibidos e bloqueio externo para
+  staging/produção sem evidência.
+- Comprovação: `python3 tools/preflight_check.py` aprovado — 4 schemas, 55 itens,
+  35 textos verificados por SHA-256, 12 claims e 6 testes unitários aprovados.
+  Validação exclusivamente local; nenhum site foi publicado ou alterado.
+
+### Gauntlet-loop no FGSS Brain e MAIN BRAIN
+
+- FGSS Brain elevado para v3 com gauntlet-loop condicional: tarefas pequenas e
+  médias comuns permanecem no fluxo normal; tarefas `large` ou pedidos
+  explícitos recebem `builder`, `critic` e `verifier`.
+- Orçamento centralizado em `fgss-brain.json`: no máximo duas rodadas e três
+  candidatos, com parada por aceite, ausência de achado material, orçamento ou
+  achado crítico.
+- Criado avaliador determinístico stdlib e comando `fgss gauntlet`; plugin
+  canônico elevado para v0.3.0.
+- MAIN BRAIN elevado para configuração v2 e estendido com seis métricas
+  sanitizadas: ativação, rodadas, candidatos, achados materiais, veredito e
+  razão de parada. Conteúdo das rodadas permanece proibido.
+- SQLite recebeu migração aditiva; schema, políticas, envelopes assinados,
+  persistência e resumos foram estendidos.
+- Criada a migração idempotente
+  `supabase/002_gauntlet_observability.sql`, sem aplicação em produção.
+- Comprovação local: FGSS Brain válido, runtime sincronizado e 20 testes
+  aprovados; MAIN BRAIN inicializado com status `ready` e 39 testes aprovados.
+  O novo avaliador também revisou esta própria alteração: rodada 1 encontrou
+  dois problemas materiais e pediu revisão; rodada 2 encerrou com `accept` e
+  `acceptance_criteria_met`.
+  PostgreSQL real não foi executado porque o daemon Docker estava desligado e
+  `psql` não está instalado; a prova e aplicação externas ficaram em
+  `PENDENCIAS.md`.
+
+### Política persistente de grafos no FGSS Brain
+
+- FGSS Brain elevado para v4 com grafo disponível continuamente, mas executado
+  de modo proporcional: `small` pula por padrão, `medium` reutiliza ou atualiza
+  e `large` atualiza incrementalmente antes da consulta.
+- Adicionados `--impact-unknown` ao roteador e diagnóstico stdlib
+  `tools/graph_status.py`, que classifica cada projeto como `missing`, `stale`
+  ou `ready` lendo somente metadados.
+- Graphify 0.9.29 instalado via `uv tool` com suas dependências oficiais.
+- Fixture isolada comprovou construção com 3 nós e 3 arestas, detecção de
+  alteração e atualização incremental reextraindo somente 1 de 2 fontes.
+- Plugin canônico preparado como v0.4.0 com comando `fgss graph-status`.
+- Validação final aprovada: configuração v4, runtime sincronizado, 28 testes e
+  consulta BFS real retornando as relações esperadas da fixture.
+- A construção inicial permanece preguiçosa por projeto; nenhum Gestor foi
+  processado integralmente sem uma tarefa `medium` ou `large` que justificasse
+  o custo.
+
+### Plugin FGSS Brain v0.4.0 em todas as LLMs instaladas
+
+- O pacote canônico passou a conter manifestos compatíveis com Codex, Claude e
+  Gemini/Antigravity, mantendo uma única skill e sem duplicar o protocolo.
+- Codex foi atualizado de v0.2.0 para v0.4.0; sessão efêmera nova carregou a
+  skill do cache correto e confirmou grafo `persistent_incremental`,
+  `small=skip` e gauntlet ativo em `large`.
+- Claude Code 2.1.233 recebeu marketplace local e plugin nativo v0.4.0. O hook
+  `SessionStart` foi compactado e corrigido para o formato aceito pelo runtime;
+  sessão nova registrou 5 plugins habilitados, carregou 1 skill FGSS e executou
+  o hook com sucesso.
+- Gemini/Antigravity 1.1.12 importou o plugin v0.4.0 e recebeu regras globais em
+  `GEMINI.md` e `config/AGENTS.md`; sessão nova encontrou a skill, os arquivos
+  canônicos e o roteador.
+- Cursor, OpenCode, Aider e Amp não foram detectados como clientes instalados;
+  nenhum arquivo desses ambientes foi criado preventivamente.

@@ -89,6 +89,8 @@ Envie somente métricas operacionais mínimas, por exemplo:
 - tokens e cache;
 - custo medido ou estimado, com qualidade declarada;
 - resultado de testes.
+- ativação, rodadas, candidatos, achados materiais, veredito e razão de parada
+  do gauntlet-loop, somente quando a política autorizar.
 
 Nunca envie:
 
@@ -98,6 +100,8 @@ Nunca envie:
 - `.env`, token ou credencial;
 - stack trace completo;
 - nome, e-mail, documento ou comportamento pessoal de cliente.
+- propostas, críticas, respostas ou qualquer conteúdo produzido no
+  gauntlet-loop.
 
 ## Produção com Supabase
 
@@ -105,9 +109,10 @@ Nunca envie:
 2. Configure `SUPABASE_SERVICE_ROLE_KEY` somente no backend.
 3. Configure `FGSS_MAIN_BRAIN_SECRET`.
 4. Aplique `FGSS MAIN BRAIN/supabase/001_fgss_main.sql`.
-5. Execute `FGSS MAIN BRAIN/supabase/verify_fgss_main.sql`.
-6. Só libere tráfego se todas as verificações retornarem zero linhas.
-7. Comece com um único subprojeto piloto.
+5. Aplique `FGSS MAIN BRAIN/supabase/002_gauntlet_observability.sql`.
+6. Execute `FGSS MAIN BRAIN/supabase/verify_fgss_main.sql`.
+7. Só libere tráfego se todas as verificações retornarem zero linhas.
+8. Comece com um único subprojeto piloto.
 
 ## Como interpretar respostas
 

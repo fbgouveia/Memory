@@ -41,3 +41,54 @@ Documento de transição e histórico de decisões do projeto.
 - **Requisitos de Memória do Redis (BullMQ):** BullMQ requer obrigatoriamente a política `maxmemory-policy noeviction` no Redis para evitar a perda silenciosa de chaves de travas ou metadados de jobs ativos, necessitando de limpeza explícita no código cliente via `removeOnComplete` / `removeOnFail`.
 - **Matryoshka Embeddings (MRL):** Busca vetorial local pode ser otimizada fatiando os vetores para 256/512 dimensões com re-normalização euclidiana no cliente, reduzindo o consumo de RAM em mais de 80% no Postgres/pgvector.
 - **Princípio da Inteligência Embarcada:** A documentação teórica da agência é condensada ativamente através de validadores de schemas rígidos (JSON Schema) e automatização de pastas estruturadas (CLI de Scaffold), garantindo que as melhores práticas de resiliência e LGPD sejam seguidas por padrão sem inflar o volume de leitura (obesidade de conteúdo).
+
+---
+
+## 17 de agosto de 2026 — estado do ecossistema FGSS
+
+### 1. Pendências abertas
+
+- Configurar e validar o ambiente real do Admin para o MAIN BRAIN antes de
+  qualquer ativação externa.
+- Validar e aplicar conscientemente a migração
+  `FGSS MAIN BRAIN/supabase/002_gauntlet_observability.sql`; ela ainda não foi
+  aplicada em produção.
+- Conectar somente um projeto piloto, observá-lo por sete dias e então definir
+  retenção, agregação, alertas e conversão de snapshots de custo em deltas.
+- Decidir o destino da persona extensa de Karpathy e manter
+  `fgss-brain.json` como fonte única dos parâmetros de execução.
+- Restaurar a fonte autorizada dos arquivos brutos ausentes do Gestor de
+  Mídias Sociais e executar os gates reais no primeiro projeto de Webdesign.
+
+### 2. Atualizações concluídas
+
+- FGSS Brain v4 passou a manter grafos incrementais por projeto, disponíveis
+  continuamente e executados de forma proporcional ao tamanho e ao impacto da
+  tarefa.
+- O gauntlet-loop condicional foi integrado ao Brain e sua telemetria
+  sanitizada foi adicionada ao MAIN BRAIN, sem enviar prompts, código ou
+  conteúdo das rodadas.
+- O plugin canônico `fgss-brain` v0.4.0 foi instalado e comprovado em sessões
+  novas do Codex, Claude Code e Gemini/Antigravity.
+- Validação final: 28 testes aprovados no Brain e 39 testes aprovados no MAIN
+  BRAIN, além dos validadores de configuração e dos manifestos Claude/Gemini.
+
+### 3. Descobertas com consequência
+
+- Disponibilidade constante de grafo não significa reconstrução constante: o
+  estado `missing`, `stale` ou `ready` permite atualizar somente quando o
+  roteamento justificar.
+- Um pacote compartilhado pode atender diferentes LLMs se cada cliente tiver
+  apenas seu manifesto/adaptador e todos apontarem para uma skill canônica.
+- No Claude Code 2.1.233, `SessionStart` usa um contêiner de evento com a lista
+  interna `hooks`; a prova deve sempre ser feita em processo novo.
+- O MAIN BRAIN pode medir o gauntlet por métricas e vereditos sanitizados sem
+  ultrapassar sua fronteira de observação nem comandar os agentes.
+
+### 4. Versionamento e prova
+
+- `FGSS brain`: commit `746e1c6` — grafos persistentes, gauntlet e plugin
+  multiplataforma.
+- `FGSS MAIN BRAIN`: commit `b39f74c` — observabilidade sanitizada do
+  gauntlet-loop.
+- Nenhum `.env`, token, senha ou conteúdo de execução foi incluído nos commits.
