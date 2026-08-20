@@ -47,7 +47,14 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
   que manda rodar só o `route_task.py`.
 - [ ] Ligar os Gestores ao `fgss_collector.py`. O `verify` já emite telemetria
   sanitizada, mas continua sendo o único produtor de eventos do ecossistema.
-- [ ] Anéis 3 e 4 do diagrama (registro de capacidades, políticas de acesso,
+- [x] ~~Registro de capacidades em dado, não em prosa (anel 4)~~ — **corrigido em 20/08:
+  já existe.** `Felipe Portfolio/server/agentRegistry.js` declara 7 agentes com `manager`,
+  `workflows`, `inputs`, `outputs`, `dependencies`, `limits` e `success`, e o
+  `validateAgentRecord()` obriga todos os campos. Eu classifiquei isso como trabalho futuro
+  sem ter procurado antes. O que falta não é o registro — é medir o `success` que ele já
+  declara: os 7 estão em `state: 'discovered'`, ou seja, nenhum verificado. Spec da medição
+  em `Felipe Portfolio/.agent/tasks/saude-dos-agentes-spec.md`.
+- [ ] Anéis 3 e 4 do diagrama (políticas de acesso,
   roteamento de mensagens entre Gestores) permanecem não construídos, por decisão
   de escopo. Anéis 1 e 2 (topologia, contratos, consenso) seguem fora do horizonte.
 
