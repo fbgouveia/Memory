@@ -33,6 +33,24 @@ Constatações importantes devem ir para `DESCOBERTAS.md`.
 - [ ] Converter snapshots cumulativos de custo em deltas antes de tratá-los como
   custo canônico. Nunca somar snapshots repetidos.
 
+## FGSS brain — Motor de Validação (anel 5)
+
+- [ ] Decidir se o hook `Stop` entra no `~/.claude/settings.json`. Adiado
+  deliberadamente em 20/08/2026: é a única peça que muda o comportamento de todas
+  as sessões em todos os projetos. Hoje o motor só roda quando chamado à mão. Se
+  entrar, exige prova em sessão NOVA, nunca na que o configurou.
+- [ ] Usar o motor em trabalho real por alguns dias antes de apertar regras. Os
+  invariantes atuais podem se mostrar barulhentos — em especial a exigência de
+  aprovação para qualquer termo de `high_risk_terms`, que inclui "segurança".
+- [ ] Reinstalar o plugin `fgss-brain` para os clientes lerem a `SKILL.md` nova.
+  A cópia em `~/.claude/plugins/cache/fgss-brain/0.4.0/` ainda tem o texto antigo,
+  que manda rodar só o `route_task.py`.
+- [ ] Ligar os Gestores ao `fgss_collector.py`. O `verify` já emite telemetria
+  sanitizada, mas continua sendo o único produtor de eventos do ecossistema.
+- [ ] Anéis 3 e 4 do diagrama (registro de capacidades, políticas de acesso,
+  roteamento de mensagens entre Gestores) permanecem não construídos, por decisão
+  de escopo. Anéis 1 e 2 (topologia, contratos, consenso) seguem fora do horizonte.
+
 ## FGSS brain
 
 - [x] Verificar a integração global de Claude e Gemini nos clientes instalados.

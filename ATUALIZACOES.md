@@ -1,5 +1,38 @@
 # Atualizações do ecossistema CÉREBRO
 
+## 20 de agosto de 2026 — Motor de Validação: o contrato do roteador passa a fechar
+
+Upgrade do FGSS Brain baseado no diagrama de agentes autônomos (anel 5, Núcleo
+Executivo). Diagnóstico: `route_task.py` abria um contrato — nível, ferramentas
+autorizadas, prova exigida — que nada jamais fechava. Os blocos `completion` e
+`limits.require_tests_for_code_changes` do `fgss-brain.json` existiam há tempos
+e nenhuma linha de código os lia.
+
+- Criado `tools/run_contract.py`: `assess_run()` puro e determinístico, no mesmo
+  formato de `assess_round()` do gauntlet — recebe fatos apurados, devolve
+  `pass`/`fail` + razões, nunca toca em conteúdo de LLM. Mais CLI `open`,
+  `evidence` e `verify`, com persistência em `.fgss/runs/`.
+- Detecção de alteração de código passa a vir do `git status --porcelain`, não
+  da declaração do agente. Sem repositório git, cai para o número declarado e
+  marca `evidence_quality: "declared"`, nunca fingindo que é observação.
+- `route_task.py` passa a expor `facts.matched_risks` (aditivo). O validador usa
+  o risco que o roteador já detectou no texto, em vez de depender de o agente
+  lembrar de passar `--production`.
+- Bloco `validation` adicionado ao `fgss-brain.json` como fonte única; o
+  `validate_brain.py` foi estendido para validá-lo e também para cobrir
+  `completion`, que antes não era validado.
+- `verify` emite veredito sanitizado ao MAIN BRAIN pelo `fgss_collector.py` —
+  conector que existia, era testado e nunca fora usado por projeto nenhum.
+  Somente categóricos e contagens; caminho do projeto sai apenas como hash.
+- CLI `fgss` ganhou `open|evidence|verify`; a `SKILL.md` do plugin passou a
+  mandar abrir contrato e fechar com prova antes de declarar conclusão.
+
+Prova: 46 testes aprovados no `FGSS brain` (baseline eram 28), `validate_brain.py`
+válido, `sync_runtime_config.py --check` sem drift. Cenários ponta a ponta
+verificados: código alterado sem teste reprova; teste com exit code 1 não conta
+como prova; "produção" no texto exige aprovação registrada sem flag alguma;
+pasta sem git marca a prova como fraca.
+
 ## 16 de agosto de 2026 — sessão completa: fundação + 2 dossiês + visuais
 
 - Fundação do gestor estabelecida: `AGENTS.md`, `HANDOFF.md`,

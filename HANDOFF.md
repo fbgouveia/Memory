@@ -44,6 +44,47 @@ Documento de transição e histórico de decisões do projeto.
 
 ---
 
+## 20 de agosto de 2026 — Motor de Validação no FGSS Brain
+
+### 1. Pendências abertas
+
+- Decidir sobre o hook `Stop` global (adiado de propósito; hoje o motor é manual).
+- Rodar o motor em trabalho real antes de apertar invariantes.
+- Reinstalar o plugin para os clientes lerem a `SKILL.md` nova — a cópia em
+  `~/.claude/plugins/cache/fgss-brain/0.4.0/` ainda tem o texto antigo.
+- Ligar os Gestores ao coletor; o `verify` ainda é o único produtor de telemetria.
+- Anéis 3 e 4 do diagrama não construídos, por decisão de escopo.
+
+### 2. Atualizações concluídas
+
+- `tools/run_contract.py` criado: `assess_run()` determinístico + CLI
+  `open`/`evidence`/`verify`, contratos em `.fgss/runs/` (centralizado no cérebro,
+  não dentro de cada projeto).
+- Detecção de mudança por `git status --porcelain`, com fallback declarado
+  explicitamente marcado como prova fraca.
+- `facts.matched_risks` exposto pelo roteador e consumido pelo validador.
+- Bloco `validation` no `fgss-brain.json`; `validate_brain.py` estendido para ele
+  e para `completion`.
+- Telemetria sanitizada via `fgss_collector.py`, em modo local.
+- CLI `fgss` com `open|evidence|verify`; `SKILL.md` reescrita para exigir prova.
+
+### 3. Descobertas com consequência
+
+- Validador alimentado por declaração do avaliado não valida nada — vale para
+  arquivos alterados e para risco detectado.
+- `--command` num subcomando sobrescreve `add_subparsers(dest="command")`.
+- `run_id` sem microssegundos torna "latest" indeterminado.
+- `validate_brain.py` não rejeita chave desconhecida: bloco novo entra sem
+  quebrar, mas passa despercebido se ninguém escrever a regra.
+
+### 4. Versionamento e prova
+
+- 46 testes aprovados no `FGSS brain` (baseline 28), `validate_brain.py` válido,
+  `sync_runtime_config.py --check` sem drift.
+- Nenhum `.env`, token ou segredo lido, gravado ou commitado.
+
+---
+
 ## 17 de agosto de 2026 — estado do ecossistema FGSS
 
 ### 1. Pendências abertas

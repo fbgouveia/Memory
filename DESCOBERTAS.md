@@ -1,5 +1,37 @@
 # Descobertas do ecossistema CÉREBRO
 
+## 20 de agosto de 2026 — enforcement, argparse e ordenação de contratos
+
+- O ecossistema FGSS era quase todo protocolo, não código. Evidência: exploração
+  das três árvores — o `gauntlet_loop.py` é só um avaliador de critério de parada
+  (não chama LLM nem invoca agente); nenhum dos 6 Gestores importa, chama ou
+  registra o `fgss_collector.py`; a ligação Gestor→MAIN BRAIN existia apenas como
+  frase em Markdown. Consequência: qualquer upgrade de "inteligência" precisa
+  começar por transformar protocolo em invariante verificável, não por adicionar
+  mais protocolo.
+- Um validador cujo insumo é declarado pelo próprio avaliado não valida nada.
+  Evidência: a primeira versão do `assess_run()` usava `facts.estimated_files`,
+  que o agente informa ao abrir o contrato; declarar zero desativava o invariante
+  de teste. Consequência: todo invariante precisa de uma fonte que o avaliado não
+  controle — aqui, `git status --porcelain`.
+- O mesmo furo se repetia no risco: o roteador escalava "publicar em produção"
+  para `large` por causa de `high_risk_terms`, mas `facts.production` continuava
+  `False` porque a flag não fora passada, e a exigência de aprovação nunca
+  disparava. Consequência: `matched_risks` passou a ser exposto e consumido; o que
+  o roteador já sabe não pode ficar preso dentro dele.
+- No argparse, um `--command` dentro de um subcomando sobrescreve o `dest` do
+  `add_subparsers(dest="command")`. Evidência: `fgss run_contract.py evidence`
+  executava a verificação, porque `args.command` virava `None` e caía no `else`.
+  Consequência: o dest do subparser passou a ser `action`, com teste de regressão.
+- `run_id` com precisão de segundos torna "latest" um sorteio. Evidência: dois
+  contratos abertos no mesmo segundo ordenavam pelo sufixo aleatório do uuid, e
+  `evidence latest` acertava o contrato errado. Consequência: o carimbo passou a
+  incluir microssegundos, para a ordem alfabética ser a ordem de criação.
+- `validate_brain.py` só faz checagens por allowlist e não rejeita chave
+  desconhecida. Consequência: blocos novos podem ser adicionados ao
+  `fgss-brain.json` sem quebrar o validador — mas também passam despercebidos se
+  ninguém escrever a regra, que foi o caso de `completion` até hoje.
+
 ## 16 de agosto de 2026 — padrões visuais e arquitetura demo do TheFounderOS
 
 - O organograma "vivo" do TheFounderOS (/os anatomia) é uma árvore SVG com
